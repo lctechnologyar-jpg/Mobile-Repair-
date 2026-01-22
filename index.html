@@ -10,14 +10,10 @@
 
 <style>
 :root{
-  --bg1:#0b0f22;
-  --bg2:#121228;
-  --bg3:#060a16;
-  --bg4:#1a132b;
+  --bg:#080c1a;
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
-  --pink:#ff00d0;
   --text:#eaf6ff;
   --muted:#a8b2d1;
   --highlight:#00ffea;
@@ -27,36 +23,44 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{overflow-x:hidden;}
 
-/* Fondo animado oscuro */
+/* Fondo animado original */
 .background{
   position:fixed;
   inset:0;
-  z-index:-1;
-  background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
-              radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
-              radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);
-  animation:bgDarkShift 25s ease-in-out infinite alternate;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
+  animation:bgMove 18s ease-in-out infinite alternate;
 }
-@keyframes bgDarkShift{
-  0%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);}
-  25%{background: radial-gradient(circle at 15% 20%, rgba(124,77,255,.15), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(18,255,178,.15), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(0,229,255,.1), transparent 50%);}
-  50%{background: radial-gradient(circle at 15% 20%, rgba(18,255,178,.15), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(255,0,208,.15), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(124,77,255,.1), transparent 50%);}
-  75%{background: radial-gradient(circle at 15% 20%, rgba(255,0,208,.15), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(0,229,255,.15), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(18,255,178,.1), transparent 50%);}
-  100%{background: radial-gradient(circle at 15% 20%, rgba(0,229,255,.15), transparent 40%),
-                     radial-gradient(circle at 85% 30%, rgba(124,77,255,.15), transparent 45%),
-                     radial-gradient(circle at 50% 80%, rgba(24,255,178,.1), transparent 50%);}
+@keyframes bgMove{
+  from{filter:hue-rotate(0deg);}
+  to{filter:hue-rotate(40deg);}
+}
+
+/* Partículas cyberpunk */
+.particles{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+.particle{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.7;
+  background: linear-gradient(45deg, #00e5ff, #7c4dff, #18ffb2);
+  animation: floatParticle linear infinite;
+}
+@keyframes floatParticle{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-20px);}
+  100%{transform:translateY(0px);}
 }
 
 /* Header */
-header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(6,10,22,.7);backdrop-filter:blur(14px);z-index:10;}
+header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(8,12,26,.7);backdrop-filter:blur(14px);z-index:10;}
 .logo-container{display:flex;flex-direction:column;}
 .logo {
   font-size:1.6rem;
@@ -109,9 +113,9 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   font-size:5rem;
   font-weight:700;
   text-transform:uppercase;
-  color:#eaf6ff; /* letras limpias */
+  color:#eaf6ff;
   position:relative;
-  text-shadow:0 0 0px transparent; /* quitar brillo sobre letras */
+  text-shadow:0 0 0px transparent;
 }
 .hero h1::after{
   content:"";
@@ -165,7 +169,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   box-shadow:0 0 60px rgba(0,229,255,.7);
 }
 
-/* Texto debajo galería con glow y animación de color */
+/* Texto debajo galería */
 .gallery-desc{
   margin-top:20px;
   font-size:1.05rem;
@@ -277,6 +281,7 @@ footer a{
 <body>
 
 <div class="background"></div>
+<div class="particles" id="particles"></div>
 
 <header>
   <div class="logo-container">
@@ -340,6 +345,23 @@ footer a{
 
 <script>
 function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+
+/* Crear partículas flotantes */
+const particlesContainer = document.getElementById('particles');
+const particleCount = 40; // cantidad de partículas
+
+for(let i=0;i<particleCount;i++){
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  const size = Math.random()*4 + 2;
+  p.style.width = size+'px';
+  p.style.height = size+'px';
+  p.style.top = Math.random()*100+'%';
+  p.style.left = Math.random()*100+'%';
+  p.style.animationDuration = (Math.random()*6+4)+'s';
+  p.style.animationDelay = (Math.random()*5)+'s';
+  particlesContainer.appendChild(p);
+}
 </script>
 
 </body>
