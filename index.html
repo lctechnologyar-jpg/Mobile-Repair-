@@ -70,6 +70,12 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   text-shadow: 0 0 15px var(--blue), 0 0 30px var(--violet), 0 0 45px var(--green);
   animation: heroGlow 3s infinite alternate;
 }
+.hero p{
+  margin-top:12px;
+  font-size:1.2rem;
+  color:var(--highlight);
+  text-shadow:0 0 8px rgba(0,0,0,.7);
+}
 @keyframes heroGlow{
   0%{text-shadow:0 0 15px var(--blue),0 0 30px var(--violet);}
   50%{text-shadow:0 0 25px var(--green),0 0 50px var(--blue);}
@@ -132,6 +138,13 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   background: linear-gradient(to top, rgba(0,229,255,0.3), transparent 60%);
 }
 
+/* Texto descriptivo debajo de la galería */
+.gallery-desc{
+  margin-top:20px;
+  font-size:1rem;
+  color:var(--muted);
+}
+
 /* Botón WhatsApp oficial */
 .whatsapp-btn{
   margin:60px auto 0;
@@ -179,9 +192,10 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   margin-bottom:20px;
   text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
 }
-.about p span{
+.about .mini-info{
+  margin-top:15px;
+  font-size:.95rem;
   color:var(--highlight);
-  font-weight:bold;
 }
 
 /* Contacto */
@@ -247,6 +261,7 @@ footer a{
 
 <section class="hero">
   <h1>LC TECHNOLOGY</h1>
+  <p>Tecnología que conecta tu mundo</p>
 </section>
 
 <section class="services-gallery">
@@ -268,6 +283,9 @@ footer a{
       <div class="desc">Entretenimiento para todo el hogar</div>
     </div>
   </div>
+  <div class="gallery-desc">
+    Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
+  </div>
 </section>
 
 <a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">
@@ -280,6 +298,9 @@ footer a{
     Somos una empresa fundada en 2024 con el objetivo de brindar la máxima <span>confianza</span> y <span>comodidad</span> a nuestros clientes. Brindamos atención <span>personalizada</span>, resultados <span>confiables</span> y conformidad total.  
     LC TECHNOLOGY es gestionada directamente por su fundador, asegurando un trato cercano y profesional.
   </p>
+  <div class="mini-info">
+    Fundada en 2024 · Atención directa del fundador · Compromiso total con cada cliente
+  </div>
 </section>
 
 <section class="contact">
@@ -287,6 +308,9 @@ footer a{
   <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a>
   <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
   <a href="mailto:info@lctechnology.com">Correo</a>
+  <div style="margin-top:15px; color:var(--muted); font-size:.95rem;">
+    Estamos siempre disponibles para ayudarte, contáctanos por cualquier medio.
+  </div>
 </section>
 
 <footer>
