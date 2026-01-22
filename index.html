@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LC Mobile</title>
+<title>LC TECHNOLOGY</title>
 
 <style>
 :root{
-  --bg:#080c1a;
+  --bg:#0b0f22;
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
   --text:#eaf6ff;
   --muted:#a8b2d1;
+  --highlight:#00ffea;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
 /* Fondo animado */
@@ -22,13 +23,34 @@ body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
 radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
 radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-animation:bgMove 18s ease-in-out infinite alternate;}
-@keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(40deg);}}
+animation:bgMove 20s ease-in-out infinite alternate;}
+@keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(50deg);}}
 
 /* Header */
-header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(8,12,26,.7);backdrop-filter:blur(14px);z-index:10;}
-.logo{font-size:1.4rem;letter-spacing:.15em;text-shadow:0 0 18px var(--blue),0 0 30px var(--violet);} 
+header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;}
 
+/* Logo flotante esquina */
+.logo {
+  font-size:1.5rem;
+  font-weight:bold;
+  letter-spacing:.2em;
+  color: var(--blue);
+  text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
+  animation: logoGlow 3s infinite alternate;
+}
+.logo span {
+  display:block;
+  font-size:0.8rem;
+  color: var(--highlight);
+  text-shadow: 0 0 6px var(--blue);
+}
+@keyframes logoGlow {
+  0%{text-shadow:0 0 12px var(--blue),0 0 24px var(--violet);}
+  50%{text-shadow:0 0 20px var(--blue),0 0 40px var(--violet);}
+  100%{text-shadow:0 0 12px var(--green),0 0 30px var(--blue);}
+}
+
+/* Burger menu */
 .burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
 .burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
 .burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
@@ -38,53 +60,181 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
 .menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
 .menu a:hover{color:var(--blue);text-shadow:0 0 12px var(--blue);} 
 
-section{padding:120px 20px;text-align:center;}
+/* Hero */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding-top:120px;
+}
+.hero h1{
+  font-size:4rem;
+  font-weight:bold;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--blue);
+  text-shadow: 0 0 15px var(--blue), 0 0 30px var(--violet), 0 0 45px var(--green);
+  animation: heroGlow 3s infinite alternate;
+}
+@keyframes heroGlow{
+  0%{text-shadow:0 0 15px var(--blue),0 0 30px var(--violet);}
+  50%{text-shadow:0 0 25px var(--green),0 0 50px var(--blue);}
+  100%{text-shadow:0 0 15px var(--violet),0 0 40px var(--blue);}
+}
+.hero p{
+  margin-top:20px;
+  font-size:1.3rem;
+  color:var(--highlight);
+  text-shadow:0 0 6px rgba(0,229,255,.6);
+}
 
-/* HERO */
-.hero{min-height:100vh;padding-top:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.hero h1{font-size:3.8rem;letter-spacing:.25em;text-shadow:0 0 30px rgba(0,229,255,.9),0 0 60px rgba(124,77,255,.7);} 
-.hero p{margin-top:22px;font-size:1.2rem;color:var(--muted);} 
-
-.primary-btn{margin-top:50px;padding:18px 52px;border-radius:40px;background:linear-gradient(120deg,var(--blue),var(--violet));color:#000;font-weight:600;text-decoration:none;box-shadow:0 0 45px rgba(0,229,255,.8);transition:.35s;} 
-.primary-btn:hover{transform:translateY(-6px);box-shadow:0 0 70px rgba(0,229,255,1);} 
-
-/* Servicios visuales */
-.services-icons{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:80px;}
-.service-circle{width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 35px rgba(0,229,255,.4);}
-.service-circle span{font-size:2.2rem;margin-bottom:10px;}
-.service-circle p{font-size:.95rem;color:var(--muted);}
-
-/* Galería */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:80px;max-width:1200px;margin-left:auto;margin-right:auto;}
-.gallery div{
+/* Galería de servicios */
+.services-gallery{
+  padding:80px 20px;
+  text-align:center;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:28px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.gallery .service{
+  position:relative;
   height:180px;
   border-radius:22px;
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  box-shadow:0 0 35px rgba(124,77,255,.35);
+  box-shadow:0 0 25px rgba(124,77,255,.3);
   display:flex;
   align-items:center;
   justify-content:center;
-  color:var(--text);
-  font-size:.95rem;
-  font-weight:600;
-  text-shadow:0 0 6px rgba(0,0,0,.7);
+  overflow:hidden;
   transition: transform .35s, box-shadow .35s;
 }
-.gallery div:hover{
-  transform: translateY(-6px);
+.gallery .service span{
+  color:#eaf6ff;
+  font-size:1.05rem;
+  font-weight:600;
+  text-shadow:0 0 8px rgba(0,0,0,.7),0 0 12px rgba(124,77,255,.6);
+  z-index:2;
+}
+.gallery .service::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);
+  transition: background .35s;
+  border-radius:22px;
+}
+.gallery .service:hover{
+  transform:scale(1.05);
   box-shadow:0 0 60px rgba(0,229,255,.7);
 }
+.gallery .service:hover::after{
+  background: linear-gradient(to top, rgba(0,229,255,0.3), transparent 60%);
+}
 
-/* Texto institucional */
-.about{max-width:900px;margin:100px auto 0;line-height:1.8;color:var(--muted);font-size:1.05rem;}
+/* Botón WhatsApp circular */
+.whatsapp-btn{
+  margin:60px auto 0;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  color:#000;
+  font-size:2rem;
+  font-weight:bold;
+  box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
+  text-decoration:none;
+  transition: transform .35s, box-shadow .35s;
+  position:relative;
+}
+.whatsapp-btn::before{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border-radius:50%;
+  box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1); opacity:.7;}
+  50%{transform:scale(1.2); opacity:.4;}
+  100%{transform:scale(1); opacity:.7;}
+}
+.whatsapp-btn:hover{transform:scale(1.1);}
 
-footer{padding:60px 20px;text-align:center;background:#060a16;margin-top:120px;} 
-footer p{color:var(--muted);font-size:.95rem;margin-top:14px;} 
-footer a{color:var(--blue);text-decoration:none;margin:0 10px;} 
+/* Sobre nosotros */
+.about{
+  max-width:900px;
+  margin:100px auto 0;
+  line-height:1.8;
+  color:var(--muted);
+  font-size:1.05rem;
+  text-align:center;
+}
+.about h2{
+  font-size:2rem;
+  color:var(--blue);
+  margin-bottom:20px;
+  text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
+}
 
-@media(max-width:600px){.hero h1{font-size:2.4rem;}}
+/* Contacto */
+.contact{
+  margin:80px 0;
+  text-align:center;
+}
+.contact a{
+  display:inline-block;
+  margin:0 15px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  color:#000;
+  font-size:1.5rem;
+  line-height:50px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,229,255,.7),0 0 40px rgba(124,77,255,.5);
+  transition: transform .3s, box-shadow .3s;
+}
+.contact a:hover{
+  transform:scale(1.2);
+  box-shadow:0 0 40px rgba(0,229,255,1),0 0 60px rgba(124,77,255,1);
+}
+
+/* Footer */
+footer{
+  padding:60px 20px;
+  text-align:center;
+  background:#060a16;
+  margin-top:120px;
+}
+footer p{
+  color:var(--muted);
+  font-size:.95rem;
+  margin-top:14px;
+}
+footer a{
+  color:var(--blue);
+  text-decoration:none;
+  margin:0 10px;
+}
+
+@media(max-width:600px){
+  .hero h1{font-size:2.4rem;}
+  .gallery .service{height:150px;}
+}
 </style>
 </head>
 <body>
@@ -92,7 +242,7 @@ footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 <div class="background"></div>
 
 <header>
-  <div class="logo">LC MOBILE</div>
+  <div class="logo">LC TECHNOLOGY <span>Tecnología Innovadora</span></div>
   <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
@@ -104,41 +254,40 @@ footer a{color:var(--blue);text-decoration:none;margin:0 10px;}
 </nav>
 
 <section class="hero">
-  <h1>LC MOBILE</h1>
-  <p>Tecnología innovadora</p>
-
-  <div class="services-icons">
-    <div class="service-circle"><span>🔧</span><p>Reparaciones</p></div>
-    <div class="service-circle"><span>📱</span><p>Celulares</p></div>
-    <div class="service-circle"><span>🎧</span><p>Accesorios</p></div>
-    <div class="service-circle"><span>📺</span><p>TV Digital</p></div>
-  </div>
-
-  <a class="primary-btn" href="https://wa.me/5492634307686" target="_blank">Consultar por WhatsApp</a>
+  <h1>LC TECHNOLOGY</h1>
+  <p>Tecnología Innovadora</p>
 </section>
 
-<section>
+<section class="services-gallery">
   <div class="gallery">
-    <div style="background-image:url('foto1.jpg');">Reparación de celulares</div>
-    <div style="background-image:url('foto2.jpg');">Venta de equipos</div>
-    <div style="background-image:url('foto3.jpg');">Accesorios</div>
-    <div style="background-image:url('foto4.jpg');">TV Digital</div>
+    <div class="service" style="background-image:url('foto1.jpg');"><span>Reparación</span></div>
+    <div class="service" style="background-image:url('foto2.jpg');"><span>Venta de equipos</span></div>
+    <div class="service" style="background-image:url('foto3.jpg');"><span>Accesorios</span></div>
+    <div class="service" style="background-image:url('foto4.jpg');"><span>TV Digital</span></div>
   </div>
+</section>
 
-  <div class="about">
-    En LC Mobile ofrecemos soluciones tecnológicas adaptadas a cada cliente. Nuestro enfoque está puesto en brindar atención personalizada, diagnósticos claros y resultados confiables, asegurando que cada equipo vuelva a funcionar como corresponde.
+<a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">💬</a>
+
+<section class="about">
+  <h2>Sobre Nosotros</h2>
+  <p>
+    Somos una empresa fundada en 2024 con el objetivo de brindar la máxima confianza y comodidad a nuestros clientes. Brindamos atención personalizada, resultados confiables y conformidad total.  
+    LC TECHNOLOGY es gestionada directamente por su fundador, asegurando un trato cercano, profesional y único en cada servicio.
     <br><br>
-    ⚡ Reparaciones rápidas · 🛡️ Garantía real · 📍 Atención local · 📲 Soporte directo
-  </div>
+    ⚡ Atención 100% personalizada · 🛡️ Garantía real · 📍 Soporte directo · 📲 Innovación tecnológica
+  </p>
+</section>
+
+<section class="contact">
+  <a href="https://wa.me/5492634307686" target="_blank">💬</a>
+  <a href="https://www.instagram.com/javitolc22/" target="_blank">📸</a>
+  <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">📘</a>
+  <a href="mailto:info@lctechnology.com">✉️</a>
 </section>
 
 <footer>
-  <p>
-    <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a> ·
-    <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a> ·
-    <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
-  </p>
-  <p>LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
+  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
 </footer>
 
 <script>
