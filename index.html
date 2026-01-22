@@ -8,7 +8,6 @@
 <style>
 :root{
   --bg:#080c1a;
-  --card:#0b1228;
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
@@ -16,16 +15,34 @@
   --muted:#a8b2d1;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
-body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,sans-serif;
+}
 
-/* ===== BACKGROUND ===== */
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ACTIVO ===== */
 .background{
-  position:fixed;inset:0;z-index:-1;
+  position:fixed;
+  inset:0;
+  z-index:-1;
   background:
-    radial-gradient(circle at 20% 20%,rgba(0,229,255,.18),transparent 40%),
-    radial-gradient(circle at 80% 30%,rgba(124,77,255,.2),transparent 45%),
-    radial-gradient(circle at 50% 80%,rgba(24,255,178,.14),transparent 50%);
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.22), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.18), transparent 50%);
+  animation:bgMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+  from{filter:hue-rotate(0deg);}
+  to{filter:hue-rotate(40deg);}
 }
 
 /* ===== HEADER ===== */
@@ -44,7 +61,8 @@ header{
 
 .logo{
   font-size:1.4rem;
-  letter-spacing:.08em;
+  letter-spacing:.1em;
+  text-shadow:0 0 12px rgba(0,229,255,.6);
 }
 
 .burger{
@@ -65,11 +83,13 @@ header{
 /* ===== MENU ===== */
 .menu{
   position:fixed;
-  top:0;right:-100%;
-  width:280px;height:100vh;
+  top:0;
+  right:-100%;
+  width:280px;
+  height:100vh;
   background:#060a16;
-  padding:100px 30px;
-  transition:.4s ease;
+  padding:110px 30px;
+  transition:.45s ease;
   z-index:9;
 }
 
@@ -77,101 +97,163 @@ header{
 
 .menu a{
   display:block;
-  margin-bottom:25px;
-  font-size:1.1rem;
+  margin-bottom:30px;
   text-decoration:none;
+  font-size:1.15rem;
   color:var(--text);
   opacity:.85;
 }
 
-.menu a:hover{color:var(--blue);}
+.menu a:hover{
+  color:var(--blue);
+  text-shadow:0 0 10px var(--blue);
+}
 
 /* ===== HOME ===== */
 .home{
   min-height:100vh;
-  padding:140px 20px 80px;
+  padding:150px 20px 90px;
   text-align:center;
-}
-
-.home h1{
-  font-size:3.2rem;
-  letter-spacing:.12em;
   position:relative;
 }
 
-.home h1::after{
-  content:'';
-  position:absolute;
-  inset:-30px;
-  background:radial-gradient(circle,rgba(0,229,255,.25),transparent 70%);
-  z-index:-1;
+.home h1{
+  font-size:3.6rem;
+  letter-spacing:.15em;
+  text-shadow:
+    0 0 20px rgba(0,229,255,.8),
+    0 0 50px rgba(124,77,255,.6);
 }
 
 .home p{
-  margin-top:20px;
+  margin-top:18px;
+  font-size:1.15rem;
   color:var(--muted);
-  font-size:1.1rem;
 }
 
-.divider{
-  width:60px;height:2px;
-  margin:30px auto;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);
-}
-
-.values{
+.home-access{
+  margin-top:60px;
   display:flex;
   justify-content:center;
-  gap:35px;
-  margin-top:20px;
-  font-size:.9rem;
-  letter-spacing:.12em;
-  opacity:.75;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.home-access a{
+  padding:16px 26px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 0 30px rgba(0,229,255,.35);
+  transition:.35s ease;
+}
+
+.home-access a:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 45px rgba(0,229,255,.7);
 }
 
 .home-btn{
   display:inline-block;
-  margin-top:45px;
-  padding:14px 34px;
+  margin-top:55px;
+  padding:16px 40px;
   border-radius:30px;
   background:linear-gradient(120deg,var(--blue),var(--violet));
   color:#000;
   text-decoration:none;
-  font-weight:500;
+  font-weight:600;
+  box-shadow:0 0 40px rgba(0,229,255,.6);
 }
 
-.signature{
-  margin-top:60px;
-  font-size:.75rem;
-  opacity:.5;
-  letter-spacing:.15em;
+/* ===== FLOATING GLOW ===== */
+.floating{
+  position:absolute;
+  width:140px;
+  height:140px;
+  background:radial-gradient(circle,var(--blue),transparent 70%);
+  filter:blur(45px);
+  opacity:.45;
+  animation:float 14s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-70px);}
 }
 
 /* ===== SECTIONS ===== */
 section{
-  padding:90px 20px;
+  padding:100px 20px;
+}
+
+.section-box{
+  max-width:1200px;
+  margin:auto;
+  padding:70px 45px;
+  border-radius:30px;
+  background:linear-gradient(180deg,#121b3a,#0b1228);
+  box-shadow:
+    0 0 45px rgba(0,229,255,.18),
+    0 35px 90px rgba(0,0,0,.7);
+  position:relative;
+  overflow:hidden;
+}
+
+.section-box::before{
+  content:'';
+  position:absolute;
+  inset:-40%;
+  background:radial-gradient(circle,rgba(0,229,255,.18),transparent 60%);
 }
 
 section h2{
   text-align:center;
-  font-size:2rem;
-  margin-bottom:40px;
+  font-size:2.3rem;
+  margin-bottom:55px;
+  text-shadow:
+    0 0 14px rgba(0,229,255,.7),
+    0 0 35px rgba(124,77,255,.5);
 }
 
 /* ===== CARDS ===== */
 .cards{
-  max-width:1100px;
-  margin:auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+  gap:35px;
 }
 
 .card{
-  background:linear-gradient(180deg,#121b3a,var(--card));
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 20px 45px rgba(0,0,0,.6);
+  background:linear-gradient(180deg,#141f46,#0b1228);
+  border-radius:22px;
+  padding:32px;
+  position:relative;
+  overflow:hidden;
+  transition:.35s ease;
+  box-shadow:0 25px 65px rgba(0,0,0,.65);
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:22px;
+  background:linear-gradient(120deg,var(--blue),var(--violet),var(--green));
+  opacity:0;
+  transition:.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card:hover::before{
+  opacity:.28;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
 }
 
 .card h3{
@@ -181,26 +263,27 @@ section h2{
 .card p{
   color:var(--muted);
   line-height:1.6;
-  font-size:.95rem;
 }
 
 /* ===== FOOTER ===== */
 footer{
   background:#060a16;
-  padding:35px;
+  padding:40px;
   text-align:center;
   font-size:.85rem;
+  opacity:.8;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
-  .home h1{font-size:2.4rem;}
-  .values{flex-direction:column;gap:15px;}
+  .home h1{font-size:2.6rem;}
+  .home-access{gap:15px;}
 }
 </style>
 </head>
 
 <body>
+
 <div class="background"></div>
 
 <header>
@@ -218,68 +301,76 @@ footer{
 </nav>
 
 <section class="home">
+  <div class="floating" style="top:30%;left:10%"></div>
+  <div class="floating" style="top:65%;right:12%"></div>
+
   <h1>LC MOBILE</h1>
-  <p>Tecnología confiable · Atención profesional</p>
+  <p>Servicio técnico · Venta de celulares · Accesorios · TV Digital</p>
 
-  <div class="divider"></div>
-
-  <div class="values">
-    <span>PRECISIÓN</span>
-    <span>CONFIANZA</span>
-    <span>EXPERIENCIA</span>
+  <div class="home-access">
+    <a href="#servicio">🔧 Servicio Técnico</a>
+    <a href="#venta">📱 Venta</a>
+    <a href="#accesorios">🎧 Accesorios</a>
+    <a href="#tv">📺 TV Digital</a>
   </div>
 
   <a class="home-btn" href="https://wa.me/5492634307686">Agendar consulta</a>
-
-  <div class="signature">TECNOLOGÍA & SERVICIO PROFESIONAL</div>
 </section>
 
 <section id="servicio">
-  <h2>Servicio Técnico</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Reparaciones Profesionales</h3>
-      <p>Diagnóstico preciso, repuestos de calidad y trabajo garantizado.</p>
-    </div>
-    <div class="card">
-      <h3>Software & Optimización</h3>
-      <p>Formateos, actualizaciones y solución de fallas.</p>
+  <div class="section-box">
+    <h2>Servicio Técnico</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Reparaciones Profesionales</h3>
+        <p>Cambio de pantalla, batería, pin de carga y diagnóstico completo.</p>
+      </div>
+      <div class="card">
+        <h3>Software & Optimización</h3>
+        <p>Formateo, actualizaciones y solución de fallas.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="venta">
-  <h2>Venta de Celulares</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Nuevos y Usados</h3>
-      <p>Equipos seleccionados, liberados y con garantía.</p>
+  <div class="section-box">
+    <h2>Venta de Celulares</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Equipos Nuevos y Usados</h3>
+        <p>Celulares liberados, seleccionados y con garantía.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="accesorios">
-  <h2>Accesorios</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Todo para tu equipo</h3>
-      <p>Fundas, cargadores, auriculares y protección.</p>
+  <div class="section-box">
+    <h2>Accesorios</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Todo para tu equipo</h3>
+        <p>Fundas, cargadores, auriculares, vidrios templados.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="tv">
-  <h2>TV Digital</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Instalación y Soporte</h3>
-      <p>Soluciones en TV digital y configuración.</p>
+  <div class="section-box">
+    <h2>TV Digital</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Instalación y Configuración</h3>
+        <p>Soluciones completas en TV Digital.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  LC Mobile · WhatsApp · Instagram · Facebook
+  LC Mobile · Tecnología & Servicio Profesional
 </footer>
 
 <script>
@@ -287,6 +378,6 @@ function toggleMenu(){
   document.getElementById('menu').classList.toggle('active');
 }
 </script>
+
 </body>
 </html>
-
