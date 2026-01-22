@@ -28,46 +28,49 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== BACKGROUND ACTIVO ===== */
+/* ===== FONDO ANIMADO ===== */
 .background{
   position:fixed;
   inset:0;
   z-index:-1;
   background:
-    radial-gradient(circle at 15% 20%, rgba(0,229,255,.22), transparent 40%),
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
     radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.18), transparent 50%);
-  animation:bgMove 18s ease-in-out infinite alternate;
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
+  animation:bgMove 16s ease-in-out infinite alternate;
 }
 
 @keyframes bgMove{
   from{filter:hue-rotate(0deg);}
-  to{filter:hue-rotate(40deg);}
+  to{filter:hue-rotate(45deg);}
 }
 
 /* ===== HEADER ===== */
 header{
   position:fixed;
   top:0;left:0;right:0;
-  height:70px;
+  height:72px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 25px;
-  background:rgba(8,12,26,.75);
-  backdrop-filter:blur(10px);
+  padding:0 26px;
+  background:rgba(8,12,26,.7);
+  backdrop-filter:blur(12px);
   z-index:10;
 }
 
 .logo{
   font-size:1.4rem;
-  letter-spacing:.1em;
-  text-shadow:0 0 12px rgba(0,229,255,.6);
+  letter-spacing:.12em;
+  text-shadow:
+    0 0 12px var(--blue),
+    0 0 25px var(--violet);
 }
 
+/* ===== HAMBURGUESA NEON ===== */
 .burger{
-  width:30px;
-  height:22px;
+  width:32px;
+  height:24px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -76,8 +79,16 @@ header{
 
 .burger span{
   height:3px;
-  background:var(--text);
-  border-radius:3px;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  border-radius:4px;
+  box-shadow:0 0 12px var(--blue);
+  transition:.4s ease;
+}
+
+.burger:hover span{
+  box-shadow:
+    0 0 15px var(--blue),
+    0 0 30px var(--violet);
 }
 
 /* ===== MENU ===== */
@@ -85,10 +96,10 @@ header{
   position:fixed;
   top:0;
   right:-100%;
-  width:280px;
+  width:300px;
   height:100vh;
   background:#060a16;
-  padding:110px 30px;
+  padding:120px 30px;
   transition:.45s ease;
   z-index:9;
 }
@@ -97,16 +108,22 @@ header{
 
 .menu a{
   display:block;
-  margin-bottom:30px;
-  text-decoration:none;
+  margin-bottom:32px;
   font-size:1.15rem;
+  text-decoration:none;
   color:var(--text);
-  opacity:.85;
+  opacity:.9;
+  animation:fadeIn .5s ease forwards;
 }
 
 .menu a:hover{
   color:var(--blue);
-  text-shadow:0 0 10px var(--blue);
+  text-shadow:0 0 12px var(--blue);
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateX(25px);}
+  to{opacity:1;transform:translateX(0);}
 }
 
 /* ===== HOME ===== */
@@ -114,33 +131,40 @@ header{
   min-height:100vh;
   padding:150px 20px 90px;
   text-align:center;
+  animation:homeFloat 18s ease-in-out infinite alternate;
   position:relative;
 }
 
+@keyframes homeFloat{
+  from{transform:translateY(0);}
+  to{transform:translateY(-20px);}
+}
+
 .home h1{
-  font-size:3.6rem;
-  letter-spacing:.15em;
+  font-size:3.8rem;
+  letter-spacing:.18em;
   text-shadow:
-    0 0 20px rgba(0,229,255,.8),
-    0 0 50px rgba(124,77,255,.6);
+    0 0 22px rgba(0,229,255,.9),
+    0 0 55px rgba(124,77,255,.7);
 }
 
 .home p{
-  margin-top:18px;
-  font-size:1.15rem;
+  margin-top:20px;
+  font-size:1.2rem;
   color:var(--muted);
 }
 
+/* ===== ACCESOS ===== */
 .home-access{
-  margin-top:60px;
+  margin-top:65px;
   display:flex;
   justify-content:center;
-  gap:25px;
+  gap:26px;
   flex-wrap:wrap;
 }
 
 .home-access a{
-  padding:16px 26px;
+  padding:16px 28px;
   border-radius:18px;
   background:rgba(255,255,255,.06);
   color:var(--text);
@@ -150,134 +174,42 @@ header{
 }
 
 .home-access a:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 45px rgba(0,229,255,.7);
+  transform:translateY(-10px);
+  box-shadow:0 0 45px rgba(0,229,255,.75);
 }
 
+/* ===== BOTÓN ===== */
 .home-btn{
   display:inline-block;
-  margin-top:55px;
-  padding:16px 40px;
-  border-radius:30px;
+  margin-top:60px;
+  padding:16px 44px;
+  border-radius:32px;
   background:linear-gradient(120deg,var(--blue),var(--violet));
   color:#000;
-  text-decoration:none;
   font-weight:600;
-  box-shadow:0 0 40px rgba(0,229,255,.6);
+  text-decoration:none;
+  box-shadow:0 0 45px rgba(0,229,255,.65);
 }
 
-/* ===== FLOATING GLOW ===== */
+/* ===== GLOWS FLOTANTES ===== */
 .floating{
   position:absolute;
-  width:140px;
-  height:140px;
+  width:150px;
+  height:150px;
   background:radial-gradient(circle,var(--blue),transparent 70%);
-  filter:blur(45px);
+  filter:blur(50px);
   opacity:.45;
   animation:float 14s ease-in-out infinite alternate;
 }
 
 @keyframes float{
   from{transform:translateY(0);}
-  to{transform:translateY(-70px);}
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:100px 20px;
-}
-
-.section-box{
-  max-width:1200px;
-  margin:auto;
-  padding:70px 45px;
-  border-radius:30px;
-  background:linear-gradient(180deg,#121b3a,#0b1228);
-  box-shadow:
-    0 0 45px rgba(0,229,255,.18),
-    0 35px 90px rgba(0,0,0,.7);
-  position:relative;
-  overflow:hidden;
-}
-
-.section-box::before{
-  content:'';
-  position:absolute;
-  inset:-40%;
-  background:radial-gradient(circle,rgba(0,229,255,.18),transparent 60%);
-}
-
-section h2{
-  text-align:center;
-  font-size:2.3rem;
-  margin-bottom:55px;
-  text-shadow:
-    0 0 14px rgba(0,229,255,.7),
-    0 0 35px rgba(124,77,255,.5);
-}
-
-/* ===== CARDS ===== */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:35px;
-}
-
-.card{
-  background:linear-gradient(180deg,#141f46,#0b1228);
-  border-radius:22px;
-  padding:32px;
-  position:relative;
-  overflow:hidden;
-  transition:.35s ease;
-  box-shadow:0 25px 65px rgba(0,0,0,.65);
-}
-
-.card::before{
-  content:'';
-  position:absolute;
-  inset:-1px;
-  border-radius:22px;
-  background:linear-gradient(120deg,var(--blue),var(--violet),var(--green));
-  opacity:0;
-  transition:.4s ease;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-.card:hover::before{
-  opacity:.28;
-}
-
-.card > *{
-  position:relative;
-  z-index:1;
-}
-
-.card h3{
-  margin-bottom:15px;
-}
-
-.card p{
-  color:var(--muted);
-  line-height:1.6;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#060a16;
-  padding:40px;
-  text-align:center;
-  font-size:.85rem;
-  opacity:.8;
+  to{transform:translateY(-80px);}
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   .home h1{font-size:2.6rem;}
-  .home-access{gap:15px;}
 }
 </style>
 </head>
@@ -294,84 +226,29 @@ footer{
 </header>
 
 <nav class="menu" id="menu">
-  <a href="#servicio">Servicio Técnico</a>
-  <a href="#venta">Venta de Celulares</a>
-  <a href="#accesorios">Accesorios</a>
-  <a href="#tv">TV Digital</a>
+  <a href="servicio.html">Servicio Técnico</a>
+  <a href="venta.html">Venta de Celulares</a>
+  <a href="accesorios.html">Accesorios</a>
+  <a href="tv.html">TV Digital</a>
 </nav>
 
 <section class="home">
-  <div class="floating" style="top:30%;left:10%"></div>
+  <div class="floating" style="top:25%;left:15%"></div>
   <div class="floating" style="top:65%;right:12%"></div>
+  <div class="floating" style="top:45%;left:55%"></div>
 
   <h1>LC MOBILE</h1>
   <p>Servicio técnico · Venta de celulares · Accesorios · TV Digital</p>
 
   <div class="home-access">
-    <a href="#servicio">🔧 Servicio Técnico</a>
-    <a href="#venta">📱 Venta</a>
-    <a href="#accesorios">🎧 Accesorios</a>
-    <a href="#tv">📺 TV Digital</a>
+    <a href="servicio.html">🔧 Servicio Técnico</a>
+    <a href="venta.html">📱 Venta</a>
+    <a href="accesorios.html">🎧 Accesorios</a>
+    <a href="tv.html">📺 TV Digital</a>
   </div>
 
   <a class="home-btn" href="https://wa.me/5492634307686">Agendar consulta</a>
 </section>
-
-<section id="servicio">
-  <div class="section-box">
-    <h2>Servicio Técnico</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Reparaciones Profesionales</h3>
-        <p>Cambio de pantalla, batería, pin de carga y diagnóstico completo.</p>
-      </div>
-      <div class="card">
-        <h3>Software & Optimización</h3>
-        <p>Formateo, actualizaciones y solución de fallas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="venta">
-  <div class="section-box">
-    <h2>Venta de Celulares</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Equipos Nuevos y Usados</h3>
-        <p>Celulares liberados, seleccionados y con garantía.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="accesorios">
-  <div class="section-box">
-    <h2>Accesorios</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Todo para tu equipo</h3>
-        <p>Fundas, cargadores, auriculares, vidrios templados.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="tv">
-  <div class="section-box">
-    <h2>TV Digital</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Instalación y Configuración</h3>
-        <p>Soluciones completas en TV Digital.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  LC Mobile · Tecnología & Servicio Profesional
-</footer>
 
 <script>
 function toggleMenu(){
@@ -381,3 +258,4 @@ function toggleMenu(){
 
 </body>
 </html>
+
