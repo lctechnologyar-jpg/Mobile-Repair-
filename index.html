@@ -1,1 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Mobile Repair — Responsive Profesional</title>
+<style>
+/* ==========================
+   Mobile Repair — Single File
+   Responsive "scale-preserving" design
+   ========================== */
 
+/* ---------- ROOT & THEME ---------- */
+:root{
+  /* theme colors */
+  --bg-main: #070919;
+  --neon-blue: #00e5ff;
+  --neon-violet: #7c4dff;
+  --neon-green: #18ffb2;
+  --text-main: #eaf6ff;
+  --text-muted: #a8b2d1;
+
+  /* design sizing baseline (will scale) */
+  --design-width: 1200; /* width used as design reference in px */
+  --vw: 100vw;
+  --scale: 1; /* updated in CSS/JS */
+  --max-content-width: 1150px;
+
+  /* sizes using clamp for responsiveness */
+  --h1-size: clamp(2.1rem, 3.4vw + 1rem, 3.8rem);
+  --h2-size: clamp(1.5rem, 2.2vw + .6rem, 2.4rem);
+  --p-size: clamp(.95rem, 1.2vw + .1rem, 1.2rem);
+
+  /* shadows */
+  --soft-shadow: 0 14px 40px rgba(0,0,0,.55);
+  --neon-glow: 0 0 14px rgba(0,229,255,.7), 0 0 45px rgba(124,77,255,.45);
+}
+
+/* ---------- GLOBAL RESET ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+  background:var(--bg-main);
+  color:var(--text-main);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  line-height:1.4;
+  padding:24px; /* breathing space when scaled */
+}
+
+/* ---------- PAGE SCALE WRAPPER ----------
+   This wrapper keeps proportions consistent between desktop and mobile.
+   We compute --scale in JS (based on viewport width / design width)
+   and apply transform: scale(--scale) to keep the visual identical,
+   just resized on small screens.
+   ---------- */
+.page-wrap{
+  width:var(--design-width)px; /* base design width */
+  max-width:100%;
+  margin:0 auto;
+  transform-origin:top center;
+  transition:transform .18s ease-out;
+  position:relative;
+}
+
+/* Apply the scale variable */
+.page{
+  transform: scale(var(--scale));
+  transform-origin: top center;
+  /* when scaled down the resulting element might be narrower than viewport,
+     so we keep it centered by using margin */
+  margin:0 auto;
+  padding-bottom:40px;
+}
+
+/* Background visual (fixed, full-bleed) */
+.background{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(0,229,255,.18), transparent 36%),
+    radial-gradient(circle at 86% 28%, rgba(124,77,255,.20), transparent 42%),
+    radial-gradient(circle at 50% 78%, rgba(24,255,178,.12), transparent 46%);
+  filter: saturate(1.02);
+  animation:bgFloat 26s ease-in-out infinite alternate;
+  will-change:filter;
+}
+@keyframes bgFloat{
+  0%{filter:hue-rotate(0deg) saturate(1);}
+  50%{filter:hue-rotate(20deg) saturate(1.04);}
+  100%{filter:hue-rotate(45deg) saturate(1.02);}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:48px 24px;
+}
+.hero-inner{max-width:980px;margin:0 auto}
+.hero h1{
+  font-size:var(--h1-size);
+  letter-spacing:1.2px;
+  font-weight:800;
+  margin-bottom:10px;
+  text-shadow: var(--neon-glow);
+}
+.hero p{
+  font-size:var(--p-size);
+  color:var(--text-muted);
+  margin-top:6px;
+}
+
+/* ---------- HERO INFO (badges) ---------- */
+.hero-info{
+  padding:18px 16px 36px;
+  text-align:center;
+}
+.hero-info-container{
+  max-width:var(--max-content-width);
+  margin:18px auto 0;
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:6px;
+}
+.info-item{
+  font-size:.95rem;
+  color:var(--text-muted);
+  padding:10px 16px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 0 6px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.45) inset;
+  transition:transform .28s ease, box-shadow .28s ease;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.info-item:hover{ transform: translateY(-4px); box-shadow:0 0 22px rgba(0,229,255,.2) }
+
+/* ---------- SERVICES ---------- */
+.services{
+  padding:48px 20px 86px;
+}
+.services h2{
+  text-align:center;
+  font-size:var(--h2-size);
+  margin-bottom:34px;
+  text-shadow:0 0 12px rgba(0,229,255,.45);
+}
+
+/* grid that tries to keep card width similar across devices */
+.services-container{
+  max-width:var(--max-content-width);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap:28px;
+  align-items:start;
+}
+
+/* card */
+.service-card{
+  background: linear-gradient(180deg,#121b3a,#0b1228);
+  border-radius:18px;
+  padding:20px 22px;
+  box-shadow: var(--soft-shadow);
+  position:relative;
+  overflow:visible;
+  cursor:pointer;
+  transition: transform .32s cubic-bezier(.2,.9,.25,1), box-shadow .28s ease;
+  min-height:82px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* neon frame effect via pseudo element */
+.service-card::before{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:18px;
+  background: linear-gradient(120deg, var(--neon-blue), var(--neon-violet), var(--neon-green));
+  opacity:0;
+  transition: opacity .36s ease, filter .36s ease;
+  filter: blur(10px) saturate(1.1);
+  z-index:0;
+}
+.service-card *{ position:relative; z-index:1; }
+
+.service-card:hover{ transform: translateY(-8px); box-shadow: 0 28px 70px rgba(0,0,0,.6) }
+.service-card.active::before{ opacity:.26; transform: translateY(-2px) }
+.service-card .service-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.service-card h3{
+  font-size:1.02rem;
+  font-weight:600;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color:var(--text-main);
+}
+.toggle{
+  font-size:1.4rem;
+  color:var(--neon-blue);
+  transition: transform .28s ease, color .28s ease;
+}
+.service-card.active .toggle{
+  transform: rotate(45deg);
+  color:var(--neon-green);
+}
+
+/* smooth open/close */
+.service-content{
+  max-height:0;
+  overflow:hidden;
+  transition: max-height .5s ease, opacity .4s ease, transform .4s ease;
+  margin-top:10px;
+  font-size:.95rem;
+  line-height:1.6;
+  color:var(--text-muted);
+  opacity:0;
+  transform: translateY(-6px);
+}
+.service-card.active .service-content{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* ---------- TRUST / FOOTER ---------- */
+.trust{
+  padding:40px 20px;
+  text-align:center;
+}
+.trust p{
+  max-width:840px;
+  margin:0 auto;
+  font-size:var(--p-size);
+  color:var(--text-muted);
+}
+
+/* footer */
+footer{
+  background:#050815;
+  padding:30px 20px;
+  text-align:center;
+  font-size:.92rem;
+  border-radius:12px;
+  margin-top:20px;
+}
+footer a{ color:var(--neon-blue); text-decoration:none; margin:0 10px; }
+footer a:hover{ text-shadow:0 0 8px var(--neon-blue) }
+
+/* WhatsApp floating */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background: linear-gradient(120deg,#25d366,#18ffb2);
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#002;
+  font-size:1.5rem;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgba(37,211,102,.55);
+  z-index:9999;
+  transition: transform .18s ease;
+}
+.whatsapp:active{ transform: scale(.96) }
+
+/* ---------- HELPERS & SMALL SCREEN ADJUSTMENTS ---------- */
+.icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.02);
+}
+
+/* responsive grid behavior for narrower but keep card width similar */
+@media (max-width: 1100px){
+  .services-container{ grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
+@media (max-width: 720px){
+  .services-container{ grid-template-columns: 1fr; max-width:720px; margin-inline:auto; }
+  .hero{ padding:28px 12px }
+  .hero p{ font-size:.98rem }
+  /* increase touch size of cards on smaller screens */
+  .service-card{ padding:18px 20px; min-height:90px; border-radius:16px; }
+  footer{ padding:26px 16px }
+}
+
+/* Very small narrow screens: don't let page overflow horizontally when scaled */
+@media (max-width:420px){
+  body{ padding:14px; }
+  .page-wrap{ width:100%; }
+}
+
+/* Accessibility: focus states */
+a:focus, button:focus, .service-card:focus{ outline:3px solid rgba(0,229,255,.12); outline-offset:3px; }
+
+/* small utility */
+.center{ display:flex; align-items:center; justify-content:center; }
+
+/* end styles */
+</style>
+</head>
+<body>
+
+<div class="background" aria-hidden="true"></div>
+
+<div class="page-wrap" id="pageWrap">
+  <div class="page" id="page">
+
+    <!-- HERO -->
+    <section class="hero" role="banner" aria-label="Mobile Repair">
+      <div class="hero-inner">
+        <h1>Mobile Repair</h1>
+        <p>Especialistas en reparación de celulares — diseño profesional, rápido y seguro.</p>
+      </div>
+    </section>
+
+    <!-- HERO BADGES -->
+    <section class="hero-info" aria-label="Características">
+      <div class="hero-info-container">
+        <div class="info-item">⚡ Reparaciones rápidas</div>
+        <div class="info-item">🛠 Repuestos de calidad</div>
+        <div class="info-item">🔒 Trabajo garantizado</div>
+        <div class="info-item">📍 Atención personalizada</div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services" aria-label="Servicios">
+      <h2>Servicios</h2>
+      <div class="services-container" id="services">
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>📱 Cambio de Pantalla</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>¿Pantalla rota o con fallos táctiles? Reemplazamos por pantallas originales o compatibles de alta calidad.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>🔋 Reemplazo de Batería</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Instalamos baterías nuevas y testeadas para recuperar la autonomía de tu dispositivo.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>⚡ Pin de Carga</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Problemas de carga o conectores flojos: reemplazamos el puerto de carga y verificamos el circuito.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>💻 Software / Formateo</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Formateo, optimización y eliminación de errores de software. Hacemos backup y restauración cuando sea necesario.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>🔐 Cuenta Google</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Asistencia con bloqueo por cuenta Google, guía segura de desbloqueo y recomendaciones según modelo.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>🛠 Diagnóstico Rápido</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Diagnóstico inicial en minutos para detectar fallas y presupuestar la reparación con transparencia.</p>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-expanded="false">
+          <div class="service-header">
+            <h3>📲 Todas las Marcas</h3>
+            <span class="toggle" aria-hidden="true">+</span>
+          </div>
+          <div class="service-content">
+            <p>Atendemos todas las marcas y modelos: iPhone, Samsung, Xiaomi, Motorola, Huawei y otras.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust" aria-label="Confianza">
+      <p>Atención personalizada, experiencia real y trabajo bien hecho. Garantía en los recambios y pruebas finales en cada reparación.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" aria-label="Enlaces">
+      <a href="https://wa.me/5492634307686" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a href="https://www.instagram.com/javitolc22/" target="_blank" rel="noopener">Instagram</a> ·
+      <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank" rel="noopener">Facebook</a>
+    </footer>
+
+  </div> <!-- .page -->
+</div> <!-- .page-wrap -->
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp" aria-label="Enviar WhatsApp" href="https://wa.me/5492634307686" target="_blank" rel="noopener">💬</a>
+
+<script>
+/* ==========================
+   JS: Scale + Card Toggle + Accessibility
+   ========================== */
+
+/* 1) Scale the page content so that mobile looks like desktop (keeps proportions)
+   We compute a scale factor based on viewport width and the design width.
+   The scale is clamped between 0.55 and 1 for safety.
+*/
+(function setupScale(){
+  const designWidth = 1200; // must match --design-width in CSS
+  const pageWrap = document.getElementById('pageWrap');
+  const page = document.getElementById('page');
+
+  function updateScale(){
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    // scale so that designWidth * scale <= vw - padding
+    // we leave a small horizontal padding to avoid edges hitting screen
+    const available = Math.max(vw - 40, 320); // leave 20px each side
+    let scale = available / designWidth;
+    // clamp scale
+    if (scale > 1) scale = 1;
+    if (scale < 0.55) scale = 0.55;
+    // set CSS variable on pageWrap (so CSS can read if needed)
+    document.documentElement.style.setProperty('--scale', scale.toString());
+    // also set transform on pageWrap for smoothness (we use inner .page for transform)
+    // But keep an overall width adjustment to center properly
+    page.style.transform = `scale(${scale})`;
+    // adjust pageWrap height so body scrolling is correct when scaled
+    // compute scaled height of content
+    const rect = page.getBoundingClientRect();
+    // small timeout to ensure layout updated
+    setTimeout(() => {
+      const scaledHeight = rect.height * scale;
+      pageWrap.style.height = (scaledHeight / scale) + 'px';
+    }, 5);
+  }
+
+  // initial
+  updateScale();
+  // update on resize & orientationchange
+  window.addEventListener('resize', updateScale, {passive:true});
+  window.addEventListener('orientationchange', updateScale, {passive:true});
+})();
+
+/* 2) Service cards toggle (open/close) & keyboard accessibility */
+(function setupCards(){
+  const cards = Array.from(document.querySelectorAll('.service-card'));
+
+  function closeAll(){
+    cards.forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-expanded','false');
+      const content = c.querySelector('.service-content');
+      if(content) content.style.maxHeight = null;
+    });
+  }
+
+  function openCard(card){
+    const content = card.querySelector('.service-content');
+    card.classList.add('active');
+    card.setAttribute('aria-expanded','true');
+    if(content){
+      // force reflow then set maxHeight
+      const full = content.scrollHeight;
+      content.style.maxHeight = full + "px";
+    }
+  }
+
+  cards.forEach(card => {
+    const content = card.querySelector('.service-content');
+
+    card.addEventListener('click', (e) => {
+      // allow clicking inner text without triggering multiple times
+      const isActive = card.classList.contains('active');
+      if(isActive){
+        closeAll();
+      } else {
+        closeAll();
+        openCard(card);
+      }
+    });
+
+    // keyboard: Enter or Space to open
+    card.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Enter' || ev.key === ' '){
+        ev.preventDefault();
+        card.click();
+      }
+      // Escape closes all
+      if(ev.key === 'Escape'){
+        closeAll();
+        card.blur();
+      }
+    });
+
+    // ensure aria state is honest on load
+    if(card.classList.contains('active')){
+      card.setAttribute('aria-expanded','true');
+      if(content) content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      card.setAttribute('aria-expanded','false');
+      if(content) content.style.maxHeight = null;
+    }
+  });
+
+  // close all when clicking outside cards (touch friendly)
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.service-card')){
+      // but don't close if clicked a link
+      if(!e.target.closest('a')) closeAll();
+    }
+  }, {passive:true});
+})();
+
+/* 3) Small enhancement: prevent double-tap zoom on iOS when tapping cards quickly
+   (Using touch-action and viewport meta helps; keep this simple)
+*/
+document.addEventListener('touchstart', function(){}, {passive:true});
+</script>
+
+</body>
+</html>
