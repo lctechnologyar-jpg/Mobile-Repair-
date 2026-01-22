@@ -2,220 +2,258 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LC TECHNOLOGY</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Poppins',sans-serif;
-  background:#0b0f16;
-  color:#eaeaea;
+:root{
+  --bg:#0b0f22;
+  --blue:#00e5ff;
+  --violet:#7c4dff;
+  --green:#18ffb2;
+  --text:#eaf6ff;
+  --muted:#a8b2d1;
 }
 
-/* HEADER */
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* Fondo */
+.background{
+  position:fixed; inset:0; z-index:-1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,229,255,.18), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(124,77,255,.18), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(24,255,178,.15), transparent 50%);
+}
+
+/* Header */
 header{
-  padding:30px;
+  position:fixed; top:0; left:0; right:0;
+  height:72px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:0 28px;
+  background:rgba(11,15,34,.75);
+  backdrop-filter:blur(14px);
+  z-index:10;
 }
 .logo{
-  font-family:'Orbitron',sans-serif;
-  font-size:22px;
-  color:#00eaff;
-  text-shadow:0 0 8px #00eaff,0 0 18px #00eaff;
+  font-family:'Orbitron';
+  font-size:1.6rem;
+  letter-spacing:.25em;
+  color:var(--blue);
+  text-shadow:0 0 10px var(--blue),0 0 20px var(--violet);
 }
-.logo span{
-  display:block;
-  font-size:13px;
-  color:#7df9ff;
-  letter-spacing:2px;
+.logo-sub{
+  font-size:.85rem;
+  color:var(--green);
+  letter-spacing:.12em;
+  text-shadow:0 0 8px var(--green);
 }
 
-/* HERO */
+/* Hero */
 .hero{
-  text-align:center;
-  padding:80px 20px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:100px;
 }
 .hero h1{
-  font-family:'Orbitron',sans-serif;
-  font-size:64px;
-  color:#fff;
-  letter-spacing:6px;
+  font-family:'Orbitron';
+  font-size:5rem;
+  letter-spacing:.2em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(0,229,255,.8);
   text-shadow:
-    0 0 6px #00eaff,
-    0 0 16px #7df9ff,
-    0 0 30px rgba(0,234,255,.6);
-}
-.hero p{
-  margin-top:25px;
-  font-size:18px;
-  color:#9adfff;
-  text-shadow:0 0 6px rgba(0,234,255,.6);
-}
-
-/* GALERIA */
-.services{
-  padding:60px 8%;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-}
-.card{
+    0 0 12px rgba(0,229,255,.6),
+    0 0 28px rgba(124,77,255,.6);
   position:relative;
-  height:200px;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 0 25px rgba(0,234,255,.15);
-  transition:.4s;
 }
-.card:hover{transform:scale(1.05)}
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.card h3{
+.hero h1::after{
+  content:"";
   position:absolute;
-  bottom:15px;
-  left:15px;
-  font-family:'Orbitron',sans-serif;
-  color:#fff;
-  text-shadow:0 0 10px #00eaff;
+  inset:-18px;
+  border-radius:16px;
+  box-shadow:
+    0 0 40px rgba(0,229,255,.45),
+    0 0 70px rgba(124,77,255,.45);
 }
 
-/* TEXTO GALERIA */
-.services-text{
-  text-align:center;
-  font-size:17px;
-  color:#9adfff;
-  margin-top:10px;
-  text-shadow:0 0 8px rgba(0,234,255,.5);
+/* Galería */
+.services{
+  padding:90px 20px 30px;
 }
-
-/* FRASE NUEVA */
-.statement{
-  max-width:900px;
-  margin:50px auto;
-  text-align:center;
-  font-size:17px;
-  color:#cfefff;
+.gallery{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
 }
-
-/* WHATSAPP */
-.whatsapp{
+.service{
+  height:190px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
   display:flex;
+  align-items:center;
   justify-content:center;
-  margin:40px 0;
+  box-shadow:0 0 25px rgba(124,77,255,.35);
+  transition:.35s;
 }
-.whatsapp a{
-  width:70px;
-  height:70px;
+.service span{
+  background:rgba(0,0,0,.55);
+  padding:10px 18px;
+  border-radius:14px;
+  font-size:1rem;
+  font-weight:600;
+  color:#f1f6ff;
+  text-shadow:0 0 6px rgba(0,229,255,.5);
+}
+.service:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 50px rgba(0,229,255,.6);
+}
+
+.services-desc{
+  margin-top:26px;
+  text-align:center;
+  font-size:1.1rem;
+  color:var(--blue);
+  text-shadow:0 0 10px var(--blue);
+}
+
+/* WhatsApp */
+.whatsapp{
+  margin:70px auto;
+  width:90px;
+  height:90px;
   border-radius:50%;
   background:#25D366;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 25px #25D366;
+  box-shadow:0 0 30px rgba(37,211,102,.8);
 }
 .whatsapp img{
-  width:38px;
+  width:42px;
 }
 
-/* SOBRE NOSOTROS */
+/* Sobre nosotros */
 .about{
-  max-width:1000px;
-  margin:80px auto;
-  padding:0 20px;
+  max-width:900px;
+  margin:100px auto;
+  text-align:center;
+  color:var(--muted);
+  line-height:1.8;
 }
 .about h2{
-  font-family:'Orbitron',sans-serif;
-  color:#00eaff;
-  margin-bottom:20px;
-}
-.about p{
-  line-height:1.7;
-  color:#dcdcdc;
+  font-size:2rem;
+  margin-bottom:22px;
+  color:var(--blue);
+  text-shadow:0 0 10px var(--blue);
 }
 
-/* FOOTER */
-footer{
+/* Contacto */
+.contact{
   text-align:center;
-  padding:30px;
-  border-top:1px solid rgba(255,255,255,.1);
-  font-size:14px;
+  margin-bottom:80px;
 }
-footer a{
-  color:#00eaff;
+.contact h2{
+  color:var(--blue);
+  margin-bottom:16px;
+}
+.contact a{
+  margin:0 14px;
+  color:var(--muted);
   text-decoration:none;
-  margin:0 10px;
+}
+.contact a:hover{
+  color:var(--blue);
+}
+
+/* Footer */
+footer{
+  background:#060a16;
+  padding:60px 20px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.9rem;
+}
+footer a{color:var(--blue);text-decoration:none;}
+
+@media(max-width:600px){
+  .hero h1{font-size:3rem;}
 }
 </style>
 </head>
 
 <body>
 
+<div class="background"></div>
+
 <header>
-  <div class="logo">
-    LC TECHNOLOGY
-    <span>Tecnología Innovadora</span>
+  <div>
+    <div class="logo">LC TECHNOLOGY</div>
+    <div class="logo-sub">Tecnología Innovadora</div>
   </div>
 </header>
 
 <section class="hero">
   <h1>LC TECHNOLOGY</h1>
-  <p>Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.</p>
 </section>
 
 <section class="services">
-  <div class="card"><img src="foto1.jpg"><h3>Servicio Técnico</h3></div>
-  <div class="card"><img src="foto2.jpg"><h3>Venta de Celulares</h3></div>
-  <div class="card"><img src="foto3.jpg"><h3>Accesorios</h3></div>
-  <div class="card"><img src="foto4.jpg"><h3>TV Digital</h3></div>
+  <div class="gallery">
+    <div class="service" style="background-image:url('foto1.jpg')"><span>Servicio Técnico</span></div>
+    <div class="service" style="background-image:url('foto2.jpg')"><span>Venta de Celulares</span></div>
+    <div class="service" style="background-image:url('foto3.jpg')"><span>Accesorios</span></div>
+    <div class="service" style="background-image:url('foto4.jpg')"><span>TV Digital</span></div>
+  </div>
+
+  <div class="services-desc">
+    Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
+  </div>
 </section>
 
-<div class="services-text">
-  Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
-</div>
-
-<div class="statement">
-  Trabajamos con procesos claros, tiempos definidos y comunicación directa, para que sepas en todo momento qué se está haciendo con tu equipo y por qué.
-</div>
-
-<div class="whatsapp">
-  <a href="https://wa.me/549XXXXXXXXXX" target="_blank">
-    <img src="whatsapp.png" alt="WhatsApp">
-  </a>
-</div>
+<a href="https://wa.me/5492634307686" class="whatsapp" target="_blank">
+  <img src="whatsapp-logo.png" alt="WhatsApp">
+</a>
 
 <section class="about">
   <h2>Sobre Nosotros</h2>
   <p>
-    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente. 
-    Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe 
-    atención profesional, diagnósticos precisos y resultados confiables.<br><br>
-
-    Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con nosotros 
-    sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente cada detalle, 
-    asegurando un trato directo, transparente y honesto.<br><br>
-
-    Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación para 
-    que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas, cuidando 
-    cada dispositivo como si fuera propio. Estamos siempre disponibles para ayudarte, contáctanos por cualquier medio.
+    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente.
+    Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe
+    atención profesional, diagnósticos precisos y resultados confiables.
+    <br><br>
+    Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con
+    nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente
+    cada detalle, asegurando un trato directo, transparente y honesto.
+    <br><br>
+    Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación
+    para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas,
+    cuidando cada dispositivo como si fuera propio.
   </p>
 </section>
 
+<section class="contact">
+  <h2>Contacto</h2>
+  <a href="https://wa.me/5492634307686">WhatsApp</a>
+  <a href="https://www.instagram.com/javitolc22/">Instagram</a>
+  <a href="https://www.facebook.com/share/1AF5QUZZCn/">Facebook</a>
+  <a href="mailto:info@lctechnology.com">Correo</a>
+</section>
+
 <footer>
-  <div>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-    <a href="#">Correo</a>
-    <a href="#">WhatsApp</a>
-  </div>
-  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
+  LC TECHNOLOGY © 2026 · Todos los derechos reservados ·
+  <a href="#">Privacidad</a>
 </footer>
 
 </body>
