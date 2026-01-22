@@ -14,176 +14,116 @@
   --text:#eaf6ff;
   --muted:#a8b2d1;
 }
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-.background{
-  position:fixed;inset:0;z-index:-1;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
-  animation:bgMove 18s ease-in-out infinite alternate;
-}
+/* Fondo animado */
+.background{position:fixed;inset:0;z-index:-1;background:
+radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
+radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
+radial-gradient(circle at 50% 80%, rgba(24,255,178,.2), transparent 50%);
+animation:bgMove 18s ease-in-out infinite alternate;}
 @keyframes bgMove{from{filter:hue-rotate(0deg);}to{filter:hue-rotate(40deg);}}
 
+header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(8,12,26,.7);backdrop-filter:blur(14px);z-index:10;}
+.logo{font-size:1.4rem;letter-spacing:.15em;text-shadow:0 0 18px var(--blue),0 0 30px var(--violet);} 
+
+.burger{width:34px;height:24px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;}
+.burger span{height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));border-radius:4px;box-shadow:0 0 14px var(--blue);transition:.35s;}
+.burger:hover span{box-shadow:0 0 18px var(--blue),0 0 35px var(--violet);} 
+
+.menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:#060a16;padding:120px 30px;transition:.45s ease;z-index:9;}
+.menu.active{right:0;}
+.menu a{display:block;margin-bottom:34px;font-size:1.15rem;text-decoration:none;color:var(--text);} 
+.menu a:hover{color:var(--blue);text-shadow:0 0 12px var(--blue);} 
+
+section{padding:120px 20px;text-align:center;}
+
 /* HERO */
-.hero{
-  min-height:100vh;
-  padding:160px 20px 100px;
-  text-align:center;
-}
-.hero h1{
-  font-size:3.8rem;
-  letter-spacing:.2em;
-  text-shadow:0 0 30px rgba(0,229,255,.9),0 0 60px rgba(124,77,255,.7);
-}
-.hero p{
-  margin-top:18px;
-  font-size:1.2rem;
-  color:var(--muted);
-}
+.hero{min-height:100vh;padding-top:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hero h1{font-size:3.8rem;letter-spacing:.25em;text-shadow:0 0 30px rgba(0,229,255,.9),0 0 60px rgba(124,77,255,.7);} 
+.hero p{margin-top:22px;font-size:1.2rem;color:var(--muted);} 
 
-/* CIRCULOS */
-.circles{
-  margin-top:80px;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-}
-.circle{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  background:rgba(255,255,255,.05);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 35px rgba(0,229,255,.4);
-}
-.circle span{
-  font-size:2.4rem;
-  margin-bottom:12px;
-}
-.circle p{
-  color:var(--muted);
-  font-size:.95rem;
-}
+.primary-btn{margin-top:50px;padding:18px 52px;border-radius:40px;background:linear-gradient(120deg,var(--blue),var(--violet));color:#000;font-weight:600;text-decoration:none;box-shadow:0 0 45px rgba(0,229,255,.8);transition:.35s;} 
+.primary-btn:hover{transform:translateY(-6px);box-shadow:0 0 70px rgba(0,229,255,1);} 
 
-/* GALERIA */
-.gallery{
-  max-width:1000px;
-  margin:120px auto 0;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-}
-.gallery div{
-  height:180px;
-  border-radius:18px;
-  background:linear-gradient(135deg,rgba(0,229,255,.2),rgba(124,77,255,.25));
-  box-shadow:0 0 30px rgba(124,77,255,.5);
-}
+/* Servicios visuales */
+.services-icons{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:80px;}
+.service-circle{width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 35px rgba(0,229,255,.4);}
+.service-circle span{font-size:2.2rem;margin-bottom:10px;}
+.service-circle p{font-size:.95rem;color:var(--muted);}
 
-/* WHATSAPP */
-.cta{
-  margin:120px auto 0;
-  text-align:center;
-}
-.cta a{
-  display:inline-block;
-  padding:18px 50px;
-  border-radius:36px;
-  background:linear-gradient(120deg,var(--blue),var(--violet));
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-  box-shadow:0 0 45px rgba(0,229,255,.7);
-}
+/* Galería */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:80px;max-width:1200px;margin-left:auto;margin-right:auto;}
+.gallery div{height:180px;border-radius:22px;background:linear-gradient(135deg,#121b3a,#0b1228);box-shadow:0 0 35px rgba(124,77,255,.35);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;}
 
-/* WHY */
-.why{
-  max-width:900px;
-  margin:120px auto 0;
-  padding:0 20px;
-  text-align:center;
-}
-.why h2{
-  font-size:2.1rem;
-  text-shadow:0 0 18px rgba(0,229,255,.6);
-}
-.why p{
-  margin-top:30px;
-  color:var(--muted);
-  font-size:1.05rem;
-  line-height:1.7;
-}
+/* Texto institucional */
+.about{max-width:900px;margin:100px auto 0;line-height:1.8;color:var(--muted);font-size:1.05rem;}
 
-/* FOOTER */
-footer{
-  margin-top:120px;
-  padding:50px 20px;
-  background:#060a16;
-  text-align:center;
-}
-footer p{
-  color:var(--muted);
-  font-size:.95rem;
-}
+footer{padding:60px 20px;text-align:center;background:#060a16;margin-top:120px;} 
+footer p{color:var(--muted);font-size:.95rem;margin-top:14px;} 
+footer a{color:var(--blue);text-decoration:none;margin:0 10px;} 
+
+@media(max-width:600px){.hero h1{font-size:2.4rem;}}
 </style>
 </head>
-
 <body>
 
 <div class="background"></div>
+
+<header>
+  <div class="logo">LC MOBILE</div>
+  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</header>
+
+<nav class="menu" id="menu">
+  <a href="servicio.html">Servicio Técnico</a>
+  <a href="venta.html">Venta de Celulares</a>
+  <a href="accesorios.html">Accesorios</a>
+  <a href="tv-digital.html">TV Digital</a>
+</nav>
 
 <section class="hero">
   <h1>LC MOBILE</h1>
   <p>Tecnología innovadora</p>
 
-  <div class="circles">
-    <div class="circle"><span>🔧</span><p>Reparaciones</p></div>
-    <div class="circle"><span>📱</span><p>Celulares</p></div>
-    <div class="circle"><span>🎧</span><p>Accesorios</p></div>
-    <div class="circle"><span>📺</span><p>TV Digital</p></div>
+  <div class="services-icons">
+    <div class="service-circle"><span>🔧</span><p>Reparaciones</p></div>
+    <div class="service-circle"><span>📱</span><p>Celulares</p></div>
+    <div class="service-circle"><span>🎧</span><p>Accesorios</p></div>
+    <div class="service-circle"><span>📺</span><p>TV Digital</p></div>
   </div>
+
+  <a class="primary-btn" href="https://wa.me/5492634307686" target="_blank">Consultar por WhatsApp</a>
 </section>
 
-<section class="gallery">
-  <div></div>
-  <div></div>
-  <div></div>
-</section>
+<section>
+  <div class="gallery">
+    <div>Reparación de celulares</div>
+    <div>Venta de equipos</div>
+    <div>Accesorios</div>
+    <div>TV Digital</div>
+  </div>
 
-<section class="cta">
-  <a href="https://wa.me/5492634307686">Consultar por WhatsApp</a>
-</section>
-
-<section class="why">
-  <h2>¿Por qué elegir LC Mobile?</h2>
-  <p>
-    En LC Mobile trabajamos adaptándonos a la necesidad de cada cliente.
-    Cada reparación o servicio se realiza con criterio técnico,
-    explicaciones claras y el compromiso de entregar un trabajo bien hecho,
-    para que el cliente quede satisfecho con su dispositivo.
-    La calidad, la responsabilidad y la atención personalizada
-    son la base de nuestro trabajo diario.
-  </p>
-  <p>⚡ Reparaciones rápidas · 🛡️ Garantía real · 📍 Atención local · 📲 Soporte directo</p>
+  <div class="about">
+    En LC Mobile ofrecemos soluciones tecnológicas adaptadas a cada cliente. Nuestro enfoque está puesto en brindar atención personalizada, diagnósticos claros y resultados confiables, asegurando que cada equipo vuelva a funcionar como corresponde.
+    <br><br>
+    ⚡ Reparaciones rápidas · 🛡️ Garantía real · 📍 Atención local · 📲 Soporte directo
+  </div>
 </section>
 
 <footer>
   <p>
-    WhatsApp · Instagram · Facebook
+    <a href="https://wa.me/5492634307686" target="_blank">WhatsApp</a> ·
+    <a href="https://www.instagram.com/javitolc22/" target="_blank">Instagram</a> ·
+    <a href="https://www.facebook.com/share/1AF5QUZZCn/" target="_blank">Facebook</a>
   </p>
-  <p style="margin-top:14px;">
-    LC Mobile © 2026 · Tecnología que vuelve a la vida
-  </p>
+  <p>LC Mobile © 2026 · Tecnología que vuelve a la vida</p>
 </footer>
+
+<script>
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+</script>
 
 </body>
 </html>
