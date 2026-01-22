@@ -18,7 +18,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif;}
 body{background:var(--bg);color:var(--text);overflow-x:hidden;}
 
-/* Fondo animado */
+/* Fondo animado con partículas sutiles */
 .background{position:fixed;inset:0;z-index:-1;background:
 radial-gradient(circle at 15% 20%, rgba(0,229,255,.25), transparent 40%),
 radial-gradient(circle at 85% 30%, rgba(124,77,255,.25), transparent 45%),
@@ -28,6 +28,7 @@ animation:bgMove 20s ease-in-out infinite alternate;}
 
 /* Header */
 header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(11,15,34,.7);backdrop-filter:blur(14px);z-index:10;}
+.logo-container{display:flex;flex-direction:column;}
 .logo {
   font-size:1.6rem;
   font-weight:bold;
@@ -36,6 +37,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   text-shadow: 0 0 10px var(--blue),0 0 20px var(--violet),0 0 30px var(--green);
   animation: logoGlow 3s infinite alternate;
 }
+.logo-sub{font-size:.9rem;color:var(--muted);margin-top:4px;}
 @keyframes logoGlow {
   0%{text-shadow:0 0 12px var(--blue),0 0 24px var(--violet);}
   50%{text-shadow:0 0 20px var(--green),0 0 40px var(--blue);}
@@ -130,7 +132,7 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   background: linear-gradient(to top, rgba(0,229,255,0.3), transparent 60%);
 }
 
-/* Botón WhatsApp circular con icono */
+/* Botón WhatsApp oficial */
 .whatsapp-btn{
   margin:60px auto 0;
   width:90px;
@@ -139,9 +141,9 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg,var(--blue),var(--violet));
+  background:#25D366;
   color:#fff;
-  font-size:2rem;
+  font-size:2.2rem;
   box-shadow:0 0 25px rgba(0,229,255,.7), 0 0 50px rgba(124,77,255,.5);
   text-decoration:none;
   transition: transform .35s, box-shadow .35s;
@@ -229,7 +231,10 @@ footer a{
 <div class="background"></div>
 
 <header>
-  <div class="logo">LC TECHNOLOGY</div>
+  <div class="logo-container">
+    <div class="logo">LC TECHNOLOGY</div>
+    <div class="logo-sub">Tecnología Innovadora</div>
+  </div>
   <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </header>
 
@@ -265,7 +270,9 @@ footer a{
   </div>
 </section>
 
-<a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">💬</a>
+<a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">
+  <img src="whatsapp-logo.png" alt="WhatsApp" style="width:40px;height:40px;">
+</a>
 
 <section class="about">
   <h2>Sobre Nosotros</h2>
