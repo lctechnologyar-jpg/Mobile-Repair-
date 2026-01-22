@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LC TECHNOLOGY</title>
 
+<!-- Fuente futurista -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --bg:#0b0f22;
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
+  --pink:#ff00d0;
   --text:#eaf6ff;
   --muted:#a8b2d1;
   --highlight:#00ffea;
@@ -78,32 +82,35 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   padding-top:120px;
 }
 .hero h1{
+  font-family: 'Orbitron', sans-serif;
   font-size:5rem;
-  font-weight:bold;
+  font-weight:700;
   text-transform:uppercase;
-  color:var(--blue);
-  text-shadow:0 0 20px var(--blue),0 0 40px var(--violet),0 0 60px var(--green);
-  animation: heroGlow 4s infinite alternate;
+  background: linear-gradient(270deg, #00e5ff, #7c4dff, #18ffb2, #ff00d0, #00e5ff);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 8s ease infinite;
   position:relative;
+  text-shadow:0 0 15px #00e5ff,0 0 30px #7c4dff,0 0 45px #18ffb2;
 }
-/* Luz alrededor del texto central */
 .hero h1::after{
   content:"";
   position:absolute;
-  inset:-10px;
+  inset:-12px;
   border-radius:12px;
-  box-shadow:0 0 30px var(--blue),0 0 50px var(--violet),0 0 70px var(--green);
-  animation: neonPulse 3s infinite alternate;
+  box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;
+  animation: haloPulse 4s ease-in-out infinite alternate;
 }
-@keyframes heroGlow{
-  0%{text-shadow:0 0 20px var(--blue),0 0 40px var(--violet);}
-  50%{text-shadow:0 0 30px var(--green),0 0 60px var(--blue);}
-  100%{text-shadow:0 0 20px var(--violet),0 0 50px var(--blue);}
+@keyframes gradientText{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
-@keyframes neonPulse{
-  0%{box-shadow:0 0 30px var(--blue),0 0 50px var(--violet);}
-  50%{box-shadow:0 0 40px var(--green),0 0 60px var(--blue);}
-  100%{box-shadow:0 0 30px var(--violet),0 0 50px var(--blue);}
+@keyframes haloPulse{
+  0%{box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;}
+  50%{box-shadow:0 0 50px #18ffb2,0 0 80px #ff00d0,0 0 100px #7c4dff,0 0 120px #00e5ff;}
+  100%{box-shadow:0 0 35px #00e5ff,0 0 60px #7c4dff,0 0 80px #18ffb2,0 0 100px #ff00d0;}
 }
 
 /* Galería */
@@ -144,12 +151,23 @@ header{position:fixed;top:0;left:0;right:0;height:72px;display:flex;justify-cont
   box-shadow:0 0 60px rgba(0,229,255,.7);
 }
 
-/* Texto debajo galería */
+/* Texto debajo galería con glow y animación de color */
 .gallery-desc{
   margin-top:20px;
-  font-size:1rem;
-  color:var(--highlight);
-  text-shadow:0 0 8px rgba(0,0,0,.5);
+  font-size:1.05rem;
+  font-weight:600;
+  text-align:center;
+  background: linear-gradient(270deg,#00e5ff,#7c4dff,#18ffb2,#ff00d0,#00e5ff);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientDesc 6s ease infinite;
+  text-shadow:0 0 8px #00e5ff,0 0 16px #7c4dff;
+}
+@keyframes gradientDesc{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* Botón WhatsApp */
@@ -237,7 +255,7 @@ footer a{
 }
 
 @media(max-width:600px){
-  .hero h1{font-size:2.8rem;}
+  .hero h1{font-size:3rem;}
   .gallery .service{height:150px;}
 }
 </style>
