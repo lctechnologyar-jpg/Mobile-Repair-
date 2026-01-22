@@ -13,7 +13,6 @@
   --blue:#00e5ff;
   --violet:#7c4dff;
   --green:#18ffb2;
-  --pink:#ff00d0;
   --text:#eaf6ff;
   --muted:#a8b2d1;
 }
@@ -35,7 +34,7 @@ header{
   height:80px;
   display:flex;justify-content:space-between;align-items:center;
   padding:0 30px;
-  background:rgba(11,15,34,.7);
+  background:rgba(11,15,34,.75);
   backdrop-filter:blur(14px);
   z-index:10;
 }
@@ -58,7 +57,6 @@ header{
   height:3px;
   background:linear-gradient(90deg,var(--blue),var(--violet));
   border-radius:4px;
-  box-shadow:0 0 12px var(--blue);
 }
 
 /* MENU */
@@ -90,10 +88,10 @@ header{
 .hero h1{
   font-family:'Orbitron',sans-serif;
   font-size:5.2rem;
-  color:#eaf6ff;
   letter-spacing:.15em;
+  color:#f5fbff;
   position:relative;
-  text-shadow:0 0 4px rgba(255,255,255,.6);
+  text-shadow:0 0 3px rgba(255,255,255,.6);
 }
 .hero h1::after{
   content:"";
@@ -101,14 +99,14 @@ header{
   inset:-22px;
   border-radius:16px;
   box-shadow:
-    0 0 30px rgba(0,229,255,.6),
-    0 0 60px rgba(124,77,255,.5),
-    0 0 90px rgba(24,255,178,.4);
+    0 0 28px rgba(0,229,255,.6),
+    0 0 55px rgba(124,77,255,.5),
+    0 0 80px rgba(24,255,178,.4);
 }
 
 /* SERVICIOS */
 .services{
-  padding:120px 20px 80px;
+  padding:120px 20px 60px;
   text-align:center;
 }
 .gallery{
@@ -132,7 +130,7 @@ header{
 .service span{
   font-size:1.1rem;
   font-weight:600;
-  text-shadow:0 0 8px rgba(0,0,0,.8);
+  text-shadow:0 0 8px rgba(0,0,0,.85);
 }
 .service:hover{
   transform:scale(1.05);
@@ -141,27 +139,13 @@ header{
 
 .gallery-desc{
   margin-top:35px;
-  font-size:1.1rem;
+  font-size:1.15rem;
   font-weight:600;
   color:var(--blue);
-  text-shadow:0 0 12px var(--blue),0 0 22px var(--violet);
+  text-shadow:0 0 14px var(--blue),0 0 26px var(--violet);
 }
 
-/* BLOQUE IDENTIDAD */
-.identity{
-  padding:120px 20px;
-  text-align:center;
-}
-.identity p{
-  max-width:900px;
-  margin:0 auto;
-  font-size:1.2rem;
-  line-height:1.9;
-  color:var(--text);
-  text-shadow:0 0 10px rgba(0,229,255,.35);
-}
-
-/* ABOUT */
+/* SOBRE NOSOTROS */
 .about{
   max-width:1000px;
   margin:0 auto;
@@ -180,25 +164,6 @@ header{
   color:var(--muted);
 }
 
-/* CTA */
-.cta{
-  padding:120px 20px;
-  text-align:center;
-}
-.whatsapp-btn{
-  width:95px;height:95px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto;
-  box-shadow:0 0 25px rgba(0,229,255,.6);
-  transition:.3s;
-}
-.whatsapp-btn:hover{transform:scale(1.12);}
-.whatsapp-btn img{width:44px;height:44px;}
-
 /* CONTACTO */
 .contact{
   padding:80px 20px;
@@ -212,7 +177,7 @@ header{
 }
 .contact a:hover{text-shadow:0 0 10px var(--blue);}
 .contact div{
-  margin-top:20px;
+  margin-top:25px;
   color:var(--muted);
 }
 
@@ -260,48 +225,41 @@ footer p{color:var(--muted);font-size:.95rem;}
     <div class="service" style="background-image:url('foto3.jpg')"><span>Accesorios</span></div>
     <div class="service" style="background-image:url('foto4.jpg')"><span>TV Digital</span></div>
   </div>
+
   <div class="gallery-desc">
     Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
   </div>
 </section>
 
-<section class="identity">
-  <p>
-    Reparamos, vendemos y proveemos soluciones tecnológicas con un enfoque claro en la confianza,
-    la calidad y la atención personalizada, acompañando a cada cliente antes, durante y después del servicio.
-  </p>
-</section>
-
 <section class="about">
   <h2>Sobre Nosotros</h2>
   <p>
-    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas confiables y profesionales.
-    Cada equipo es tratado con responsabilidad, precisión y compromiso total.
+    LC TECHNOLOGY nació en 2024 con la visión de ofrecer soluciones tecnológicas de calidad y confianza a cada cliente. 
+    Nos enfocamos en brindar un servicio cercano y personalizado, donde cada equipo que pasa por nuestras manos recibe 
+    atención profesional, diagnósticos precisos y resultados confiables.
     <br><br>
-    La empresa es gestionada directamente por su fundador, garantizando atención personalizada,
-    diagnósticos honestos y resultados reales.
+    Nuestro compromiso no se limita a reparar o vender dispositivos: buscamos garantizar que cada experiencia con 
+    nosotros sea satisfactoria y segura. Como fundador y principal responsable de LC TECHNOLOGY, superviso personalmente 
+    cada detalle, asegurando un trato directo, transparente y honesto.
     <br><br>
-    Con 2 años de experiencia en el rubro, trabajamos para construir relaciones duraderas basadas en la confianza
-    y la conformidad total de cada cliente.
+    Con 2 años de experiencia en tecnología y servicios de reparación, combinamos innovación, conocimiento y dedicación 
+    para que cada cliente reciba la mejor atención posible. Nuestro objetivo es crear relaciones de confianza duraderas, 
+    cuidando cada dispositivo como si fuera propio.
   </p>
 </section>
 
-<section class="cta">
-  <a href="https://wa.me/5492634307686" target="_blank" class="whatsapp-btn">
-    <img src="whatsapp-logo.png" alt="WhatsApp">
-  </a>
-</section>
-
 <section class="contact">
-  <a href="https://wa.me/5492634307686">WhatsApp</a>
-  <a href="https://www.instagram.com/javitolc22/">Instagram</a>
-  <a href="https://www.facebook.com/share/1AF5QUZZCn/">Facebook</a>
-  <a href="mailto:info@lctechnology.com">Correo</a>
-  <div>Estamos siempre disponibles para ayudarte.</div>
+  <a href="#">WhatsApp</a>
+  <a href="#">Instagram</a>
+  <a href="#">Facebook</a>
+  <a href="#">Correo</a>
+  <div>
+    Estamos siempre disponibles para ayudarte, contáctanos por cualquier medio.
+  </div>
 </section>
 
 <footer>
-  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados</p>
+  <p>LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a></p>
 </footer>
 
 <script>
