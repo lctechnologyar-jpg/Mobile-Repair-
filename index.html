@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LC TECHNOLOGY</title>
+<meta name="description" content="LC TECHNOLOGY - Reparación y venta de celulares, accesorios y soluciones tecnológicas confiables.">
+<meta name="keywords" content="Reparación celular, venta celulares, accesorios, TV digital, PS2, Internet, tecnología">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
 
@@ -15,11 +17,13 @@
   --green:#18ffb2;
   --text:#eaf6ff;
   --muted:#a8b2d1;
+  --transition-fast: 0.35s ease;
+  --shadow-service: 0 0 24px rgba(124,77,255,.25);
 }
 
 /* Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
-body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+*, *::before, *::after{box-sizing:border-box;}
+body{margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 
 /* Fondo */
 .background{
@@ -28,6 +32,12 @@ body{background:var(--bg);color:var(--text);overflow-x:hidden;}
   radial-gradient(circle at 15% 20%, rgba(0,229,255,.18), transparent 40%),
   radial-gradient(circle at 85% 30%, rgba(124,77,255,.18), transparent 45%),
   radial-gradient(circle at 50% 80%, rgba(24,255,178,.15), transparent 50%);
+  will-change: transform;
+  animation: float-bg 40s ease-in-out infinite;
+}
+@keyframes float-bg {
+  0%,100% {transform: translate(0,0);}
+  50% {transform: translate(8px,-8px);}
 }
 
 /* Header */
@@ -66,6 +76,7 @@ header{
   height:3px;border-radius:4px;
   background:linear-gradient(90deg,var(--blue),var(--violet));
   box-shadow:0 0 12px var(--blue);
+  transition: all var(--transition-fast);
 }
 
 /* Menu */
@@ -74,7 +85,7 @@ header{
   width:300px;height:100vh;
   background:#060a16;
   padding:120px 30px;
-  transition:.45s ease;
+  transition:right 0.45s ease, opacity 0.35s ease;
 }
 .menu.active{right:0;}
 .menu a{
@@ -82,6 +93,7 @@ header{
   color:var(--text);
   text-decoration:none;
   font-size:1.1rem;
+  transition: color 0.3s ease;
 }
 .menu a:hover{color:var(--blue);}
 
@@ -99,6 +111,9 @@ header{
     0 0 10px rgba(0,229,255,.5),
     0 0 18px rgba(124,77,255,.4);
 }
+.hero h1[role="heading"]{
+  outline: none;
+}
 
 /* Servicios */
 .services{
@@ -115,7 +130,12 @@ header{
   height:180px;border-radius:20px;
   background-size:cover;background-position:center;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 24px rgba(124,77,255,.25);
+  box-shadow:var(--shadow-service);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.service:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 0 36px rgba(124,77,255,.35);
 }
 .service span{
   font-size:1.05rem;
@@ -139,6 +159,11 @@ header{
   background:#25D366;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 0 30px rgba(37,211,102,.6);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.whatsapp:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 42px rgba(37,211,102,.7);
 }
 .whatsapp img{width:42px;height:42px;}
 
@@ -177,6 +202,7 @@ header{
   margin:0 12px;
   color:var(--text);
   text-decoration:none;
+  transition: color 0.3s ease;
 }
 
 /* Closing */
@@ -216,7 +242,6 @@ footer a{color:#fff;text-decoration:none;}
   </div>
 </header>
 
-<!-- 🔹 ÚNICO CAMBIO: LINKS DIRECTOS -->
 <nav class="menu" id="menu">
   <a href="servicio.html">Servicio Técnico</a>
   <a href="venta.html">Venta de Celulares</a>
@@ -227,22 +252,22 @@ footer a{color:#fff;text-decoration:none;}
 </nav>
 
 <section class="hero">
-  <h1>LC TECHNOLOGY</h1>
+  <h1 role="heading" aria-level="1">LC TECHNOLOGY</h1>
 </section>
 
 <section class="services">
   <div class="gallery">
-    <div class="service" style="background-image:url('foto1.jpg')"><span>Reparación</span></div>
-    <div class="service" style="background-image:url('foto2.jpg')"><span>Venta de equipos</span></div>
-    <div class="service" style="background-image:url('foto3.jpg')"><span>Accesorios</span></div>
-    <div class="service" style="background-image:url('foto4.jpg')"><span>TV Digital</span></div>
+    <div class="service" style="background-image:url('foto1.jpg')" aria-label="Reparación de dispositivos"><span>Reparación</span></div>
+    <div class="service" style="background-image:url('foto2.jpg')" aria-label="Venta de equipos"><span>Venta de equipos</span></div>
+    <div class="service" style="background-image:url('foto3.jpg')" aria-label="Accesorios tecnológicos"><span>Accesorios</span></div>
+    <div class="service" style="background-image:url('foto4.jpg')" aria-label="TV Digital"><span>TV Digital</span></div>
   </div>
   <div class="services-text">
     Reparamos, vendemos y proveemos soluciones tecnológicas con confianza y calidad.
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/5492634307686" target="_blank">
+<a class="whatsapp" href="https://wa.me/5492634307686" target="_blank" aria-label="Contactar vía WhatsApp">
   <img src="whatsapp-logo.png" alt="WhatsApp">
 </a>
 
