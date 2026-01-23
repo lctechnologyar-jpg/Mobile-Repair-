@@ -15,19 +15,12 @@
   --text-muted:#a8b2d1;
 }
 
-/* ===== BODY CON GRADIENTE ===== */
+/* ===== BODY ===== */
 body{
   margin:0;
   font-family:'Segoe UI', system-ui;
-  background: linear-gradient(120deg, #080c1a, #0b0f25, #080c1a);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background:var(--bg-main);
   color:var(--text-main);
-}
-@keyframes gradientBG {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
 }
 
 /* ===== INTRO ===== */
@@ -40,7 +33,6 @@ section.intro{
 section.intro h1{
   font-size:2.8rem;
   text-shadow:0 0 20px var(--neon-blue);
-  font-family: 'Orbitron', sans-serif;
 }
 section.intro p{
   margin-top:28px;
@@ -60,7 +52,7 @@ section.intro a:hover{
   text-shadow:0 0 12px var(--neon-blue);
 }
 
-/* ===== SERVICIOS ===== */
+/* ===== SECCIÓN SERVICIOS ===== */
 .services{
   padding:80px 20px 100px;
 }
@@ -69,7 +61,6 @@ section.intro a:hover{
   font-size:2.2rem;
   margin-bottom:55px;
   text-shadow:0 0 12px rgba(0,229,255,.5);
-  font-family: 'Orbitron', sans-serif;
 }
 .services-container{
   display:grid;
@@ -83,18 +74,12 @@ section.intro a:hover{
   border-radius:20px;
   padding:25px 20px;
   text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.6), inset 0 0 10px rgba(255,255,255,0.05);
-  transition: transform .3s ease, box-shadow .3s ease, opacity .6s ease;
-  opacity:0;
-  transform: translateY(30px) scale(0.95);
-}
-.service-card.visible{
-  opacity:1;
-  transform: translateY(0) scale(1);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .service-card:hover{
-  transform: translateY(-10px);
-  box-shadow:0 25px 60px rgba(0,229,255,0.7),0 0 25px rgba(124,77,255,0.5);
+  transform: translateY(-7px);
+  box-shadow:0 25px 60px rgba(0,229,255,0.5);
 }
 .service-card img{
   width:100%;
@@ -102,22 +87,12 @@ section.intro a:hover{
   object-fit:cover;
   border-radius:15px;
   margin-bottom:15px;
-  transition: transform .4s ease;
-}
-.service-card img:hover{
-  transform: scale(1.05) rotate(-1deg);
 }
 .service-card h3{
   font-size:1.3rem;
   margin-bottom:12px;
   color:var(--neon-blue);
   text-shadow:0 0 10px rgba(0,229,255,.5);
-  animation: glowText 3s ease-in-out infinite alternate;
-  font-family: 'Orbitron', sans-serif;
-}
-@keyframes glowText {
-  0% { text-shadow: 0 0 5px var(--neon-blue); }
-  100% { text-shadow: 0 0 15px var(--neon-blue); }
 }
 .service-card p{
   font-size:1rem;
@@ -125,17 +100,16 @@ section.intro a:hover{
   line-height:1.6;
 }
 
-/* ===== MARCAS PREMIUM SOLO TEXTO ===== */
+/* ===== MARCAS ATENDIDAS (solo texto) ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
-  position:relative;
 }
 .brands h2{
-  font-size:2rem;
-  margin-bottom:40px;
-  text-shadow:0 0 10px var(--neon-blue);
-  font-family: 'Orbitron', sans-serif;
+  font-size:2.2rem;
+  margin-bottom:50px;
+  text-shadow:0 0 15px var(--neon-blue);
+  color: var(--neon-blue);
 }
 .brands-container{
   display:flex;
@@ -144,38 +118,34 @@ section.intro a:hover{
   gap:25px;
 }
 .brand-name{
-  padding:25px 40px;
-  background:linear-gradient(145deg, #121b3a, #0b1228);
+  padding:20px 30px;
+  background: #121b3a;
   border-radius:15px;
-  font-weight:bold;
-  font-size:1.3rem;
-  color:var(--neon-green);
-  box-shadow:0 0 15px rgba(0,229,255,.4), 0 5px 20px rgba(0,0,0,.6);
-  border:2px solid rgba(0,229,255,0.2);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  opacity:0;
-  transform: translateY(30px);
+  font-weight:700;
+  font-size:1.2rem;
+  color: var(--neon-green);
+  box-shadow: 0 8px 20px rgba(0,229,255,0.3), 0 0 15px rgba(124,77,255,0.4);
+  transition: all 0.4s ease;
+  min-width:120px;
+  text-align:center;
 }
 .brand-name:hover{
-  transform: scale(1.2);
-  box-shadow:0 0 30px rgba(0,229,255,.7), 0 5px 25px rgba(0,0,0,.7);
-  border-color: rgba(0,229,255,0.8);
+  transform: scale(1.15) translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,229,255,0.6), 0 0 20px rgba(124,77,255,0.6);
+  color: var(--neon-blue);
 }
 
-/* ===== SEPARADOR ANIMADO ===== */
-.separator{
-  height:4px;
-  width:80%;
-  margin:50px auto;
-  border-radius:2px;
-  background: linear-gradient(90deg,#00e5ff,#7c4dff,#18ffb2);
-  background-size:300% 300%;
-  animation: gradientMove 4s ease infinite;
-}
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* LÍNEA DE MARCAS NEON */
+.brands-neon-text{
+  margin-top:20px;
+  font-size:1.1rem;
+  font-weight:600;
+  color: #00e5ff;
+  text-shadow: 
+    0 0 5px #00e5ff,
+    0 0 10px #00e5ff,
+    0 0 20px #00e5ff,
+    0 0 30px #00e5ff;
 }
 
 /* ===== BOTÓN WHATSAPP ===== */
@@ -199,12 +169,6 @@ section.intro a:hover{
 }
 .whatsapp:hover{
   transform:scale(1.1);
-  animation: pulse 0.8s infinite;
-}
-@keyframes pulse{
-  0%{transform: scale(1);}
-  50%{transform: scale(1.15);}
-  100%{transform: scale(1);}
 }
 
 /* ===== RESPONSIVE ===== */
@@ -216,8 +180,8 @@ section.intro a:hover{
 @media(max-width:600px){
   section.intro h1{font-size:2.4rem;}
   section.intro p{font-size:1.05rem;}
-  .brands h2{font-size:1.5rem;}
-  .brand-name{font-size:1.1rem;padding:15px 25px;}
+  .brands h2{font-size:1.8rem;}
+  .brands-neon-text{font-size:1rem;}
 }
 </style>
 </head>
@@ -283,9 +247,7 @@ section.intro a:hover{
   </div>
 </section>
 
-<div class="separator"></div>
-
-<!-- MARCAS ATENDIDAS SOLO TEXTO (PRO PREMIUM) -->
+<!-- MARCAS ATENDIDAS SOLO TEXTO -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
   <div class="brands-container">
@@ -297,48 +259,14 @@ section.intro a:hover{
     <div class="brand-name">Redmi</div>
   </div>
   
-  <!-- NUEVA LÍNEA DE TEXTO CON NEON -->
+  <!-- LÍNEA DE MARCAS NEON -->
   <p class="brands-neon-text">
     Samsung - Motorola - LG - Huawei - Redmi - iPhone
   </p>
 </section>
 
-<style>
-.brands-neon-text{
-  margin-top:20px;
-  font-size:1.1rem;
-  font-weight:600;
-  color: #00e5ff; /* azul neon */
-  text-shadow: 
-    0 0 5px #00e5ff,
-    0 0 10px #00e5ff,
-    0 0 20px #00e5ff,
-    0 0 30px #00e5ff;
-}
-@media(max-width:600px){
-  .brands-neon-text{
-    font-size:1rem;
-  }
-}
-</style>
-
-
 <!-- WHATSAPP -->
 <a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
-
-<!-- ===== SCROLL REVEAL JS ===== -->
-<script>
-const elements = document.querySelectorAll('.service-card, .brand-name');
-window.addEventListener('scroll', () => {
-  const triggerBottom = window.innerHeight * 0.85;
-  elements.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
-    if(boxTop < triggerBottom){
-      el.classList.add('visible');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
