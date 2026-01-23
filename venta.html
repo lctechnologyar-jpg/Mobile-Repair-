@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venta de Teléfonos | LC Mobile</title>
 
+<style>
+:root{
+  --bg-main:#080c1a;
+  --neon-blue:#00e5ff;
+  --neon-violet:#7c4dff;
+  --neon-green:#18ffb2;
+  --text-main:#eaf6ff;
+  --text-muted:#a8b2d1;
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui;
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* ===== TITULO ===== */
+.container h1{
+  font-size:2.8rem;
+  margin-bottom:40px;
+  text-shadow:0 0 20px var(--neon-blue);
+}
+
+/* ===== TARJETAS DE PRODUCTO ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+  justify-items:center;
+}
+
+.product-card{
+  background:linear-gradient(180deg,#121b3a,#0b1228);
+  border-radius:20px;
+  padding:20px;
+  width:100%;
+  max-width:400px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.product-card:hover{
+  transform: translateY(-7px);
+  box-shadow:0 25px 60px rgba(0,229,255,0.5);
+}
+.product-card img{
+  width:100%;
+  max-height:250px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+.product-card h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+  color:var(--neon-blue);
+  text-shadow:0 0 10px rgba(0,229,255,.5);
+}
+.product-card p{
+  font-size:1rem;
+  color:var(--text-muted);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+/* ===== BOTÓN WHATSAPP ===== */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:linear-gradient(120deg,#25d366,#18ffb2);
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#000;
+  font-size:1.6rem;
+  text-decoration:none;
+  box-shadow:0 0 25px rgba(37,211,102,.7);
+  z-index:5;
+  transition:transform .3s ease;
+}
+.whatsapp:hover{
+  transform:scale(1.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:600px){
+  .container h1{font-size:2.4rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Teléfonos en Venta</h1>
+
+  <div class="products">
+
+    <!-- Samsung A01 Negro -->
+    <div class="product-card">
+      <img src="a01-negro.jpg" alt="Samsung A01 Negro">
+      <h3>Samsung A01 - Negro</h3>
+      <p>Reacondicionado, en excelente estado.</p>
+      <p><strong>Pantalla:</strong> 5.7" HD+</p>
+      <p><strong>Cámara:</strong> 13MP trasera / 5MP frontal</p>
+      <p><strong>Batería:</strong> 3000 mAh</p>
+      <p><strong>Almacenamiento:</strong> 32GB</p>
+    </div>
+
+    <!-- Samsung A01 Azul -->
+    <div class="product-card">
+      <img src="a01-azul.jpg" alt="Samsung A01 Azul">
+      <h3>Samsung A01 - Azul</h3>
+      <p>Reacondicionado, en excelente estado.</p>
+      <p><strong>Pantalla:</strong> 5.7" HD+</p>
+      <p><strong>Cámara:</strong> 13MP trasera / 5MP frontal</p>
+      <p><strong>Batería:</strong> 3000 mAh</p>
+      <p><strong>Almacenamiento:</strong> 32GB</p>
+    </div>
+
+  </div>
+
+  <a href="index.html" style="display:inline-block; margin-top:40px; color:var(--neon-blue); text-decoration:none; font-weight:bold; font-size:1rem; text-shadow:0 0 12px var(--neon-blue);">
+    ⬅ Volver al inicio
+  </a>
+
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
+
+</body>
+</html>
