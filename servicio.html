@@ -285,7 +285,7 @@ section.intro a:hover{
 
 <div class="separator"></div>
 
-<!-- MARCAS PREMIUM SOLO TEXTO -->
+<!-- MARCAS ATENDIDAS SOLO TEXTO (PRO PREMIUM) -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
   <div class="brands-container">
@@ -297,6 +297,60 @@ section.intro a:hover{
     <div class="brand-name">Redmi</div>
   </div>
 </section>
+
+<style>
+/* ===== MARCAS ATENDIDAS PRO PREMIUM ===== */
+.brands{
+  padding:70px 20px;
+  text-align:center;
+}
+.brands h2{
+  font-size:2.2rem;
+  margin-bottom:50px;
+  text-shadow:0 0 15px var(--neon-blue);
+  color: var(--neon-blue);
+}
+.brands-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+}
+.brand-name{
+  padding:20px 30px;
+  background: #121b3a;
+  border-radius:15px;
+  font-weight:700;
+  font-size:1.2rem;
+  color: var(--neon-green);
+  box-shadow: 0 8px 20px rgba(0,229,255,0.3), 0 0 15px rgba(124,77,255,0.4);
+  transition: all 0.4s ease;
+  min-width:120px;
+  text-align:center;
+}
+.brand-name:hover{
+  transform: scale(1.15) translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,229,255,0.6), 0 0 20px rgba(124,77,255,0.6);
+  color: var(--neon-blue);
+}
+@media(max-width:900px){
+  .brand-name{
+    min-width:100px;
+    font-size:1.1rem;
+    padding:18px 25px;
+  }
+}
+@media(max-width:600px){
+  .brands h2{
+    font-size:1.8rem;
+  }
+  .brand-name{
+    font-size:1rem;
+    padding:15px 20px;
+  }
+}
+</style>
+
 
 <!-- WHATSAPP -->
 <a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
