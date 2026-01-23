@@ -237,46 +237,36 @@ section.intro a:hover{
   </div>
 </section>
 
-<!-- MARCAS ATENDIDAS FIJAS -->
+<!-- MARCAS ATENDIDAS VISIBLES -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
-  <div class="brands-container" style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="samsung.jpg" alt="Samsung" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="motorola.jpg" alt="Motorola" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="lg.jpg" alt="LG" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="huawei.jpg" alt="Huawei" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="iphone.jpg" alt="iPhone" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
-    <div style="background:#f5f5f5; padding:15px; border-radius:12px; display:flex; align-items:center; justify-content:center; width:100px; height:100px;">
-      <img src="redmi.jpg" alt="Redmi" style="max-width:80px; max-height:80px; object-fit:contain;">
-    </div>
-
+  <div class="brands-container">
+    <img src="samsung.jpg" alt="Samsung">
+    <img src="motorola.jpg" alt="Motorola">
+    <img src="lg.jpg" alt="LG">
+    <img src="huawei.jpg" alt="Huawei">
+    <img src="iphone.jpg" alt="iPhone">
+    <img src="redmi.jpg" alt="Redmi">
   </div>
 </section>
 
-
-<!-- EFECTO NEÓN PARA LOGOS -->
+<!-- CSS PARA QUE SE VEAN LOS LOGOS NEGROS SOBRE FONDO OSCURO -->
 <style>
+.brands-container img {
+  width:80px;
+  height:auto;
+  object-fit:contain;
+  margin:10px;
+  transition: transform 0.3s ease;
+  filter: invert(1) brightness(2); /* Esto invierte el color y lo hace blanco/brillante */
+}
+
 .brands-container img:hover {
   transform: scale(1.2);
   box-shadow: 0 0 20px #00e5ff, 0 0 30px #7c4dff, 0 0 40px #18ffb2;
 }
 </style>
+
 
 
 
