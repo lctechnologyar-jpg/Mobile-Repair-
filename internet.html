@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internet Ilimitado | TECHNOLOGY</title>
+
+<style>
+:root{
+  --bg-main:#080c1a;
+  --neon-blue:#00e5ff;
+  --neon-violet:#7c4dff;
+  --neon-green:#18ffb2;
+  --text-main:#eaf6ff;
+  --text-muted:#a8b2d1;
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  font-family:'Segoe UI', system-ui;
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* ===== TITULOS ===== */
+.container h1{
+  font-size:2.8rem;
+  margin-bottom:30px;
+  text-shadow:0 0 20px var(--neon-blue);
+}
+
+/* ===== TEXTO ===== */
+.container p{
+  font-size:1.1rem;
+  line-height:1.7;
+  color:var(--text-muted);
+  margin-bottom:25px;
+  text-align:justify;
+  text-shadow:0 0 5px rgba(0,229,255,0.2);
+}
+
+/* ===== BOTÓN VOLVER ===== */
+.back-btn{
+  display:inline-block;
+  margin-top:30px;
+  color:var(--neon-blue);
+  text-decoration:none;
+  font-weight:bold;
+  font-size:1rem;
+  text-shadow:0 0 12px var(--neon-blue);
+  padding:10px 20px;
+  border-radius:12px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.back-btn:hover{
+  transform: scale(1.05);
+  box-shadow:0 0 20px rgba(0,229,255,.5);
+}
+
+/* ===== PRÓXIMAMENTE ===== */
+.coming-soon{
+  font-size:1.5rem;
+  color:var(--neon-green);
+  text-shadow:0 0 15px var(--neon-green);
+  margin-top:40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .container h1{font-size:2.4rem;}
+  .container p{font-size:1.05rem;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>INTERNET ILIMITADO</h1>
+
+  <p>
+    Implementamos una app exclusiva con acceso a <strong>internet ilimitado</strong> para que nunca te quedes sin navegar ni perderte nada del momento.  
+    Disfrutá de tu red sin restricciones, accediendo a tus redes sociales, streaming de música y video, comunicación en tiempo real y todo lo que necesites, donde quieras y cuando quieras.  
+    Nuestro servicio está pensado para que tu experiencia sea rápida, estable y segura, ideal tanto para el entretenimiento como para el trabajo o estudio diario.
+  </p>
+
+  <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
+
+  <p class="coming-soon">Próximamente</p>
+</div>
+
+</body>
+</html>
 
