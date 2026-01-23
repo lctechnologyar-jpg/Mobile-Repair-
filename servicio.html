@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicio Técnico | LC Mobile</title>
+<title>Marcas que atendemos | LC Mobile</title>
 
 <style>
 :root{
@@ -21,93 +21,21 @@ body{
   font-family:'Segoe UI', system-ui;
   background:var(--bg-main);
   color:var(--text-main);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  flex-direction:column;
 }
 
-/* ===== INTRO ===== */
-section.intro{
-  max-width:900px;
-  margin:auto;
-  padding:100px 20px;
-  text-align:center;
-}
-section.intro h1{
-  font-size:2.8rem;
-  text-shadow:0 0 20px var(--neon-blue);
-}
-section.intro p{
-  margin-top:28px;
-  color:var(--text-muted);
-  font-size:1.1rem;
-  line-height:1.7;
-}
-section.intro a{
-  display:inline-block;
-  margin-top:40px;
-  color:var(--neon-blue);
-  text-decoration:none;
-  font-weight:bold;
-  font-size:1rem;
-}
-section.intro a:hover{
-  text-shadow:0 0 12px var(--neon-blue);
-}
-
-/* ===== SECCIÓN SERVICIOS ===== */
-.services{
-  padding:80px 20px 100px;
-}
-.services h2{
-  text-align:center;
-  font-size:2.2rem;
-  margin-bottom:55px;
-  text-shadow:0 0 12px rgba(0,229,255,.5);
-}
-.services-container{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
-  max-width:1200px;
-  margin:auto;
-}
-.service-card{
-  background:linear-gradient(180deg,#121b3a,#0b1228);
-  border-radius:20px;
-  padding:25px 20px;
-  text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.service-card:hover{
-  transform: translateY(-7px);
-  box-shadow:0 25px 60px rgba(0,229,255,0.5);
-}
-.service-card img{
-  width:100%;
-  max-height:150px;
-  object-fit:cover;
-  border-radius:15px;
-  margin-bottom:15px;
-}
-.service-card h3{
-  font-size:1.3rem;
-  margin-bottom:12px;
-  color:var(--neon-blue);
-  text-shadow:0 0 10px rgba(0,229,255,.5);
-}
-.service-card p{
-  font-size:1rem;
-  color:var(--text-muted);
-  line-height:1.6;
-}
-
-/* ===== MARCAS ATENDIDAS (solo texto) ===== */
+/* ===== MARCAS ATENDIDAS SOLO CUADROS ===== */
 .brands{
-  padding:70px 20px;
+  padding:50px 20px;
   text-align:center;
 }
 .brands h2{
   font-size:2.2rem;
-  margin-bottom:50px;
+  margin-bottom:40px;
   text-shadow:0 0 15px var(--neon-blue);
   color: var(--neon-blue);
 }
@@ -122,11 +50,11 @@ section.intro a:hover{
   background: #121b3a;
   border-radius:15px;
   font-weight:700;
-  font-size:1.2rem;
+  font-size:1.5rem;
   color: var(--neon-green);
   box-shadow: 0 8px 20px rgba(0,229,255,0.3), 0 0 15px rgba(124,77,255,0.4);
   transition: all 0.4s ease;
-  min-width:120px;
+  min-width:150px;
   text-align:center;
 }
 .brand-name:hover{
@@ -137,8 +65,8 @@ section.intro a:hover{
 
 /* LÍNEA DE MARCAS NEON */
 .brands-neon-text{
-  margin-top:20px;
-  font-size:1.1rem;
+  margin-top:30px;
+  font-size:1.2rem;
   font-weight:600;
   color: #00e5ff;
   text-shadow: 
@@ -148,106 +76,29 @@ section.intro a:hover{
     0 0 30px #00e5ff;
 }
 
-/* ===== BOTÓN WHATSAPP ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:linear-gradient(120deg,#25d366,#18ffb2);
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#000;
-  font-size:1.6rem;
-  text-decoration:none;
-  box-shadow:0 0 25px rgba(37,211,102,.7);
-  z-index:5;
-  transition:transform .3s ease;
-}
-.whatsapp:hover{
-  transform:scale(1.1);
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:900px){
-  .services-container{
-    grid-template-columns:1fr;
+  .brand-name{
+    font-size:1.3rem;
+    min-width:130px;
+    padding:18px 25px;
   }
 }
 @media(max-width:600px){
-  section.intro h1{font-size:2.4rem;}
-  section.intro p{font-size:1.05rem;}
   .brands h2{font-size:1.8rem;}
   .brands-neon-text{font-size:1rem;}
+  .brand-name{
+    font-size:1.1rem;
+    min-width:100px;
+    padding:15px 20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<section class="intro">
-  <h1>SERVICIO TÉCNICO</h1>
-  <p>
-    Reparación de celulares con diagnóstico claro, soluciones reales y trabajo garantizado. 
-    Cada equipo se revisa y se entrega funcionando correctamente. 
-    Contamos con técnicos especializados y atención rápida y personalizada.
-  </p>
-  <a href="index.html">⬅ Volver al inicio</a>
-</section>
-
-<!-- SERVICIOS -->
-<section class="services">
-  <h2>SERVICIOS</h2>
-  <div class="services-container">
-
-    <div class="service-card">
-      <img src="pantalla.jpg" alt="Cambio de Pantalla">
-      <h3>CAMBIO DE PANTALLA</h3>
-      <p>
-        ¿Pantalla rota, con toques fantasmas o colores apagados? Reemplazamos por una nueva de alta calidad, dejándola como original. Revisamos brillo y tacto para que tu experiencia sea perfecta. También realizamos pruebas de sensibilidad y calibración para que tu celular quede como nuevo.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <img src="bateria.jpg" alt="Reemplazo de Batería">
-      <h3>REEMPLAZO DE BATERÍA</h3>
-      <p>
-        Si tu batería se descarga rápido o no dura nada, la cambiamos por una nueva, asegurando la autonomía que tu dispositivo merece. Verificamos ciclos de carga completos y consumo energético para prolongar la vida útil de tu teléfono.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <img src="pin-carga.jpg" alt="Pin de Carga">
-      <h3>PIN DE CARGA / PLACA DE CARGA</h3>
-      <p>
-        ¿Tu celular no carga correctamente o el cable debe colocarse en posiciones extrañas? Reemplazamos el pin de carga o conector, asegurando carga rápida y estable. Revisamos la placa y conexiones internas para un funcionamiento seguro y duradero.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <img src="software.jpg" alt="Software y Formateo">
-      <h3>SOFTWARE / FORMATEO</h3>
-      <p>
-        Tu teléfono lento o con errores puede volver a funcionar como nuevo. Lo formateamos y optimizamos, eliminando archivos dañinos y mejorando el rendimiento. Además, ofrecemos respaldo de datos importantes y actualización de sistema según modelo.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <img src="google.jpg" alt="Cuenta Google">
-      <h3>CUENTA GOOGLE</h3>
-      <p>
-        Olvidaste la clave o el correo de Google? Te ayudamos a desbloquearlo según el modelo de tu dispositivo, respetando la seguridad y privacidad de tu información. Recuperá acceso a tu celular sin complicaciones.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- MARCAS ATENDIDAS SOLO TEXTO -->
+<!-- MARCAS ATENDIDAS SOLO CUADROS -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
   <div class="brands-container">
@@ -264,9 +115,6 @@ section.intro a:hover{
     Samsung - Motorola - LG - Huawei - Redmi - iPhone
   </p>
 </section>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
 
 </body>
 </html>
