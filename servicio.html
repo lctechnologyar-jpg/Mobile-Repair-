@@ -83,8 +83,8 @@ section.intro a:hover{
 }
 .service-card img{
   width:100%;
-  max-height:150px;
-  object-fit:cover;
+  height:200px;        /* Altura fija para que se vea completo */
+  object-fit:contain;   /* Se ve toda la imagen sin recorte */
   border-radius:15px;
   margin-bottom:15px;
 }
@@ -115,7 +115,7 @@ section.intro a:hover{
   text-shadow:0 0 5px rgba(0,229,255,0.2);
 }
 
-/* ===== MARCAS ATENDIDAS SOLO TEXTO ===== */
+/* ===== MARCAS ATENDIDAS SOLO CUADROS ===== */
 .brands{
   padding:70px 20px;
   text-align:center;
@@ -264,4 +264,8 @@ section.intro a:hover{
   </div>
 </section>
 
+<!-- WHATSAPP -->
+<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
 
+</body>
+</html>
