@@ -237,59 +237,75 @@ section.intro a:hover{
   </div>
 </section>
 
-<!-- MARCAS ATENDIDAS FIJAS Y UNIFORMES -->
+<!-- MARCAS ATENDIDAS – LOGOS MÁS GRANDES Y CLAROS -->
 <section class="brands">
   <h2>Marcas que atendemos</h2>
-  <div class="brands-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+  <div class="brands-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="samsung.jpg" alt="Samsung" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- Samsung -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="samsung.jpg" alt="Samsung" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="motorola.jpg" alt="Motorola" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- Motorola -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="motorola.jpg" alt="Motorola" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="lg.jpg" alt="LG" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- LG -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="lg.jpg" alt="LG" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="huawei.jpg" alt="Huawei" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- Huawei -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="huawei.jpg" alt="Huawei" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="apple-logo.jpg" alt="iPhone" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- iPhone / Apple -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="apple-logo.png" alt="iPhone" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
-    <div style="width:100px; height:100px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
-      <img src="redmi.jpg" alt="Redmi" style="max-width:80%; max-height:80%; object-fit:contain;">
+    <!-- Redmi -->
+    <div style="width:120px; height:120px; background:#0b1228; display:flex; align-items:center; justify-content:center; border-radius:12px; padding:10px;">
+      <img src="redmi.jpg" alt="Redmi" style="max-width:90%; max-height:90%; object-fit:contain;">
     </div>
 
   </div>
 </section>
 
-<!-- CSS PARA EFECTO NEÓN Y VISIBILIDAD -->
+<!-- EFECTO NEÓN Y VISIBILIDAD -->
 <style>
 .brands-container img {
   transition: all 0.3s ease;
-  filter: invert(1) brightness(2); /* convierte logos negros a visibles */
+  filter: invert(1) brightness(2); /* Hace visibles los logos negros sobre fondo oscuro */
 }
 
 .brands-container img:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 15px #00e5ff, 0 0 25px #7c4dff, 0 0 35px #18ffb2;
+  box-shadow: 0 0 20px #00e5ff, 0 0 30px #7c4dff, 0 0 40px #18ffb2;
 }
 
 /* RESPONSIVE */
+@media(max-width:900px){
+  .brands-container div {
+    width:100px;
+    height:100px;
+  }
+  .brands-container img {
+    max-width:85%;
+    max-height:85%;
+  }
+}
 @media(max-width:600px){
   .brands-container div {
     width:80px;
     height:80px;
   }
   .brands-container img {
-    max-width:70%;
-    max-height:70%;
+    max-width:75%;
+    max-height:75%;
   }
 }
 </style>
@@ -298,8 +314,4 @@ section.intro a:hover{
 
 
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/5491123456789" target="_blank" class="whatsapp">💬</a>
 
-</body>
-</html>
