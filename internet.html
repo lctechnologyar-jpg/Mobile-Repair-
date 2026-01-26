@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Internet Ilimitado | TECHNOLOGY</title>
+<title>Internet Ilimitado | LC TECHNOLOGY</title>
 
 <style>
 :root{
@@ -26,10 +26,9 @@ body{
   min-height:100vh;
   padding:20px;
   text-align:center;
-  flex-direction:column;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* ===== CONTENEDOR ===== */
 .container{
   max-width:900px;
 }
@@ -38,10 +37,7 @@ body{
 .container h1{
   font-size:3rem;
   margin-bottom:30px;
-  color: var(--neon-blue);
-  text-shadow:
-    0 0 5px var(--neon-blue),
-    0 0 10px var(--neon-blue);
+  text-shadow:0 0 15px var(--neon-blue);
 }
 
 /* ===== TEXTO ===== */
@@ -49,56 +45,40 @@ body{
   font-size:1.2rem;
   line-height:1.7;
   color:var(--text-muted);
-  text-align:center;
-  margin-bottom:30px;
-  text-shadow:0 0 2px rgba(0,229,255,0.2); /* leve */
+  margin-bottom:20px;
+  text-shadow:0 0 5px rgba(0,229,255,0.2);
 }
 
-/* ===== BOTÓN VOLVER ===== */
-.back-btn{
+/* ===== BOTÓN IGUAL AL PS2 ===== */
+.back-button{
   display:inline-block;
-  margin-bottom:30px;
+  margin:30px 0;
+  padding:10px 25px;
   color:var(--neon-blue);
-  text-decoration:none;
   font-weight:bold;
+  text-decoration:none;
   font-size:1rem;
-  text-shadow:0 0 5px var(--neon-blue);
-  padding:10px 20px;
-  border-radius:12px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,229,255,0.5);
   transition: transform .3s ease, box-shadow .3s ease;
 }
-.back-btn:hover{
-  transform: scale(1.05);
-  box-shadow:0 0 15px rgba(0,229,255,.5);
+.back-button:hover{
+  transform:scale(1.1);
+  box-shadow:0 10px 25px rgba(0,229,255,0.7);
 }
 
-/* ===== PRÓXIMAMENTE CENTRADO Y NEÓN SUAVE ===== */
+/* ===== PRÓXIMAMENTE ===== */
 .coming-soon{
-  font-size:1.5rem;
+  font-size:1.6rem;
   color:var(--neon-green);
   text-shadow:0 0 15px var(--neon-green);
-  margin-top:30px;
-}
-
-/* ===== ANIMACIÓN NEÓN SUAVE ===== */
-@keyframes neonGlow {
-  from {
-    text-shadow:
-      0 0 3px var(--neon-green),
-      0 0 6px var(--neon-green);
-  }
-  to {
-    text-shadow:
-      0 0 6px var(--neon-green),
-      0 0 12px var(--neon-green);
-  }
+  margin-top:20px;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   .container h1{font-size:2.4rem;}
   .container p{font-size:1.05rem;}
-  .coming-soon{font-size:3rem;}
 }
 </style>
 </head>
@@ -110,19 +90,27 @@ body{
 
   <p>
     Implementamos una app exclusiva con acceso a <strong>internet ilimitado</strong> para que puedas navegar sin quedarte sin conexión en el día a día.
-Nuestro servicio está pensado para ofrecer una experiencia de navegación continua, ideal para redes sociales, mensajería, streaming de música y video, trabajo o estudio.
-
-Disfrutá de tu conexión desde tu celular y dispositivos compatibles, accediendo a contenido en línea, comunicación en tiempo real y herramientas digitales sin interrupciones constantes.
-Buscamos brindar una experiencia rápida, estable y segura, adaptada a las necesidades de cada usuario.
-
-Este servicio es ideal para quienes necesitan estar siempre conectados, optimizando su uso de datos y aprovechando al máximo su dispositivo móvil.
-
-
- </div>
-  El rendimiento y velocidad pueden variar según dispositivo, zona y condiciones de red.
+    Nuestro servicio está pensado para ofrecer una experiencia de navegación continua, ideal para redes sociales, mensajería,
+    streaming de música y video, trabajo o estudio.
   </p>
 
-  <a href="index.html" class="back-btn">⬅ Volver al inicio</a>
+  <p>
+    Disfrutá de tu conexión desde tu celular y dispositivos compatibles, accediendo a contenido en línea, comunicación en tiempo real
+    y herramientas digitales sin interrupciones constantes. Buscamos brindar una experiencia rápida, estable y segura,
+    adaptada a las necesidades de cada usuario.
+  </p>
+
+  <p>
+    Este servicio es ideal para quienes necesitan estar siempre conectados, optimizando su uso de datos y aprovechando
+    al máximo su dispositivo móvil.
+  </p>
+
+  <p style="font-size:0.95rem;">
+    El rendimiento y la velocidad pueden variar según dispositivo, zona y condiciones de red.
+  </p>
+
+  <!-- BOTÓN IGUAL AL DE PS2 -->
+  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
 
   <p class="coming-soon">PRÓXIMAMENTE</p>
 </div>
