@@ -3,130 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TV Digital | TECHNOLOGY</title>
+<title>TV Digital | LC TECHNOLOGY</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg-main:#080c1a;
-  --neon-blue:#00e5ff;
-  --neon-violet:#7c4dff;
+  --bg-main:#05070d;
+  --bg-card:#0b1020;
+  --neon-blue:#00cfff;
   --neon-green:#18ffb2;
-  --text-main:#eaf6ff;
-  --text-muted:#a8b2d1;
+  --text-main:#eaeaea;
+  --text-muted:#9aa6c0;
 }
 
-/* ===== BODY ===== */
-body{
+/* ===== RESET ===== */
+*{
   margin:0;
-  font-family:'Segoe UI', system-ui;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Inter",sans-serif;
   background:var(--bg-main);
   color:var(--text-main);
+  line-height:1.6;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* ===== BOTON FIJO ARRIBA ===== */
+.volver{
+  position:fixed;
+  top:22px;
+  left:22px;
+  padding:12px 20px;
+  border-radius:12px;
+  background:#0c111f;
+  border:1px solid rgba(255,255,255,0.08);
+  color:#fff;
+  text-decoration:none;
+  font-size:.95rem;
+  transition:.3s;
+  z-index:100;
+}
+.volver:hover{
+  border-color:#ffffff44;
+  background:#10172c;
+}
+
+/* ===== CONTENEDOR ===== */
 .container{
-  max-width:1200px;
+  max-width:1000px;
   margin:auto;
-  padding:80px 20px;
+  padding:120px 24px;
   text-align:center;
 }
 
-/* ===== TITULO ===== */
-h1{
+/* ===== HERO ===== */
+.hero{
+  margin-top:40px;
+  margin-bottom:60px;
+}
+
+.hero h1{
+  font-family:"Orbitron",sans-serif;
   font-size:3rem;
   margin-bottom:20px;
+  letter-spacing:1px;
   text-shadow:0 0 20px var(--neon-blue);
 }
 
-/* ===== TEXTO DESCRIPTIVO ===== */
-.description{
+/* ===== CARD CONTENIDO ===== */
+.card{
+  background:var(--bg-card);
+  border-radius:18px;
+  padding:40px 30px;
+  margin:30px auto;
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
   max-width:900px;
-  margin:20px auto 40px;
-  font-size:1.2rem;
-  color:var(--text-muted);
-  line-height:1.8;
-  text-align:center;
-  text-shadow:0 0 5px rgba(0,229,255,0.2);
+  text-align:left;
 }
 
-/* ===== SERVICIO MENSUAL ===== */
+.card p{
+  font-size:1.1rem;
+  color:var(--text-muted);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
 .service-duration{
   font-size:1.4rem;
   color:var(--neon-green);
-  margin:30px 0;
   text-shadow:0 0 10px var(--neon-green);
+  font-weight:500;
+  margin-bottom:30px;
 }
-
-/* ===== BOTON VOLVER ===== */
-.back-button{
-  display:inline-block;
-  margin-top:40px;
-  padding:10px 25px;
-  color:var(--neon-blue);
-  font-weight:bold;
-  text-decoration:none;
-  font-size:1rem;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,229,255,0.5);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.back-button:hover{
-  transform:scale(1.1);
-  box-shadow:0 10px 25px rgba(0,229,255,0.7);
-}
-
 
 /* ===== VIDEO ===== */
 .video-container{
-  max-width:900px;
-  margin:50px auto 80px;
+  margin-top:30px;
 }
 video{
   width:100%;
-  height:auto;
   border-radius:15px;
   box-shadow:0 20px 50px rgba(0,0,0,.5);
 }
 
+/* ===== REVEAL ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
 /* ===== RESPONSIVE ===== */
-@media(max-width:600px){
-  h1{font-size:2.4rem;}
-  .description{font-size:1.05rem;}
+@media(max-width:900px){
+  .hero h1{font-size:2.2rem;}
+  .card p{font-size:1rem;}
   .service-duration{font-size:1.2rem;}
 }
 </style>
 </head>
 <body>
 
+<a href="index.html" class="volver">⬅ Volver</a>
+
 <div class="container">
-  <h1>TV DIGITAL</h1>
 
-  <div class="description">
-    ¿Pagás demasiado por servicios de TV tradicional como DirectTV u otras plataformas similares?
-Si contás con conexión a internet y un dispositivo compatible, tenemos una alternativa práctica, accesible y pensada para adaptarse a tu forma de consumir entretenimiento.
+  <section class="hero reveal">
+    <h1>TV DIGITAL</h1>
+  </section>
 
-Nuestro servicio de TV digital te permite acceder a una amplia variedad de contenidos audiovisuales, incluyendo canales, películas y series, sin instalaciones complejas ni costos excesivos. Podés disfrutar de todo el contenido desde dispositivos Android, computadora o Smart TV, con una experiencia estable y de buena calidad, dependiendo de la conexión disponible.
+  <!-- CARD DE INFORMACIÓN -->
+  <div class="card reveal">
+    <p>
+      ¿Pagás demasiado por servicios de TV tradicional como DirectTV u otras plataformas similares?
+      Si contás con conexión a internet y un dispositivo compatible, tenemos una alternativa práctica y accesible.
+    </p>
+    <p>
+      Nuestro servicio de TV digital permite acceder a canales, películas y series sin instalaciones complicadas ni costos excesivos.
+      Podés disfrutar desde Android, Smart TV o computadora, con estabilidad y buena calidad según tu conexión.
+    </p>
+    <p>
+      Es ideal para quienes buscan optimizar gastos sin resignar entretenimiento, con flexibilidad y comodidad para disfrutar del contenido en casa.
+      Brindamos un servicio claro, directo y mensual, pensado para que tengas control total sobre tu uso.
+    </p>
 
-Este servicio está orientado a quienes buscan optimizar gastos sin resignar entretenimiento, ofreciendo flexibilidad y comodidad para disfrutar del contenido en el hogar. Es ideal para quienes prefieren una solución moderna, simple y funcional, con acceso rápido y sin complicaciones técnicas.
+    <div class="service-duration">
+      SERVICIO MENSUAL DE 30 DÍAS
+    </div>
 
-Brindamos un servicio claro y directo, con funcionamiento mensual, pensado para que el usuario tenga control y libertad sobre su uso, sin ataduras innecesarias.
-
-  <div class="service-duration">
-    SERVICIO MENSUAL DE 30 DIAS 
-  </div>
-
-  <!-- BOTÓN VOLVER -->
-  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
-
-  <!-- VIDEO -->
-  <div class="video-container">
-    <video controls>
-      <source src="tv-digital.mp4" type="video/mp4">
-      Tu navegador no soporta la reproducción de video.
-    </video>
+    <div class="video-container">
+      <video controls>
+        <source src="tv-digital.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
   </div>
 
 </div>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealElements() {
+    reveals.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 80){
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("load", revealElements);
+window.addEventListener("scroll", revealElements);
+</script>
 
 </body>
 </html>
