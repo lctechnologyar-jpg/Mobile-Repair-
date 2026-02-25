@@ -11,7 +11,6 @@
 :root{
   --bg-main:#05070d;
   --bg-card:#0b1020;
-  --neon-blue:#00cfff; /* solo para el título */
   --text-main:#eaeaea;
   --text-muted:#9aa6c0;
 }
@@ -30,7 +29,7 @@ body{
   line-height:1.6;
 }
 
-/* BOTON FIJO ARRIBA */
+/* BOTÓN FIJO ARRIBA */
 .volver{
   position:fixed;
   top:22px;
@@ -68,8 +67,8 @@ body{
   font-size:3rem;
   margin-bottom:20px;
   letter-spacing:1px;
-  text-shadow:0 0 20px var(--neon-blue);
-  color:var(--text-main);
+  color:var(--text-main); /* limpio, sin neón */
+  text-shadow:none;
 }
 
 /* CARD DE CONTENIDO */
@@ -81,12 +80,12 @@ body{
   border:1px solid rgba(255,255,255,0.04);
   box-shadow:0 10px 30px rgba(0,0,0,.3);
   max-width:900px;
-  text-align:left;
+  text-align:center; /* centrado */
 }
 
 .card p{
   font-size:1.1rem;
-  color:var(--text-muted);
+  color:var(--text-main);
   line-height:1.7;
   margin-bottom:20px;
 }
@@ -95,7 +94,7 @@ body{
   font-size:1.4rem;
   font-weight:500;
   margin-bottom:30px;
-  color:var(--text-main); /* ahora igual a todas las otras letras */
+  color:var(--text-main); /* limpio */
 }
 
 /* VIDEO */
@@ -146,7 +145,7 @@ video{
     </p>
     <p>
       Nuestro servicio de TV digital permite acceder a canales, películas y series sin instalaciones complicadas ni costos excesivos.
-      Podés disfrutar desde Android, Smart TV, con estabilidad y buena calidad según tu conexión.
+      Podés disfrutar desde Android, Smart TV o computadora, con estabilidad y buena calidad según tu conexión.
     </p>
     <p>
       Es ideal para quienes buscan optimizar gastos sin resignar entretenimiento, con flexibilidad y comodidad para disfrutar del contenido en casa.
