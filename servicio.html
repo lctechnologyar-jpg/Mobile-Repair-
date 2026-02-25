@@ -330,7 +330,7 @@ Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
 <div class="grid-servicios reveal">
 
 <div class="card">
-<img src="pantalla.jpg">
+<img src="pantalla.jpg" alt="Cambio de Pantalla">
 <div class="card-content">
 <h3>Cambio de Pantalla</h3>
 <p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
@@ -338,7 +338,7 @@ Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
 </div>
 
 <div class="card">
-<img src="bateria.jpg">
+<img src="bateria.jpg" alt="Reemplazo de Batería">
 <div class="card-content">
 <h3>Reemplazo de Batería</h3>
 <p>Baterías nuevas con verificación de carga y duración.</p>
@@ -346,7 +346,7 @@ Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
 </div>
 
 <div class="card">
-<img src="pin-carga.jpg">
+<img src="pin-carga.jpg" alt="Pin de Carga / Placa">
 <div class="card-content">
 <h3>Pin de Carga / Placa</h3>
 <p>Reparación de conectores y revisión eléctrica.</p>
@@ -354,7 +354,7 @@ Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
 </div>
 
 <div class="card">
-<img src="software.jpg">
+<img src="software.jpg" alt="Software / Formateo">
 <div class="card-content">
 <h3>Software / Formateo</h3>
 <p>Optimización del sistema y respaldo de datos.</p>
@@ -362,7 +362,7 @@ Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
 </div>
 
 <div class="card">
-<img src="google.jpg">
+<img src="google.jpg" alt="Cuenta Google">
 <div class="card-content">
 <h3>Cuenta Google</h3>
 <p>Eliminación o recuperación segura según modelo.</p>
@@ -454,15 +454,23 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 </div>
 
+<!-- ================= REVEAL SCRIPT CORREGIDO ================= -->
 <script>
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-reveals.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-80){
-el.classList.add("active");
+const reveals = document.querySelectorAll(".reveal");
+
+function revealElements() {
+    reveals.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 80){
+            el.classList.add("active");
+        }
+    });
 }
-});
-});
+
+// Ejecutar al cargar la página
+window.addEventListener("load", revealElements);
+
+// Ejecutar al hacer scroll
+window.addEventListener("scroll", revealElements);
 </script>
 
 </body>
