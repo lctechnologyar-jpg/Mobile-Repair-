@@ -12,7 +12,6 @@
   --bg-main:#05070d;
   --bg-card:#0b1020;
   --text-main:#eaeaea;
-  --text-muted:#9aa6c0;
 }
 
 /* RESET */
@@ -27,6 +26,7 @@ body{
   background:var(--bg-main);
   color:var(--text-main);
   line-height:1.6;
+  text-align:center;
 }
 
 /* BOTÓN FIJO ARRIBA */
@@ -54,7 +54,6 @@ body{
   max-width:1000px;
   margin:auto;
   padding:120px 24px;
-  text-align:center;
 }
 
 /* HERO / TITULO */
@@ -67,7 +66,7 @@ body{
   font-size:3rem;
   margin-bottom:20px;
   letter-spacing:1px;
-  color:var(--text-main); /* limpio, sin neón */
+  color:var(--text-main);
   text-shadow:none;
 }
 
@@ -80,7 +79,7 @@ body{
   border:1px solid rgba(255,255,255,0.04);
   box-shadow:0 10px 30px rgba(0,0,0,.3);
   max-width:900px;
-  text-align:center; /* centrado */
+  text-align:center;
 }
 
 .card p{
@@ -94,7 +93,7 @@ body{
   font-size:1.4rem;
   font-weight:500;
   margin-bottom:30px;
-  color:var(--text-main); /* limpio */
+  color:var(--text-main);
 }
 
 /* VIDEO */
@@ -105,17 +104,6 @@ video{
   width:100%;
   border-radius:15px;
   box-shadow:0 20px 50px rgba(0,0,0,.5);
-}
-
-/* REVEAL ANIMATION */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.9s ease;
-}
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
 }
 
 /* RESPONSIVE */
@@ -133,12 +121,12 @@ video{
 <div class="container">
 
   <!-- HERO -->
-  <section class="hero reveal">
+  <section class="hero">
     <h1>TV DIGITAL</h1>
   </section>
 
   <!-- CARD DE INFORMACIÓN -->
-  <div class="card reveal">
+  <div class="card">
     <p>
       ¿Pagás demasiado por servicios de TV tradicional como DirectTV u otras plataformas similares?
       Si contás con conexión a internet y un dispositivo compatible, tenemos una alternativa práctica y accesible.
@@ -165,21 +153,6 @@ video{
   </div>
 
 </div>
-
-<script>
-const reveals = document.querySelectorAll(".reveal");
-
-function revealElements() {
-    reveals.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 80){
-            el.classList.add("active");
-        }
-    });
-}
-
-window.addEventListener("load", revealElements);
-window.addEventListener("scroll", revealElements);
-</script>
 
 </body>
 </html>
