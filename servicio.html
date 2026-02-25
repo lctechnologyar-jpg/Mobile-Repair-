@@ -3,242 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Servicios | LC Technology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- BASE ---------- */
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:"Inter",sans-serif;
-background:#05070d;
-color:#eaeaea;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:110px 24px 140px;
-}
-
-/* ---------- BOTON VOLVER ---------- */
-
-.volver{
-position:fixed;
-top:22px;
-left:22px;
-padding:10px 18px;
-border-radius:10px;
-background:#0c111f;
-border:1px solid rgba(255,255,255,0.08);
-color:#eaeaea;
-text-decoration:none;
-font-size:0.9rem;
-transition:.3s;
-}
-
-.volver:hover{
-border-color:#ffffff33;
-}
-
-/* ---------- TITULOS ---------- */
-
-.titulo{
-font-family:"Orbitron",sans-serif;
-font-size:2.2rem;
-margin-bottom:60px;
-}
-
-/* ---------- LAYOUT ---------- */
-
-.layout{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:70px;
-align-items:start;
-}
-
-/* ---------- SERVICIOS ---------- */
-
-.grid-servicios{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:40px;
-}
-
-.card{
-background:#0b1020;
-border-radius:16px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,0.05);
-transition:.35s ease;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 12px 30px rgba(0,0,0,0.35);
-}
-
-.card img{
-width:100%;
-height:160px;
-object-fit:contain;
-background:#070b18;
-padding:22px;
-}
-
-.card-content{
-padding:22px 24px 26px;
-}
-
-.card h3{
-margin:0 0 8px;
-font-size:1.05rem;
-font-weight:500;
-}
-
-.card p{
-margin:0;
-color:#9aa6c0;
-font-size:0.9rem;
-line-height:1.5;
-}
-
-/* ---------- MARCAS ---------- */
-
-.marcas-box{
-background:#0b1020;
-border-radius:16px;
-padding:34px;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.marcas-box h2{
-font-family:"Orbitron",sans-serif;
-margin:0 0 28px;
-font-size:1.3rem;
-}
-
-.marcas-grid{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-}
-
-.marca{
-padding:9px 18px;
-border-radius:10px;
-background:#0f1528;
-border:1px solid rgba(255,255,255,0.06);
-font-size:0.9rem;
-color:#cfd6ea;
-}
-
-/* ---------- CALIDAD ---------- */
-
-.calidad{
-margin-top:70px;
-padding:34px 32px;
-background:#0b1020;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.calidad h3{
-font-family:"Orbitron",sans-serif;
-margin:0 0 14px;
-font-size:1.2rem;
-}
-
-.calidad p{
-margin:0;
-color:#9aa6c0;
-font-size:0.9rem;
+font-family:"Inter", sans-serif;
+background:#f3f5f8;
+color:#1f2933;
 line-height:1.6;
 }
 
-/* ---------- DIVISOR ---------- */
+/* =========================
+CONTAINER
+========================= */
 
-.divisor{
-margin:110px 0 80px;
-height:1px;
-background:rgba(255,255,255,0.06);
+.container{
+width:100%;
+max-width:1200px;
+margin:auto;
+padding:0 24px;
 }
 
-/* ---------- POR QUE ELEGIRNOS ---------- */
+/* =========================
+HEADER SIMPLE
+========================= */
 
-.why-grid{
+header{
+padding:24px 0;
+background:white;
+border-bottom:1px solid #e5e7eb;
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+color:#0f172a;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+padding:90px 0 60px 0;
+background:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:600;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.hero p{
+max-width:620px;
+margin:auto;
+color:#64748b;
+font-size:18px;
+}
+
+/* =========================
+SECTION TITLES
+========================= */
+
+.section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+font-weight:600;
+margin-bottom:60px;
+color:#0f172a;
+}
+
+/* =========================
+SERVICIOS GRID
+========================= */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+}
+
+.service-card{
+background:white;
+padding:32px;
+border-radius:16px;
+border:1px solid #e5e7eb;
+transition:all .25s ease;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,0.06);
+}
+
+.service-icon{
+font-size:32px;
+margin-bottom:16px;
+}
+
+.service-card h3{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.service-card p{
+color:#64748b;
+}
+
+/* =========================
+MARCAS
+========================= */
+
+.brands{
+background:white;
+padding:80px 0;
+}
+
+.brand-grid{
+display:flex;
+flex-wrap:wrap;
+gap:18px;
+justify-content:center;
+}
+
+.brand{
+padding:14px 28px;
+border-radius:10px;
+border:1px solid #e5e7eb;
+background:#fafafa;
+font-weight:500;
+transition:.25s;
+}
+
+.brand:hover{
+background:#f1f5f9;
+}
+
+/* =========================
+REPUESOS CALIDAD
+========================= */
+
+.quality{
+padding:80px 0;
+text-align:center;
+}
+
+.quality-box{
+max-width:700px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:16px;
+border:1px solid #e5e7eb;
+}
+
+.quality h3{
+margin-bottom:15px;
+}
+
+.quality p{
+color:#64748b;
+}
+
+/* =========================
+PROCESO
+========================= */
+
+.process{
+padding:90px 0;
+background:white;
+}
+
+.process-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:30px;
+gap:25px;
 }
 
-.why-item{
-background:#0b1020;
-padding:28px;
+.step{
+padding:30px;
+border:1px solid #e5e7eb;
 border-radius:14px;
-border:1px solid rgba(255,255,255,0.05);
+text-align:center;
 }
 
-.why-item h4{
-margin:0 0 8px;
-font-weight:500;
+.step-number{
+font-size:26px;
+margin-bottom:10px;
 }
 
-.why-item p{
-margin:0;
-color:#9aa6c0;
-font-size:.9rem;
+.step p{
+color:#64748b;
 }
 
-/* ---------- BOTON ---------- */
+/* =========================
+FOOTER
+========================= */
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:13px 26px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.15);
-color:white;
-text-decoration:none;
-font-size:.9rem;
-transition:.3s;
+footer{
+text-align:center;
+padding:40px;
+color:#64748b;
 }
 
-.btn:hover{
-background:#0f1528;
-}
-
-/* ---------- ANIMACION SCROLL ---------- */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:900px){
 
-.layout{
-grid-template-columns:1fr;
-gap:60px;
-}
-
-.grid-servicios{
+.services-grid{
 grid-template-columns:1fr;
 }
 
-.why-grid{
+.process-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+@media(max-width:500px){
+
+.process-grid{
 grid-template-columns:1fr;
 }
 
@@ -249,76 +260,94 @@ grid-template-columns:1fr;
 
 <body>
 
-<a href="index.html" class="volver">← Volver</a>
-
+<header>
 <div class="container">
+<div class="logo">LC TECHNOLOGY</div>
+</div>
+</header>
 
-<h1 class="titulo reveal">Servicios</h1>
-
-<div class="layout">
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<h1>Servicio técnico especializado en celulares</h1>
+<p>
+Reparación profesional con diagnóstico preciso, repuestos de calidad y procesos técnicos confiables.
+Cada equipo es evaluado cuidadosamente antes de cualquier intervención.
+</p>
+</div>
+</section>
 
 <!-- SERVICIOS -->
-<div class="grid-servicios reveal">
+<section class="section">
+<div class="container">
 
-<div class="card">
-<img src="pantalla.jpg">
-<div class="card-content">
+<h2 class="section-title">Servicios</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<div class="service-icon">📱</div>
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
-</div>
+<p>Reemplazo completo de módulos y pantallas dañadas con pruebas de funcionamiento, brillo y respuesta táctil.</p>
 </div>
 
-<div class="card">
-<img src="bateria.jpg">
-<div class="card-content">
+<div class="service-card">
+<div class="service-icon">🔋</div>
 <h3>Reemplazo de Batería</h3>
-<p>Baterías nuevas con verificación de carga y duración.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="pin-carga.jpg">
-<div class="card-content">
-<h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores y revisión eléctrica.</p>
-</div>
+<p>Instalación de batería nueva compatible con verificación de carga y autonomía del dispositivo.</p>
 </div>
 
-<div class="card">
-<img src="software.jpg">
-<div class="card-content">
-<h3>Software / Formateo</h3>
-<p>Optimización del sistema y respaldo de datos.</p>
-</div>
+<div class="service-card">
+<div class="service-icon">⚡</div>
+<h3>Pin de Carga</h3>
+<p>Reparación de conectores y solución de fallas de carga o conexión del equipo.</p>
 </div>
 
-<div class="card">
-<img src="google.jpg">
-<div class="card-content">
+<div class="service-card">
+<div class="service-icon">💻</div>
+<h3>Software y Formateo</h3>
+<p>Optimización del sistema, actualización de software y recuperación del funcionamiento del equipo.</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🔐</div>
 <h3>Cuenta Google</h3>
-<p>Eliminación o recuperación segura según modelo.</p>
+<p>Configuración y restauración de cuentas según el modelo del dispositivo.</p>
 </div>
+
+<div class="service-card">
+<div class="service-icon">🔍</div>
+<h3>Diagnóstico Técnico</h3>
+<p>Evaluación completa del estado del equipo para determinar fallas y soluciones.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- MARCAS -->
+<section class="brands">
+<div class="container">
+
+<h2 class="section-title">Marcas que atendemos</h2>
+
+<div class="brand-grid">
+<div class="brand">Samsung</div>
+<div class="brand">Motorola</div>
+<div class="brand">LG</div>
+<div class="brand">Huawei</div>
+<div class="brand">iPhone</div>
+<div class="brand">Xiaomi / Redmi</div>
 </div>
 
 </div>
+</section>
 
-<!-- COLUMNA DERECHA -->
-<div>
+<!-- CALIDAD -->
+<section class="quality">
+<div class="container">
 
-<div class="marcas-box reveal">
-<h2>Marcas que atendemos</h2>
-
-<div class="marcas-grid">
-<div class="marca">Samsung</div>
-<div class="marca">Motorola</div>
-<div class="marca">LG</div>
-<div class="marca">Huawei</div>
-<div class="marca">iPhone</div>
-<div class="marca">Xiaomi / Redmi</div>
-</div>
-</div>
-
-<div class="calidad reveal">
+<div class="quality-box">
 <h3>Repuestos y Calidad</h3>
 <p>
 Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
@@ -327,55 +356,44 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 </div>
 
 </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process">
+<div class="container">
+
+<h2 class="section-title">Proceso de servicio</h2>
+
+<div class="process-grid">
+
+<div class="step">
+<div class="step-number">1</div>
+<p>Recepción y revisión del equipo.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<p>Diagnóstico técnico del problema.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<p>Presupuesto y confirmación.</p>
+</div>
+
+<div class="step">
+<div class="step-number">4</div>
+<p>Reparación y entrega.</p>
+</div>
 
 </div>
 
-<div class="divisor"></div>
-
-<!-- POR QUE ELEGIRNOS -->
-
-<h2 class="titulo reveal">Por qué elegirnos</h2>
-
-<div class="why-grid reveal">
-
-<div class="why-item">
-<h4>Diagnóstico Claro</h4>
-<p>Evaluación completa antes de cualquier reparación.</p>
 </div>
+</section>
 
-<div class="why-item">
-<h4>Reparación Rápida</h4>
-<p>Procesos optimizados para menor tiempo de entrega.</p>
-</div>
-
-<div class="why-item">
-<h4>Garantía de Servicio</h4>
-<p>Trabajo respaldado con control de calidad.</p>
-</div>
-
-<div class="why-item">
-<h4>Atención Profesional</h4>
-<p>Asesoramiento transparente en todo momento.</p>
-</div>
-
-</div>
-
-<a href="#" class="btn reveal">Solicitar diagnóstico</a>
-
-</div>
-
-<script>
-const revealElements = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-revealElements.forEach(el => {
-const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 80){
-el.classList.add("active");
-}
-});
-});
-</script>
+<footer>
+LC Technology © 2026
+</footer>
 
 </body>
 </html>
