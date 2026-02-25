@@ -459,15 +459,19 @@
 </div>
         </div>
 
-        <form class="form" onsubmit="submitForm(event)" aria-label="Formulario de contacto">
-          <input type="text" name="name" placeholder="Nombre" required aria-required="true" />
-          <input type="email" name="email" placeholder="Email" required aria-required="true" />
-          <textarea name="message" rows="6" placeholder="Mensaje / consulta" required aria-required="true"></textarea>
-          <div style="display:flex;gap:12px;align-items:center">
-            <button class="btn btn-primary" type="submit">Enviar consulta</button>
-            <button class="btn btn-ghost" type="button" onclick="location.href='https://wa.me/5492634307686'">Contactar por WhatsApp</button>
-          </div>
-        </form>
+        <form class="form" action="https://formsubmit.co/lc.technology.ar@gmail.com" method="POST" aria-label="Formulario de contacto">
+  <input type="text" name="name" placeholder="Nombre" required aria-required="true" />
+  <input type="email" name="email" placeholder="Email" required aria-required="true" />
+  <textarea name="message" rows="6" placeholder="Mensaje / consulta" required aria-required="true"></textarea>
+
+  <!-- Opcional: desactivar captcha y definir redirección -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://tu-dominio.com/gracias.html">
+
+  <div style="display:flex;gap:12px;align-items:center">
+    <button class="btn btn-primary" type="submit">Enviar consulta</button>
+  </div>
+</form>
       </div>
     </section>
 
