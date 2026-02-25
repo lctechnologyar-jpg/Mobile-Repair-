@@ -558,15 +558,17 @@ nav.primary .dropdown-content {
         </div>
 
 <form id="contactForm" action="https://formsubmit.co/lc.technology.ar@gmail.com" method="POST" class="form">
+  <!-- Esto evita que FormSubmit redirija -->
+  <input type="hidden" name="_redirect" value="https://lctechnologyar-jpg.github.io/">
+
   <input type="text" name="name" placeholder="Tu nombre" required>
   <input type="email" name="email" placeholder="Tu correo electrónico" required>
   <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
   <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
-<!-- Mensaje de agradecimiento -->
 <div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
-  ¡Gracias por contactarnos! Te responderemos pronto.
+  ¡Gracias por tu consulta! Te responderemos pronto.
 </div>
       </div>
     </section>
