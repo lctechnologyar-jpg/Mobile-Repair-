@@ -11,7 +11,6 @@
   <style>
     :root{
       --bg:#060818;
-      --panel:#0b1020;
       --muted:#9aa6c0;
       --text:#eaf6ff;
       --accent:#00cfff;
@@ -36,6 +35,7 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block;height:auto}
 
+    /* Header */
     header{
       position:fixed;top:0;left:0;right:0;height:72px;
       display:flex;align-items:center;justify-content:space-between;
@@ -52,7 +52,7 @@
     .brand .title{font-family:"Orbitron",sans-serif;letter-spacing:0.14em;color:var(--text);font-size:1.05rem}
     .brand .subtitle{font-size:0.78rem;color:var(--muted);margin-top:2px}
 
-    /* Nav principal */
+    /* Nav */
     nav.primary{display:flex;align-items:center;gap:18px;position:relative;}
     nav.primary a{color:var(--muted);padding:8px 12px;border-radius:10px;font-weight:600;font-size:0.95rem;transition:color var(--transition), background var(--transition), transform var(--transition);}
     nav.primary a:hover{color:var(--text);background:var(--glass);transform:translateY(-2px);}
@@ -76,28 +76,64 @@
     .dropdown-menu a:hover{background:var(--glass);color:var(--text);}
     .dropdown.show .dropdown-menu{display:flex;}
 
+    /* CTA */
     .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:12px;color:#021022;font-weight:700;box-shadow:0 8px 30px rgba(12,55,120,0.16);transition:transform var(--transition);}
     .cta:hover{transform:translateY(-2px)}
+
+    /* Mobile */
+    .burger{display:none;width:34px;height:28px;flex-direction:column;justify-content:space-between;cursor:pointer;}
+    .burger span{display:block;height:3px;background:var(--text);border-radius:2px;}
+
+    .mobile-menu{
+      position:fixed;top:72px;right:-100%;width:280px;height:calc(100vh - 72px);
+      background:rgba(5,7,15,0.97);backdrop-filter:blur(10px);
+      padding:20px;display:flex;flex-direction:column;gap:12px;
+      transition:right .4s ease;
+      z-index:300;
+    }
+    .mobile-menu.show{right:0;}
+    .mobile-menu a{padding:10px;color:var(--muted);border-radius:10px;}
+    .mobile-menu a:hover{background:var(--glass);color:var(--text);}
+
+    @media(max-width:880px){
+      nav.primary{display:none;}
+      .burger{display:flex;}
+    }
 
     /* Hero */
     .hero{margin-top:72px;min-height:calc(100vh - 72px);display:grid;align-items:center;justify-items:center;padding:clamp(28px,5vw,64px);gap:28px;}
     .hero-inner{width:100%;max-width:1200px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;}
+    @media(max-width:960px){.hero-inner{grid-template-columns:1fr;}}
+
     .hero-card{padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.03);}
-    .hero-title{font-family:"Orbitron",sans-serif;font-size:clamp(1.6rem,4.8vw,3.4rem);margin:0;color:var(--text);letter-spacing:0.06em;}
+    .hero-title{font-family:"Orbitron",sans-serif;font-size:clamp(1.6rem,4.8vw,3.4rem);margin:0;color:var(--text);}
     .hero-sub{color:var(--muted);margin-top:12px;font-size:1rem;}
     .hero-actions{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;font-weight:600;cursor:pointer;border:0;transition:transform var(--transition), box-shadow var(--transition);}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021022;box-shadow:0 12px 30px rgba(12,55,120,0.12);}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;font-weight:600;cursor:pointer;border:0;transition:transform var(--transition);}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021022;}
     .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.05);}
-    .hero-visual{border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(2,6,14,0.6),rgba(2,6,14,0.4));box-shadow:0 10px 40px rgba(0,0,0,0.6);}
-    .hero-visual .bg{position:relative;height:100%;min-height:260px;background:url('Mio.png') center/cover no-repeat;}
-    .hero-visual .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,14,0.2),rgba(2,6,14,0.6));}
-    .hero-visual .badge{position:absolute;left:16px;bottom:16px;background:rgba(0,0,0,0.45);padding:10px 14px;border-radius:10px;color:var(--text);font-weight:600;border:1px solid rgba(255,255,255,0.03);}
+    .hero-visual{border-radius:12px;overflow:hidden;background:url('Mio.png') center/cover no-repeat;height:100%;min-height:300px;box-shadow:0 10px 40px rgba(0,0,0,0.6);}
 
-    footer{margin-top:40px;padding:28px 20px;background:linear-gradient(180deg,rgba(3,6,12,1),rgba(6,9,18,1));color:var(--muted);text-align:center}
+    /* Section */
+    .section{padding:60px 20px;max-width:1200px;margin:0 auto;}
+    .section h3{text-align:center;margin-bottom:28px;font-size:1.5rem;color:var(--text);}
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);text-align:center;transition:transform var(--transition);}
+    .card:hover{transform:translateY(-6px);}
+    .card span{display:block;margin-top:10px;color:var(--muted);}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+    .socials{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+    .socials a{padding:12px;border-radius:10px;background:var(--glass);display:flex;align-items:center;gap:10px;color:var(--text);}
+    .form{display:flex;flex-direction:column;gap:12px;}
+    .form input,.form textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:10px;color:var(--text);}
+    .btn-send{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;padding:12px;border-radius:10px;color:#021022;font-weight:700;cursor:pointer;}
+
+    footer{margin-top:40px;padding:28px 20px;background:#060a16;color:var(--muted);text-align:center;}
   </style>
 </head>
-
 <body>
 
 <header>
@@ -111,7 +147,6 @@
 
   <nav class="primary">
     <a href="#inicio">Inicio</a>
-
     <div class="dropdown" id="serviciosDropdown">
       <a class="dropdown-toggle">Servicios ▾</a>
       <div class="dropdown-menu">
@@ -123,13 +158,31 @@
         <a href="internet.html">Internet</a>
       </div>
     </div>
-
     <a href="#nosotros">Nosotros</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
   <a class="cta" href="https://wa.me/5492634722710" target="_blank">WhatsApp</a>
 </header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <div class="dropdown">
+    <a class="dropdown-toggle">Servicios ▾</a>
+    <div class="dropdown-menu">
+      <a href="servicio.html">Servicio Técnico</a>
+      <a href="venta.html">Venta de Celulares</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="tv-digital.html">TV Digital</a>
+      <a href="ps2.html">Juegos de PS2</a>
+      <a href="internet.html">Internet</a>
+    </div>
+  </div>
+</div>
 
 <main id="inicio">
   <section class="hero">
@@ -137,47 +190,83 @@
       <div class="hero-card">
         <h1 class="hero-title">Soluciones tecnológicas confiables y profesionales</h1>
         <p class="hero-sub">Reparación, venta y soporte técnico con atención personalizada — procesos claros, garantías reales.</p>
-
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://wa.me/5492634722710" target="_blank">WhatsApp</a>
           <button class="btn btn-ghost" onclick="location.href='#servicios'">Nuestros servicios</button>
         </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:0.95rem">
-          Horarios: Lunes a Sábado 9:00 - 22:00 · Domingo Cerrado
-        </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:0.95rem">Horarios: Lunes a Sábado 9:00 - 22:00 · Domingo Cerrado</div>
       </div>
-
-      <aside class="hero-visual">
-        <div class="bg">
-          <div class="overlay"></div>
-          <div class="badge">LC TECHNOLOGY · Profesional</div>
-        </div>
-      </aside>
+      <div class="hero-visual"></div>
     </div>
   </section>
 
-  <!-- resto del contenido (igual que el tuyo) -->
-  <!-- ... -->
-  
+  <!-- Servicios -->
+  <section id="servicios" class="section">
+    <h3>Servicios</h3>
+    <div class="grid">
+      <div class="card"><h4>Reparación Profesional</h4><span>Diagnóstico claro y garantía por escrito.</span></div>
+      <div class="card"><h4>Venta de Celulares</h4><span>Equipos verificados y asesoramiento técnico.</span></div>
+      <div class="card"><h4>Accesorios</h4><span>Calidad y compatibilidad asegurada.</span></div>
+      <div class="card"><h4>TV Digital & Internet</h4><span>Instalación y configuración confiable.</span></div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="section">
+    <h3>Sobre Nosotros</h3>
+    <p>LC TECHNOLOGY nació con la visión de ofrecer soluciones tecnológicas confiables, pensadas para responder a las necesidades reales de cada cliente. Supervisamos personalmente cada trabajo, priorizando la transparencia y la comunicación directa.</p>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="section">
+    <h3>Contacto</h3>
+    <div class="contact-grid">
+      <div>
+        <p>Respondemos consultas, presupuestos y dudas de forma clara y rápida. Elegí el canal que prefieras:</p>
+        <div class="socials">
+          <a href="https://wa.me/5492634722710" target="_blank">📱 WhatsApp · +54 9 2634 722710</a>
+          <a href="mailto:lc.technology.ar@gmail.com">✉️ lc.technology.ar@gmail.com</a>
+          <a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank">📘 Facebook</a>
+        </div>
+      </div>
+      <form class="form" onsubmit="submitForm(event)">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="message" rows="6" placeholder="Mensaje / consulta" required></textarea>
+        <button class="btn-send" type="submit">Enviar consulta</button>
+      </form>
+    </div>
+  </section>
+
   <footer>
     LC TECHNOLOGY © 2026 · Todos los derechos reservados · <a href="#">Privacidad</a>
   </footer>
 </main>
 
 <script>
-  // Dropdown toggle
   const dropdown = document.getElementById('serviciosDropdown');
   const toggle = dropdown.querySelector('.dropdown-toggle');
+  toggle.addEventListener('click', ()=>dropdown.classList.toggle('show'));
+  document.addEventListener('click', (e)=>{ if(!dropdown.contains(e.target)) dropdown.classList.remove('show'); });
 
-  toggle.addEventListener('click', () => {
-    dropdown.classList.toggle('show');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) dropdown.classList.remove('show');
-  });
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click',()=>mobileMenu.classList.toggle('show'));
+  document.addEventListener('click',(e)=>{if(!mobileMenu.contains(e.target)&&!burger.contains(e.target)){mobileMenu.classList.remove('show');}});
+  
+  // Form -> WhatsApp
+  function submitForm(e){
+    e.preventDefault();
+    const form=e.target;
+    const name=form.name.value.trim();
+    const email=form.email.value.trim();
+    const msg=form.message.value.trim();
+    if(!name||!email||!msg){alert("Completá todos los campos.");return;}
+    const text=encodeURIComponent(`Consulta desde la web:\nNombre: ${name}\nEmail: ${email}\nMensaje: ${msg}`);
+    window.open(`https://wa.me/5492634722710?text=${text}`,"_blank");
+    form.reset();
+  }
 </script>
-
 </body>
 </html>
