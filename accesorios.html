@@ -5,85 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Venta de Accesorios | LC TECHNOLOGY</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --bg-main:#080c1a;
-  --neon-blue:#00e5ff;
-  --neon-violet:#7c4dff;
-  --neon-green:#18ffb2;
-  --text-main:#eaf6ff;
-  --text-muted:#a8b2d1;
+  --bg-main:#05070d;
+  --neon-blue:#00cfff;
+  --text-main:#eaeaea;
+  --text-muted:#9aa6c0;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-  margin:0;
-  font-family:'Segoe UI', system-ui;
+  font-family:"Inter",sans-serif;
   background:var(--bg-main);
   color:var(--text-main);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+  line-height:1.6;
+}
+
+/* ================= BOTÓN FIJO ================= */
+.volver{
+  position:fixed;
+  top:22px;
+  left:22px;
+  padding:12px 20px;
+  border-radius:12px;
+  background:#0c111f;
+  border:1px solid rgba(255,255,255,0.08);
+  color:#fff;
+  text-decoration:none;
+  font-size:.95rem;
+  transition:.3s;
+  z-index:100;
+}
+
+.volver:hover{
+  border-color:#ffffff44;
+  background:#10172c;
+}
+
+/* ================= CONTENIDO CENTRAL ================= */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:120px 24px;
   text-align:center;
-  padding:20px;
 }
 
-.content{
-  max-width:900px;
+.hero{
+  margin-top:40px; /* separación del botón */
+  margin-bottom:60px;
 }
 
-.content h1{
-  font-size:2.8rem;
-  margin-bottom:30px;
+.hero h1{
+  font-family:"Orbitron",sans-serif;
+  font-size:3rem;
+  margin-bottom:20px;
+  letter-spacing:1px;
   text-shadow:0 0 20px var(--neon-blue);
 }
 
-.content p{
-  font-size:1.2rem;
+.hero p{
   color:var(--text-muted);
+  font-size:1.1rem;
+  max-width:780px;
+  margin:auto;
   line-height:1.7;
 }
 
-/* BOTÓN IGUAL AL DE PS2 */
-.back-button{
-  display:inline-block;
-  margin-top:40px;
-  padding:10px 25px;
-  color:var(--neon-blue);
-  font-weight:bold;
-  text-decoration:none;
-  font-size:1rem;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,229,255,0.5);
-  transition: transform .3s ease, box-shadow .3s ease;
+/* ================= REVEAL ANIMATION ================= */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s ease;
 }
 
-.back-button:hover{
-  transform:scale(1.1);
-  box-shadow:0 10px 25px rgba(0,229,255,0.7);
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
-@media(max-width:600px){
-  .content h1{font-size:2.4rem;}
-  .content p{font-size:1.05rem;}
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero h1{font-size:2.2rem;}
+  .hero p{font-size:1rem;}
 }
 </style>
 </head>
 <body>
 
-<div class="content">
-  <h1>PRÓXIMAMENTE</h1>
+<!-- BOTÓN FIJO ARRIBA -->
+<a href="index.html" class="volver">⬅ Volver</a>
 
-  <p>
-    En esta sección incorporaremos una variedad de accesorios para celulares, pensados para distintos modelos y marcas.
-    Entre ellos: auriculares, fundas, cargadores de pared y vehiculares, cables USB, auriculares inalámbricos,
-    vidrios templados, parlantes y otros accesorios disponibles según stock.
-  </p>
+<div class="container">
 
-  <!-- BOTÓN IGUAL AL DE PS2 -->
-  <a href="index.html" class="back-button">⬅ Volver al inicio</a>
+  <!-- HERO / TEXTO PRINCIPAL -->
+  <section class="hero reveal">
+    <h1>PRÓXIMAMENTE – Accesorios para tu celular</h1>
+    <p>
+      Muy pronto incorporaremos una amplia variedad de accesorios para celulares, diseñados para todos los modelos y marcas.
+      Entre ellos encontrarás: fundas, cargadores de pared y para auto, cables USB, auriculares (inalámbricos y con cable), 
+      vidrios templados, parlantes y muchos otros productos de calidad, disponibles según stock. 
+      Mantente atento para no perderte nuestras novedades.
+    </p>
+  </section>
+
 </div>
+
+<!-- ================= SCRIPT REVEAL ================= -->
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealElements() {
+    reveals.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 80){
+            el.classList.add("active");
+        }
+    });
+}
+
+// Activar al cargar
+window.addEventListener("load", revealElements);
+// Activar al hacer scroll
+window.addEventListener("scroll", revealElements);
+</script>
 
 </body>
 </html>
-
