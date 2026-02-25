@@ -57,9 +57,14 @@
     .logo {
       display:flex;align-items:center;gap:12px;
     }
-    .logo img{
-      width:52px;height:52px;border-radius:8px;object-fit:cover;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    .logo img {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: contain; /* muestra todo el logo */
+  background-color: #000; /* opcional, fondo si la imagen no ocupa todo */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
     }
     .brand {
       display:flex;flex-direction:column;line-height:1;
