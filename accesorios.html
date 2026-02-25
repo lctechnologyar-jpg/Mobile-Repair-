@@ -10,11 +10,11 @@
 <style>
 :root{
   --bg-main:#05070d;
-  --neon-blue:#00cfff;
   --text-main:#eaeaea;
   --text-muted:#9aa6c0;
 }
 
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -26,9 +26,10 @@ body{
   background:var(--bg-main);
   color:var(--text-main);
   line-height:1.6;
+  text-align:center;
 }
 
-/* ================= BOTÓN FIJO ================= */
+/* BOTÓN FIJO ARRIBA */
 .volver{
   position:fixed;
   top:22px;
@@ -43,20 +44,19 @@ body{
   transition:.3s;
   z-index:100;
 }
-
 .volver:hover{
   border-color:#ffffff44;
   background:#10172c;
 }
 
-/* ================= CONTENIDO CENTRAL ================= */
+/* CONTENEDOR CENTRAL */
 .container{
   max-width:1000px;
   margin:auto;
   padding:120px 24px;
-  text-align:center;
 }
 
+/* HERO / TEXTO PRINCIPAL */
 .hero{
   margin-top:40px; /* separación del botón */
   margin-bottom:60px;
@@ -67,30 +67,19 @@ body{
   font-size:3rem;
   margin-bottom:20px;
   letter-spacing:1px;
-  text-shadow:0 0 20px var(--neon-blue);
+  color:var(--text-main); /* limpio, sin color */
+  text-shadow:none; /* quitar neón */
 }
 
 .hero p{
-  color:var(--text-muted);
+  color:var(--text-main); /* todo uniforme */
   font-size:1.1rem;
   max-width:780px;
   margin:auto;
   line-height:1.7;
 }
 
-/* ================= REVEAL ANIMATION ================= */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:.9s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media(max-width:900px){
   .hero h1{font-size:2.2rem;}
   .hero p{font-size:1rem;}
@@ -105,7 +94,7 @@ body{
 <div class="container">
 
   <!-- HERO / TEXTO PRINCIPAL -->
-  <section class="hero reveal">
+  <section class="hero">
     <h1>PRÓXIMAMENTE – Accesorios para tu celular</h1>
     <p>
       Muy pronto incorporaremos una amplia variedad de accesorios para celulares, diseñados para todos los modelos y marcas.
@@ -116,24 +105,6 @@ body{
   </section>
 
 </div>
-
-<!-- ================= SCRIPT REVEAL ================= -->
-<script>
-const reveals = document.querySelectorAll(".reveal");
-
-function revealElements() {
-    reveals.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 80){
-            el.classList.add("active");
-        }
-    });
-}
-
-// Activar al cargar
-window.addEventListener("load", revealElements);
-// Activar al hacer scroll
-window.addEventListener("scroll", revealElements);
-</script>
 
 </body>
 </html>
