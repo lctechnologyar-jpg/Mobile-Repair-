@@ -125,13 +125,14 @@
       gap:28px;
     }
 
-    .hero-inner{
-      width:100%;
-      max-width:1200px;
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;align-items:center;
-    }
+    .hero-inner {
+  width:100%;
+  max-width:1200px;
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:28px;
+  align-items:stretch; /* 🔥 hace que el recuadro del hero se estire al alto del texto */
+}
 
     .hero-card{
       padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -341,12 +342,11 @@
   <div class="bg" style="
       background-image:url('Mio.png');
       height:100%;
-      min-height:260px;
+      min-height: 100%;
       position:relative;
-      background-size: contain;  /* muestra toda la imagen completa */
+      background-size: cover;  /* llena todo el recuadro */
       background-repeat: no-repeat;
       background-position: center;
-      background-color:#060818;  /* mismo color que el fondo */
       border-radius:12px;
       overflow:hidden;
       box-shadow:0 10px 40px rgba(0,0,0,0.6);
