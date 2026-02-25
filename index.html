@@ -338,10 +338,36 @@
         </div>
 
         <aside class="hero-visual" aria-hidden="true">
-  <div style="position:relative;">
-    <img src="Mio.png" alt="Imagen principal de LC TECHNOLOGY" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.6);" />
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,14,0.2), rgba(2,6,14,0.6));border-radius:12px;"></div>
-    <div class="badge" style="position:absolute;left:16px;bottom:16px;background:rgba(0,0,0,0.45);padding:10px 14px;border-radius:10px;color:#eaf6ff;font-weight:600;border:1px solid rgba(255,255,255,0.03);">
+  <div class="bg" style="
+      background-image:url('Mio.png');
+      height:100%;
+      min-height:260px;
+      position:relative;
+      background-size: contain;  /* muestra toda la imagen completa */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color:#060818;  /* mismo color que el fondo */
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+    ">
+    <div class="overlay" style="
+        position:absolute;
+        inset:0;
+        background:linear-gradient(180deg, rgba(2,6,14,0.2), rgba(2,6,14,0.6));
+        border-radius:12px;
+      "></div>
+    <div class="badge" style="
+        position:absolute;
+        left:16px;
+        bottom:16px;
+        background:rgba(0,0,0,0.45);
+        padding:10px 14px;
+        border-radius:10px;
+        color:#eaf6ff;
+        font-weight:600;
+        border:1px solid rgba(255,255,255,0.03);
+      ">
       LC TECHNOLOGY · Profesional
     </div>
   </div>
