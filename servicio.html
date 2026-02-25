@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -20,16 +19,10 @@ background:#04070f;
 color:white;
 }
 
-/* fondo glow */
-body::before{
-content:"";
-position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#00cfff33,transparent 70%);
-top:-200px;
-left:-200px;
-z-index:-1;
+.container{
+max-width:1200px;
+margin:auto;
+padding:100px 20px;
 }
 
 /* ---------- BOTON VOLVER ---------- */
@@ -40,10 +33,10 @@ top:20px;
 left:20px;
 padding:10px 18px;
 border-radius:12px;
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
-text-decoration:none;
 color:white;
+text-decoration:none;
 transition:.3s;
 }
 
@@ -52,119 +45,146 @@ border:1px solid #00cfff;
 box-shadow:0 0 20px #00cfff55;
 }
 
-/* ---------- CONTENEDOR ---------- */
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:120px 20px;
-}
-
-/* ---------- TITULOS ---------- */
+/* ---------- TITULO ---------- */
 
 .titulo{
 font-family:"Orbitron",sans-serif;
-font-size:2.5rem;
-margin-bottom:50px;
+font-size:2.4rem;
+margin-bottom:40px;
 }
 
-/* ---------- GRID ---------- */
+/* ---------- LAYOUT PRINCIPAL ---------- */
 
-.grid{
+.layout{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+grid-template-columns:2fr 1fr;
+gap:40px;
+align-items:start;
 }
 
-/* ---------- TARJETAS SERVICIOS ---------- */
+/* ---------- GRID SERVICIOS ---------- */
+
+.grid-servicios{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+/* ---------- TARJETAS ---------- */
 
 .card{
-background:rgba(255,255,255,0.02);
+background:#0b1220;
 border-radius:18px;
-padding:35px;
-border:1px solid rgba(255,255,255,0.06);
-backdrop-filter:blur(14px);
-transition:.35s;
-position:relative;
 overflow:hidden;
+border:1px solid rgba(255,255,255,0.05);
+transition:.35s;
 }
-
-.card::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:0;
-background:linear-gradient(120deg,transparent,#00cfff22,transparent);
-opacity:0;
-transition:.4s;
-}
-
-.card:hover::before{opacity:1;}
 
 .card:hover{
-transform:translateY(-12px);
+transform:translateY(-8px);
 border:1px solid #00cfff;
-box-shadow:0 30px 80px rgba(0,207,255,0.18);
+box-shadow:0 20px 60px rgba(0,207,255,0.15);
 }
 
-/* icono */
-.icono{
-width:60px;
-height:60px;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#00cfff15;
-color:#00cfff;
-font-size:28px;
-margin-bottom:20px;
+/* imagen servicio */
+.card img{
+width:100%;
+height:170px;
+object-fit:contain;
+background:#070d18;
+padding:20px;
 }
 
-/* texto */
+/* contenido */
+.card-content{
+padding:20px;
+}
+
 .card h3{
-margin:0 0 10px 0;
-font-size:1.3rem;
+margin:0 0 8px 0;
+color:#00cfff;
 }
 
 .card p{
 margin:0;
 color:#9aa6c0;
-line-height:1.6;
+font-size:.95rem;
+line-height:1.5;
 }
 
 /* ---------- MARCAS ---------- */
 
-.marcas{
-margin-top:100px;
+.marcas-box{
+background:#0b1220;
+padding:30px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.marcas-box h2{
+margin-top:0;
+margin-bottom:20px;
+font-family:"Orbitron",sans-serif;
 }
 
 .marcas-grid{
 display:flex;
 flex-wrap:wrap;
-gap:18px;
+gap:12px;
 }
 
 .marca{
-padding:16px 28px;
-border-radius:14px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.06);
-font-weight:600;
+padding:10px 18px;
+border-radius:12px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
 color:#00cfff;
+font-weight:600;
 transition:.3s;
 }
 
 .marca:hover{
-transform:scale(1.07);
-box-shadow:0 0 25px #00cfff44;
 border:1px solid #00cfff;
+box-shadow:0 0 15px #00cfff44;
+}
+
+/* ---------- REPUESTOS ---------- */
+
+.repuestos{
+margin-top:80px;
+background:#0b1220;
+padding:40px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
+text-align:center;
+}
+
+.repuestos h2{
+font-family:"Orbitron",sans-serif;
+margin-top:0;
+}
+
+.repuestos p{
+color:#9aa6c0;
+max-width:700px;
+margin:auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.grid-servicios{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -175,42 +195,57 @@ border:1px solid #00cfff;
 
 <h1 class="titulo">Servicios</h1>
 
-<div class="grid">
+<div class="layout">
+
+<!-- SERVICIOS -->
+<div class="grid-servicios">
 
 <div class="card">
-<div class="icono">📱</div>
+<img src="pantalla.jpg">
+<div class="card-content">
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo con repuestos originales o equivalentes, pruebas completas de brillo y calibración.</p>
+<p>Reemplazo con repuestos originales o equivalentes con pruebas completas.</p>
+</div>
 </div>
 
 <div class="card">
-<div class="icono">🔋</div>
+<img src="bateria.jpg">
+<div class="card-content">
 <h3>Reemplazo de Batería</h3>
-<p>Instalación de batería nueva con verificación de carga y rendimiento del equipo.</p>
+<p>Batería nueva con verificación de carga y rendimiento.</p>
+</div>
 </div>
 
 <div class="card">
-<div class="icono">🔌</div>
+<img src="pin-carga.jpg">
+<div class="card-content">
 <h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores internos y revisión del sistema eléctrico del dispositivo.</p>
+<p>Reparación de conectores y sistema de carga.</p>
+</div>
 </div>
 
 <div class="card">
-<div class="icono">💻</div>
+<img src="software.jpg">
+<div class="card-content">
 <h3>Software / Formateo</h3>
-<p>Optimización del sistema, eliminación de errores y respaldo de datos.</p>
+<p>Optimización del sistema y respaldo de datos.</p>
+</div>
 </div>
 
 <div class="card">
-<div class="icono">🔐</div>
+<img src="google.jpg">
+<div class="card-content">
 <h3>Cuenta Google</h3>
-<p>Eliminación o recuperación segura según el modelo del dispositivo.</p>
+<p>Eliminación o recuperación segura de cuentas.</p>
+</div>
 </div>
 
 </div>
 
-<div class="marcas">
-<h1 class="titulo">Marcas que atendemos</h1>
+<!-- MARCAS LADO DERECHO -->
+<div class="marcas-box">
+
+<h2>Marcas</h2>
 
 <div class="marcas-grid">
 <div class="marca">Samsung</div>
@@ -221,6 +256,19 @@ border:1px solid #00cfff;
 <div class="marca">Xiaomi / Redmi</div>
 </div>
 
+</div>
+
+</div>
+
+<!-- REPUESTOS ABAJO -->
+
+<div class="repuestos">
+<h2>Repuestos y Calidad</h2>
+<p>
+Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
+Cada equipo es probado antes de la entrega para garantizar compatibilidad, seguridad
+y funcionamiento correcto.
+</p>
 </div>
 
 </div>
