@@ -11,7 +11,6 @@
 :root{
   --bg-main:#05070d;
   --text-main:#eaeaea;
-  --text-muted:#9aa6c0;
 }
 
 /* RESET */
@@ -56,32 +55,50 @@ body{
   padding:120px 24px;
 }
 
-/* HERO / TEXTO PRINCIPAL */
+/* HERO / BLOQUE DE TITULO */
 .hero{
-  margin-top:40px; /* separación del botón */
+  margin-top:40px;
   margin-bottom:60px;
+}
+
+/* BLOQUE DEL TÍTULO CENTRAL */
+.hero .title-block{
+  display:inline-block; /* se centra como un bloque */
+  text-align:center;
 }
 
 .hero h1{
   font-family:"Orbitron",sans-serif;
   font-size:3rem;
-  margin-bottom:20px;
   letter-spacing:1px;
-  color:var(--text-main); /* limpio, sin color */
-  text-shadow:none; /* quitar neón */
+  margin-bottom:10px;
+  color:var(--text-main);
+  text-shadow:none;
+  line-height:1.2;
 }
 
+.hero h2{
+  font-family:"Orbitron",sans-serif;
+  font-size:2rem;
+  margin-top:0;
+  color:var(--text-main);
+  font-weight:400;
+  text-shadow:none;
+}
+
+/* PÁRRAFO */
 .hero p{
-  color:var(--text-main); /* todo uniforme */
+  color:var(--text-main);
   font-size:1.1rem;
   max-width:780px;
-  margin:auto;
+  margin:20px auto 0 auto;
   line-height:1.7;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
   .hero h1{font-size:2.2rem;}
+  .hero h2{font-size:1.6rem;}
   .hero p{font-size:1rem;}
 }
 </style>
@@ -93,9 +110,12 @@ body{
 
 <div class="container">
 
-  <!-- HERO / TEXTO PRINCIPAL -->
+  <!-- HERO / BLOQUE PRINCIPAL -->
   <section class="hero">
-    <h1>PRÓXIMAMENTE – Accesorios para tu celular</h1>
+    <div class="title-block">
+      <h1>PRÓXIMAMENTE</h1>
+      <h2>Accesorios para tu celular</h2>
+    </div>
     <p>
       Muy pronto incorporaremos una amplia variedad de accesorios para celulares, diseñados para todos los modelos y marcas.
       Entre ellos encontrarás: fundas, cargadores de pared y para auto, cables USB, auriculares (inalámbricos y con cable), 
