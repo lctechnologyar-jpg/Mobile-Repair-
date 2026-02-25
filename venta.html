@@ -3,41 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venta de Teléfonos | LC TECHNOLOGY</title>
 
-<title>Venta de Teléfonos | LC Mobile</title>
+<!-- FUENTES (MISMAS QUE SERVICIOS) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= RESET ================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-/* ================= VARIABLES ================= */
+/* ===== VARIABLES ===== */
 
 :root{
---bg-main:#070b16;
---bg-card:#0f162b;
---bg-soft:#0b1122;
---border-soft:rgba(255,255,255,0.06);
---accent:#3ea6ff;
---text-main:#e6edf7;
---text-muted:#95a2c6;
+--bg-main:#05070d;
+--panel:#0b1020;
+--text-main:#eaf6ff;
+--text-muted:#9aa6c0;
+--accent:#00cfff;
 }
 
-/* ================= BODY ================= */
+/* ===== BASE ===== */
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-background:var(--bg-main);
+margin:0;
+font-family:"Inter",sans-serif;
+background:linear-gradient(180deg,#05070d,#080c18);
 color:var(--text-main);
 line-height:1.6;
 }
 
-/* ================= BOTON VOLVER (IGUAL SERVICIOS) ================= */
+/* ===== CONTENEDOR ===== */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:120px 24px 140px;
+}
+
+/* ===== BOTON VOLVER (IGUAL SERVICIOS) ===== */
 
 .volver{
 position:fixed;
@@ -49,176 +50,109 @@ background:#0c111f;
 border:1px solid rgba(255,255,255,0.08);
 color:#eaeaea;
 text-decoration:none;
-font-size:0.9rem;
+font-size:.9rem;
 transition:.3s;
-z-index:1000;
 }
 
 .volver:hover{
 border-color:#ffffff33;
 }
 
-/* ================= CONTENEDOR ================= */
+/* ===== TITULOS ===== */
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:110px 24px 120px;
+h1, h2{
+font-family:"Orbitron",sans-serif;
+letter-spacing:1px;
 }
 
-/* ================= HEADER ================= */
-
-.header{
-text-align:center;
-margin-bottom:70px;
+h1{
+font-size:2.3rem;
+margin-bottom:20px;
 }
 
-.header h1{
-font-size:2.6rem;
-font-weight:600;
-margin-bottom:15px;
+.section-title{
+font-size:1.9rem;
+margin-top:100px;
+margin-bottom:40px;
 }
+
+/* ===== TEXTO DESCRIPTIVO ===== */
 
 .description{
 max-width:850px;
-margin:auto;
+margin:20px auto 70px;
 color:var(--text-muted);
-font-size:1.05rem;
-line-height:1.8;
+font-size:1rem;
+text-align:center;
 }
 
-/* ================= TITULOS ================= */
-
-.section-title{
-font-size:1.7rem;
-font-weight:500;
-margin:100px 0 40px;
-}
-
-/* ================= GRID PRODUCTOS ================= */
+/* ===== GRID PRODUCTOS ===== */
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:35px;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
 }
 
-/* ================= TARJETA ================= */
+/* ===== TARJETA ===== */
 
 .product-card{
-background:var(--bg-card);
+background:var(--panel);
 border-radius:20px;
-padding:28px;
-border:1px solid var(--border-soft);
+padding:30px;
+border:1px solid rgba(255,255,255,0.05);
 transition:.35s ease;
-position:relative;
-overflow:hidden;
 }
 
 .product-card:hover{
 transform:translateY(-8px);
-border-color:rgba(255,255,255,0.12);
-box-shadow:0 25px 60px rgba(0,0,0,.4);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
-
-/* brillo suave */
-
-.product-card::before{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.05),transparent);
-transition:.7s;
-}
-
-.product-card:hover::before{
-left:100%;
-}
-
-/* ================= BADGE ================= */
-
-.badge{
-position:absolute;
-top:18px;
-right:18px;
-font-size:.75rem;
-padding:6px 12px;
-border-radius:8px;
-background:rgba(62,166,255,0.15);
-color:var(--accent);
-}
-
-/* ================= IMAGEN ================= */
 
 .product-card img{
 width:100%;
 height:200px;
 object-fit:contain;
+background:#070b18;
+border-radius:14px;
+padding:20px;
 margin-bottom:20px;
 }
 
-/* ================= INFO ================= */
-
 .product-card h3{
-font-size:1.35rem;
-margin-bottom:12px;
+margin:0 0 12px;
+font-size:1.25rem;
+color:var(--accent);
 }
 
 .product-card p{
+margin:6px 0;
 color:var(--text-muted);
 font-size:.95rem;
-margin-bottom:6px;
 }
 
-.specs{
-margin-top:14px;
-padding-top:14px;
-border-top:1px solid var(--border-soft);
-}
-
-/* ================= COMING SOON ================= */
+/* ===== PROXIMAMENTE ===== */
 
 .coming-box{
-background:var(--bg-soft);
-border-radius:20px;
-padding:60px;
+margin-top:30px;
+padding:40px;
+background:var(--panel);
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
 text-align:center;
-border:1px solid var(--border-soft);
-color:var(--text-muted);
 }
 
-/* ================= ANIMACION SUAVE ================= */
-
-.product-card{
-opacity:0;
-transform:translateY(20px);
-animation:fadeUp .6s ease forwards;
+.coming-box span{
+font-size:1.2rem;
+color:var(--accent);
 }
 
-.product-card:nth-child(2){animation-delay:.1s}
+/* ===== RESPONSIVE ===== */
 
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
+@media(max-width:900px){
+.products{
+grid-template-columns:1fr;
 }
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:700px){
-
-.header h1{
-font-size:2rem;
-}
-
-.section-title{
-font-size:1.4rem;
-}
-
 }
 
 </style>
@@ -231,58 +165,38 @@ font-size:1.4rem;
 
 <div class="container">
 
-<!-- HEADER -->
-<div class="header">
-<h1>Teléfonos en Venta</h1>
+<h1>TELÉFONOS EN VENTA</h1>
 
-<p class="description">
-Disponemos de dispositivos usados y reacondicionados revisados por nuestro servicio técnico.
-Cada equipo es probado antes de la entrega para asegurar funcionamiento correcto,
-compatibilidad y rendimiento confiable.
-</p>
+<!-- TEXTO -->
+<div class="description">
+Contamos con dispositivos usados y reacondicionados, además de equipos nuevos que iremos incorporando próximamente.
+Cada teléfono es revisado y probado por nuestro servicio técnico antes de la venta, permitiendo verificar su funcionamiento al momento de la compra.
+Trabajamos con equipos evaluados en profundidad para asegurar compatibilidad, rendimiento y confiabilidad.
 </div>
 
-<!-- REACONDICIONADOS -->
+<!-- USADOS -->
 <h2 class="section-title">Teléfonos Usados / Reacondicionados</h2>
 
 <div class="products">
 
-<!-- Samsung A01 Negro -->
 <div class="product-card">
-
-<span class="badge">Reacondicionado</span>
-
-<img src="a01-negro.jpg">
-
+<img src="a01-negro.jpg" alt="Samsung A01 Negro">
 <h3>Samsung A01 — Negro</h3>
-<p>Equipo en excelente estado general.</p>
-
-<div class="specs">
+<p>Reacondicionado en excelente estado.</p>
 <p><strong>Pantalla:</strong> 5.7" HD+</p>
 <p><strong>Cámara:</strong> 13MP / 5MP</p>
 <p><strong>Batería:</strong> 3000 mAh</p>
 <p><strong>Almacenamiento:</strong> 32GB</p>
 </div>
 
-</div>
-
-<!-- Samsung A01 Azul -->
 <div class="product-card">
-
-<span class="badge">Reacondicionado</span>
-
-<img src="a01-azul.jpg">
-
+<img src="a01-azul.jpg" alt="Samsung A01 Azul">
 <h3>Samsung A01 — Azul</h3>
-<p>Equipo en excelente estado general.</p>
-
-<div class="specs">
+<p>Reacondicionado en excelente estado.</p>
 <p><strong>Pantalla:</strong> 5.7" HD+</p>
 <p><strong>Cámara:</strong> 13MP / 5MP</p>
 <p><strong>Batería:</strong> 3000 mAh</p>
 <p><strong>Almacenamiento:</strong> 32GB</p>
-</div>
-
 </div>
 
 </div>
@@ -291,7 +205,7 @@ compatibilidad y rendimiento confiable.
 <h2 class="section-title">Teléfonos Nuevos</h2>
 
 <div class="coming-box">
-Equipos nuevos disponibles próximamente.
+<span>PRÓXIMAMENTE</span>
 </div>
 
 </div>
