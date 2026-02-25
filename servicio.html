@@ -3,13 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- RESET ---------- */
+/* =====================================================
+   VARIABLES PROFESIONALES
+===================================================== */
+
+:root{
+--bg-main:#05070d;
+--bg-card:#0b1020;
+--bg-soft:#0f1528;
+
+--text-main:#eaeaea;
+--text-soft:#9aa6c0;
+
+--border-soft:rgba(255,255,255,0.06);
+--border-hover:rgba(255,255,255,0.18);
+
+--radius:16px;
+--transition:.35s ease;
+}
+
+/* =====================================================
+   RESET BASE
+===================================================== */
 
 *{
 margin:0;
@@ -19,126 +41,145 @@ box-sizing:border-box;
 
 body{
 font-family:"Inter",sans-serif;
-background:#05070d;
-color:#eaeaea;
--webkit-font-smoothing:antialiased;
+background:var(--bg-main);
+color:var(--text-main);
+line-height:1.5;
 }
 
-/* ---------- CONTAINER ---------- */
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:140px 28px 160px;
+padding:120px 28px 160px;
 }
 
-/* ---------- BOTON VOLVER ---------- */
+/* =====================================================
+   BOTON VOLVER
+===================================================== */
 
 .volver{
 position:fixed;
-top:24px;
-left:24px;
+top:25px;
+left:25px;
 padding:11px 20px;
+background:var(--bg-card);
+border:1px solid var(--border-soft);
 border-radius:12px;
-background:#0b1020;
-border:1px solid rgba(255,255,255,0.08);
-color:#eaeaea;
+color:white;
 text-decoration:none;
 font-size:.9rem;
-backdrop-filter:blur(8px);
-transition:.25s;
+transition:var(--transition);
 }
 
 .volver:hover{
-border-color:#ffffff30;
-transform:translateY(-2px);
+border-color:var(--border-hover);
 }
 
-/* ---------- TITULOS ---------- */
+/* =====================================================
+   TITULOS
+===================================================== */
 
 .titulo{
 font-family:"Orbitron",sans-serif;
 font-size:2.4rem;
-margin-bottom:70px;
+margin-bottom:80px;
 letter-spacing:.5px;
 }
 
-/* ---------- LAYOUT ---------- */
+/* =====================================================
+   LAYOUT PRINCIPAL
+===================================================== */
 
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:90px;
+gap:80px;
 align-items:start;
 }
 
-/* ---------- SERVICIOS ---------- */
+/* =====================================================
+   SERVICIOS GRID
+===================================================== */
 
 .grid-servicios{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:45px;
+gap:50px;
 }
 
+/* =====================================================
+   CARD SERVICIO
+===================================================== */
+
 .card{
-background:#0b1020;
-border-radius:18px;
+background:var(--bg-card);
+border-radius:var(--radius);
 overflow:hidden;
-border:1px solid rgba(255,255,255,0.05);
-transition:.35s cubic-bezier(.2,.9,.3,1);
+border:1px solid var(--border-soft);
+transition:var(--transition);
 }
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 20px 50px rgba(0,0,0,0.45);
-border-color:rgba(255,255,255,0.12);
+box-shadow:0 20px 40px rgba(0,0,0,0.45);
+border-color:var(--border-hover);
 }
+
+/* imagen servicio */
 
 .card img{
 width:100%;
-height:170px;
+height:180px;
 object-fit:contain;
 background:#070b18;
-padding:26px;
+padding:30px;
 }
 
+/* contenido card */
+
 .card-content{
-padding:26px 28px 30px;
+padding:28px;
 }
 
 .card h3{
-margin:0 0 10px;
 font-size:1.1rem;
+margin-bottom:10px;
 font-weight:500;
 }
 
 .card p{
-margin:0;
-color:#9aa6c0;
-font-size:.92rem;
-line-height:1.6;
+color:var(--text-soft);
+font-size:.95rem;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* =====================================================
+   PANEL DERECHO
+===================================================== */
 
-.marcas-box,
-.calidad{
-background:#0b1020;
-border-radius:18px;
-padding:40px;
-border:1px solid rgba(255,255,255,0.05);
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:60px;
 }
 
-/* ---------- MARCAS ---------- */
+/* =====================================================
+   MARCAS
+===================================================== */
 
 .marcas-box{
-margin-bottom:35px;
+background:var(--bg-card);
+padding:40px;
+border-radius:var(--radius);
+border:1px solid var(--border-soft);
 }
 
 .marcas-box h2{
 font-family:"Orbitron",sans-serif;
-margin:0 0 30px;
-font-size:1.4rem;
+margin-bottom:30px;
+font-size:1.3rem;
 }
 
 .marcas-grid{
@@ -149,102 +190,82 @@ gap:16px;
 
 .marca{
 padding:10px 20px;
+background:var(--bg-soft);
 border-radius:12px;
-background:#0f1528;
-border:1px solid rgba(255,255,255,0.06);
+border:1px solid var(--border-soft);
 font-size:.9rem;
-color:#cfd6ea;
-transition:.25s;
 }
 
-.marca:hover{
-border-color:#ffffff25;
-}
+/* =====================================================
+   CALIDAD
+===================================================== */
 
-/* ---------- CALIDAD ---------- */
+.calidad{
+background:var(--bg-card);
+padding:40px;
+border-radius:var(--radius);
+border:1px solid var(--border-soft);
+}
 
 .calidad h3{
 font-family:"Orbitron",sans-serif;
-margin:0 0 16px;
-font-size:1.3rem;
+margin-bottom:18px;
 }
 
 .calidad p{
-margin:0;
-color:#9aa6c0;
-font-size:.95rem;
-line-height:1.7;
+color:var(--text-soft);
 }
 
-/* ---------- DIVISOR ---------- */
+/* =====================================================
+   SEPARADOR VISUAL
+===================================================== */
 
 .divisor{
 margin:130px 0 90px;
 height:1px;
-background:rgba(255,255,255,0.06);
+background:var(--border-soft);
 }
 
-/* ---------- POR QUE ELEGIRNOS ---------- */
+/* =====================================================
+   INFO EXTRA (REEMPLAZA EL "POR QUE ELEGIRNOS")
+===================================================== */
 
-.why-grid{
+.info-section{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:35px;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
 }
 
-.why-item{
-background:#0b1020;
-padding:34px;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.05);
-transition:.25s;
-}
-
-.why-item:hover{
-border-color:#ffffff18;
-transform:translateY(-5px);
-}
-
-.why-item h4{
-margin:0 0 10px;
-font-weight:500;
-font-size:1rem;
-}
-
-.why-item p{
-margin:0;
-color:#9aa6c0;
-font-size:.92rem;
-line-height:1.6;
-}
-
-/* ---------- BOTON ---------- */
-
-.btn{
-display:inline-block;
-margin-top:50px;
-padding:16px 34px;
+.info-box{
+background:var(--bg-card);
+padding:36px;
 border-radius:14px;
-border:1px solid rgba(255,255,255,0.12);
-color:white;
-text-decoration:none;
-font-size:.95rem;
-letter-spacing:.3px;
-transition:.25s;
+border:1px solid var(--border-soft);
+transition:var(--transition);
 }
 
-.btn:hover{
-background:#0f1528;
-border-color:#ffffff30;
-transform:translateY(-2px);
+.info-box:hover{
+border-color:var(--border-hover);
 }
 
-/* ---------- ANIMACION ---------- */
+.info-box h4{
+margin-bottom:10px;
+font-weight:500;
+}
+
+.info-box p{
+color:var(--text-soft);
+font-size:.9rem;
+}
+
+/* =====================================================
+   ANIMACION SCROLL
+===================================================== */
 
 .reveal{
 opacity:0;
-transform:translateY(50px);
-transition:all .9s cubic-bezier(.2,.9,.3,1);
+transform:translateY(40px);
+transition:.9s ease;
 }
 
 .reveal.active{
@@ -252,25 +273,22 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:900px){
 
 .layout{
 grid-template-columns:1fr;
-gap:70px;
 }
 
 .grid-servicios{
 grid-template-columns:1fr;
 }
 
-.why-grid{
+.info-section{
 grid-template-columns:1fr;
-}
-
-.titulo{
-font-size:2rem;
 }
 
 }
@@ -288,14 +306,15 @@ font-size:2rem;
 
 <div class="layout">
 
-<!-- SERVICIOS -->
+<!-- ================= SERVICIOS ================= -->
+
 <div class="grid-servicios reveal">
 
 <div class="card">
 <img src="pantalla.jpg">
 <div class="card-content">
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo de módulos con pruebas completas de imagen, brillo y respuesta táctil.</p>
+<p>Reemplazo de módulos con verificación completa de imagen, brillo y respuesta táctil para garantizar funcionamiento correcto.</p>
 </div>
 </div>
 
@@ -303,7 +322,7 @@ font-size:2rem;
 <img src="bateria.jpg">
 <div class="card-content">
 <h3>Reemplazo de Batería</h3>
-<p>Baterías nuevas compatibles con verificación de carga y autonomía.</p>
+<p>Instalación de baterías nuevas con control de carga, duración y estabilidad del sistema.</p>
 </div>
 </div>
 
@@ -311,7 +330,7 @@ font-size:2rem;
 <img src="pin-carga.jpg">
 <div class="card-content">
 <h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores, limpieza y revisión eléctrica del equipo.</p>
+<p>Reparación de conectores, limpieza interna y verificación eléctrica del equipo.</p>
 </div>
 </div>
 
@@ -319,7 +338,7 @@ font-size:2rem;
 <img src="software.jpg">
 <div class="card-content">
 <h3>Software / Formateo</h3>
-<p>Optimización del sistema, actualización y respaldo de información.</p>
+<p>Optimización del sistema, eliminación de fallos y mejora del rendimiento general.</p>
 </div>
 </div>
 
@@ -327,14 +346,15 @@ font-size:2rem;
 <img src="google.jpg">
 <div class="card-content">
 <h3>Cuenta Google</h3>
-<p>Configuración, eliminación o recuperación segura según modelo.</p>
+<p>Configuración, recuperación o eliminación segura según modelo del dispositivo.</p>
 </div>
 </div>
 
 </div>
 
-<!-- SIDEBAR -->
-<div>
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
 
 <div class="marcas-box reveal">
 <h2>Marcas que atendemos</h2>
@@ -363,47 +383,42 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 <div class="divisor"></div>
 
-<h2 class="titulo reveal">Por qué elegirnos</h2>
+<!-- ================= INFORMACION EXTRA ================= -->
 
-<div class="why-grid reveal">
+<div class="info-section reveal">
 
-<div class="why-item">
-<h4>Diagnóstico Claro</h4>
-<p>Evaluación completa antes de cualquier reparación.</p>
+<div class="info-box">
+<h4>Diagnóstico preciso</h4>
+<p>Revisión técnica completa del dispositivo antes de cualquier intervención.</p>
 </div>
 
-<div class="why-item">
-<h4>Reparación Rápida</h4>
-<p>Procesos optimizados para menor tiempo de entrega.</p>
+<div class="info-box">
+<h4>Equipamiento profesional</h4>
+<p>Herramientas específicas para reparación segura de dispositivos móviles.</p>
 </div>
 
-<div class="why-item">
-<h4>Garantía de Servicio</h4>
-<p>Control de calidad en cada reparación.</p>
-</div>
-
-<div class="why-item">
-<h4>Atención Profesional</h4>
-<p>Asesoramiento transparente durante todo el proceso.</p>
+<div class="info-box">
+<h4>Proceso controlado</h4>
+<p>Control técnico en cada etapa del servicio para asegurar resultados confiables.</p>
 </div>
 
 </div>
-
-<a href="#" class="btn reveal">Solicitar diagnóstico</a>
 
 </div>
 
 <script>
-const revealElements=document.querySelectorAll(".reveal");
+
+const revealElements = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll",()=>{
 revealElements.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-80){
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 80){
 el.classList.add("active");
 }
 });
 });
+
 </script>
 
 </body>
