@@ -11,7 +11,7 @@
 <style>
 
 /* =========================================================
-BASE
+RESET
 ========================================================= */
 
 *{
@@ -19,6 +19,10 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+
+/* =========================================================
+BASE
+========================================================= */
 
 body{
 font-family:"Inter",sans-serif;
@@ -34,7 +38,7 @@ CONTAINER
 .container{
 max-width:1200px;
 margin:auto;
-padding:110px 24px 140px;
+padding:120px 24px;
 }
 
 /* =========================================================
@@ -45,7 +49,7 @@ BOTON VOLVER
 position:fixed;
 top:22px;
 left:22px;
-padding:11px 20px;
+padding:12px 20px;
 border-radius:12px;
 background:#0c111f;
 border:1px solid rgba(255,255,255,0.08);
@@ -57,16 +61,41 @@ z-index:100;
 }
 
 .volver:hover{
-border-color:#ffffff33;
+border-color:#ffffff44;
+background:#10172c;
 }
 
 /* =========================================================
-TITULOS
+HERO (MUCHA PRESENCIA VISUAL)
+========================================================= */
+
+.hero{
+padding-top:80px;
+text-align:center;
+margin-bottom:90px;
+}
+
+.hero h1{
+font-family:"Orbitron",sans-serif;
+font-size:3rem;
+margin-bottom:18px;
+letter-spacing:1px;
+}
+
+.hero p{
+color:#9aa6c0;
+max-width:680px;
+margin:auto;
+font-size:1rem;
+}
+
+/* =========================================================
+TITULOS SECCION
 ========================================================= */
 
 .section-title{
 font-family:"Orbitron",sans-serif;
-font-size:2.2rem;
+font-size:2rem;
 margin-bottom:70px;
 text-align:center;
 letter-spacing:.5px;
@@ -79,7 +108,7 @@ LAYOUT PRINCIPAL
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:70px;
+gap:80px;
 align-items:start;
 }
 
@@ -90,42 +119,43 @@ SERVICIOS
 .grid-servicios{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:40px;
+gap:45px;
 }
 
 .card{
 background:#0b1020;
 border-radius:18px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,0.05);
-transition:.35s ease;
+border:1px solid rgba(255,255,255,0.04);
+transition:.35s;
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 40px rgba(0,0,0,0.35);
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(0,0,0,.45);
+border-color:rgba(0,207,255,0.25);
 }
 
 .card img{
 width:100%;
-height:170px;
+height:180px;
 object-fit:contain;
 background:#070b18;
-padding:28px;
+padding:30px;
 }
 
 .card-content{
-padding:26px 28px;
+padding:30px;
 }
 
 .card h3{
-font-size:1.1rem;
+font-size:1.15rem;
 margin-bottom:8px;
 font-weight:500;
 }
 
 .card p{
-font-size:.9rem;
+font-size:.95rem;
 color:#9aa6c0;
 }
 
@@ -136,14 +166,14 @@ MARCAS
 .marcas-box{
 background:#0b1020;
 border-radius:18px;
-padding:38px;
-border:1px solid rgba(255,255,255,0.05);
+padding:40px;
+border:1px solid rgba(255,255,255,0.04);
 }
 
 .marcas-box h2{
 font-family:"Orbitron",sans-serif;
 margin-bottom:30px;
-font-size:1.3rem;
+font-size:1.25rem;
 }
 
 .marcas-grid{
@@ -153,12 +183,11 @@ gap:14px;
 }
 
 .marca{
-padding:10px 18px;
-border-radius:10px;
+padding:10px 20px;
+border-radius:12px;
 background:#0f1528;
-border:1px solid rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.05);
 font-size:.9rem;
-color:#cfd6ea;
 }
 
 /* =========================================================
@@ -166,41 +195,37 @@ CALIDAD
 ========================================================= */
 
 .calidad{
-margin-top:50px;
+margin-top:55px;
 padding:40px;
 background:#0b1020;
 border-radius:18px;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.04);
 }
 
 .calidad h3{
 font-family:"Orbitron",sans-serif;
 margin-bottom:15px;
-font-size:1.2rem;
 }
 
 .calidad p{
 color:#9aa6c0;
-font-size:.95rem;
 }
 
 /* =========================================================
-DIVISOR
+DIVISOR PREMIUM
 ========================================================= */
 
 .divisor{
-margin:120px 0;
-height:1px;
-background:rgba(255,255,255,0.06);
+margin:140px auto;
+width:120px;
+height:2px;
+background:linear-gradient(90deg,transparent,#00cfff,transparent);
+opacity:.5;
 }
 
 /* =========================================================
 PROCESO TECNICO
 ========================================================= */
-
-.proceso{
-padding-bottom:80px;
-}
 
 .proceso-grid{
 display:grid;
@@ -212,27 +237,21 @@ gap:40px;
 background:#0b1020;
 padding:45px;
 border-radius:18px;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.04);
 text-align:center;
 }
 
 .proceso-item h3{
 margin-bottom:12px;
-font-weight:500;
 }
 
 .proceso-item p{
 color:#9aa6c0;
-font-size:.95rem;
 }
 
 /* =========================================================
-POR QUE ELEGIRNOS (MAS COMPACTO Y PROFESIONAL)
+COMPROMISO / CONFIANZA
 ========================================================= */
-
-.confianza{
-padding-top:40px;
-}
 
 .confianza-grid{
 display:grid;
@@ -241,21 +260,35 @@ gap:30px;
 }
 
 .confianza-item{
-padding:30px;
-border-radius:14px;
+padding:32px;
+border-radius:16px;
 background:#0b1020;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.04);
 text-align:center;
 }
 
 .confianza-item h4{
 margin-bottom:8px;
-font-weight:500;
 }
 
 .confianza-item p{
-font-size:.9rem;
 color:#9aa6c0;
+font-size:.9rem;
+}
+
+/* =========================================================
+REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:.9s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 /* =========================================================
@@ -264,21 +297,12 @@ RESPONSIVE
 
 @media(max-width:900px){
 
-.layout{
-grid-template-columns:1fr;
-}
+.layout{grid-template-columns:1fr}
+.grid-servicios{grid-template-columns:1fr}
+.proceso-grid{grid-template-columns:1fr}
+.confianza-grid{grid-template-columns:1fr}
 
-.grid-servicios{
-grid-template-columns:1fr;
-}
-
-.proceso-grid{
-grid-template-columns:1fr;
-}
-
-.confianza-grid{
-grid-template-columns:1fr;
-}
+.hero h1{font-size:2.2rem}
 
 }
 
@@ -291,16 +315,19 @@ grid-template-columns:1fr;
 
 <div class="container">
 
-<h1 class="section-title">Servicio Técnico</h1>
+<!-- HERO -->
+<section class="hero reveal">
+<h1>Servicio Técnico Especializado</h1>
+<p>
+Diagnóstico profesional, reparación precisa y repuestos de calidad para dispositivos móviles.
+Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
+</p>
+</section>
 
-<!-- =====================================================
-LAYOUT SERVICIOS + MARCAS
-===================================================== -->
-
+<!-- SERVICIOS + MARCAS -->
 <div class="layout">
 
-<!-- SERVICIOS -->
-<div class="grid-servicios">
+<div class="grid-servicios reveal">
 
 <div class="card">
 <img src="pantalla.jpg">
@@ -344,10 +371,9 @@ LAYOUT SERVICIOS + MARCAS
 
 </div>
 
-<!-- COLUMNA DERECHA -->
 <div>
 
-<div class="marcas-box">
+<div class="marcas-box reveal">
 <h2>Marcas que atendemos</h2>
 
 <div class="marcas-grid">
@@ -360,7 +386,7 @@ LAYOUT SERVICIOS + MARCAS
 </div>
 </div>
 
-<div class="calidad">
+<div class="calidad reveal">
 <h3>Repuestos y Calidad</h3>
 <p>
 Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
@@ -374,16 +400,11 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 <div class="divisor"></div>
 
-<!-- =====================================================
-PROCESO TECNICO
-===================================================== -->
-
-<section class="proceso">
-
+<!-- PROCESO -->
+<section class="reveal">
 <h2 class="section-title">Proceso técnico</h2>
 
 <div class="proceso-grid">
-
 <div class="proceso-item">
 <h3>Diagnóstico preciso</h3>
 <p>Revisión técnica completa del dispositivo antes de cualquier intervención.</p>
@@ -391,55 +412,58 @@ PROCESO TECNICO
 
 <div class="proceso-item">
 <h3>Equipamiento profesional</h3>
-<p>Herramientas específicas para reparación segura de dispositivos móviles.</p>
+<p>Herramientas específicas para reparación segura.</p>
 </div>
 
 <div class="proceso-item">
 <h3>Proceso controlado</h3>
-<p>Control técnico en cada etapa del servicio para asegurar resultados confiables.</p>
+<p>Control técnico en cada etapa del servicio.</p>
 </div>
-
 </div>
-
 </section>
 
 <div class="divisor"></div>
 
-<!-- =====================================================
-CONFIAZA / VALOR
-===================================================== -->
-
-<section class="confianza">
-
-<h2 class="section-title">Compromiso de Servicio</h2>
+<!-- COMPROMISO -->
+<section class="reveal">
+<h2 class="section-title">Compromiso de servicio</h2>
 
 <div class="confianza-grid">
-
 <div class="confianza-item">
 <h4>Diagnóstico claro</h4>
-<p>Evaluación completa antes de cualquier reparación.</p>
+<p>Evaluación completa antes de reparar.</p>
 </div>
 
 <div class="confianza-item">
 <h4>Reparación rápida</h4>
-<p>Procesos optimizados para menor tiempo de entrega.</p>
+<p>Procesos optimizados para menor tiempo.</p>
 </div>
 
 <div class="confianza-item">
 <h4>Garantía técnica</h4>
-<p>Control de calidad en cada intervención realizada.</p>
+<p>Control de calidad en cada trabajo.</p>
 </div>
 
 <div class="confianza-item">
 <h4>Atención profesional</h4>
-<p>Asesoramiento transparente durante todo el proceso.</p>
+<p>Asesoramiento transparente.</p>
 </div>
-
 </div>
 
 </section>
 
 </div>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+reveals.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-80){
+el.classList.add("active");
+}
+});
+});
+</script>
 
 </body>
 </html>
