@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   VARIABLES PROFESIONALES
-===================================================== */
-
-:root{
---bg-main:#05070d;
---bg-card:#0b1020;
---bg-soft:#0f1528;
-
---text-main:#eaeaea;
---text-soft:#9aa6c0;
-
---border-soft:rgba(255,255,255,0.06);
---border-hover:rgba(255,255,255,0.18);
-
---radius:16px;
---transition:.35s ease;
-}
-
-/* =====================================================
-   RESET BASE
-===================================================== */
+/* =========================================================
+BASE
+========================================================= */
 
 *{
 margin:0;
@@ -41,139 +22,122 @@ box-sizing:border-box;
 
 body{
 font-family:"Inter",sans-serif;
-background:var(--bg-main);
-color:var(--text-main);
-line-height:1.5;
+background:#05070d;
+color:#eaeaea;
+line-height:1.6;
 }
 
-/* =====================================================
-   CONTENEDOR PRINCIPAL
-===================================================== */
+/* =========================================================
+CONTAINER
+========================================================= */
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:120px 28px 160px;
+padding:110px 24px 140px;
 }
 
-/* =====================================================
-   BOTON VOLVER
-===================================================== */
+/* =========================================================
+BOTON VOLVER
+========================================================= */
 
 .volver{
 position:fixed;
-top:25px;
-left:25px;
+top:22px;
+left:22px;
 padding:11px 20px;
-background:var(--bg-card);
-border:1px solid var(--border-soft);
 border-radius:12px;
-color:white;
+background:#0c111f;
+border:1px solid rgba(255,255,255,0.08);
+color:#fff;
 text-decoration:none;
 font-size:.9rem;
-transition:var(--transition);
+transition:.3s;
+z-index:100;
 }
 
 .volver:hover{
-border-color:var(--border-hover);
+border-color:#ffffff33;
 }
 
-/* =====================================================
-   TITULOS
-===================================================== */
+/* =========================================================
+TITULOS
+========================================================= */
 
-.titulo{
+.section-title{
 font-family:"Orbitron",sans-serif;
-font-size:2.4rem;
-margin-bottom:80px;
+font-size:2.2rem;
+margin-bottom:70px;
+text-align:center;
 letter-spacing:.5px;
 }
 
-/* =====================================================
-   LAYOUT PRINCIPAL
-===================================================== */
+/* =========================================================
+LAYOUT PRINCIPAL
+========================================================= */
 
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:80px;
+gap:70px;
 align-items:start;
 }
 
-/* =====================================================
-   SERVICIOS GRID
-===================================================== */
+/* =========================================================
+SERVICIOS
+========================================================= */
 
 .grid-servicios{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:50px;
+gap:40px;
 }
 
-/* =====================================================
-   CARD SERVICIO
-===================================================== */
-
 .card{
-background:var(--bg-card);
-border-radius:var(--radius);
+background:#0b1020;
+border-radius:18px;
 overflow:hidden;
-border:1px solid var(--border-soft);
-transition:var(--transition);
+border:1px solid rgba(255,255,255,0.05);
+transition:.35s ease;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 40px rgba(0,0,0,0.45);
-border-color:var(--border-hover);
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,0.35);
 }
-
-/* imagen servicio */
 
 .card img{
 width:100%;
-height:180px;
+height:170px;
 object-fit:contain;
 background:#070b18;
-padding:30px;
+padding:28px;
 }
 
-/* contenido card */
-
 .card-content{
-padding:28px;
+padding:26px 28px;
 }
 
 .card h3{
 font-size:1.1rem;
-margin-bottom:10px;
+margin-bottom:8px;
 font-weight:500;
 }
 
 .card p{
-color:var(--text-soft);
-font-size:.95rem;
+font-size:.9rem;
+color:#9aa6c0;
 }
 
-/* =====================================================
-   PANEL DERECHO
-===================================================== */
-
-.sidebar{
-display:flex;
-flex-direction:column;
-gap:60px;
-}
-
-/* =====================================================
-   MARCAS
-===================================================== */
+/* =========================================================
+MARCAS
+========================================================= */
 
 .marcas-box{
-background:var(--bg-card);
-padding:40px;
-border-radius:var(--radius);
-border:1px solid var(--border-soft);
+background:#0b1020;
+border-radius:18px;
+padding:38px;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .marcas-box h2{
@@ -185,97 +149,118 @@ font-size:1.3rem;
 .marcas-grid{
 display:flex;
 flex-wrap:wrap;
-gap:16px;
+gap:14px;
 }
 
 .marca{
-padding:10px 20px;
-background:var(--bg-soft);
-border-radius:12px;
-border:1px solid var(--border-soft);
+padding:10px 18px;
+border-radius:10px;
+background:#0f1528;
+border:1px solid rgba(255,255,255,0.06);
 font-size:.9rem;
+color:#cfd6ea;
 }
 
-/* =====================================================
-   CALIDAD
-===================================================== */
+/* =========================================================
+CALIDAD
+========================================================= */
 
 .calidad{
-background:var(--bg-card);
+margin-top:50px;
 padding:40px;
-border-radius:var(--radius);
-border:1px solid var(--border-soft);
+background:#0b1020;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .calidad h3{
 font-family:"Orbitron",sans-serif;
-margin-bottom:18px;
+margin-bottom:15px;
+font-size:1.2rem;
 }
 
 .calidad p{
-color:var(--text-soft);
+color:#9aa6c0;
+font-size:.95rem;
 }
 
-/* =====================================================
-   SEPARADOR VISUAL
-===================================================== */
+/* =========================================================
+DIVISOR
+========================================================= */
 
 .divisor{
-margin:130px 0 90px;
+margin:120px 0;
 height:1px;
-background:var(--border-soft);
+background:rgba(255,255,255,0.06);
 }
 
-/* =====================================================
-   INFO EXTRA (REEMPLAZA EL "POR QUE ELEGIRNOS")
-===================================================== */
+/* =========================================================
+PROCESO TECNICO
+========================================================= */
 
-.info-section{
+.proceso{
+padding-bottom:80px;
+}
+
+.proceso-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:40px;
 }
 
-.info-box{
-background:var(--bg-card);
-padding:36px;
-border-radius:14px;
-border:1px solid var(--border-soft);
-transition:var(--transition);
+.proceso-item{
+background:#0b1020;
+padding:45px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
+text-align:center;
 }
 
-.info-box:hover{
-border-color:var(--border-hover);
-}
-
-.info-box h4{
-margin-bottom:10px;
+.proceso-item h3{
+margin-bottom:12px;
 font-weight:500;
 }
 
-.info-box p{
-color:var(--text-soft);
+.proceso-item p{
+color:#9aa6c0;
+font-size:.95rem;
+}
+
+/* =========================================================
+POR QUE ELEGIRNOS (MAS COMPACTO Y PROFESIONAL)
+========================================================= */
+
+.confianza{
+padding-top:40px;
+}
+
+.confianza-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.confianza-item{
+padding:30px;
+border-radius:14px;
+background:#0b1020;
+border:1px solid rgba(255,255,255,0.05);
+text-align:center;
+}
+
+.confianza-item h4{
+margin-bottom:8px;
+font-weight:500;
+}
+
+.confianza-item p{
 font-size:.9rem;
+color:#9aa6c0;
 }
 
-/* =====================================================
-   ANIMACION SCROLL
-===================================================== */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:.9s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* =========================================================
+RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
 
@@ -287,7 +272,11 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.info-section{
+.proceso-grid{
+grid-template-columns:1fr;
+}
+
+.confianza-grid{
 grid-template-columns:1fr;
 }
 
@@ -302,19 +291,22 @@ grid-template-columns:1fr;
 
 <div class="container">
 
-<h1 class="titulo reveal">Servicios</h1>
+<h1 class="section-title">Servicio Técnico</h1>
+
+<!-- =====================================================
+LAYOUT SERVICIOS + MARCAS
+===================================================== -->
 
 <div class="layout">
 
-<!-- ================= SERVICIOS ================= -->
-
-<div class="grid-servicios reveal">
+<!-- SERVICIOS -->
+<div class="grid-servicios">
 
 <div class="card">
 <img src="pantalla.jpg">
 <div class="card-content">
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo de módulos con verificación completa de imagen, brillo y respuesta táctil para garantizar funcionamiento correcto.</p>
+<p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
 </div>
 </div>
 
@@ -322,7 +314,7 @@ grid-template-columns:1fr;
 <img src="bateria.jpg">
 <div class="card-content">
 <h3>Reemplazo de Batería</h3>
-<p>Instalación de baterías nuevas con control de carga, duración y estabilidad del sistema.</p>
+<p>Baterías nuevas con verificación de carga y duración.</p>
 </div>
 </div>
 
@@ -330,7 +322,7 @@ grid-template-columns:1fr;
 <img src="pin-carga.jpg">
 <div class="card-content">
 <h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores, limpieza interna y verificación eléctrica del equipo.</p>
+<p>Reparación de conectores y revisión eléctrica.</p>
 </div>
 </div>
 
@@ -338,7 +330,7 @@ grid-template-columns:1fr;
 <img src="software.jpg">
 <div class="card-content">
 <h3>Software / Formateo</h3>
-<p>Optimización del sistema, eliminación de fallos y mejora del rendimiento general.</p>
+<p>Optimización del sistema y respaldo de datos.</p>
 </div>
 </div>
 
@@ -346,17 +338,16 @@ grid-template-columns:1fr;
 <img src="google.jpg">
 <div class="card-content">
 <h3>Cuenta Google</h3>
-<p>Configuración, recuperación o eliminación segura según modelo del dispositivo.</p>
+<p>Eliminación o recuperación segura según modelo.</p>
 </div>
 </div>
 
 </div>
 
-<!-- ================= SIDEBAR ================= -->
+<!-- COLUMNA DERECHA -->
+<div>
 
-<div class="sidebar">
-
-<div class="marcas-box reveal">
+<div class="marcas-box">
 <h2>Marcas que atendemos</h2>
 
 <div class="marcas-grid">
@@ -369,7 +360,7 @@ grid-template-columns:1fr;
 </div>
 </div>
 
-<div class="calidad reveal">
+<div class="calidad">
 <h3>Repuestos y Calidad</h3>
 <p>
 Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
@@ -383,43 +374,72 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 <div class="divisor"></div>
 
-<!-- ================= INFORMACION EXTRA ================= -->
+<!-- =====================================================
+PROCESO TECNICO
+===================================================== -->
 
-<div class="info-section reveal">
+<section class="proceso">
 
-<div class="info-box">
-<h4>Diagnóstico preciso</h4>
+<h2 class="section-title">Proceso técnico</h2>
+
+<div class="proceso-grid">
+
+<div class="proceso-item">
+<h3>Diagnóstico preciso</h3>
 <p>Revisión técnica completa del dispositivo antes de cualquier intervención.</p>
 </div>
 
-<div class="info-box">
-<h4>Equipamiento profesional</h4>
+<div class="proceso-item">
+<h3>Equipamiento profesional</h3>
 <p>Herramientas específicas para reparación segura de dispositivos móviles.</p>
 </div>
 
-<div class="info-box">
-<h4>Proceso controlado</h4>
+<div class="proceso-item">
+<h3>Proceso controlado</h3>
 <p>Control técnico en cada etapa del servicio para asegurar resultados confiables.</p>
 </div>
 
 </div>
 
+</section>
+
+<div class="divisor"></div>
+
+<!-- =====================================================
+CONFIAZA / VALOR
+===================================================== -->
+
+<section class="confianza">
+
+<h2 class="section-title">Compromiso de Servicio</h2>
+
+<div class="confianza-grid">
+
+<div class="confianza-item">
+<h4>Diagnóstico claro</h4>
+<p>Evaluación completa antes de cualquier reparación.</p>
 </div>
 
-<script>
+<div class="confianza-item">
+<h4>Reparación rápida</h4>
+<p>Procesos optimizados para menor tiempo de entrega.</p>
+</div>
 
-const revealElements = document.querySelectorAll(".reveal");
+<div class="confianza-item">
+<h4>Garantía técnica</h4>
+<p>Control de calidad en cada intervención realizada.</p>
+</div>
 
-window.addEventListener("scroll",()=>{
-revealElements.forEach(el=>{
-const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 80){
-el.classList.add("active");
-}
-});
-});
+<div class="confianza-item">
+<h4>Atención profesional</h4>
+<p>Asesoramiento transparente durante todo el proceso.</p>
+</div>
 
-</script>
+</div>
+
+</section>
+
+</div>
 
 </body>
 </html>
