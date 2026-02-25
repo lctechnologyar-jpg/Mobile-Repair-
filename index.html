@@ -273,6 +273,59 @@
     /* Small helpers */
     .muted{color:var(--muted)}
     .center{display:grid;place-items:center}
+    /* --- Dropdown personalizado para el menú "Servicios" --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Contenedor del submenú */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--panel);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  min-width: 180px;
+  padding: 8px 0;
+  z-index: 200;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Items del submenú */
+.dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+
+.dropdown-content a:hover {
+  background: var(--glass);
+  color: var(--text);
+}
+
+/* Mostrar menú al pasar el mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 🔧 Para que no se oculte detrás del header */
+header {
+  z-index: 999;
+}
+
+/* 🔧 Ajuste visual */
+nav.primary .dropdown-content {
+  margin-top: 6px;
+}
   </style>
 </head>
 <body>
@@ -286,12 +339,23 @@
       </div>
     </div>
 
-    <nav class="primary" role="navigation" aria-label="Menú principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+   <nav class="primary" role="navigation" aria-label="Menú principal">
+  <a href="#inicio">Inicio</a>
+
+  <!-- Menú desplegable -->
+  <div class="dropdown">
+    <a href="#servicios" class="dropbtn">Servicios ▾</a>
+    <div class="dropdown-content">
+      <a href="servicio.html">Reparación</a>
+      <a href="venta.html">Venta</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="tv-digital.html">TV Digital</a>
+    </div>
+  </div>
+
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
     <div style="display:flex;gap:12px;align-items:center">
       <a class="cta" href="https://wa.me/5492634307686" target="_blank" aria-label="Contactar por WhatsApp">
