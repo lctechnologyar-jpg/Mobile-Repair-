@@ -9,7 +9,7 @@
 
 <style>
 
-/* ---------------- BASE ---------------- */
+/* ---------- BASE ---------- */
 
 body{
 margin:0;
@@ -24,7 +24,7 @@ margin:auto;
 padding:110px 24px 140px;
 }
 
-/* ---------------- BOTÓN VOLVER ---------------- */
+/* ---------- BOTON VOLVER ---------- */
 
 .volver{
 position:fixed;
@@ -44,7 +44,7 @@ transition:.3s;
 border-color:#ffffff33;
 }
 
-/* ---------------- TITULOS ---------------- */
+/* ---------- TITULOS ---------- */
 
 .titulo{
 font-family:"Orbitron",sans-serif;
@@ -52,16 +52,16 @@ font-size:2.2rem;
 margin-bottom:60px;
 }
 
-/* ---------------- LAYOUT ---------------- */
+/* ---------- LAYOUT ---------- */
 
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:70px; /* MUCHO AIRE */
+gap:70px;
 align-items:start;
 }
 
-/* ---------------- SERVICIOS ---------------- */
+/* ---------- SERVICIOS ---------- */
 
 .grid-servicios{
 display:grid;
@@ -74,11 +74,12 @@ background:#0b1020;
 border-radius:16px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
-transition:.3s;
+transition:.35s ease;
 }
 
 .card:hover{
-transform:translateY(-4px);
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,0.35);
 }
 
 .card img{
@@ -106,7 +107,7 @@ font-size:0.9rem;
 line-height:1.5;
 }
 
-/* ---------------- MARCAS ---------------- */
+/* ---------- MARCAS ---------- */
 
 .marcas-box{
 background:#0b1020;
@@ -136,10 +137,10 @@ font-size:0.9rem;
 color:#cfd6ea;
 }
 
-/* ---------------- REPUESTOS / CALIDAD ---------------- */
+/* ---------- CALIDAD ---------- */
 
 .calidad{
-margin-top:70px; /* SEPARACIÓN CLAVE */
+margin-top:70px;
 padding:34px 32px;
 background:#0b1020;
 border-radius:16px;
@@ -157,10 +158,74 @@ margin:0;
 color:#9aa6c0;
 font-size:0.9rem;
 line-height:1.6;
-max-width:520px;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* ---------- DIVISOR ---------- */
+
+.divisor{
+margin:110px 0 80px;
+height:1px;
+background:rgba(255,255,255,0.06);
+}
+
+/* ---------- POR QUE ELEGIRNOS ---------- */
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.why-item{
+background:#0b1020;
+padding:28px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.why-item h4{
+margin:0 0 8px;
+font-weight:500;
+}
+
+.why-item p{
+margin:0;
+color:#9aa6c0;
+font-size:.9rem;
+}
+
+/* ---------- BOTON ---------- */
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:13px 26px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.15);
+color:white;
+text-decoration:none;
+font-size:.9rem;
+transition:.3s;
+}
+
+.btn:hover{
+background:#0f1528;
+}
+
+/* ---------- ANIMACION SCROLL ---------- */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
 
 @media(max-width:900px){
 
@@ -170,6 +235,10 @@ gap:60px;
 }
 
 .grid-servicios{
+grid-template-columns:1fr;
+}
+
+.why-grid{
 grid-template-columns:1fr;
 }
 
@@ -184,12 +253,12 @@ grid-template-columns:1fr;
 
 <div class="container">
 
-<h1 class="titulo">Servicios</h1>
+<h1 class="titulo reveal">Servicios</h1>
 
 <div class="layout">
 
 <!-- SERVICIOS -->
-<div class="grid-servicios">
+<div class="grid-servicios reveal">
 
 <div class="card">
 <img src="pantalla.jpg">
@@ -236,7 +305,7 @@ grid-template-columns:1fr;
 <!-- COLUMNA DERECHA -->
 <div>
 
-<div class="marcas-box">
+<div class="marcas-box reveal">
 <h2>Marcas que atendemos</h2>
 
 <div class="marcas-grid">
@@ -249,13 +318,11 @@ grid-template-columns:1fr;
 </div>
 </div>
 
-<!-- REPUESTOS DEBAJO, BIEN SEPARADO -->
-<div class="calidad">
+<div class="calidad reveal">
 <h3>Repuestos y Calidad</h3>
 <p>
 Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
-Cada equipo es probado antes de la entrega para garantizar compatibilidad,
-seguridad y funcionamiento correcto.
+Cada equipo es probado antes de la entrega para garantizar compatibilidad, seguridad y funcionamiento correcto.
 </p>
 </div>
 
@@ -263,7 +330,52 @@ seguridad y funcionamiento correcto.
 
 </div>
 
+<div class="divisor"></div>
+
+<!-- POR QUE ELEGIRNOS -->
+
+<h2 class="titulo reveal">Por qué elegirnos</h2>
+
+<div class="why-grid reveal">
+
+<div class="why-item">
+<h4>Diagnóstico Claro</h4>
+<p>Evaluación completa antes de cualquier reparación.</p>
 </div>
+
+<div class="why-item">
+<h4>Reparación Rápida</h4>
+<p>Procesos optimizados para menor tiempo de entrega.</p>
+</div>
+
+<div class="why-item">
+<h4>Garantía de Servicio</h4>
+<p>Trabajo respaldado con control de calidad.</p>
+</div>
+
+<div class="why-item">
+<h4>Atención Profesional</h4>
+<p>Asesoramiento transparente en todo momento.</p>
+</div>
+
+</div>
+
+<a href="#" class="btn reveal">Solicitar diagnóstico</a>
+
+</div>
+
+<script>
+const revealElements = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+revealElements.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 80){
+el.classList.add("active");
+}
+});
+});
+</script>
 
 </body>
 </html>
