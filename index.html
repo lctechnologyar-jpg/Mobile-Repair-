@@ -563,14 +563,17 @@ nav.primary .dropdown-content {
       target="_blank" 
       aria-label="Formulario de contacto">
 
+  <!-- Campos del usuario -->
   <input type="text" name="name" placeholder="Nombre" required>
   <input type="email" name="email" placeholder="Email" required>
   <textarea name="message" rows="6" placeholder="Mensaje / consulta" required></textarea>
 
+  <!-- Configuración de FormSubmit -->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_next" value="https://formsubmit.co/thank-you">
 
-  <button class="btn btn-primary" type="submit">Enviar consulta</button>
+  <!-- Botón de envío -->
+  <button type="submit" class="btn btn-primary">Enviar consulta</button>
 </form>
       </div>
     </section>
