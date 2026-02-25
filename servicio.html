@@ -1,181 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- BASE ---------- */
+/* ---------------- BASE ---------------- */
 
 body{
 margin:0;
 font-family:"Inter",sans-serif;
-background:#04070f;
-color:white;
+background:#05070d;
+color:#eaeaea;
 }
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:100px 20px;
+padding:110px 24px 140px;
 }
 
-/* ---------- BOTON VOLVER ---------- */
+/* ---------------- BOTÓN VOLVER ---------------- */
 
 .volver{
 position:fixed;
-top:20px;
-left:20px;
+top:22px;
+left:22px;
 padding:10px 18px;
-border-radius:12px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-color:white;
+border-radius:10px;
+background:#0c111f;
+border:1px solid rgba(255,255,255,0.08);
+color:#eaeaea;
 text-decoration:none;
+font-size:0.9rem;
 transition:.3s;
 }
 
 .volver:hover{
-border:1px solid #00cfff;
-box-shadow:0 0 20px #00cfff55;
+border-color:#ffffff33;
 }
 
-/* ---------- TITULO ---------- */
+/* ---------------- TITULOS ---------------- */
 
 .titulo{
 font-family:"Orbitron",sans-serif;
-font-size:2.4rem;
-margin-bottom:40px;
+font-size:2.2rem;
+margin-bottom:60px;
 }
 
-/* ---------- LAYOUT PRINCIPAL ---------- */
+/* ---------------- LAYOUT ---------------- */
 
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:40px;
+gap:70px; /* MUCHO AIRE */
 align-items:start;
 }
 
-/* ---------- GRID SERVICIOS ---------- */
+/* ---------------- SERVICIOS ---------------- */
 
 .grid-servicios{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:25px;
+gap:40px;
 }
 
-/* ---------- TARJETAS ---------- */
-
 .card{
-background:#0b1220;
-border-radius:18px;
+background:#0b1020;
+border-radius:16px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
-transition:.35s;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border:1px solid #00cfff;
-box-shadow:0 20px 60px rgba(0,207,255,0.15);
+transform:translateY(-4px);
 }
 
-/* imagen servicio */
 .card img{
 width:100%;
-height:170px;
+height:160px;
 object-fit:contain;
-background:#070d18;
-padding:20px;
+background:#070b18;
+padding:22px;
 }
 
-/* contenido */
 .card-content{
-padding:20px;
+padding:22px 24px 26px;
 }
 
 .card h3{
-margin:0 0 8px 0;
-color:#00cfff;
+margin:0 0 8px;
+font-size:1.05rem;
+font-weight:500;
 }
 
 .card p{
 margin:0;
 color:#9aa6c0;
-font-size:.95rem;
+font-size:0.9rem;
 line-height:1.5;
 }
 
-/* ---------- MARCAS ---------- */
+/* ---------------- MARCAS ---------------- */
 
 .marcas-box{
-background:#0b1220;
-padding:30px;
-border-radius:18px;
+background:#0b1020;
+border-radius:16px;
+padding:34px;
 border:1px solid rgba(255,255,255,0.05);
 }
 
 .marcas-box h2{
-margin-top:0;
-margin-bottom:20px;
 font-family:"Orbitron",sans-serif;
+margin:0 0 28px;
+font-size:1.3rem;
 }
 
 .marcas-grid{
 display:flex;
 flex-wrap:wrap;
-gap:12px;
+gap:14px;
 }
 
 .marca{
-padding:10px 18px;
-border-radius:12px;
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-color:#00cfff;
-font-weight:600;
-transition:.3s;
+padding:9px 18px;
+border-radius:10px;
+background:#0f1528;
+border:1px solid rgba(255,255,255,0.06);
+font-size:0.9rem;
+color:#cfd6ea;
 }
 
-.marca:hover{
-border:1px solid #00cfff;
-box-shadow:0 0 15px #00cfff44;
-}
+/* ---------------- REPUESTOS / CALIDAD ---------------- */
 
-/* ---------- REPUESTOS ---------- */
-
-.repuestos{
-margin-top:80px;
-background:#0b1220;
-padding:40px;
-border-radius:18px;
+.calidad{
+margin-top:70px; /* SEPARACIÓN CLAVE */
+padding:34px 32px;
+background:#0b1020;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.05);
-text-align:center;
 }
 
-.repuestos h2{
+.calidad h3{
 font-family:"Orbitron",sans-serif;
-margin-top:0;
+margin:0 0 14px;
+font-size:1.2rem;
 }
 
-.repuestos p{
+.calidad p{
+margin:0;
 color:#9aa6c0;
-max-width:700px;
-margin:auto;
+font-size:0.9rem;
+line-height:1.6;
+max-width:520px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------------- RESPONSIVE ---------------- */
 
 @media(max-width:900px){
 
 .layout{
 grid-template-columns:1fr;
+gap:60px;
 }
 
 .grid-servicios{
@@ -204,7 +195,7 @@ grid-template-columns:1fr;
 <img src="pantalla.jpg">
 <div class="card-content">
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo con repuestos originales o equivalentes con pruebas completas.</p>
+<p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
 </div>
 </div>
 
@@ -212,7 +203,7 @@ grid-template-columns:1fr;
 <img src="bateria.jpg">
 <div class="card-content">
 <h3>Reemplazo de Batería</h3>
-<p>Batería nueva con verificación de carga y rendimiento.</p>
+<p>Baterías nuevas con verificación de carga y duración.</p>
 </div>
 </div>
 
@@ -220,7 +211,7 @@ grid-template-columns:1fr;
 <img src="pin-carga.jpg">
 <div class="card-content">
 <h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores y sistema de carga.</p>
+<p>Reparación de conectores y revisión eléctrica.</p>
 </div>
 </div>
 
@@ -236,16 +227,17 @@ grid-template-columns:1fr;
 <img src="google.jpg">
 <div class="card-content">
 <h3>Cuenta Google</h3>
-<p>Eliminación o recuperación segura de cuentas.</p>
+<p>Eliminación o recuperación segura según modelo.</p>
 </div>
 </div>
 
 </div>
 
-<!-- MARCAS LADO DERECHO -->
+<!-- COLUMNA DERECHA -->
+<div>
+
 <div class="marcas-box">
-
-<h2>Marcas</h2>
+<h2>Marcas que atendemos</h2>
 
 <div class="marcas-grid">
 <div class="marca">Samsung</div>
@@ -255,20 +247,20 @@ grid-template-columns:1fr;
 <div class="marca">iPhone</div>
 <div class="marca">Xiaomi / Redmi</div>
 </div>
-
 </div>
 
-</div>
-
-<!-- REPUESTOS ABAJO -->
-
-<div class="repuestos">
-<h2>Repuestos y Calidad</h2>
+<!-- REPUESTOS DEBAJO, BIEN SEPARADO -->
+<div class="calidad">
+<h3>Repuestos y Calidad</h3>
 <p>
 Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
-Cada equipo es probado antes de la entrega para garantizar compatibilidad, seguridad
-y funcionamiento correcto.
+Cada equipo es probado antes de la entrega para garantizar compatibilidad,
+seguridad y funcionamiento correcto.
 </p>
+</div>
+
+</div>
+
 </div>
 
 </div>
