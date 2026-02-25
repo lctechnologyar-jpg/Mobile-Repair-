@@ -5,51 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ---------- BASE ---------- */
+/* ---------- RESET ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-margin:0;
 font-family:"Inter",sans-serif;
 background:#05070d;
 color:#eaeaea;
+-webkit-font-smoothing:antialiased;
 }
+
+/* ---------- CONTAINER ---------- */
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:110px 24px 140px;
+padding:140px 28px 160px;
 }
 
 /* ---------- BOTON VOLVER ---------- */
 
 .volver{
 position:fixed;
-top:22px;
-left:22px;
-padding:10px 18px;
-border-radius:10px;
-background:#0c111f;
+top:24px;
+left:24px;
+padding:11px 20px;
+border-radius:12px;
+background:#0b1020;
 border:1px solid rgba(255,255,255,0.08);
 color:#eaeaea;
 text-decoration:none;
-font-size:0.9rem;
-transition:.3s;
+font-size:.9rem;
+backdrop-filter:blur(8px);
+transition:.25s;
 }
 
 .volver:hover{
-border-color:#ffffff33;
+border-color:#ffffff30;
+transform:translateY(-2px);
 }
 
 /* ---------- TITULOS ---------- */
 
 .titulo{
 font-family:"Orbitron",sans-serif;
-font-size:2.2rem;
-margin-bottom:60px;
+font-size:2.4rem;
+margin-bottom:70px;
+letter-spacing:.5px;
 }
 
 /* ---------- LAYOUT ---------- */
@@ -57,7 +68,7 @@ margin-bottom:60px;
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:70px;
+gap:90px;
 align-items:start;
 }
 
@@ -66,104 +77,109 @@ align-items:start;
 .grid-servicios{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:40px;
+gap:45px;
 }
 
 .card{
 background:#0b1020;
-border-radius:16px;
+border-radius:18px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
-transition:.35s ease;
+transition:.35s cubic-bezier(.2,.9,.3,1);
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 12px 30px rgba(0,0,0,0.35);
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(0,0,0,0.45);
+border-color:rgba(255,255,255,0.12);
 }
 
 .card img{
 width:100%;
-height:160px;
+height:170px;
 object-fit:contain;
 background:#070b18;
-padding:22px;
+padding:26px;
 }
 
 .card-content{
-padding:22px 24px 26px;
+padding:26px 28px 30px;
 }
 
 .card h3{
-margin:0 0 8px;
-font-size:1.05rem;
+margin:0 0 10px;
+font-size:1.1rem;
 font-weight:500;
 }
 
 .card p{
 margin:0;
 color:#9aa6c0;
-font-size:0.9rem;
-line-height:1.5;
+font-size:.92rem;
+line-height:1.6;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.marcas-box,
+.calidad{
+background:#0b1020;
+border-radius:18px;
+padding:40px;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 /* ---------- MARCAS ---------- */
 
 .marcas-box{
-background:#0b1020;
-border-radius:16px;
-padding:34px;
-border:1px solid rgba(255,255,255,0.05);
+margin-bottom:35px;
 }
 
 .marcas-box h2{
 font-family:"Orbitron",sans-serif;
-margin:0 0 28px;
-font-size:1.3rem;
+margin:0 0 30px;
+font-size:1.4rem;
 }
 
 .marcas-grid{
 display:flex;
 flex-wrap:wrap;
-gap:14px;
+gap:16px;
 }
 
 .marca{
-padding:9px 18px;
-border-radius:10px;
+padding:10px 20px;
+border-radius:12px;
 background:#0f1528;
 border:1px solid rgba(255,255,255,0.06);
-font-size:0.9rem;
+font-size:.9rem;
 color:#cfd6ea;
+transition:.25s;
+}
+
+.marca:hover{
+border-color:#ffffff25;
 }
 
 /* ---------- CALIDAD ---------- */
 
-.calidad{
-margin-top:70px;
-padding:34px 32px;
-background:#0b1020;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.05);
-}
-
 .calidad h3{
 font-family:"Orbitron",sans-serif;
-margin:0 0 14px;
-font-size:1.2rem;
+margin:0 0 16px;
+font-size:1.3rem;
 }
 
 .calidad p{
 margin:0;
 color:#9aa6c0;
-font-size:0.9rem;
-line-height:1.6;
+font-size:.95rem;
+line-height:1.7;
 }
 
 /* ---------- DIVISOR ---------- */
 
 .divisor{
-margin:110px 0 80px;
+margin:130px 0 90px;
 height:1px;
 background:rgba(255,255,255,0.06);
 }
@@ -173,51 +189,62 @@ background:rgba(255,255,255,0.06);
 .why-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:30px;
+gap:35px;
 }
 
 .why-item{
 background:#0b1020;
-padding:28px;
-border-radius:14px;
+padding:34px;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.05);
+transition:.25s;
+}
+
+.why-item:hover{
+border-color:#ffffff18;
+transform:translateY(-5px);
 }
 
 .why-item h4{
-margin:0 0 8px;
+margin:0 0 10px;
 font-weight:500;
+font-size:1rem;
 }
 
 .why-item p{
 margin:0;
 color:#9aa6c0;
-font-size:.9rem;
+font-size:.92rem;
+line-height:1.6;
 }
 
 /* ---------- BOTON ---------- */
 
 .btn{
 display:inline-block;
-margin-top:30px;
-padding:13px 26px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.15);
+margin-top:50px;
+padding:16px 34px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.12);
 color:white;
 text-decoration:none;
-font-size:.9rem;
-transition:.3s;
+font-size:.95rem;
+letter-spacing:.3px;
+transition:.25s;
 }
 
 .btn:hover{
 background:#0f1528;
+border-color:#ffffff30;
+transform:translateY(-2px);
 }
 
-/* ---------- ANIMACION SCROLL ---------- */
+/* ---------- ANIMACION ---------- */
 
 .reveal{
 opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
+transform:translateY(50px);
+transition:all .9s cubic-bezier(.2,.9,.3,1);
 }
 
 .reveal.active{
@@ -231,7 +258,7 @@ transform:translateY(0);
 
 .layout{
 grid-template-columns:1fr;
-gap:60px;
+gap:70px;
 }
 
 .grid-servicios{
@@ -240,6 +267,10 @@ grid-template-columns:1fr;
 
 .why-grid{
 grid-template-columns:1fr;
+}
+
+.titulo{
+font-size:2rem;
 }
 
 }
@@ -264,7 +295,7 @@ grid-template-columns:1fr;
 <img src="pantalla.jpg">
 <div class="card-content">
 <h3>Cambio de Pantalla</h3>
-<p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
+<p>Reemplazo de módulos con pruebas completas de imagen, brillo y respuesta táctil.</p>
 </div>
 </div>
 
@@ -272,7 +303,7 @@ grid-template-columns:1fr;
 <img src="bateria.jpg">
 <div class="card-content">
 <h3>Reemplazo de Batería</h3>
-<p>Baterías nuevas con verificación de carga y duración.</p>
+<p>Baterías nuevas compatibles con verificación de carga y autonomía.</p>
 </div>
 </div>
 
@@ -280,7 +311,7 @@ grid-template-columns:1fr;
 <img src="pin-carga.jpg">
 <div class="card-content">
 <h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores y revisión eléctrica.</p>
+<p>Reparación de conectores, limpieza y revisión eléctrica del equipo.</p>
 </div>
 </div>
 
@@ -288,7 +319,7 @@ grid-template-columns:1fr;
 <img src="software.jpg">
 <div class="card-content">
 <h3>Software / Formateo</h3>
-<p>Optimización del sistema y respaldo de datos.</p>
+<p>Optimización del sistema, actualización y respaldo de información.</p>
 </div>
 </div>
 
@@ -296,13 +327,13 @@ grid-template-columns:1fr;
 <img src="google.jpg">
 <div class="card-content">
 <h3>Cuenta Google</h3>
-<p>Eliminación o recuperación segura según modelo.</p>
+<p>Configuración, eliminación o recuperación segura según modelo.</p>
 </div>
 </div>
 
 </div>
 
-<!-- COLUMNA DERECHA -->
+<!-- SIDEBAR -->
 <div>
 
 <div class="marcas-box reveal">
@@ -332,8 +363,6 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 <div class="divisor"></div>
 
-<!-- POR QUE ELEGIRNOS -->
-
 <h2 class="titulo reveal">Por qué elegirnos</h2>
 
 <div class="why-grid reveal">
@@ -350,12 +379,12 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 <div class="why-item">
 <h4>Garantía de Servicio</h4>
-<p>Trabajo respaldado con control de calidad.</p>
+<p>Control de calidad en cada reparación.</p>
 </div>
 
 <div class="why-item">
 <h4>Atención Profesional</h4>
-<p>Asesoramiento transparente en todo momento.</p>
+<p>Asesoramiento transparente durante todo el proceso.</p>
 </div>
 
 </div>
@@ -365,12 +394,12 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 </div>
 
 <script>
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements=document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
-revealElements.forEach(el => {
-const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 80){
+window.addEventListener("scroll",()=>{
+revealElements.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-80){
 el.classList.add("active");
 }
 });
