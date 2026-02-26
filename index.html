@@ -332,7 +332,27 @@ header {
 /* 🔧 Ajuste visual */
 nav.primary .dropdown-content {
   margin-top: 6px;
+  .mobile-dropdown-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-top:8px;
 }
+
+.mobile-dropdown-content a{
+  padding:10px 14px;
+  background:rgba(255,255,255,0.03);
+  border-radius:8px;
+  font-size:14px;
+}
+
+.mobile-dropdown.active .mobile-dropdown-content{
+  max-height:400px;
+}
+
   </style>
 </head>
 <body>
@@ -346,18 +366,27 @@ nav.primary .dropdown-content {
       </div>
     </div>
 
-   <nav class="primary" role="navigation" aria-label="Menú principal">
+   <div class="mobile-menu" id="mobileMenu">
+
   <a href="#inicio">Inicio</a>
 
-  <!-- Menú desplegable -->
-  <div class="dropdown">
-    <a href="#" class="dropbtn" id="serviciosToggle">Servicios ▾</a>
-    <div class="dropdown-content">
-      <a href="servicio.html">Reparación</a>
-      <a href="venta.html">Venta</a>
-      <a href="accesorios.html">Accesorios</a>
-      <a href="tv-digital.html">TV Digital</a>
+  <div class="mobile-dropdown">
+    <button class="mobile-servicios-btn" id="mobileServiciosBtn">
+      Servicios
+    </button>
+
+    <div class="mobile-dropdown-content" id="mobileServiciosMenu">
+      <a href="#venta">Reparacion</a>
+      <a href="#reparacion">Venta</a>
+      <a href="#accesorios">Accesorios</a>
+      <a href="#tv">TV Digital</a>
+      
     </div>
+  </div>
+
+  <a href="#contacto">Contactar</a>
+
+</div>
   </div>
 
   <a href="#nosotros">Nosotros</a>
@@ -736,6 +765,12 @@ document.addEventListener('click', function(e) {
     if (window.innerWidth <= 720) {
       e.preventDefault();
       dropdown.classList.toggle('active');
+      const mobileServiciosBtn = document.getElementById('mobileServiciosBtn');
+const mobileDropdown = document.querySelector('.mobile-dropdown');
+
+mobileServiciosBtn.addEventListener('click', function(){
+  mobileDropdown.classList.toggle('active');
+
   }
 });
 </script>
