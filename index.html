@@ -825,12 +825,15 @@ nav.primary .dropdown-content {
       </div>
     </div>
 
-   <form action="https://api.web3forms.com/submit" method="POST">
+   <form id="contactForm" class="form">
+  <!-- Web3Forms key -->
   <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit</button>
+
+  <input type="text" name="name" placeholder="Tu nombre" required>
+  <input type="email" name="email" placeholder="Tu correo electrónico" required>
+  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
 <div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
