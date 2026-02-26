@@ -825,17 +825,24 @@ nav.primary .dropdown-content {
       </div>
     </div>
 
-    <form id="contactForm"
-          action="https://formsubmit.co/lc.technology.ar@gmail.com"
-          method="POST"
-          class="form">
+    <form
+  action="https://formsubmit.co/lc.technology.ar@gmail.com"
+  method="POST"
+  class="form"
+>
+  <input type="text" name="name" placeholder="Tu nombre" required>
+  <input type="email" name="email" placeholder="Tu correo electrónico" required>
+  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
 
-      <input type="text" name="name" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+  <!-- 🔹 Campos ocultos necesarios -->
+  <input type="hidden" name="_captcha" value="true">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="Nuevo mensaje desde LC Technology">
+  <input type="hidden" name="_next" value="https://technology.netlify.app/gracias.html">
+  <input type="hidden" name="_autoresponse" value="¡Gracias por contactarnos! Te responderemos pronto.">
 
-    </form>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 
     <div id="thankYouMessage"
          style="display:none; color:#00cfff; margin-top:12px;">
@@ -887,36 +894,6 @@ document.addEventListener('click', (ev) => {
 });
 
 
-/* =========================
-   FORMULARIO CONTACTO
-========================= */
-
-const form = document.getElementById('contactForm');
-const thankYou = document.getElementById('thankYouMessage');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.style.display = 'none';
-      thankYou.style.display = 'block';
-    } else {
-      alert('Oops, hubo un error. Intentá nuevamente.');
-    }
-
-  } catch (error) {
-    alert('Error al enviar el formulario. Revisá tu conexión.');
-  }
-});
   /* =========================
    MENÚ DESPLEGABLE MÓVIL
 ========================= */
