@@ -1,462 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LC TECHNOLOGY — TECNOLOGIA INNOVADORA</title>
-  <meta name="description" content="LC TECHNOLOGY - Reparación y venta de celulares, accesorios y soluciones tecnológicas confiables." />
-  <meta name="keywords" content="Reparación celular, venta celulares, accesorios, TV digital, Internet, tecnología" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- === FAVICONS === -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="shortcut icon" href="favicon-32x32.png">
+  <title>LC ONE PLAYER — Tecnología Premium</title>
+
+  <meta
+    name="description"
+    content="LC ONE PLAYER - Servicio técnico premium, reparación profesional, venta de celulares, accesorios y soluciones tecnológicas modernas."
+  />
+
+  <meta
+    name="keywords"
+    content="LC ONE PLAYER, servicio técnico, celulares, reparación, tecnología, accesorios, venta"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root{
-      --bg:#060818;
-      --panel:#0b1020;
-      --muted:#9aa6c0;
-      --text:#eaf6ff;
-      --accent:#00cfff;
-      --accent-2:#7c4dff;
-      --glass: rgba(255,255,255,0.04);
-      --shadow: 0 6px 18px rgba(2,6,23,0.6);
-      --radius:14px;
-      --transition: 300ms cubic-bezier(.2,.9,.2,1);
-      font-synthesis: none;
+      --bg:#050816;
+      --bg2:#090d1d;
+      --panel:rgba(255,255,255,0.04);
+      --panel-2:rgba(255,255,255,0.03);
+      --white:#f5fbff;
+      --muted:#9ba8c7;
+      --accent:#4da3ff;
+      --accent2:#7c4dff;
+      --green:#21d36b;
+      --border:rgba(255,255,255,0.06);
+      --shadow:0 20px 60px rgba(0,0,0,.55);
+      --radius:22px;
+      --transition:350ms cubic-bezier(.2,.9,.2,1);
     }
 
-    /* Reset */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
+    *{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      background: linear-gradient(180deg, rgba(5,8,14,1) 0%, rgba(8,12,20,1) 100%);
-      color:var(--text);
-      line-height:1.5;
-      -webkit-touch-callout:none;
-      -webkit-user-select:none;
-      -ms-user-select:none;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;height:auto}
-
-    /* Page layout */
-    header{
-      position:fixed;top:0;left:0;right:0;height:72px;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 20px;
-      gap:12px;
-      z-index:60;
-      background: linear-gradient(180deg, rgba(6,9,18,0.72), rgba(6,9,18,0.48));
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow);
+    html{
+      scroll-behavior:smooth;
     }
 
-    .logo {
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .logo img {
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
-      object-fit: contain;
-      background-color: #000;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    }
-
-    .brand {
-      display:flex;
-      flex-direction:column;
-      line-height:1;
-    }
-
-    .brand .title{
-      font-family: "Orbitron", sans-serif;
-      letter-spacing:0.14em;
-      color:var(--text);
-      font-size:1.05rem;
-    }
-
-    .brand .subtitle{
-      font-size:0.78rem;
-      color:var(--muted);
-      margin-top:2px;
-    }
-
-    /* Desktop nav */
-    nav.primary{
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-
-    nav.primary a{
-      color:var(--muted);
-      padding:8px 12px;
-      border-radius:10px;
-      font-weight:600;
-      font-size:0.95rem;
-      transition:color var(--transition), background var(--transition), transform var(--transition);
-    }
-
-    nav.primary a:hover{
-      color:var(--text);
-      background:var(--glass);
-      transform:translateY(-2px);
-    }
-
-    /* CTA */
-    .cta {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      padding:10px 14px;
-      border-radius:12px;
-      color:#021022;
-      font-weight:700;
-      box-shadow: 0 8px 30px rgba(12,55,120,0.16);
-      transition: transform var(--transition);
-    }
-
-    .cta:active{
-      transform:scale(.99);
-    }
-
-    /* Mobile menu */
-    .burger{
-      display:none;
-      width:44px;
-      height:44px;
-      border-radius:10px;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.04);
-    }
-
-    .burger span{
-      display:block;
-      width:20px;
-      height:2px;
-      background:var(--text);
-      border-radius:2px;
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+      radial-gradient(circle at 10% 20%, rgba(77,163,255,.18), transparent 25%),
+      radial-gradient(circle at 80% 10%, rgba(124,77,255,.18), transparent 25%),
+      radial-gradient(circle at 50% 90%, rgba(0,207,255,.10), transparent 35%),
+      linear-gradient(180deg,#050816 0%,#070b17 100%);
+      color:var(--white);
+      overflow-x:hidden;
+      min-height:100vh;
       position:relative;
     }
 
-    /* Hero */
-    .hero{
-      margin-top:72px;
-      min-height:calc(100vh - 72px);
-      display:grid;
-      grid-template-columns: 1fr;
-      align-items:center;
-      justify-items:center;
-      padding: clamp(28px,5vw,64px);
-      gap:28px;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:60px 60px;
+      opacity:.25;
+      pointer-events:none;
+      z-index:-1;
     }
 
-    .hero-inner {
-      width:100%;
-      max-width:1200px;
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:stretch;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .hero-card{
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(255,255,255,0.03);
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    .hero-title{
-      font-family:"Orbitron",sans-serif;
-      font-size:clamp(1.6rem,4.8vw,3.4rem);
-      margin:0;
-      color:var(--text);
-      letter-spacing:0.06em;
+    .container{
+      width:min(1300px,92%);
+      margin:auto;
     }
 
-    .hero-sub{
-      color:var(--muted);
-      margin-top:12px;
-      font-size:1rem;
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:999;
+      backdrop-filter:blur(20px);
+      background:rgba(5,8,22,.65);
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
 
-    .hero-actions{
-      margin-top:20px;
+    .header-inner{
+      height:82px;
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo-box{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      background:
+      linear-gradient(135deg, rgba(77,163,255,.25), rgba(124,77,255,.25));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:
+      0 0 40px rgba(77,163,255,.25),
+      0 0 80px rgba(124,77,255,.12);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .logo-box::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transform:rotate(25deg);
+      animation:shine 5s linear infinite;
+    }
+
+    @keyframes shine{
+      0%{transform:translateX(-120%) rotate(25deg)}
+      100%{transform:translateX(220%) rotate(25deg)}
+    }
+
+    .logo-box span{
+      font-family:'Orbitron',sans-serif;
+      font-size:20px;
+      font-weight:800;
+      color:white;
+      z-index:2;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .brand h2{
+      font-size:1rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      font-family:'Orbitron',sans-serif;
+    }
+
+    .brand p{
+      color:var(--muted);
+      font-size:.8rem;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    nav a{
+      padding:12px 18px;
+      border-radius:14px;
+      color:var(--muted);
+      font-weight:600;
+      transition:var(--transition);
+      position:relative;
+    }
+
+    nav a:hover{
+      color:white;
+      background:rgba(255,255,255,.05);
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
-      padding:12px 16px;
-      border-radius:10px;
-      font-weight:600;
+      padding:16px 28px;
+      border-radius:18px;
+      border:none;
       cursor:pointer;
-      border:0;
-      transition: transform var(--transition), box-shadow var(--transition);
+      font-weight:700;
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
     }
 
     .btn-primary{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#021022;
-      box-shadow: 0 12px 30px rgba(12,55,120,0.12);
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      color:white;
+      box-shadow:
+      0 15px 40px rgba(77,163,255,.25),
+      0 5px 20px rgba(124,77,255,.15);
     }
 
-    .btn-ghost{
-      background:transparent;
-      color:var(--text);
-      border:1px solid rgba(255,255,255,0.05);
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      box-shadow:
+      0 20px 50px rgba(77,163,255,.35),
+      0 10px 30px rgba(124,77,255,.22);
     }
 
-    /* Hero visual (image) */
-    .hero-visual{
-      border-radius:12px;
-      overflow:hidden;
-      background: linear-gradient(180deg, rgba(2,6,14,0.6), rgba(2,6,14,0.4));
-      box-shadow:0 10px 40px rgba(0,0,0,0.6);
-      display:flex;
-      flex-direction:column;
-      height:100%;
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:white;
     }
 
-    .hero-visual .bg{
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-4px);
+    }
+
+    .burger{
+      display:none;
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+
+    .burger span{
+      width:22px;
+      height:2px;
+      background:white;
       position:relative;
-      height:100%;
-      min-height:260px;
-      background-size:cover;
-      background-position:center;
+      border-radius:10px;
     }
 
-    .hero-visual .overlay{
+    .burger span::before,
+    .burger span::after{
+      content:"";
       position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(2,6,14,0.2), rgba(2,6,14,0.6));
-    }
-
-    .hero-visual .badge{
-      position:absolute;
-      left:16px;
-      bottom:16px;
-      background:rgba(0,0,0,0.45);
-      padding:10px 14px;
+      width:22px;
+      height:2px;
+      background:white;
       border-radius:10px;
-      color:var(--text);
-      font-weight:600;
-      border:1px solid rgba(255,255,255,0.03);
+      left:0;
     }
 
-    /* Services */
-    .section{
-      padding:48px 20px;
-      max-width:1200px;
-      margin:0 auto;
-    }
+    .burger span::before{top:-7px}
+    .burger span::after{top:7px}
 
-    .section h3{
-      margin:0 0 18px 0;
-      font-size:1.25rem;
-      color:var(--text);
-    }
-
-    .grid{
-      display:grid;
-      gap:18px;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:18px;
-      border:1px solid rgba(255,255,255,0.03);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:flex-start;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow: 0 18px 50px rgba(6,12,30,0.6);
-    }
-
-    .card .icon{
-      width:56px;
-      height:56px;
-      border-radius:10px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);
-      font-size:1.2rem;
-      color:var(--accent);
-    }
-
-    .card h4{
-      margin:0;
-      font-size:1rem;
-    }
-
-    .card p{
-      margin:0;
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-
-    /* About + Workflow */
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .quote{
-      font-size:1.05rem;
-      color:var(--muted);
-      line-height:1.8;
-    }
-
-    .values{
-      display:flex;
-      gap:16px;
-      flex-direction:column;
-    }
-
-    .value{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      background:var(--glass);
-      padding:14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-
-    .value .v-icon{
-      width:44px;
-      height:44px;
-      border-radius:8px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,0.02);
-      color:var(--accent);
-    }
-
-    .value strong{
-      display:block;
-    }
-
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:24px;
-      align-items:start;
-    }
-
-    .socials{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-
-    .socials a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px;
-      border-radius:10px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);
-    }
-
-    .form{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-
-    .form input,
-    .form textarea{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.04);
-      padding:12px;
-      border-radius:10px;
-      color:var(--text);
-      resize:vertical;
-      font-size:0.95rem;
-    }
-
-    .form input::placeholder,
-    .form textarea::placeholder{
-      color:rgba(170,184,206,0.28);
-    }
-
-    /* Footer */
-    footer{
-      margin-top:40px;
-      padding:28px 20px;
-      background:linear-gradient(180deg, rgba(3,6,12,1), rgba(6,9,18,1));
-      color:var(--muted);
-      text-align:center;
-    }
-
-    /* Responsive */
-    @media (max-width:1100px){
-      .hero-inner{grid-template-columns: 1fr 360px}
-      .grid{grid-template-columns: repeat(2, 1fr)}
-      .split{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-    }
-
-    @media (max-width:720px){
-      nav.primary{display:none}
-      .burger{display:flex}
-      .hero-inner{grid-template-columns:1fr;gap:18px}
-      .hero-visual{order:-1}
-      .grid{grid-template-columns:1fr}
-      header{padding:10px 14px}
-      .brand .title{font-size:0.95rem}
-    }
-
-    /* Mobile menu slide */
     .mobile-menu{
       position:fixed;
-      inset:72px 0 0 0;
-      background:linear-gradient(180deg, rgba(4,6,10,0.98), rgba(4,6,10,0.98));
-      transform:translateY(-8px);
-      opacity:0;
-      pointer-events:none;
-      transition:opacity var(--transition), transform var(--transition);
+      top:82px;
+      left:0;
+      right:0;
+      background:#070b17;
       display:flex;
       flex-direction:column;
-      padding:18px;
+      padding:22px;
       gap:12px;
-      z-index:80;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(-10px);
+      transition:var(--transition);
+      z-index:998;
     }
 
     .mobile-menu.show{
@@ -466,461 +299,1223 @@
     }
 
     .mobile-menu a{
-      padding:14px;
-      border-radius:10px;
-      color:var(--text);
+      padding:16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.05);
       font-weight:600;
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.02);
     }
 
-    /* Small helpers */
-    .muted{color:var(--muted)}
-    .center{display:grid;place-items:center}
-
-    /* Dropdown personalizado para "Servicios" */
-    .dropdown {
-      position: relative;
-      display: inline-block;
+    .hero{
+      padding-top:150px;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    .dropbtn {
-      cursor: pointer;
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:600px;
+      height:600px;
+      background:radial-gradient(circle, rgba(77,163,255,.18), transparent 70%);
+      left:-200px;
+      top:-200px;
+      filter:blur(20px);
     }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--panel);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      min-width: 180px;
-      padding: 8px 0;
-      z-index: 200;
-      border: 1px solid rgba(255,255,255,0.05);
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:radial-gradient(circle, rgba(124,77,255,.16), transparent 70%);
+      right:-200px;
+      top:0;
+      filter:blur(20px);
     }
-/* Items del submenú */
-.dropdown-content a {
-  display: block;
-  padding: 10px 14px;
-  color: var(--muted);
-  font-weight: 500;
-  transition: background var(--transition), color var(--transition);
-}
 
-.dropdown-content a:hover {
-  background: var(--glass);
-  color: var(--text);
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:60px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
 
-/* Mostrar menú al pasar el mouse SOLO en desktop */
-@media (min-width:721px){
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-}
+    .hero-content{
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+    }
 
-/* 🔧 Para que no se oculte detrás del header */
-header {
-  z-index: 999;
-}
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      width:max-content;
+      color:#c9d5f5;
+      font-weight:600;
+      box-shadow:var(--shadow);
+    }
 
-/* 🔧 Ajuste visual */
-nav.primary .dropdown-content {
-  margin-top: 6px;
-}
+    .hero-title{
+      font-size:clamp(3rem,7vw,6.2rem);
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:-.05em;
+    }
 
-/* ========================= */
-/* DROPDOWN MOBILE CORRECTO */
-/* ========================= */
+    .gradient{
+      background:linear-gradient(90deg,#4da3ff,#7c4dff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
 
-.mobile-dropdown{
-  display:flex;
-  flex-direction:column;
-}
+    .hero-text{
+      max-width:680px;
+      color:var(--muted);
+      font-size:1.15rem;
+      line-height:1.9;
+    }
 
-.mobile-dropdown-toggle{
-  padding:14px;
-  border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-  border:1px solid rgba(255,255,255,0.02);
-}
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
 
-.mobile-dropdown-content{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height 0.4s ease;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  margin-top:8px;
-}
+    .hero-stats{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
 
-.mobile-dropdown-content a{
-  padding:10px 14px;
-  background:rgba(255,255,255,0.03);
-  border-radius:8px;
-  font-size:14px;
-}
+    .hero-stat{
+      padding:18px 22px;
+      border-radius:20px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      min-width:170px;
+      backdrop-filter:blur(20px);
+    }
 
-.mobile-dropdown.active .mobile-dropdown-content{
-  max-height:300px;
-}
+    .hero-stat h3{
+      font-size:2rem;
+      margin-bottom:4px;
+    }
+
+    .hero-stat p{
+      color:var(--muted);
+    }
+
+    .hero-visual{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:650px;
+    }
+
+    .device{
+      width:360px;
+      height:650px;
+      border-radius:50px;
+      background:
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      position:relative;
+      overflow:hidden;
+      box-shadow:
+      0 0 80px rgba(77,163,255,.14),
+      0 0 120px rgba(124,77,255,.10);
+      backdrop-filter:blur(20px);
+    }
+
+    .device::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top, rgba(77,163,255,.15), transparent 30%),
+      radial-gradient(circle at bottom, rgba(124,77,255,.15), transparent 35%);
+    }
+
+    .device-top{
+      width:120px;
+      height:8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      margin:26px auto;
+    }
+
+    .screen{
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      position:relative;
+      z-index:2;
+    }
+
+    .screen-line{
+      height:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .screen-line.big{
+      height:18px;
+      background:linear-gradient(90deg,#4da3ff,#7c4dff);
+    }
+
+    .screen-boxes{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .screen-box{
+      height:70px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.05);
+    }
+
+    .floating-card{
+      position:absolute;
+      padding:16px 20px;
+      border-radius:20px;
+      background:rgba(8,13,29,.75);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(20px);
+      box-shadow:var(--shadow);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .floating-card:nth-child(1){
+      top:70px;
+      left:-20px;
+    }
+
+    .floating-card:nth-child(2){
+      bottom:150px;
+      left:-40px;
+      animation-delay:1s;
+    }
+
+    .floating-card:nth-child(3){
+      right:-20px;
+      bottom:100px;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-12px)}
+      100%{transform:translateY(0)}
+    }
+
+    .section{
+      padding:130px 0;
+      position:relative;
+    }
+
+    .section-title{
+      font-size:3rem;
+      font-weight:900;
+      margin-bottom:18px;
+      letter-spacing:-.04em;
+    }
+
+    .section-text{
+      max-width:700px;
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:60px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .service-card{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:30px;
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+      transition:var(--transition);
+      backdrop-filter:blur(20px);
+    }
+
+    .service-card::before{
+      content:"";
+      position:absolute;
+      width:200px;
+      height:200px;
+      background:radial-gradient(circle, rgba(77,163,255,.14), transparent 70%);
+      top:-100px;
+      right:-100px;
+      opacity:0;
+      transition:var(--transition);
+    }
+
+    .service-card:hover::before{
+      opacity:1;
+    }
+
+    .service-card:hover{
+      transform:translateY(-12px);
+      border-color:rgba(77,163,255,.25);
+      box-shadow:
+      0 20px 60px rgba(77,163,255,.12),
+      0 10px 30px rgba(124,77,255,.08);
+    }
+
+    .service-icon{
+      width:74px;
+      height:74px;
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(77,163,255,.15), rgba(124,77,255,.15));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      margin-bottom:26px;
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .service-card h3{
+      font-size:1.4rem;
+      margin-bottom:16px;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-panel{
+      background:rgba(255,255,255,.03);
+      border-radius:34px;
+      padding:50px;
+      border:1px solid rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .about-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top right, rgba(124,77,255,.12), transparent 30%);
+    }
+
+    .about-panel h3{
+      font-size:2rem;
+      margin-bottom:22px;
+    }
+
+    .about-panel p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:18px;
+    }
+
+    .about-list{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .about-item{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+    }
+
+    .about-item span{
+      font-size:1.4rem;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+      margin-top:70px;
+    }
+
+    .stat-card{
+      padding:40px;
+      border-radius:30px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      text-align:center;
+    }
+
+    .stat-card h2{
+      font-size:3rem;
+      margin-bottom:10px;
+      background:linear-gradient(90deg,#4da3ff,#7c4dff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .stat-card p{
+      color:var(--muted);
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .testimonial{
+      padding:36px;
+      border-radius:30px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .testimonial::before{
+      content:'★★★★★';
+      position:absolute;
+      top:24px;
+      right:24px;
+      color:#ffd54a;
+      font-size:.9rem;
+      letter-spacing:2px;
+    }
+
+    .testimonial p{
+      color:var(--muted);
+      line-height:1.9;
+      margin-bottom:22px;
+    }
+
+    .testimonial strong{
+      display:block;
+      font-size:1rem;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .gallery-item{
+      height:320px;
+      border-radius:30px;
+      background:
+      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .gallery-item::before{
+      content:"LC ONE PLAYER";
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      font-weight:900;
+      opacity:.08;
+      font-family:'Orbitron',sans-serif;
+    }
+
+    .contact-wrapper{
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:40px;
+      align-items:start;
+    }
+
+    .contact-box{
+      background:rgba(255,255,255,.03);
+      border-radius:34px;
+      padding:50px;
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .contact-info{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .contact-item{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+    }
+
+    .contact-item span{
+      font-size:1.5rem;
+    }
+
+    .contact-item p{
+      color:var(--muted);
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      border:none;
+      outline:none;
+      padding:20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:white;
+      font-size:1rem;
+      resize:none;
+      transition:var(--transition);
+    }
+
+    input:focus,
+    textarea:focus{
+      border-color:rgba(77,163,255,.5);
+      box-shadow:0 0 30px rgba(77,163,255,.12);
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:#7c88aa;
+    }
+
+    footer{
+      padding:70px 0 40px;
+      border-top:1px solid rgba(255,255,255,.05);
+      position:relative;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:40px;
+      align-items:center;
+    }
+
+    .footer-brand h2{
+      font-family:'Orbitron',sans-serif;
+      margin-bottom:12px;
+    }
+
+    .footer-brand p{
+      color:var(--muted);
+      max-width:500px;
+      line-height:1.8;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      transition:var(--transition);
+    }
+
+    .footer-links a:hover{
+      color:white;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#22d36f,#0fbf5b);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      z-index:999;
+      box-shadow:
+      0 10px 40px rgba(33,211,107,.35);
+      animation:pulse 2.5s infinite;
+    }
+
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(33,211,107,.5)}
+      70%{box-shadow:0 0 0 20px rgba(33,211,107,0)}
+      100%{box-shadow:0 0 0 0 rgba(33,211,107,0)}
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:900ms ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:none;
+    }
+
+    ::selection{
+      background:#4da3ff;
+      color:white;
+    }
+
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-track{
+      background:#050816;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:linear-gradient(#4da3ff,#7c4dff);
+      border-radius:999px;
+    }
+
+    @media(max-width:1200px){
+
+      .hero-grid,
+      .about-grid,
+      .contact-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid,
+      .stats-grid,
+      .testimonials,
+      .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero-visual{
+        min-height:auto;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        display:none;
+      }
+
+      .burger{
+        display:flex;
+      }
+
+      .hero{
+        padding-top:130px;
+      }
+
+      .hero-grid{
+        gap:40px;
+      }
+
+      .hero-title{
+        font-size:3.5rem;
+      }
+
+      .section-title{
+        font-size:2.4rem;
+      }
+
+      .services-grid,
+      .stats-grid,
+      .testimonials,
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-stat{
+        width:100%;
+      }
+
+      .device{
+        width:100%;
+        max-width:350px;
+        height:620px;
+      }
+
+      .floating-card{
+        transform:scale(.9);
+      }
+
+      .contact-box,
+      .about-panel,
+      .service-card,
+      .testimonial,
+      .stat-card{
+        padding:28px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
 
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo" aria-hidden="false">
-      <img src="Mio.png" alt="LC TECHNOLOGY logo" />
-      <div class="brand" role="banner">
-        <div class="title">LC TECHNOLOGY</div>
-        <div class="subtitle">Tecnología Innovadora</div>
-      </div>
-    </div>
+    <div class="container header-inner">
 
-   <nav class="primary" role="navigation" aria-label="Menú principal">
-      <a href="#inicio">Inicio</a>
+      <div class="logo">
 
-      <!-- Menú desplegable -->
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Servicios ▾</a>
-        <div class="dropdown-content">
-          <a href="servicio.html">Reparación</a>
-          <a href="venta.html">Venta</a>
-          <a href="accesorios.html">Accesorios</a>
-          <a href="tv-digital.html">TV Digital</a>
-        </div>
-      </div>
-
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-   </nav>
-
-    <div style="display:flex;gap:12px;align-items:center">
-      <a class="cta" href="https://wa.me/5492634722710" target="_blank" aria-label="Contactar por WhatsApp">
-        Contactar
-      </a>
-
-      <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="mobile-menu" role="menu" aria-hidden="true">
-    <a href="#inicio" role="menuitem">Inicio</a>
-
-    <!-- Dropdown mobile -->
-    <div class="mobile-dropdown">
-      <div class="mobile-dropdown-toggle">Servicios ▾</div>
-
-      <div class="mobile-dropdown-content">
-        <a href="servicio.html">Reparación</a>
-        <a href="venta.html">Venta</a>
-        <a href="accesorios.html">Accesorios</a>
-        <a href="tv-digital.html">TV Digital</a>
-      </div>
-    </div>
-
-    <a href="#nosotros" role="menuitem">Nosotros</a>
-    <a href="#contacto" role="menuitem">Contacto</a>
-    <a href="https://wa.me/5492634722710" target="_blank" role="menuitem">WhatsApp</a>
-  </div>
-
-  <!-- HERO -->
-  <main id="inicio">
-    <section class="hero" aria-label="Introducción">
-      <div class="hero-inner">
-        <div class="hero-card" role="region" aria-labelledby="hero-heading">
-          <h1 id="hero-heading" class="hero-title">Soluciones tecnológicas confiables y profesionales</h1>
-          <p class="hero-sub">Reparación, venta y soporte técnico con atención personalizada — procesos claros, garantías reales.</p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/5492634722710" target="_blank">
-              WhatsApp
-            </a>
-
-            <button class="btn btn-ghost" onclick="location.href='#servicios'">Nuestros servicios</button>
-          </div>
-
-          <div style="margin-top:18px;color:var(--muted);font-size:0.95rem">
-            Horarios: Lun a Sáb 09:00 - 22:00 · Dom Cerrado
-          </div>
-        </div>
-<aside class="hero-visual" aria-hidden="true">
-  <div class="bg" style="
-      background-image:url('Mio.png');
-      background-size:contain;
-      background-repeat:no-repeat;
-      background-position:center;
-      background-color:transparent;
-      aspect-ratio:16/9;
-      position:relative;
-      overflow:hidden;
-    ">
-    <div class="overlay" style="
-        position:absolute;
-        inset:0;
-        background:linear-gradient(180deg, rgba(2,6,14,0.15), rgba(2,6,14,0.5));
-      ">
-    </div>
-
-    <div class="badge" style="
-        position:absolute;
-        left:16px;
-        bottom:16px;
-        background:rgba(0,0,0,0.45);
-        padding:10px 14px;
-        border-radius:10px;
-        color:#eaf6ff;
-        font-weight:600;
-        border:1px solid rgba(255,255,255,0.03);
-      ">
-      LC TECHNOLOGY · Profesional
-    </div>
-  </div>
-</aside>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="servicios" class="section" aria-labelledby="servicios-title">
-      <h3 id="servicios-title">Servicios</h3>
-
-      <div class="grid" role="list">
-
-        <article class="card" role="listitem">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M14 2l8 8-8 8-4-4L10 8 14 2z" fill="currentColor" opacity="0.08"/>
-              <path d="M16.5 7.5l.7.7-9.9 9.9-1.4.2-.2-1.4 9.9-9.9.9.5z"
-                stroke="currentColor" stroke-width="1.2"
-                stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h4>Reparación profesional</h4>
-          <p>Diagnóstico claro, repuestos originales o equivalentes y garantía por escrito en cada trabajo.</p>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="14" rx="2"
-                stroke="currentColor" stroke-width="1.2"/>
-              <path d="M8 20h8"
-                stroke="currentColor" stroke-width="1.2"
-                stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h4>Venta de celulares</h4>
-          <p>Modelos seleccionados, verificados y con soporte posventa. Asesoramiento técnico personalizado.</p>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="10" r="3"
-                stroke="currentColor" stroke-width="1.2"/>
-              <path d="M5 20c1-4 6-6 7-6s6 2 7 6"
-                stroke="currentColor" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <h4>Accesorios</h4>
-          <p>Protecciones, cargadores, audífonos y accesorios que cumplen estándares de calidad.</p>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <rect x="2.5" y="4" width="19" height="12" rx="1"
-                stroke="currentColor" stroke-width="1.2"/>
-              <path d="M8 20h8"
-                stroke="currentColor" stroke-width="1.2"
-                stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h4>TV Digital</h4>
-          <p>Instalación y configuración de televisores para disfrutar una conectividad fluida y el mejor contenido digital.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="nosotros" class="section" aria-labelledby="nosotros-title">
-      <h3 id="nosotros-title">Sobre nosotros</h3>
-
-      <div class="split">
-        <div>
-          <p class="quote">
-            LC TECHNOLOGY nació con la visión de ofrecer soluciones tecnológicas serias y confiables.
-            Nos enfocamos en procesos transparentes, diagnósticos claros y una atención profesional para cada cliente.
-          </p>
-
-          <p class="muted" style="margin-top:16px;">
-            Supervisión directa del fundador en cada trabajo. Garantías, presupuestos por escrito y comunicación constante.
-          </p>
+        <div class="logo-box">
+          <span>LC</span>
         </div>
 
-        <div>
-          <div class="values">
-
-            <div class="value">
-              <div class="v-icon">🔍</div>
-              <div>
-                <strong>Diagnóstico claro</strong>
-                <div class="muted">Explicamos cada paso antes de intervenir.</div>
-              </div>
-            </div>
-
-            <div class="value">
-              <div class="v-icon">⚙️</div>
-              <div>
-                <strong>Proceso transparente</strong>
-                <div class="muted">Presupuesto y tiempos concretos.</div>
-              </div>
-            </div>
-
-            <div class="value">
-              <div class="v-icon">🤝</div>
-              <div>
-                <strong>Comunicación directa</strong>
-                <div class="muted">Te informamos el estado de tu equipo en todas las etapas.</div>
-              </div>
-            </div>
-
-          </div>
+        <div class="brand">
+          <h2>LC ONE PLAYER</h2>
+          <p>Tecnología Premium</p>
         </div>
+
       </div>
-    </section>
-<!-- CONTACT -->
-<section id="contacto" class="section" aria-labelledby="contacto-title">
-  <h3 id="contacto-title">Contacto</h3>
 
-  <div class="contact-grid">
-    <div>
-      <p class="muted">
-        Respondemos consultas, presupuestos y dudas de forma clara y rápida.
-        Elegí el canal que prefieras:
-      </p>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-      <div class="socials" style="margin-top:12px;">
-        <a href="https://wa.me/5492634722710" target="_blank" rel="noopener">
+      <div class="header-actions">
+
+        <a href="https://wa.me/5492634722710" class="btn btn-primary">
           WhatsApp
         </a>
 
-        <a href="mailto:lc.technology.ar@gmail.com" target="_blank" rel="noopener">
-          Gmail
-        </a>
+        <button class="burger" id="burger">
+          <span></span>
+        </button>
 
-        <a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank" rel="noopener">
-          Facebook
-        </a>
       </div>
+
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+  <main>
+
+    <section class="hero" id="inicio">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+          <div class="hero-tag">
+            📍 Mendoza, Argentina
+          </div>
+
+          <h1 class="hero-title">
+            Tecnología
+            <span class="gradient">premium</span>
+            para quienes
+            buscan calidad real.
+          </h1>
+
+          <p class="hero-text">
+            En LC ONE PLAYER ofrecemos reparación profesional,
+            venta de celulares, accesorios y soluciones tecnológicas
+            modernas con atención personalizada, garantía real y una
+            experiencia visualmente premium.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#servicios" class="btn btn-primary">
+              Ver servicios
+            </a>
+
+            <a href="https://wa.me/5492634722710" class="btn btn-secondary">
+              Consultar por WhatsApp
+            </a>
+
+          </div>
+
+          <div class="hero-stats">
+
+            <div class="hero-stat">
+              <h3>+500</h3>
+              <p>Equipos reparados</p>
+            </div>
+
+            <div class="hero-stat">
+              <h3>+300</h3>
+              <p>Clientes satisfechos</p>
+            </div>
+
+            <div class="hero-stat">
+              <h3>100%</h3>
+              <p>Atención personalizada</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hero-visual reveal">
+
+          <div class="floating-card">
+            ⚡ Reparaciones premium
+          </div>
+
+          <div class="floating-card">
+            🔧 Garantía real
+          </div>
+
+          <div class="floating-card">
+            🚚 Envíos disponibles
+          </div>
+
+          <div class="device">
+
+            <div class="device-top"></div>
+
+            <div class="screen">
+
+              <div class="screen-line big"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line" style="width:70%"></div>
+
+              <div class="screen-boxes">
+                <div class="screen-box"></div>
+                <div class="screen-box"></div>
+                <div class="screen-box"></div>
+                <div class="screen-box"></div>
+              </div>
+
+              <div class="screen-line"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line" style="width:60%"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="servicios">
+
+      <div class="container">
+
+        <h2 class="section-title reveal">
+          Servicios profesionales
+        </h2>
+
+        <p class="section-text reveal">
+          Diseñamos una experiencia moderna y profesional para clientes
+          que buscan soluciones tecnológicas confiables, rápidas y con
+          una identidad visual premium.
+        </p>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal">
+            <div class="service-icon">📱</div>
+            <h3>Reparación</h3>
+            <p>
+              Diagnóstico profesional, reparación precisa y garantía
+              real en cada trabajo realizado.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">🛒</div>
+            <h3>Venta</h3>
+            <p>
+              Celulares seleccionados y verificados con soporte técnico
+              y asesoramiento personalizado.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">🎧</div>
+            <h3>Accesorios</h3>
+            <p>
+              Accesorios premium compatibles con los principales equipos
+              del mercado.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">🖥️</div>
+            <h3>Soporte técnico</h3>
+            <p>
+              Soluciones modernas para usuarios que buscan rendimiento,
+              calidad y atención seria.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="nosotros">
+
+      <div class="container about-grid">
+
+        <div class="about-panel reveal">
+
+          <h3>Una marca pensada para verse profesional.</h3>
+
+          <p>
+            LC ONE PLAYER nace con la idea de crear una experiencia
+            tecnológica moderna, elegante y seria.
+          </p>
+
+          <p>
+            Nos enfocamos en brindar confianza, calidad visual y una
+            atención personalizada que haga sentir a cada cliente que
+            está tratando con una marca real.
+          </p>
+
+          <p>
+            Nuestro objetivo no es solamente reparar equipos.
+            Queremos construir identidad, presencia y profesionalismo.
+          </p>
+
+        </div>
+
+        <div class="about-list reveal">
+
+          <div class="about-item">
+            <span>⚡</span>
+            <div>
+              <strong>Atención rápida</strong>
+              <p>Procesos claros y respuestas ágiles.</p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <span>🛡️</span>
+            <div>
+              <strong>Garantía real</strong>
+              <p>Transparencia y confianza en cada reparación.</p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <span>🚀</span>
+            <div>
+              <strong>Diseño premium</strong>
+              <p>Una identidad moderna inspirada en marcas tecnológicas.</p>
+            </div>
+          </div>
+
+          <div class="about-item">
+            <span>💬</span>
+            <div>
+              <strong>Comunicación directa</strong>
+              <p>Siempre informado sobre el estado de tu equipo.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="container stats-grid">
+
+        <div class="stat-card reveal">
+          <h2>500+</h2>
+          <p>Equipos reparados</p>
+        </div>
+
+        <div class="stat-card reveal">
+          <h2>300+</h2>
+          <p>Clientes felices</p>
+        </div>
+
+        <div class="stat-card reveal">
+          <h2>24/7</h2>
+          <p>Consultas online</p>
+        </div>
+
+        <div class="stat-card reveal">
+          <h2>100%</h2>
+          <p>Atención personalizada</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="container">
+
+        <h2 class="section-title reveal">
+          Lo que dicen nuestros clientes
+        </h2>
+
+        <p class="section-text reveal">
+          La confianza y la experiencia son fundamentales para construir
+          una marca tecnológica seria y profesional.
+        </p>
+
+        <div class="testimonials">
+
+          <div class="testimonial reveal">
+            <p>
+              Excelente atención y muy buena calidad en la reparación.
+              El equipo quedó perfecto y la experiencia fue súper profesional.
+            </p>
+            <strong>Cliente satisfecho</strong>
+          </div>
+
+          <div class="testimonial reveal">
+            <p>
+              Me sorprendió muchísimo el diseño de la página y la atención.
+              Todo transmite confianza y profesionalismo.
+            </p>
+            <strong>Cliente premium</strong>
+          </div>
+
+          <div class="testimonial reveal">
+            <p>
+              Rápidos, claros y responsables.
+              Muy recomendable para quienes buscan algo serio.
+            </p>
+            <strong>Cliente frecuente</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="trabajos">
+
+      <div class="container">
+
+        <h2 class="section-title reveal">
+          Trabajos y experiencia
+        </h2>
+
+        <p class="section-text reveal">
+          Una estética visual premium ayuda a transmitir profesionalismo,
+          confianza y calidad real.
+        </p>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item reveal"></div>
+          <div class="gallery-item reveal"></div>
+          <div class="gallery-item reveal"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="contacto">
+
+      <div class="container contact-wrapper">
+
+        <div class="contact-box reveal">
+
+          <h2 class="section-title">
+            Contacto directo
+          </h2>
+
+          <p class="section-text">
+            Consultanos por reparaciones, ventas o cualquier duda.
+            Respondemos de forma rápida y personalizada.
+          </p>
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+              <span>📱</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <p>Atención rápida y personalizada.</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span>📍</span>
+              <div>
+                <strong>Mendoza, Argentina</strong>
+                <p>Servicio técnico moderno y profesional.</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span>⚡</span>
+              <div>
+                <strong>LC ONE PLAYER</strong>
+                <p>Identidad visual premium.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="contact-box reveal">
+
+          <form>
+
+            <input type="text" placeholder="Tu nombre" required>
+
+            <input type="email" placeholder="Tu correo electrónico" required>
+
+            <textarea rows="6" placeholder="Tu mensaje"></textarea>
+
+            <button class="btn btn-primary" type="submit">
+              Enviar mensaje
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <h2>LC ONE PLAYER</h2>
+
+        <p>
+          Tecnología premium, diseño moderno y soluciones confiables
+          para clientes que buscan una experiencia profesional real.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
     </div>
 
-   <form id="contactForm" class="form">
-  <!-- Web3Forms key -->
-  <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
+  </footer>
 
-  <input type="text" name="name" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo electrónico" required>
-  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
+  <a
+    href="https://wa.me/5492634722710"
+    class="floating-whatsapp"
+    target="_blank"
+  >
+    💬
+  </a>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+  <script>
 
-<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
-  ¡Gracias por tu consulta! Te responderemos pronto.
-</div>
-  </div>
-</section>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-<div style="max-width:1200px;margin:40px auto;padding:0 20px;text-align:center;color:var(--muted);font-size:0.98rem;">
-  <strong>Cada equipo tiene una historia. La cuidamos como corresponde.</strong>
-</div>
-
-<footer>
-  LC TECHNOLOGY © 2026 · Todos los derechos reservados ·
-  <a href="#" style="color:var(--muted)">Privacidad</a>
-</footer>
-
-</main>
-
-<script>
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-burger.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('show');
-  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
-});
-
-/* Cerrar menú si se hace click afuera */
-document.addEventListener('click', (ev) => {
-  if (!mobileMenu.classList.contains('show')) return;
-
-  const isClickInside =
-    mobileMenu.contains(ev.target) ||
-    burger.contains(ev.target);
-
-  if (!isClickInside) {
-    mobileMenu.classList.remove('show');
-    burger.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-  }
-});
-
-
-  /* =========================
-   MENÚ DESPLEGABLE MÓVIL
-========================= */
-
-const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-const mobileDropdown = document.querySelector('.mobile-dropdown');
-
-mobileDropdownToggle.addEventListener('click', () => {
-  mobileDropdown.classList.toggle('active');
-});
-const form = document.getElementById('contactForm');
-const thankYou = document.getElementById('thankYouMessage');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
+    burger.addEventListener('click',()=>{
+      mobileMenu.classList.toggle('show');
     });
 
-    const result = await response.json();
+    const revealElements = document.querySelectorAll('.reveal');
 
-    if (result.success) {
-      form.reset();
-      form.style.display = 'none';
-      thankYou.style.display = 'block';
-    } else {
-      alert('Hubo un error al enviar el formulario. Intentalo nuevamente.');
+    const revealOnScroll = () => {
+
+      revealElements.forEach((element)=>{
+
+        const windowHeight = window.innerHeight;
+        const revealTop = element.getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if(revealTop < windowHeight - revealPoint){
+          element.classList.add('active');
+        }
+
+      });
+
     }
-  } catch (error) {
-    alert('Error de conexión. Verificá tu internet.');
-  }
-});
-</script>
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    revealOnScroll();
+
+  </script>
+
 </body>
 </html>
