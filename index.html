@@ -10,7 +10,7 @@
 
 <meta
 name="description"
-content="LC ONE PLAYER - Tecnología moderna, servicio técnico, venta, accesorios y entretenimiento digital.">
+content="LC ONE PLAYER - Tecnología moderna, servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -89,11 +89,11 @@ z-index:-999;
 
 background:
 radial-gradient(circle at top left,
-rgba(0,191,255,.12),
+rgba(0,191,255,.14),
 transparent 25%),
 
 radial-gradient(circle at bottom right,
-rgba(0,255,238,.08),
+rgba(0,255,238,.10),
 transparent 25%),
 
 #040816;
@@ -114,7 +114,7 @@ border-radius:50%;
 
 filter:blur(140px);
 
-opacity:.65;
+opacity:.75;
 
 animation:
 move 12s ease-in-out infinite,
@@ -122,29 +122,27 @@ colors 12s linear infinite;
 
 }
 
-/* LIGHT 1 */
+/* LIGHTS */
 
 .light.one{
 
-width:450px;
-height:450px;
+width:500px;
+height:500px;
 
-top:-100px;
-left:-100px;
+top:-120px;
+left:-120px;
 
 background:#00bfff;
 
 }
 
-/* LIGHT 2 */
-
 .light.two{
 
-width:400px;
-height:400px;
+width:450px;
+height:450px;
 
-top:200px;
-right:-100px;
+top:220px;
+right:-120px;
 
 background:#00ffee;
 
@@ -152,28 +150,24 @@ animation-delay:2s;
 
 }
 
-/* LIGHT 3 */
-
 .light.three{
 
-width:420px;
-height:420px;
+width:450px;
+height:450px;
 
 bottom:-120px;
 left:35%;
 
-background:#007bff;
+background:#008cff;
 
 animation-delay:4s;
 
 }
 
-/* LIGHT 4 */
-
 .light.four{
 
-width:350px;
-height:350px;
+width:380px;
+height:380px;
 
 bottom:100px;
 right:10%;
@@ -184,7 +178,7 @@ animation-delay:6s;
 
 }
 
-/* FLOAT */
+/* MOVE */
 
 @keyframes move{
 
@@ -193,7 +187,7 @@ transform:translateY(0px) translateX(0px);
 }
 
 50%{
-transform:translateY(-60px) translateX(40px);
+transform:translateY(-70px) translateX(50px);
 }
 
 100%{
@@ -754,7 +748,7 @@ auraColors 10s linear infinite;
 
 .hero-image img{
 
-width:560px;
+width:580px;
 max-width:100%;
 
 position:relative;
@@ -806,7 +800,7 @@ filter:blur(60px) hue-rotate(360deg);
 }
 
 /* =========================================================
-SECTIONS
+SERVICES
 ========================================================= */
 
 section{
@@ -1364,8 +1358,6 @@ max-width:420px;
 
 <body>
 
-<!-- BACKGROUND -->
-
 <div class="background">
 
 <div class="light one"></div>
@@ -1374,8 +1366,6 @@ max-width:420px;
 <div class="light four"></div>
 
 </div>
-
-<!-- HEADER -->
 
 <header>
 
@@ -1409,11 +1399,7 @@ max-width:420px;
 
 </header>
 
-<!-- HERO -->
-
-<section
-class="hero"
-id="inicio">
+<section class="hero" id="inicio">
 
 <div class="hero-left">
 
@@ -1428,7 +1414,7 @@ Mendoza, Argentina
 <h1>
 
 Tecnología que
-<span>se siente diferente.</span>
+<span>marca diferencia.</span>
 
 </h1>
 
@@ -1463,8 +1449,6 @@ WhatsApp
 
 </div>
 
-<!-- IMAGE -->
-
 <div class="hero-image">
 
 <img src="mioo.png" alt="LC ONE PLAYER">
@@ -1472,8 +1456,6 @@ WhatsApp
 </div>
 
 </section>
-
-<!-- SERVICES -->
 
 <section id="servicios">
 
@@ -1485,15 +1467,13 @@ WhatsApp
 
 <p>
 
-Todo organizado en un mismo lugar.
+Todo organizado como una página moderna y real.
 
 </p>
 
 </div>
 
 <div class="cards">
-
-<!-- CARD -->
 
 <div class="card">
 
@@ -1510,15 +1490,13 @@ profesional para celulares y dispositivos.
 
 </p>
 
-<a href="#servicio">
+<a href="servicio.html">
 
 VER SERVICIO →
 
 </a>
 
 </div>
-
-<!-- CARD -->
 
 <div class="card">
 
@@ -1535,15 +1513,13 @@ con soporte y atención personalizada.
 
 </p>
 
-<a href="#venta">
+<a href="venta.html">
 
 VER EQUIPOS →
 
 </a>
 
 </div>
-
-<!-- CARD -->
 
 <div class="card">
 
@@ -1560,15 +1536,13 @@ compatibles con múltiples marcas.
 
 </p>
 
-<a href="#accesorios">
+<a href="accesorios.html">
 
 VER ACCESORIOS →
 
 </a>
 
 </div>
-
-<!-- CARD -->
 
 <div class="card">
 
@@ -1585,7 +1559,7 @@ para disfrutar contenido en casa.
 
 </p>
 
-<a href="#tv">
+<a href="tv-digital.html">
 
 VER MÁS →
 
@@ -1596,88 +1570,6 @@ VER MÁS →
 </div>
 
 </section>
-
-<!-- SERVICIO -->
-
-<section id="servicio">
-
-<div class="section-title">
-
-<span>SERVICIO TÉCNICO</span>
-
-<h2>Reparaciones profesionales</h2>
-
-<p>
-
-Atención clara, rápida y organizada.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- VENTA -->
-
-<section id="venta">
-
-<div class="section-title">
-
-<span>VENTA</span>
-
-<h2>Equipos seleccionados</h2>
-
-<p>
-
-Celulares nuevos y usados verificados.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ACCESORIOS -->
-
-<section id="accesorios">
-
-<div class="section-title">
-
-<span>ACCESORIOS</span>
-
-<h2>Productos compatibles</h2>
-
-<p>
-
-Fundas, auriculares y cargadores.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- TV -->
-
-<section id="tv">
-
-<div class="section-title">
-
-<span>ENTRETENIMIENTO</span>
-
-<h2>TV Digital y plataformas</h2>
-
-<p>
-
-Soluciones modernas para el hogar.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
 
 <section id="contacto">
 
@@ -1752,8 +1644,6 @@ class="contact-box">
 
 </div>
 
-<!-- FORM -->
-
 <form
 class="contact-form"
 id="contactForm">
@@ -1791,8 +1681,6 @@ Enviar mensaje
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
