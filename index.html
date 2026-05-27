@@ -7,9 +7,9 @@
 
 <title>LC ONE PLAYER | Tecnología</title>
 
-<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
+<meta name="description" content="LC ONE PLAYER - Tecnología, servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,26 +28,61 @@ html{
 overflow-x:hidden;
 }
 
-/* =========================================================
-BODY
-========================================================= */
-
 body{
 font-family:"Inter",sans-serif;
-background:#05070d;
-color:#ffffff;
+background:#04060b;
+color:#fff;
 overflow-x:hidden;
 position:relative;
 }
 
 /* =========================================================
-ANIMATED BACKGROUND
+GLOBAL AMBIENT
+========================================================= */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left,
+rgba(0,255,255,.12),
+transparent 30%),
+
+radial-gradient(circle at bottom right,
+rgba(0,119,255,.14),
+transparent 35%),
+
+radial-gradient(circle at center,
+rgba(0,255,200,.05),
+transparent 40%);
+pointer-events:none;
+z-index:-2;
+animation:ambientMove 12s infinite alternate;
+}
+
+@keyframes ambientMove{
+
+0%{
+transform:scale(1);
+filter:hue-rotate(0deg);
+}
+
+100%{
+transform:scale(1.08);
+filter:hue-rotate(180deg);
+}
+
+}
+
+/* =========================================================
+BACKGROUND LIGHTS
 ========================================================= */
 
 .bg-animation{
 position:fixed;
 inset:0;
-z-index:-5;
+z-index:-3;
 overflow:hidden;
 }
 
@@ -55,25 +90,25 @@ overflow:hidden;
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-animation:float 18s infinite alternate;
-opacity:.45;
+opacity:.4;
+mix-blend-mode:screen;
+animation:float 16s infinite alternate;
 }
 
 .light1{
 width:500px;
 height:500px;
 background:#00cfff;
-top:-100px;
-left:-100px;
-animation-duration:15s;
+top:-120px;
+left:-120px;
 }
 
 .light2{
 width:450px;
 height:450px;
 background:#0066ff;
-bottom:-120px;
-right:-100px;
+bottom:-100px;
+right:-120px;
 animation-duration:18s;
 }
 
@@ -82,7 +117,7 @@ width:350px;
 height:350px;
 background:#00fff2;
 top:40%;
-left:50%;
+left:45%;
 animation-duration:12s;
 }
 
@@ -90,10 +125,12 @@ animation-duration:12s;
 
 0%{
 transform:translate(0,0) scale(1);
+filter:hue-rotate(0deg);
 }
 
 100%{
-transform:translate(120px,-80px) scale(1.2);
+transform:translate(100px,-60px) scale(1.2);
+filter:hue-rotate(180deg);
 }
 
 }
@@ -105,11 +142,11 @@ LOADER
 .loader{
 position:fixed;
 inset:0;
-background:#05070d;
+background:#04060b;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:99999;
+z-index:999999;
 transition:1s;
 }
 
@@ -122,7 +159,6 @@ pointer-events:none;
 font-family:"Orbitron",sans-serif;
 font-size:3rem;
 letter-spacing:4px;
-color:#fff;
 position:relative;
 animation:pulse 2s infinite;
 }
@@ -131,7 +167,7 @@ animation:pulse 2s infinite;
 content:"";
 position:absolute;
 left:0;
-bottom:-12px;
+bottom:-10px;
 width:100%;
 height:3px;
 background:#00cfff;
@@ -143,11 +179,14 @@ animation:scan 2s infinite;
 
 0%{
 opacity:.6;
+text-shadow:0 0 0 transparent;
 }
 
 50%{
 opacity:1;
-text-shadow:0 0 25px #00cfff;
+text-shadow:
+0 0 20px #00cfff,
+0 0 40px #00cfff;
 }
 
 100%{
@@ -178,12 +217,12 @@ top:0;
 left:0;
 width:100%;
 height:95px;
-display:flex;
-align-items:center;
-justify-content:space-between;
 padding:0 50px;
-background:rgba(5,7,13,.75);
-backdrop-filter:blur(14px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,8,15,.75);
+backdrop-filter:blur(16px);
 border-bottom:1px solid rgba(255,255,255,.05);
 z-index:999;
 }
@@ -200,31 +239,24 @@ text-decoration:none;
 }
 
 .logo-icon{
-width:64px;
-height:64px;
-border-radius:18px;
+width:68px;
+height:68px;
+border-radius:20px;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:"Orbitron",sans-serif;
-font-size:1.5rem;
-font-weight:700;
-color:#fff;
 position:relative;
 overflow:hidden;
 background:#09111f;
 border:1px solid rgba(255,255,255,.08);
-box-shadow:
-0 0 25px #00cfff66,
-0 0 50px #00cfff22;
-animation:logoGlow 4s infinite alternate;
+animation:logoGlow 5s infinite alternate;
 }
 
 .logo-icon::before{
 content:"";
 position:absolute;
-width:220%;
-height:220%;
+width:240%;
+height:240%;
 background:conic-gradient(
 transparent,
 #00cfff,
@@ -241,13 +273,16 @@ animation:rotate 5s linear infinite;
 content:"";
 position:absolute;
 inset:2px;
-border-radius:16px;
 background:#09111f;
+border-radius:18px;
 }
 
 .logo-icon span{
 position:relative;
 z-index:2;
+font-family:"Orbitron",sans-serif;
+font-size:1.5rem;
+font-weight:700;
 }
 
 @keyframes rotate{
@@ -262,14 +297,14 @@ transform:rotate(360deg);
 
 0%{
 box-shadow:
-0 0 20px #00cfff55,
-0 0 40px #00cfff22;
+0 0 20px rgba(0,255,255,.25),
+0 0 50px rgba(0,255,255,.08);
 }
 
 100%{
 box-shadow:
-0 0 35px #00fff2,
-0 0 70px #00cfff66;
+0 0 40px rgba(0,255,255,.55),
+0 0 80px rgba(0,255,255,.15);
 }
 
 }
@@ -277,17 +312,49 @@ box-shadow:
 .logo-text{
 display:flex;
 flex-direction:column;
+justify-content:center;
 }
 
-.logo-text h1{
-font-size:1rem;
-font-weight:600;
-letter-spacing:1px;
+.logo-main{
+font-family:"Orbitron",sans-serif;
+font-size:1.08rem;
+font-weight:700;
+letter-spacing:3px;
+
+background:linear-gradient(
+90deg,
+#ffffff,
+#00e1ff,
+#00fff2,
+#ffffff
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:logoTextFlow 6s linear infinite;
 }
 
-.logo-text p{
-font-size:.88rem;
-color:#9aa6c0;
+.logo-sub{
+font-size:.8rem;
+letter-spacing:4px;
+margin-top:2px;
+color:#9fdfff;
+text-transform:uppercase;
+}
+
+@keyframes logoTextFlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
 }
 
 /* =========================================================
@@ -328,7 +395,7 @@ width:100%;
 }
 
 /* =========================================================
-MOBILE MENU
+MENU MOBILE
 ========================================================= */
 
 .menu-btn{
@@ -344,13 +411,12 @@ right:-100%;
 width:280px;
 height:calc(100vh - 95px);
 background:#08101c;
-backdrop-filter:blur(20px);
-padding:40px 25px;
+padding:40px 24px;
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:22px;
 transition:.5s;
-z-index:999;
+z-index:998;
 border-left:1px solid rgba(255,255,255,.05);
 }
 
@@ -361,10 +427,9 @@ right:0;
 .mobile-menu a{
 text-decoration:none;
 color:#fff;
-font-size:1rem;
-padding:14px;
-border-radius:12px;
-background:#0f1727;
+padding:15px;
+border-radius:14px;
+background:#0d1627;
 transition:.3s;
 }
 
@@ -384,7 +449,7 @@ padding:150px 60px 80px;
 }
 
 .hero-content{
-max-width:1350px;
+max-width:1400px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -397,17 +462,17 @@ TEXT
 ========================================================= */
 
 .hero-text h2{
-font-size:4.2rem;
+font-family:"Orbitron",sans-serif;
+font-size:4.3rem;
 line-height:1.1;
 margin-bottom:25px;
-font-family:"Orbitron",sans-serif;
 }
 
 .hero-text p{
-font-size:1.05rem;
+max-width:620px;
 color:#9aa6c0;
 line-height:1.9;
-max-width:600px;
+font-size:1.05rem;
 margin-bottom:35px;
 }
 
@@ -419,28 +484,29 @@ flex-wrap:wrap;
 
 .btn{
 padding:16px 32px;
-border-radius:16px;
-font-size:.95rem;
+border-radius:18px;
 font-weight:600;
 text-decoration:none;
-transition:.35s;
+transition:.4s;
 }
 
 .btn-primary{
 background:#00cfff;
 color:#000;
-box-shadow:0 0 30px #00cfff55;
+box-shadow:0 0 30px rgba(0,255,255,.25);
 }
 
 .btn-primary:hover{
 transform:translateY(-6px);
-box-shadow:0 0 45px #00cfff;
+box-shadow:
+0 0 40px rgba(0,255,255,.45),
+0 0 70px rgba(0,255,255,.18);
 }
 
 .btn-outline{
-border:1px solid rgba(255,255,255,.08);
-color:#fff;
 background:#0b1020;
+border:1px solid rgba(255,255,255,.06);
+color:#fff;
 }
 
 .btn-outline:hover{
@@ -460,30 +526,51 @@ position:relative;
 .hero-image::before{
 content:"";
 position:absolute;
-width:560px;
-height:560px;
+width:650px;
+height:650px;
 border-radius:50%;
-background:conic-gradient(
+
+background:
+conic-gradient(
 #00cfff,
 #00fff2,
 #0066ff,
+#8f00ff,
+#ff00aa,
 #00cfff
 );
-filter:blur(50px);
-opacity:.45;
-animation:spin 12s linear infinite;
+
+filter:blur(70px);
+opacity:.55;
+
+animation:
+spin 10s linear infinite,
+colorShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes colorShift{
+
+0%{
+filter:hue-rotate(0deg) blur(70px);
+}
+
+100%{
+filter:hue-rotate(180deg) blur(80px);
+}
+
 }
 
 .hero-image img{
-width:420px;
-height:420px;
+width:430px;
+height:430px;
 border-radius:50%;
 object-fit:cover;
 position:relative;
 z-index:2;
+
 box-shadow:
-0 0 40px #00cfff55,
-0 0 80px #00cfff22;
+0 0 35px rgba(0,255,255,.35),
+0 0 80px rgba(0,255,255,.12);
 }
 
 @keyframes spin{
@@ -495,7 +582,7 @@ transform:rotate(360deg);
 }
 
 /* =========================================================
-SECTION
+SECTIONS
 ========================================================= */
 
 section{
@@ -508,9 +595,9 @@ margin-bottom:80px;
 }
 
 .section-title h2{
-font-size:2.8rem;
-margin-bottom:16px;
+font-size:2.9rem;
 font-family:"Orbitron",sans-serif;
+margin-bottom:16px;
 }
 
 .section-title p{
@@ -524,40 +611,69 @@ SERVICES
 .services-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:32px;
+gap:30px;
 }
 
 .service-card{
-background:#0b1020;
-border-radius:26px;
+background:rgba(11,16,32,.92);
 padding:38px 32px;
+border-radius:28px;
 position:relative;
 overflow:hidden;
 border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
 transition:.45s;
+cursor:pointer;
 }
 
 .service-card::before{
 content:"";
 position:absolute;
-width:300px;
-height:300px;
-background:radial-gradient(circle,#00cfff33,transparent 70%);
-top:-120px;
-right:-120px;
-transition:.5s;
+inset:-2px;
+background:linear-gradient(
+130deg,
+#00cfff,
+#00fff2,
+#0077ff,
+#00cfff
+);
+background-size:400%;
+animation:borderFlow 6s linear infinite;
+opacity:.7;
+filter:blur(18px);
+z-index:-2;
+}
+
+.service-card::after{
+content:"";
+position:absolute;
+inset:1px;
+background:#09111d;
+border-radius:26px;
+z-index:-1;
+}
+
+@keyframes borderFlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:400%;
+}
+
 }
 
 .service-card:hover{
-transform:translateY(-12px);
-border-color:#00cfff55;
-box-shadow:
-0 0 30px #00cfff22,
-0 0 60px #00cfff11;
-}
+transform:
+translateY(-12px)
+scale(1.03);
 
-.service-card:hover::before{
-transform:scale(1.3);
+box-shadow:
+0 0 25px rgba(0,255,255,.25),
+0 0 60px rgba(0,180,255,.18),
+0 0 120px rgba(0,255,255,.08);
 }
 
 .service-icon{
@@ -567,7 +683,7 @@ margin-bottom:24px;
 
 .service-card h3{
 font-size:1.2rem;
-margin-bottom:16px;
+margin-bottom:14px;
 }
 
 .service-card p{
@@ -591,35 +707,187 @@ letter-spacing:1px;
 CONTACT
 ========================================================= */
 
-.contact-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:30px;
-max-width:1000px;
+.contact-wrapper{
+max-width:1300px;
 margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:45px;
+}
+
+.contact-info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
 }
 
 .contact-card{
-background:#0b1020;
-padding:36px;
-border-radius:24px;
+padding:35px;
+border-radius:26px;
+position:relative;
+overflow:hidden;
+background:#09111d;
 border:1px solid rgba(255,255,255,.05);
-transition:.4s;
+transition:.45s;
+}
+
+.contact-card::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:linear-gradient(
+130deg,
+#00cfff,
+#00fff2,
+#0066ff
+);
+background-size:300%;
+filter:blur(18px);
+opacity:.8;
+animation:borderFlow 5s linear infinite;
+z-index:-2;
+}
+
+.contact-card::after{
+content:"";
+position:absolute;
+inset:1px;
+background:#09111d;
+border-radius:24px;
+z-index:-1;
 }
 
 .contact-card:hover{
 transform:translateY(-8px);
-border-color:#00cfff55;
-box-shadow:0 0 35px #00cfff22;
+box-shadow:
+0 0 25px rgba(0,255,255,.22),
+0 0 60px rgba(0,255,255,.12);
 }
 
 .contact-card h3{
 margin-bottom:15px;
+font-family:"Orbitron",sans-serif;
+font-size:.92rem;
+letter-spacing:2px;
+color:#00e1ff;
 }
 
 .contact-card a{
-color:#00cfff;
 text-decoration:none;
+color:#fff;
+}
+
+.contact-card p{
+color:#c7d0df;
+}
+
+/* =========================================================
+FORM
+========================================================= */
+
+.contact-form{
+padding:45px;
+border-radius:30px;
+background:#09111d;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.contact-form::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:conic-gradient(
+#00cfff,
+#00fff2,
+#0077ff,
+#00cfff
+);
+top:-250px;
+right:-250px;
+opacity:.2;
+filter:blur(60px);
+animation:spin 12s linear infinite;
+}
+
+.contact-form h3{
+font-size:1.4rem;
+margin-bottom:30px;
+font-family:"Orbitron",sans-serif;
+position:relative;
+z-index:2;
+}
+
+.contact-form form{
+display:flex;
+flex-direction:column;
+gap:22px;
+position:relative;
+z-index:2;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:18px 20px;
+border-radius:18px;
+background:#0d1627;
+border:1px solid rgba(255,255,255,.06);
+outline:none;
+color:#fff;
+transition:.35s;
+}
+
+.contact-form textarea{
+height:180px;
+resize:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#00cfff;
+box-shadow:
+0 0 20px rgba(0,255,255,.18),
+0 0 40px rgba(0,150,255,.12);
+}
+
+.contact-form button{
+padding:18px;
+border:none;
+border-radius:18px;
+background:linear-gradient(
+90deg,
+#00cfff,
+#00fff2,
+#008cff
+);
+background-size:300%;
+color:#000;
+font-weight:700;
+cursor:pointer;
+transition:.4s;
+animation:buttonFlow 5s linear infinite;
+}
+
+.contact-form button:hover{
+transform:translateY(-6px);
+box-shadow:
+0 0 35px rgba(0,255,255,.4),
+0 0 70px rgba(0,150,255,.2);
+}
+
+@keyframes buttonFlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
 }
 
 /* =========================================================
@@ -676,7 +944,11 @@ justify-content:center;
 grid-template-columns:repeat(2,1fr);
 }
 
-.contact-grid{
+.contact-wrapper{
+grid-template-columns:1fr;
+}
+
+.contact-info{
 grid-template-columns:1fr;
 }
 
@@ -696,6 +968,10 @@ display:none;
 display:block;
 }
 
+.mobile-menu{
+display:flex;
+}
+
 .hero{
 padding:150px 24px 80px;
 }
@@ -705,13 +981,13 @@ font-size:2.8rem;
 }
 
 .hero-image img{
-width:290px;
-height:290px;
+width:300px;
+height:300px;
 }
 
 .hero-image::before{
-width:400px;
-height:400px;
+width:450px;
+height:450px;
 }
 
 .services-grid{
@@ -720,10 +996,6 @@ grid-template-columns:1fr;
 
 section{
 padding:90px 24px;
-}
-
-.mobile-menu{
-display:flex;
 }
 
 }
@@ -770,8 +1042,15 @@ HEADER
 </div>
 
 <div class="logo-text">
-<h1>LC ONE PLAYER</h1>
-<p>Tecnología</p>
+
+<h1 class="logo-main">
+LC ONE PLAYER
+</h1>
+
+<p class="logo-sub">
+Tecnología Digital
+</p>
+
 </div>
 
 </a>
@@ -791,7 +1070,7 @@ HEADER
 </header>
 
 <!-- =========================================================
-MOBILE MENU
+MENU MOBILE
 ========================================================= -->
 
 <div class="mobile-menu" id="mobileMenu">
@@ -829,13 +1108,13 @@ HERO
 <div class="hero-text reveal">
 
 <h2>
-Tecnología con presencia,
-detalle y confianza real.
+Tecnología con identidad,
+presencia y estilo real.
 </h2>
 
 <p>
-Servicio técnico, venta de celulares, accesorios y soluciones digitales
-con una identidad moderna, profesional y visualmente premium.
+Servicio técnico, venta de celulares, accesorios y entretenimiento digital
+con una estética moderna, profesional y visualmente potente.
 </p>
 
 <div class="hero-buttons">
@@ -873,7 +1152,7 @@ SERVICIOS
 <h2>Servicios</h2>
 
 <p>
-Todo organizado como una página profesional real.
+Todo organizado con una estética moderna y profesional.
 </p>
 
 </div>
@@ -975,18 +1254,18 @@ CONTACTO
 <h2>Contacto</h2>
 
 <p>
-Canales directos y rápidos.
+Canales rápidos, directos y organizados.
 </p>
 
 </div>
 
-<div class="contact-grid">
+<div class="contact-wrapper">
+
+<div class="contact-info">
 
 <div class="contact-card reveal">
 
-<h3>
-WHATSAPP
-</h3>
+<h3>WHATSAPP</h3>
 
 <a href="https://wa.me/5492634722710" target="_blank">
 +54 9 2634 722710
@@ -996,9 +1275,7 @@ WHATSAPP
 
 <div class="contact-card reveal">
 
-<h3>
-FACEBOOK
-</h3>
+<h3>FACEBOOK</h3>
 
 <a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank">
 LC ONE PLAYER
@@ -1008,9 +1285,7 @@ LC ONE PLAYER
 
 <div class="contact-card reveal">
 
-<h3>
-EMAIL
-</h3>
+<h3>EMAIL</h3>
 
 <a href="mailto:lc.technology.ar@gmail.com">
 lc.technology.ar@gmail.com
@@ -1020,13 +1295,50 @@ lc.technology.ar@gmail.com
 
 <div class="contact-card reveal">
 
-<h3>
-UBICACIÓN
-</h3>
+<h3>UBICACIÓN</h3>
 
-<p style="color:#9aa6c0;">
+<p>
 Mendoza, Argentina
 </p>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+FORMULARIO
+========================================================= -->
+
+<div class="contact-form reveal">
+
+<h3>Enviar consulta</h3>
+
+<form action="https://formsubmit.co/lc.technology.ar@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_subject" value="Nuevo mensaje desde LC ONE PLAYER">
+
+<input type="text"
+name="nombre"
+placeholder="Tu nombre"
+required>
+
+<input type="email"
+name="email"
+placeholder="Tu correo"
+required>
+
+<textarea
+name="mensaje"
+placeholder="Escribí tu mensaje..."
+required></textarea>
+
+<button type="submit">
+ENVIAR MENSAJE
+</button>
+
+</form>
 
 </div>
 
@@ -1101,7 +1413,7 @@ window.addEventListener("scroll",revealElements);
 window.addEventListener("load",revealElements);
 
 /* =========================================================
-MOBILE MENU
+MENU MOBILE
 ========================================================= */
 
 const menuBtn = document.getElementById("menuBtn");
@@ -1114,7 +1426,7 @@ mobileMenu.classList.toggle("active");
 });
 
 /* =========================================================
-CLOSE MENU CLICK
+CLOSE MENU
 ========================================================= */
 
 document.querySelectorAll(".mobile-menu a").forEach(link=>{
