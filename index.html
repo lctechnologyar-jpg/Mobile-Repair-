@@ -10,7 +10,7 @@
 
 <meta
 name="description"
-content="LC ONE PLAYER - Tecnología, servicio técnico, venta y accesorios.">
+content="LC ONE PLAYER - Tecnología moderna, servicio técnico, venta, accesorios y entretenimiento digital.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -24,9 +24,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 
-/* ======================================================
+/* =========================================================
 RESET
-====================================================== */
+========================================================= */
 
 *{
 margin:0;
@@ -35,11 +35,15 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
+html{
+overflow-x:hidden;
+}
+
 body{
 
 font-family:'Inter',sans-serif;
 
-background:#050816;
+background:#040816;
 
 color:white;
 
@@ -47,16 +51,16 @@ overflow-x:hidden;
 
 }
 
-/* ======================================================
+/* =========================================================
 SCROLL
-====================================================== */
+========================================================= */
 
 ::-webkit-scrollbar{
 width:8px;
 }
 
 ::-webkit-scrollbar-track{
-background:#050816;
+background:#040816;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -65,126 +69,142 @@ background:
 linear-gradient(
 180deg,
 #00bfff,
-#007bff
+#00ffee
 );
 
 border-radius:999px;
 
 }
 
-/* ======================================================
+/* =========================================================
 BACKGROUND
-====================================================== */
+========================================================= */
 
-.bg{
+.background{
 
 position:fixed;
 inset:0;
 
-z-index:-100;
+z-index:-999;
 
 background:
 radial-gradient(circle at top left,
-rgba(0,162,255,.16),
-transparent 30%),
+rgba(0,191,255,.12),
+transparent 25%),
 
-radial-gradient(circle at top right,
-rgba(0,255,200,.10),
-transparent 30%),
+radial-gradient(circle at bottom right,
+rgba(0,255,238,.08),
+transparent 25%),
 
-radial-gradient(circle at bottom,
-rgba(0,80,255,.14),
-transparent 35%),
+#040816;
 
-#050816;
+overflow:hidden;
 
 }
 
-/* ======================================================
-ANIMATED LIGHTS
-====================================================== */
+/* =========================================================
+LIGHTS
+========================================================= */
 
 .light{
 
-position:fixed;
+position:absolute;
 
 border-radius:50%;
 
 filter:blur(140px);
 
-opacity:.22;
-
-z-index:-50;
+opacity:.65;
 
 animation:
-moveLight 12s ease-in-out infinite,
-colorChange 10s linear infinite;
+move 12s ease-in-out infinite,
+colors 12s linear infinite;
 
 }
 
-/* LIGHTS */
+/* LIGHT 1 */
 
-.light1{
+.light.one{
 
-width:500px;
-height:500px;
+width:450px;
+height:450px;
 
-top:-180px;
-left:-180px;
+top:-100px;
+left:-100px;
 
 background:#00bfff;
 
 }
 
-.light2{
+/* LIGHT 2 */
 
-width:450px;
-height:450px;
+.light.two{
 
-top:180px;
-right:-120px;
+width:400px;
+height:400px;
 
-background:#008cff;
+top:200px;
+right:-100px;
+
+background:#00ffee;
 
 animation-delay:2s;
 
 }
 
-.light3{
+/* LIGHT 3 */
 
-width:400px;
-height:400px;
+.light.three{
+
+width:420px;
+height:420px;
 
 bottom:-120px;
-left:30%;
+left:35%;
 
-background:#00ffee;
+background:#007bff;
 
 animation-delay:4s;
 
 }
 
+/* LIGHT 4 */
+
+.light.four{
+
+width:350px;
+height:350px;
+
+bottom:100px;
+right:10%;
+
+background:#00ffcc;
+
+animation-delay:6s;
+
+}
+
 /* FLOAT */
 
-@keyframes moveLight{
+@keyframes move{
 
 0%{
-transform:translateY(0px);
+transform:translateY(0px) translateX(0px);
 }
 
 50%{
-transform:translateY(-35px);
+transform:translateY(-60px) translateX(40px);
 }
 
 100%{
-transform:translateY(0px);
+transform:translateY(0px) translateX(0px);
 }
 
 }
 
-/* COLOR CHANGE */
+/* COLORS */
 
-@keyframes colorChange{
+@keyframes colors{
 
 0%{
 filter:blur(140px) hue-rotate(0deg);
@@ -196,9 +216,9 @@ filter:blur(140px) hue-rotate(360deg);
 
 }
 
-/* ======================================================
+/* =========================================================
 HEADER
-====================================================== */
+========================================================= */
 
 header{
 
@@ -206,32 +226,34 @@ position:fixed;
 
 top:0;
 left:0;
+
 width:100%;
 
-padding:22px 7%;
+padding:20px 7%;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
 
-background:rgba(5,8,22,.72);
+background:rgba(4,8,22,.72);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(16px);
 
 border-bottom:1px solid rgba(255,255,255,.05);
 
-z-index:9999;
+z-index:99999;
 
 }
 
-/* ======================================================
+/* =========================================================
 LOGO
-====================================================== */
+========================================================= */
 
 .logo{
 
 display:flex;
 align-items:center;
+
 gap:16px;
 
 text-decoration:none;
@@ -245,7 +267,7 @@ text-decoration:none;
 width:78px;
 height:78px;
 
-border-radius:24px;
+border-radius:22px;
 
 display:flex;
 align-items:center;
@@ -258,19 +280,20 @@ overflow:hidden;
 background:
 linear-gradient(
 145deg,
-rgba(16,20,35,.98),
-rgba(7,10,18,.98)
+rgba(16,20,35,.96),
+rgba(7,10,18,.96)
 );
 
 border:1px solid rgba(255,255,255,.08);
 
 box-shadow:
 
-0 0 30px rgba(0,191,255,.45),
-0 0 80px rgba(0,191,255,.18);
+0 0 20px rgba(0,191,255,.7),
+0 0 60px rgba(0,191,255,.35),
+0 0 120px rgba(0,191,255,.18);
 
 animation:
-logoPulse 4s infinite;
+pulse 4s ease-in-out infinite;
 
 transition:.5s;
 
@@ -283,9 +306,10 @@ transition:.5s;
 content:'';
 
 position:absolute;
+
 inset:-2px;
 
-border-radius:26px;
+border-radius:24px;
 
 padding:2px;
 
@@ -294,13 +318,13 @@ linear-gradient(
 135deg,
 #00bfff,
 #00ffee,
-#007bff,
+#008cff,
 #00bfff
 );
 
 background-size:400% 400%;
 
-animation:borderFlow 8s linear infinite;
+animation:borderMove 8s linear infinite;
 
 -webkit-mask:
 linear-gradient(#fff 0 0) content-box,
@@ -308,23 +332,6 @@ linear-gradient(#fff 0 0);
 
 -webkit-mask-composite:xor;
 mask-composite:exclude;
-
-}
-
-/* LC */
-
-.logo-box span{
-
-font-size:30px;
-font-weight:900;
-letter-spacing:2px;
-
-color:white;
-
-text-shadow:
-
-0 0 12px rgba(0,191,255,.8),
-0 0 30px rgba(0,191,255,.5);
 
 }
 
@@ -347,32 +354,32 @@ transparent
 
 transform:rotate(45deg);
 
-animation:lineMove 4s linear infinite;
+animation:lineMove 5s linear infinite;
 
-opacity:.8;
+opacity:.9;
 
 }
 
-.logo-line.second{
-
+.logo-line.two{
 transform:rotate(-45deg);
-
 animation-delay:2s;
-
 }
 
-/* HOVER */
+/* LC */
 
-.logo:hover .logo-box{
+.logo-box span{
 
-transform:
-translateY(-5px)
-scale(1.08);
+font-size:30px;
+font-weight:900;
 
-box-shadow:
+letter-spacing:2px;
 
-0 0 50px rgba(0,191,255,.8),
-0 0 140px rgba(0,191,255,.25);
+color:white;
+
+text-shadow:
+
+0 0 10px rgba(0,191,255,.9),
+0 0 30px rgba(0,191,255,.8);
 
 }
 
@@ -391,15 +398,63 @@ color:white;
 
 font-size:13px;
 
-color:#8fa8d8;
+color:#93a9d1;
 
-margin-top:2px;
+margin-top:3px;
+
+}
+
+/* HOVER */
+
+.logo:hover .logo-box{
+
+transform:
+translateY(-5px)
+scale(1.08);
+
+box-shadow:
+
+0 0 30px rgba(0,191,255,1),
+0 0 90px rgba(0,191,255,.5),
+0 0 160px rgba(0,191,255,.3);
 
 }
 
 /* ANIMATIONS */
 
-@keyframes borderFlow{
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+
+0 0 20px rgba(0,191,255,.6),
+0 0 60px rgba(0,191,255,.3);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 40px rgba(0,255,255,1),
+0 0 120px rgba(0,191,255,.45),
+0 0 200px rgba(0,191,255,.25);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 20px rgba(0,191,255,.6),
+0 0 60px rgba(0,191,255,.3);
+
+}
+
+}
+
+@keyframes borderMove{
 
 0%{
 background-position:0% 50%;
@@ -414,44 +469,18 @@ background-position:400% 50%;
 @keyframes lineMove{
 
 0%{
-transform:rotate(45deg) translateX(-160%);
+transform:rotate(45deg) translateX(-180%);
 }
 
 100%{
-transform:rotate(45deg) translateX(160%);
+transform:rotate(45deg) translateX(180%);
 }
 
 }
 
-@keyframes logoPulse{
-
-0%{
-
-box-shadow:
-0 0 20px rgba(0,191,255,.4);
-
-}
-
-50%{
-
-box-shadow:
-0 0 50px rgba(0,191,255,.75),
-0 0 120px rgba(0,191,255,.3);
-
-}
-
-100%{
-
-box-shadow:
-0 0 20px rgba(0,191,255,.4);
-
-}
-
-}
-
-/* ======================================================
+/* =========================================================
 NAV
-====================================================== */
+========================================================= */
 
 nav{
 
@@ -466,14 +495,14 @@ nav a{
 
 text-decoration:none;
 
-color:#b1bddb;
-
 font-size:15px;
 font-weight:600;
 
-position:relative;
+color:#b2c0de;
 
 transition:.3s;
+
+position:relative;
 
 }
 
@@ -503,9 +532,9 @@ nav a:hover::after{
 width:100%;
 }
 
-/* ======================================================
+/* =========================================================
 HERO
-====================================================== */
+========================================================= */
 
 .hero{
 
@@ -517,7 +546,7 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 
-gap:90px;
+gap:80px;
 
 }
 
@@ -529,10 +558,11 @@ max-width:720px;
 
 /* BADGE */
 
-.hero-badge{
+.badge{
 
 display:inline-flex;
 align-items:center;
+
 gap:10px;
 
 padding:12px 22px;
@@ -553,7 +583,7 @@ margin-bottom:34px;
 
 .hero h1{
 
-font-size:94px;
+font-size:92px;
 
 line-height:1;
 
@@ -572,7 +602,7 @@ linear-gradient(
 90deg,
 #00bfff,
 #00ffee,
-#007bff
+#008cff
 );
 
 -webkit-background-clip:text;
@@ -584,7 +614,7 @@ linear-gradient(
 
 .hero p{
 
-margin-top:30px;
+margin-top:32px;
 
 font-size:20px;
 
@@ -599,6 +629,7 @@ color:#9db0d6;
 .hero-buttons{
 
 display:flex;
+
 gap:18px;
 
 margin-top:45px;
@@ -607,7 +638,7 @@ flex-wrap:wrap;
 
 }
 
-/* BUTTON */
+/* BTN */
 
 .btn{
 
@@ -637,7 +668,7 @@ linear-gradient(
 color:white;
 
 box-shadow:
-0 0 40px rgba(0,191,255,.3);
+0 0 40px rgba(0,191,255,.35);
 
 }
 
@@ -649,8 +680,8 @@ scale(1.03);
 
 box-shadow:
 
-0 0 60px rgba(0,191,255,.55),
-0 0 140px rgba(0,191,255,.22);
+0 0 60px rgba(0,191,255,.7),
+0 0 140px rgba(0,191,255,.3);
 
 }
 
@@ -661,14 +692,14 @@ box-shadow:
 background:
 linear-gradient(
 135deg,
-#15d46b,
-#10b85b
+#12d46c,
+#10b85a
 );
 
 color:white;
 
 box-shadow:
-0 0 40px rgba(21,212,107,.3);
+0 0 40px rgba(18,212,108,.3);
 
 }
 
@@ -680,9 +711,9 @@ scale(1.03);
 
 }
 
-/* ======================================================
+/* =========================================================
 IMAGE
-====================================================== */
+========================================================= */
 
 .hero-image{
 
@@ -694,7 +725,7 @@ justify-content:center;
 
 }
 
-/* LIGHT */
+/* AURA */
 
 .hero-image::before{
 
@@ -705,6 +736,8 @@ position:absolute;
 width:650px;
 height:650px;
 
+border-radius:50%;
+
 background:
 radial-gradient(circle,
 rgba(0,191,255,.45),
@@ -713,7 +746,7 @@ transparent 70%);
 filter:blur(60px);
 
 animation:
-glowChange 10s linear infinite;
+auraColors 10s linear infinite;
 
 }
 
@@ -721,12 +754,16 @@ glowChange 10s linear infinite;
 
 .hero-image img{
 
-width:620px;
+width:560px;
 max-width:100%;
 
 position:relative;
 
-z-index:2;
+z-index:5;
+
+border-radius:50%;
+
+background:transparent;
 
 object-fit:contain;
 
@@ -750,13 +787,13 @@ rotate(-1deg);
 filter:
 
 drop-shadow(0 0 60px rgba(0,255,255,1))
-drop-shadow(0 0 160px rgba(0,191,255,.7));
+drop-shadow(0 0 160px rgba(0,191,255,.75));
 
 }
 
 /* COLORS */
 
-@keyframes glowChange{
+@keyframes auraColors{
 
 0%{
 filter:blur(60px) hue-rotate(0deg);
@@ -768,9 +805,9 @@ filter:blur(60px) hue-rotate(360deg);
 
 }
 
-/* ======================================================
+/* =========================================================
 SECTIONS
-====================================================== */
+========================================================= */
 
 section{
 padding:140px 7%;
@@ -814,13 +851,14 @@ color:#9db0d6;
 
 }
 
-/* ======================================================
+/* =========================================================
 CARDS
-====================================================== */
+========================================================= */
 
 .cards{
 
 display:grid;
+
 grid-template-columns:repeat(4,1fr);
 
 gap:28px;
@@ -836,6 +874,7 @@ padding:42px;
 border-radius:32px;
 
 position:relative;
+
 overflow:hidden;
 
 background:
@@ -866,7 +905,7 @@ conic-gradient(
 from 180deg,
 rgba(0,191,255,.18),
 transparent,
-rgba(0,255,238,.14),
+rgba(0,255,238,.16),
 transparent
 );
 
@@ -966,7 +1005,7 @@ box-shadow:
 
 .card h3{
 
-font-size:30px;
+font-size:28px;
 
 margin-bottom:18px;
 
@@ -1014,13 +1053,14 @@ transform:rotate(360deg);
 
 }
 
-/* ======================================================
+/* =========================================================
 CONTACT
-====================================================== */
+========================================================= */
 
 .contact-grid{
 
 display:grid;
+
 grid-template-columns:1fr 1fr;
 
 gap:40px;
@@ -1050,6 +1090,7 @@ border-radius:28px;
 
 display:flex;
 align-items:center;
+
 gap:22px;
 
 text-decoration:none;
@@ -1109,9 +1150,9 @@ font-weight:600;
 
 }
 
-/* ======================================================
+/* =========================================================
 FORM
-====================================================== */
+========================================================= */
 
 .contact-form{
 
@@ -1202,9 +1243,9 @@ box-shadow:
 
 }
 
-/* ======================================================
+/* =========================================================
 FOOTER
-====================================================== */
+========================================================= */
 
 footer{
 
@@ -1232,8 +1273,6 @@ margin-bottom:10px;
 
 }
 
-/* LINKS */
-
 .footer-links{
 
 display:flex;
@@ -1247,9 +1286,9 @@ margin-top:18px;
 
 }
 
-/* ======================================================
+/* =========================================================
 RESPONSIVE
-====================================================== */
+========================================================= */
 
 @media(max-width:1200px){
 
@@ -1314,7 +1353,7 @@ grid-template-columns:1fr;
 
 .hero-image img{
 width:100%;
-max-width:430px;
+max-width:420px;
 }
 
 }
@@ -1325,28 +1364,29 @@ max-width:430px;
 
 <body>
 
-<!-- BG -->
+<!-- BACKGROUND -->
 
-<div class="bg"></div>
+<div class="background">
 
-<div class="light light1"></div>
-<div class="light light2"></div>
-<div class="light light3"></div>
+<div class="light one"></div>
+<div class="light two"></div>
+<div class="light three"></div>
+<div class="light four"></div>
+
+</div>
 
 <!-- HEADER -->
 
 <header>
 
-<a
-href="#inicio"
-class="logo">
+<a href="#inicio" class="logo">
 
 <div class="logo-box">
 
 <span>LC</span>
 
 <div class="logo-line"></div>
-<div class="logo-line second"></div>
+<div class="logo-line two"></div>
 
 </div>
 
@@ -1377,7 +1417,7 @@ id="inicio">
 
 <div class="hero-left">
 
-<div class="hero-badge">
+<div class="badge">
 
 <i class="fa-solid fa-location-dot"></i>
 
@@ -1388,15 +1428,15 @@ Mendoza, Argentina
 <h1>
 
 Tecnología que
-<span>marca presencia.</span>
+<span>se siente diferente.</span>
 
 </h1>
 
 <p>
 
-Servicio técnico, celulares, accesorios
-y entretenimiento digital en un entorno
-moderno, visual y profesional.
+Servicio técnico, venta de celulares,
+accesorios y entretenimiento digital
+con una estética moderna y profesional.
 
 </p>
 
@@ -1445,8 +1485,7 @@ WhatsApp
 
 <p>
 
-Todo organizado de forma moderna,
-seria y tecnológica.
+Todo organizado en un mismo lugar.
 
 </p>
 
@@ -1471,7 +1510,7 @@ profesional para celulares y dispositivos.
 
 </p>
 
-<a href="servicio.html">
+<a href="#servicio">
 
 VER SERVICIO →
 
@@ -1496,7 +1535,7 @@ con soporte y atención personalizada.
 
 </p>
 
-<a href="venta.html">
+<a href="#venta">
 
 VER EQUIPOS →
 
@@ -1521,7 +1560,7 @@ compatibles con múltiples marcas.
 
 </p>
 
-<a href="accesorios.html">
+<a href="#accesorios">
 
 VER ACCESORIOS →
 
@@ -1546,13 +1585,93 @@ para disfrutar contenido en casa.
 
 </p>
 
-<a href="tv-digital.html">
+<a href="#tv">
 
 VER MÁS →
 
 </a>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- SERVICIO -->
+
+<section id="servicio">
+
+<div class="section-title">
+
+<span>SERVICIO TÉCNICO</span>
+
+<h2>Reparaciones profesionales</h2>
+
+<p>
+
+Atención clara, rápida y organizada.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- VENTA -->
+
+<section id="venta">
+
+<div class="section-title">
+
+<span>VENTA</span>
+
+<h2>Equipos seleccionados</h2>
+
+<p>
+
+Celulares nuevos y usados verificados.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ACCESORIOS -->
+
+<section id="accesorios">
+
+<div class="section-title">
+
+<span>ACCESORIOS</span>
+
+<h2>Productos compatibles</h2>
+
+<p>
+
+Fundas, auriculares y cargadores.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- TV -->
+
+<section id="tv">
+
+<div class="section-title">
+
+<span>ENTRETENIMIENTO</span>
+
+<h2>TV Digital y plataformas</h2>
+
+<p>
+
+Soluciones modernas para el hogar.
+
+</p>
 
 </div>
 
@@ -1578,8 +1697,6 @@ Facebook y correo electrónico.
 </div>
 
 <div class="contact-grid">
-
-<!-- INFO -->
 
 <div class="contact-info">
 
@@ -1619,7 +1736,6 @@ class="contact-box">
 
 <a
 href="mailto:lc.technology.ar@gmail.com"
-target="_blank"
 class="contact-box">
 
 <i class="fa-solid fa-envelope"></i>
@@ -1684,19 +1800,19 @@ Enviar mensaje
 
 <p>
 
-© LC ONE PLAYER . Todos los derechos reservados.
+© LC ONE PLAYER · Todos los derechos reservados.
 
 </p>
 
 <div class="footer-links">
 
+<span>Servicio Técnico</span>
+<span>·</span>
+
 <span>Venta</span>
 <span>·</span>
 
 <span>Accesorios</span>
-<span>·</span>
-
-<span>Servicio Técnico</span>
 <span>·</span>
 
 <span>Entretenimiento Familiar</span>
@@ -1713,9 +1829,9 @@ Mendoza, Argentina
 
 <script>
 
-/* ======================================================
+/* =========================================================
 FORM
-====================================================== */
+========================================================= */
 
 const form =
 document.getElementById('contactForm');
