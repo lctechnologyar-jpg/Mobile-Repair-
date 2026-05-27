@@ -1,1157 +1,723 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LC ONE PLAYER</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
 
-:root{
-
---bg:#050816;
---bg2:#0a1224;
-
---panel:#101827;
-
---text:#eef4ff;
---muted:#97a6c7;
-
---blue:#00bfff;
---blue2:#3b82f6;
-
---line:rgba(255,255,255,.06);
-
---shadow:
-0 20px 60px rgba(0,0,0,.45);
-
---radius:24px;
-
---transition:.35s cubic-bezier(.2,.8,.2,1);
-
-}
+/* =========================
+   RESET
+========================= */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
-
-font-family:'Inter',sans-serif;
-
-background:
-radial-gradient(circle at top left, rgba(0,191,255,.08), transparent 25%),
-linear-gradient(180deg,var(--bg),var(--bg2));
-
-color:var(--text);
-
-overflow-x:hidden;
-
+    font-family:'Inter',sans-serif;
+    background:#040511;
+    color:white;
+    overflow-x:hidden;
 }
 
-a{
-text-decoration:none;
-color:inherit;
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+    radial-gradient(circle at top left,
+    rgba(44,96,255,.22),
+    transparent 35%),
+
+    radial-gradient(circle at right,
+    rgba(104,52,255,.15),
+    transparent 30%),
+
+    #040511;
 }
 
-img{
-display:block;
-max-width:100%;
+.blur{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#3b5cff;
+    filter:blur(180px);
+    opacity:.15;
+    z-index:-1;
+    animation:float 8s ease-in-out infinite;
 }
 
-.container{
-width:min(1200px,92%);
-margin:auto;
-}
-
-header{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-z-index:999;
-
-backdrop-filter:blur(18px);
-
-background:rgba(5,8,22,.72);
-
-border-bottom:1px solid rgba(255,255,255,.04);
-
-}
-
-.nav{
-
-height:86px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-}
-
-.logo{
-
-display:flex;
-align-items:center;
-gap:14px;
-
-position:relative;
-
-padding:10px 14px;
-
-border-radius:18px;
-
-overflow:hidden;
-
-transition:var(--transition);
-
-cursor:pointer;
-
-}
-
-.logo:hover{
-
-transform:translateY(-2px);
-
-filter:
-drop-shadow(0 0 16px rgba(0,191,255,.25));
-
-}
-
-.logo::before{
-
-content:'';
-
-position:absolute;
-
-top:-120%;
-left:-40%;
-
-width:40%;
-height:300%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.16),
-transparent
-);
-
-transform:rotate(25deg);
-
-transition:1s;
-
-}
-
-.logo:hover::before{
-left:140%;
-}
-
-.logo img{
-
-width:56px;
-height:56px;
-
-object-fit:contain;
-
-border-radius:14px;
-
-background:black;
-
-}
-
-.brand{
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-
-}
-
-.brand .title{
-
-font-size:19px;
-
-font-weight:800;
-
-letter-spacing:.5px;
-
-}
-
-.brand .subtitle{
-
-font-size:13px;
-
-color:var(--muted);
-
-margin-top:2px;
-
-}
-
-nav{
-
-display:flex;
-align-items:center;
-gap:34px;
-
-}
-
-nav a{
-
-font-size:14px;
-
-font-weight:700;
-
-position:relative;
-
-transition:var(--transition);
-
-}
-
-nav a::after{
-
-content:'';
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0;
-height:2px;
-
-background:
-linear-gradient(
-90deg,
-var(--blue),
-var(--blue2)
-);
-
-border-radius:20px;
-
-transition:var(--transition);
-
-}
-
-nav a:hover::after{
-width:100%;
-}
-
-.actions{
-
-display:flex;
-align-items:center;
-gap:14px;
-
-}
-
-.btn{
-
-padding:14px 24px;
-
-border-radius:16px;
-
-font-size:14px;
-font-weight:700;
-
-border:none;
-
-cursor:pointer;
-
-transition:var(--transition);
-
-}
-
-.btn-main{
-
-background:
-linear-gradient(
-135deg,
-var(--blue),
-var(--blue2)
-);
-
-color:white;
-
-box-shadow:
-0 12px 40px rgba(0,191,255,.22);
-
-}
-
-.btn-main:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 18px 50px rgba(0,191,255,.3);
-
-}
-
-.burger{
-
-width:54px;
-height:54px;
-
-display:none;
-
-align-items:center;
-justify-content:center;
-
-border-radius:16px;
-
-border:1px solid rgba(255,255,255,.06);
-
-background:rgba(255,255,255,.02);
-
-cursor:pointer;
-
-}
-
-.burger span{
-
-position:relative;
-
-width:24px;
-height:2px;
-
-background:white;
-
-}
-
-.burger span::before,
-.burger span::after{
-
-content:'';
-
-position:absolute;
-
-width:24px;
-height:2px;
-
-background:white;
-
-left:0;
-
-}
-
-.burger span::before{
-top:-7px;
-}
-
-.burger span::after{
-bottom:-7px;
-}
-
-.mobile{
-
-position:fixed;
-
-top:0;
-right:-100%;
-
-width:320px;
-height:100vh;
-
-background:#09111f;
-
-z-index:9999;
-
-padding:120px 28px;
-
-transition:.45s;
-
-border-left:1px solid rgba(255,255,255,.06);
-
-}
-
-.mobile.active{
-right:0;
-}
-
-.mobile a{
-
-display:flex;
-
-padding:18px;
-
-margin-bottom:14px;
-
-border-radius:16px;
-
-background:rgba(255,255,255,.03);
-
-border:1px solid rgba(255,255,255,.05);
-
-font-weight:700;
-
-transition:var(--transition);
-
-}
-
-.mobile a:hover{
-
-transform:translateX(6px);
-
-background:rgba(0,191,255,.08);
-
-}
-
-.hero{
-
-padding-top:180px;
-padding-bottom:120px;
-
-}
-
-.hero-grid{
-
-display:grid;
-
-grid-template-columns:1.1fr .9fr;
-
-align-items:center;
-
-gap:70px;
-
-}
-
-.tag{
-
-display:inline-flex;
-
-padding:12px 18px;
-
-border-radius:999px;
-
-background:rgba(0,191,255,.08);
-
-border:1px solid rgba(0,191,255,.16);
-
-color:#9fdfff;
-
-font-size:13px;
-font-weight:700;
-
-margin-bottom:28px;
-
-}
-
-.hero h1{
-
-font-size:68px;
-
-line-height:1.05;
-
-font-weight:800;
-
-margin-bottom:24px;
-
-max-width:700px;
-
-}
-
-.hero h1 span{
-
-color:var(--blue);
-
-}
-
-.hero p{
-
-font-size:19px;
-
-line-height:1.8;
-
-color:var(--muted);
-
-max-width:620px;
-
-}
-
-.hero-buttons{
-
-display:flex;
-align-items:center;
-gap:18px;
-
-margin-top:40px;
-
-flex-wrap:wrap;
-
-}
-
-.btn-outline{
-
-background:transparent;
-
-border:1px solid rgba(255,255,255,.1);
-
-color:white;
-
-}
-
-.btn-outline:hover{
-background:rgba(255,255,255,.03);
-}
-
-.hero-info{
-
-display:flex;
-gap:30px;
-
-margin-top:44px;
-
-flex-wrap:wrap;
-
-}
-
-.hero-info div{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-font-size:14px;
-
-color:#dce6ff;
-
-}
-
-.visual{
-
-position:relative;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-}
-
-.glow{
-
-position:absolute;
-
-width:500px;
-height:500px;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-circle,
-rgba(0,191,255,.2),
-transparent 70%
-);
-
-filter:blur(50px);
-
-}
-
-.phone{
-
-position:relative;
-
-z-index:2;
-
-width:420px;
-
-border-radius:34px;
-
-overflow:hidden;
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:var(--shadow);
-
-animation:float 6s ease-in-out infinite;
-
+.blur2{
+    right:-150px;
+    top:150px;
+    background:#7d4dff;
+    animation-delay:2s;
 }
 
 @keyframes float{
-
-0%{
-transform:translateY(0px);
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-30px)}
+    100%{transform:translateY(0px)}
 }
 
-50%{
-transform:translateY(-14px);
+/* =========================
+   HEADER
+========================= */
+
+header{
+    width:100%;
+    padding:22px 7%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(5,7,20,.55);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-100%{
-transform:translateY(0px);
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
 }
 
+.logo-box{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(35,35,60,.95),
+    rgba(8,8,18,.98)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+    box-shadow:
+    0 0 25px rgba(80,120,255,.15),
+    inset 0 0 20px rgba(255,255,255,.03);
 }
 
-section{
-padding:110px 0;
+.logo-box span{
+    font-size:22px;
+    font-weight:800;
+    position:relative;
+    z-index:3;
 }
 
-.section-head{
+.logo-glow{
+    position:absolute;
+    width:120px;
+    height:120px;
 
-margin-bottom:60px;
+    background:radial-gradient(
+    circle,
+    rgba(79,124,255,.6),
+    transparent 70%
+    );
 
+    opacity:0;
+    transition:.5s;
 }
 
-.section-mini{
+.logo-line{
+    position:absolute;
+    width:140%;
+    height:2px;
 
-font-size:13px;
+    background:linear-gradient(
+    90deg,
+    transparent,
+    #4f7cff,
+    transparent
+    );
 
-letter-spacing:3px;
-
-font-weight:800;
-
-color:#88dfff;
-
-text-transform:uppercase;
-
-margin-bottom:14px;
-
+    transform:rotate(45deg) translateX(-120%);
+    opacity:0;
+    transition:.7s;
 }
 
-.section-title{
-
-font-size:52px;
-
-font-weight:800;
-
+.logo-line.second{
+    transform:rotate(-45deg) translateX(120%);
 }
 
-.services{
+.logo:hover .logo-box{
+    transform:scale(1.06);
 
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:28px;
-
+    box-shadow:
+    0 0 45px rgba(79,124,255,.45),
+    0 0 100px rgba(118,72,255,.2);
 }
 
-.card{
-
-position:relative;
-
-overflow:hidden;
-
-padding:38px;
-
-border-radius:28px;
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.03),
-rgba(255,255,255,.015)
-);
-
-border:1px solid rgba(255,255,255,.06);
-
-transition:var(--transition);
-
+.logo:hover .logo-glow{
+    opacity:1;
 }
 
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:rgba(0,191,255,.2);
-
-box-shadow:
-0 25px 70px rgba(0,0,0,.45),
-0 0 40px rgba(0,191,255,.08);
-
+.logo:hover .logo-line{
+    opacity:1;
+    transform:rotate(45deg) translateX(120%);
 }
 
-.card::before{
-
-content:'';
-
-position:absolute;
-
-top:-150%;
-left:-40%;
-
-width:50%;
-height:300%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.1),
-transparent
-);
-
-transform:rotate(25deg);
-
-transition:1s;
-
+.logo:hover .logo-line.second{
+    transform:rotate(-45deg) translateX(-120%);
 }
 
-.card:hover::before{
-left:140%;
+.logo-text h2{
+    font-size:18px;
+    font-weight:700;
+    color:#fff;
 }
 
-.icon{
-
-width:72px;
-height:72px;
-
-border-radius:20px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:30px;
-
-margin-bottom:26px;
-
-background:
-linear-gradient(
-135deg,
-rgba(0,191,255,.12),
-rgba(59,130,246,.12)
-);
-
+.logo-text p{
+    color:#8890b5;
+    font-size:13px;
+    margin-top:2px;
 }
 
-.card h3{
-
-font-size:30px;
-
-margin-bottom:18px;
-
-}
-
-.card p{
-
-line-height:1.8;
-
-color:var(--muted);
-
-margin-bottom:30px;
-
-}
-
-.list{
-
-display:flex;
-flex-direction:column;
-gap:14px;
-
-margin-bottom:32px;
-
-}
-
-.list div{
-color:#dce7ff;
-}
-
-.link{
-
-display:inline-flex;
-align-items:center;
-gap:10px;
-
-font-weight:700;
-
-color:#8adfff;
-
-}
-
-.about{
-
-background:
-rgba(255,255,255,.02);
-
-border-top:1px solid rgba(255,255,255,.05);
-border-bottom:1px solid rgba(255,255,255,.05);
-
-}
-
-.about-grid{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:24px;
-
-}
-
-.about-card{
-
-padding:34px;
-
-border-radius:24px;
-
-background:rgba(255,255,255,.02);
-
-border:1px solid rgba(255,255,255,.05);
-
-transition:var(--transition);
-
-}
-
-.about-card:hover{
-
-transform:translateY(-6px);
-
-border-color:rgba(0,191,255,.16);
-
-}
-
-.about-card h4{
-
-font-size:22px;
-
-margin-bottom:16px;
-
-}
-
-.about-card p{
-
-line-height:1.8;
-
-color:var(--muted);
-
-}
-
-.contact-box{
-
-padding:60px;
-
-border-radius:34px;
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.03),
-rgba(255,255,255,.015)
-);
-
-border:1px solid rgba(255,255,255,.06);
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:50px;
-
-}
-
-.contact h3{
-
-font-size:48px;
-
-margin-bottom:20px;
-
-}
-
-.contact p{
-
-line-height:1.8;
-
-color:var(--muted);
-
-margin-bottom:34px;
-
-}
-
-.links{
-
-display:flex;
-flex-direction:column;
-gap:18px;
-
-}
-
-.links a{
-
-padding:20px 22px;
-
-border-radius:18px;
-
-background:rgba(255,255,255,.03);
-
-border:1px solid rgba(255,255,255,.05);
-
-font-weight:700;
-
-transition:var(--transition);
-
-}
-
-.links a:hover{
-
-transform:translateX(8px);
-
-border-color:rgba(0,191,255,.16);
-
-}
-
-.form{
-
-display:flex;
-flex-direction:column;
-gap:18px;
-
-}
-
-.form input,
-.form textarea{
-
-width:100%;
-
-padding:20px;
-
-border-radius:18px;
-
-border:1px solid rgba(255,255,255,.06);
-
-background:rgba(255,255,255,.03);
-
-color:white;
-
-font-family:inherit;
-
-font-size:15px;
-
-}
-
-.form textarea{
-
-height:180px;
-
-resize:none;
-
-}
-
-footer{
-
-padding:60px 0;
-
-border-top:1px solid rgba(255,255,255,.05);
-
-}
-
-.footer{
-
-display:grid;
-
-grid-template-columns:2fr 1fr 1fr;
-
-gap:40px;
-
-}
-
-.footer p{
-
-line-height:1.8;
-
-color:var(--muted);
-
-margin-top:22px;
-
-max-width:420px;
-
-}
-
-.footer-links{
-
-display:flex;
-flex-direction:column;
-gap:16px;
-
-}
-
-.footer-links h4{
-margin-bottom:10px;
-}
-
-.footer-links a{
-
-color:var(--muted);
-
-transition:var(--transition);
-
-}
-
-.footer-links a:hover{
-
-color:white;
-
-transform:translateX(6px);
-
-}
-
-.copy{
-
-margin-top:50px;
-
-padding-top:30px;
-
-border-top:1px solid rgba(255,255,255,.05);
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-color:var(--muted);
-
-}
-
-.float{
-
-position:fixed;
-
-right:24px;
-bottom:24px;
-
-width:68px;
-height:68px;
-
-border-radius:50%;
-
-background:
-linear-gradient(
-135deg,
-#00d084,
-#00b86b
-);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:28px;
-
-color:white;
-
-z-index:999;
-
-box-shadow:
-0 20px 50px rgba(0,208,132,.35);
-
-}
-
-@media(max-width:1100px){
-
-.hero-grid,
-.contact-box,
-.footer{
-
-grid-template-columns:1fr;
-
-}
-
-.services,
-.about-grid{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.hero h1{
-font-size:56px;
-}
+/* =========================
+   MENU
+========================= */
 
 nav{
-display:none;
+    display:flex;
+    align-items:center;
+    gap:38px;
 }
 
-.burger{
-display:flex;
+nav a{
+    color:#b7bdd9;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+    position:relative;
 }
 
+nav a:hover{
+    color:white;
 }
 
-@media(max-width:768px){
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:#4f7cff;
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-padding-top:150px;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+    gap:80px;
+}
+
+.hero-left{
+    max-width:650px;
+}
+
+.location{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    color:#9fa8d1;
+    margin-bottom:28px;
 }
 
 .hero h1{
-font-size:42px;
+    font-size:78px;
+    line-height:1.05;
+    font-weight:800;
+}
+
+.hero h1 span{
+    background:linear-gradient(
+    90deg,
+    #4f7cff,
+    #8f6bff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-font-size:17px;
+    margin-top:28px;
+    font-size:20px;
+    line-height:1.8;
+    color:#97a1c7;
 }
 
-.services,
-.about-grid{
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:42px;
+}
 
-grid-template-columns:1fr;
+.btn{
+    padding:18px 34px;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.35s;
+}
 
+.btn-primary{
+    background:#3f76ff;
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(63,118,255,.35);
+}
+
+.btn-secondary{
+    background:#17c964;
+    color:white;
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================
+   PHONE
+========================= */
+
+.phone{
+    width:340px;
+    height:640px;
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(18,18,35,.95),
+    rgba(9,9,20,.95)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    position:relative;
+
+    box-shadow:
+    0 0 60px rgba(77,110,255,.15);
+
+    overflow:hidden;
+}
+
+.phone::before{
+    content:'';
+    position:absolute;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:120px;
+    height:8px;
+    border-radius:999px;
+
+    background:#2b2d44;
+}
+
+.phone-content{
+    padding:90px 30px;
+}
+
+.line{
+    height:12px;
+    border-radius:999px;
+    margin-bottom:16px;
+
+    background:#2a2d45;
+}
+
+.line.blue{
+    background:linear-gradient(
+    90deg,
+    #4f7cff,
+    #875eff
+    );
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:30px 0;
+}
+
+.small-card{
+    height:70px;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(24,26,48,.95),
+    rgba(10,10,20,.95)
+    );
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+    padding:140px 7%;
 }
 
 .section-title{
-font-size:38px;
+    text-align:center;
+    margin-bottom:80px;
 }
 
-.phone{
-width:100%;
+.section-title span{
+    color:#4f7cff;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:62px;
+    margin-top:18px;
+}
+
+.section-title p{
+    color:#93a0c7;
+    margin-top:18px;
+    font-size:18px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.card{
+    padding:40px;
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(18,18,35,.92),
+    rgba(10,10,20,.92)
+    );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.45s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(79,124,255,.12),
+    transparent
+    );
+
+    transform:translateX(-100%);
+    transition:.8s;
+}
+
+.card:hover::before{
+    transform:translateX(100%);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+
+    border-color:rgba(79,124,255,.4);
+
+    box-shadow:
+    0 25px 60px rgba(79,124,255,.12);
+}
+
+.icon{
+    width:74px;
+    height:74px;
+    border-radius:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+    background:rgba(79,124,255,.1);
+
+    color:#4f7cff;
+}
+
+.card h3{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.card p{
+    color:#95a2cb;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.card a{
+    color:#4f7cff;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    padding:140px 7%;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    margin-top:70px;
 }
 
 .contact-box{
-padding:36px;
+    padding:35px;
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(18,18,35,.95),
+    rgba(10,10,20,.95)
+    );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+    align-items:center;
+    gap:24px;
+
+    transition:.35s;
 }
+
+.contact-box:hover{
+    transform:translateY(-8px);
+    border-color:rgba(79,124,255,.3);
+}
+
+.contact-box i{
+    font-size:32px;
+    color:#4f7cff;
+}
+
+.contact-box h4{
+    color:#8f98bf;
+    margin-bottom:8px;
+}
+
+.contact-box p{
+    font-size:20px;
+    font-weight:600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:60px 7%;
+    border-top:1px solid rgba(255,255,255,.05);
+    text-align:center;
+    color:#7e88af;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.menu-toggle{
+    display:none;
+}
+
+@media(max-width:980px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:180px;
+    }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+        font-size:30px;
+        color:white;
+    }
+
+    .section-title h2{
+        font-size:46px;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .phone{
+        width:100%;
+        max-width:320px;
+        height:560px;
+    }
+
+    .section-title h2{
+        font-size:38px;
+    }
+
+    .card h3{
+        font-size:28px;
+    }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
+<div class="bg"></div>
+
+<div class="blur"></div>
+<div class="blur blur2"></div>
+
+<!-- HEADER -->
+
 <header>
 
-<div class="container nav">
+<a href="#inicio" class="logo">
 
-<div class="logo">
+<div class="logo-box">
 
-<img src="Mio.png" alt="LC ONE PLAYER">
+<span>LC</span>
 
-<div class="brand">
+<div class="logo-glow"></div>
 
-<div class="title">
-LC ONE PLAYER
-</div>
-
-<div class="subtitle">
-Tecnología
-</div>
+<div class="logo-line"></div>
+<div class="logo-line second"></div>
 
 </div>
 
+<div class="logo-text">
+<h2>LC ONE PLAYER</h2>
+<p>Tecnología</p>
 </div>
+
+</a>
 
 <nav>
 
@@ -1161,96 +727,67 @@ Tecnología
 
 </nav>
 
-<div class="actions">
-
-<a href="https://wa.me/5492634722710" class="btn btn-main">
-WhatsApp
-</a>
-
-<div class="burger" id="burger">
-<span></span>
-</div>
-
-</div>
-
+<div class="menu-toggle">
+<i class="fa-solid fa-bars"></i>
 </div>
 
 </header>
 
-<div class="mobile" id="mobile">
-
-<a href="#inicio">Inicio</a>
-<a href="servicio.html">Servicio Técnico</a>
-<a href="venta.html">Venta</a>
-<a href="accesorios.html">Accesorios</a>
-<a href="#contacto">Contacto</a>
-
-</div>
+<!-- HERO -->
 
 <section class="hero" id="inicio">
 
-<div class="container hero-grid">
+<div class="hero-left">
 
-<div>
-
-<div class="tag">
-TECNOLOGÍA · SERVICIO · CALIDAD
+<div class="location">
+<i class="fa-solid fa-location-dot"></i>
+Mendoza, Argentina
 </div>
 
 <h1>
-
-Soluciones
-<span>
-tecnológicas
-</span>
-
-más profesionales
-
+Tu especialista en
+<span>tecnología y celulares</span>
 </h1>
 
 <p>
-
-Reparación profesional, venta de celulares
-y accesorios con atención personalizada,
-garantías reales y una experiencia seria.
-
+Servicio técnico, venta de equipos, accesorios y repuestos.
+Una página moderna, profesional y preparada para verse perfecta
+en computadoras y celulares.
 </p>
 
 <div class="hero-buttons">
 
-<a href="#servicios" class="btn btn-main">
-VER SERVICIOS
+<a href="#servicios" class="btn btn-primary">
+Ver servicios
 </a>
 
-<a href="https://wa.me/5492634722710" class="btn btn-outline">
-CONTACTAR
+<a href="https://wa.me/542616940727" class="btn btn-secondary">
+WhatsApp
 </a>
 
 </div>
 
-<div class="hero-info">
-
-<div>
-✔ Atención personalizada
 </div>
 
-<div>
-✔ Garantía real
+<div class="phone">
+
+<div class="phone-content">
+
+<div class="line blue"></div>
+<div class="line"></div>
+<div class="line" style="width:70%"></div>
+
+<div class="card-grid">
+
+<div class="small-card"></div>
+<div class="small-card"></div>
+<div class="small-card"></div>
+<div class="small-card"></div>
+
 </div>
 
-<div>
-✔ Diagnóstico claro
-</div>
-
-</div>
-
-</div>
-
-<div class="visual">
-
-<div class="glow"></div>
-
-<img src="Mio.png" class="phone">
+<div class="line"></div>
+<div class="line"></div>
 
 </div>
 
@@ -1258,58 +795,38 @@ CONTACTAR
 
 </section>
 
-<section id="servicios">
+<!-- SERVICES -->
 
-<div class="container">
+<section class="services" id="servicios">
 
-<div class="section-head">
+<div class="section-title">
 
-<div class="section-mini">
-SERVICIOS
+<span>LO QUE HACEMOS</span>
+
+<h2>Nuestros servicios</h2>
+
+<p>
+Todo organizado como una página profesional real.
+</p>
+
 </div>
 
-<h2 class="section-title">
-Lo que hacemos
-</h2>
-
-</div>
-
-<div class="services">
+<div class="cards">
 
 <div class="card">
 
 <div class="icon">
-🔧
+<i class="fa-solid fa-screwdriver-wrench"></i>
 </div>
 
-<h3>
-Servicio Técnico
-</h3>
+<h3>Servicio Técnico</h3>
 
 <p>
-
-Diagnóstico, reparación y mantenimiento
-profesional para celulares y dispositivos.
-
+Reparación de celulares, cambio de módulos,
+baterías, cámaras, placas de carga y más.
 </p>
 
-<div class="list">
-
-<div>
-✔ Cambio de módulos
-</div>
-
-<div>
-✔ Cambio de baterías
-</div>
-
-<div>
-✔ Reparaciones generales
-</div>
-
-</div>
-
-<a href="servicio.html" class="link">
+<a href="servicio.html">
 VER SERVICIO →
 </a>
 
@@ -1318,37 +835,17 @@ VER SERVICIO →
 <div class="card">
 
 <div class="icon">
-📱
+<i class="fa-solid fa-mobile-screen"></i>
 </div>
 
-<h3>
-Venta
-</h3>
+<h3>Venta</h3>
 
 <p>
-
-Celulares nuevos y usados seleccionados
-con soporte y atención personalizada.
-
+Celulares nuevos y usados con atención personalizada
+y equipos verificados.
 </p>
 
-<div class="list">
-
-<div>
-✔ Equipos verificados
-</div>
-
-<div>
-✔ Asesoramiento
-</div>
-
-<div>
-✔ Soporte post venta
-</div>
-
-</div>
-
-<a href="venta.html" class="link">
+<a href="venta.html">
 VER EQUIPOS →
 </a>
 
@@ -1357,37 +854,17 @@ VER EQUIPOS →
 <div class="card">
 
 <div class="icon">
-🎧
+<i class="fa-solid fa-headphones"></i>
 </div>
 
-<h3>
-Accesorios
-</h3>
+<h3>Accesorios</h3>
 
 <p>
-
-Fundas, cargadores, auriculares y productos
-compatibles con múltiples marcas.
-
+Fundas, cargadores, auriculares, vidrios y productos
+para múltiples marcas.
 </p>
 
-<div class="list">
-
-<div>
-✔ Fundas y vidrios
-</div>
-
-<div>
-✔ Cargadores
-</div>
-
-<div>
-✔ Auriculares
-</div>
-
-</div>
-
-<a href="accesorios.html" class="link">
+<a href="accesorios.html">
 VER ACCESORIOS →
 </a>
 
@@ -1395,144 +872,67 @@ VER ACCESORIOS →
 
 </div>
 
-</div>
-
 </section>
 
-<section class="about">
+<!-- CONTACT -->
 
-<div class="container">
+<section class="contact" id="contacto">
 
-<div class="section-head">
+<div class="section-title">
 
-<div class="section-mini">
-NOSOTROS
-</div>
+<span>CONTACTO</span>
 
-<h2 class="section-title">
-Atención más profesional
-</h2>
-
-</div>
-
-<div class="about-grid">
-
-<div class="about-card">
-
-<h4>
-Diagnóstico claro
-</h4>
+<h2>Hablemos</h2>
 
 <p>
-
-Explicamos cada reparación antes de trabajar en tu equipo.
-
+Atención directa por WhatsApp y redes sociales.
 </p>
 
 </div>
 
-<div class="about-card">
-
-<h4>
-Garantía real
-</h4>
-
-<p>
-
-Todos los trabajos incluyen revisión y garantía.
-
-</p>
-
-</div>
-
-<div class="about-card">
-
-<h4>
-Atención personalizada
-</h4>
-
-<p>
-
-Respondemos consultas y acompañamos cada proceso.
-
-</p>
-
-</div>
-
-<div class="about-card">
-
-<h4>
-Calidad
-</h4>
-
-<p>
-
-Utilizamos componentes y accesorios seleccionados.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contacto">
-
-<div class="container">
+<div class="contact-grid">
 
 <div class="contact-box">
 
-<div class="contact">
+<i class="fa-brands fa-whatsapp"></i>
 
-<div class="section-mini">
-CONTACTO
-</div>
-
-<h3>
-Hablemos
-</h3>
-
-<p>
-
-Consultanos por WhatsApp o redes sociales.
-Respondemos dudas y presupuestos.
-
-</p>
-
-<div class="links">
-
-<a href="https://wa.me/5492634722710">
-WhatsApp
-</a>
-
-<a href="mailto:lconeplayer@gmail.com">
-Gmail
-</a>
-
-<a href="https://facebook.com">
-Facebook
-</a>
-
+<div>
+<h4>WHATSAPP</h4>
+<p>+54 261 694-0727</p>
 </div>
 
 </div>
 
-<form class="form">
+<div class="contact-box">
 
-<input type="text" placeholder="Nombre">
+<i class="fa-brands fa-instagram"></i>
 
-<input type="email" placeholder="Correo electrónico">
+<div>
+<h4>INSTAGRAM</h4>
+<p>@lconeplayer</p>
+</div>
 
-<textarea placeholder="Tu mensaje"></textarea>
+</div>
 
-<button class="btn btn-main">
-Enviar mensaje
-</button>
+<div class="contact-box">
 
-</form>
+<i class="fa-brands fa-facebook"></i>
+
+<div>
+<h4>FACEBOOK</h4>
+<p>LC ONE PLAYER</p>
+</div>
+
+</div>
+
+<div class="contact-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<div>
+<h4>EMAIL</h4>
+<p>contacto@lconeplayer.com</p>
+</div>
 
 </div>
 
@@ -1542,127 +942,9 @@ Enviar mensaje
 
 <footer>
 
-<div class="container">
-
-<div class="footer">
-
-<div>
-
-<div class="logo">
-
-<img src="Mio.png">
-
-<div class="brand">
-
-<div class="title">
-LC ONE PLAYER
-</div>
-
-<div class="subtitle">
-Tecnología
-</div>
-
-</div>
-
-</div>
-
-<p>
-
-Tecnología, servicio técnico y atención profesional.
-
-</p>
-
-</div>
-
-<div class="footer-links">
-
-<h4>
-Navegación
-</h4>
-
-<a href="#inicio">
-Inicio
-</a>
-
-<a href="#servicios">
-Servicios
-</a>
-
-<a href="#contacto">
-Contacto
-</a>
-
-</div>
-
-<div class="footer-links">
-
-<h4>
-Servicios
-</h4>
-
-<a href="servicio.html">
-Servicio Técnico
-</a>
-
-<a href="venta.html">
-Venta
-</a>
-
-<a href="accesorios.html">
-Accesorios
-</a>
-
-</div>
-
-</div>
-
-<div class="copy">
-
-<div>
-© 2026 LC ONE PLAYER
-</div>
-
-<div>
-Diseño moderno y profesional
-</div>
-
-</div>
-
-</div>
+© 2026 LC ONE PLAYER — Tecnología
 
 </footer>
-
-<a href="https://wa.me/5492634722710" class="float">
-✆
-</a>
-
-<script>
-
-const burger =
-document.getElementById('burger');
-
-const mobile =
-document.getElementById('mobile');
-
-burger.addEventListener('click',()=>{
-
-mobile.classList.toggle('active');
-
-});
-
-document
-.querySelectorAll('.mobile a')
-.forEach(link=>{
-
-link.addEventListener('click',()=>{
-
-mobile.classList.remove('active');
-
-});
-
-});
-
-</script>
 
 </body>
 </html>
