@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,12 +7,9 @@
 
 <title>LC ONE PLAYER | Tecnología</title>
 
-<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta, accesorios y entretenimiento digital.">
+<meta name="description" content="LC ONE PLAYER - Tecnología, servicio técnico, venta, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -33,11 +29,31 @@ overflow-x:hidden;
 }
 
 body{
-font-family:"Inter",sans-serif;
+font-family:"Poppins",sans-serif;
 background:#05070d;
 color:#fff;
 overflow-x:hidden;
 position:relative;
+}
+
+/* =========================================================
+CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+position:fixed;
+width:320px;
+height:320px;
+border-radius:50%;
+pointer-events:none;
+background:radial-gradient(circle,
+rgba(0,255,255,.22) 0%,
+rgba(0,207,255,.12) 30%,
+transparent 70%);
+transform:translate(-50%,-50%);
+z-index:1;
+mix-blend-mode:screen;
+filter:blur(30px);
 }
 
 /* =========================================================
@@ -47,80 +63,67 @@ BACKGROUND
 .bg-animation{
 position:fixed;
 inset:0;
-overflow:hidden;
 z-index:-10;
-background:#05070d;
-}
-
-.bg-animation::before{
-content:"";
-position:absolute;
-inset:0;
+overflow:hidden;
 background:
-radial-gradient(circle at 20% 20%,#00cfff22,transparent 30%),
-radial-gradient(circle at 80% 30%,#0066ff22,transparent 30%),
-radial-gradient(circle at 50% 80%,#00fff222,transparent 30%);
-animation:bgMove 14s linear infinite alternate;
+radial-gradient(circle at top left,#001f33 0%,transparent 35%),
+radial-gradient(circle at bottom right,#00194d 0%,transparent 35%),
+#05070d;
+animation:bgShift 18s infinite alternate;
 }
 
-@keyframes bgMove{
+@keyframes bgShift{
 
 0%{
 filter:hue-rotate(0deg);
-transform:scale(1);
 }
 
 100%{
-filter:hue-rotate(360deg);
-transform:scale(1.08);
+filter:hue-rotate(45deg);
 }
 
 }
-
-/* =========================================================
-LIGHTS
-========================================================= */
 
 .light{
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-opacity:.4;
+opacity:.38;
 animation:float 16s infinite alternate;
 }
 
 .light1{
-width:500px;
-height:500px;
+width:550px;
+height:550px;
 background:#00cfff;
 top:-120px;
 left:-120px;
 }
 
 .light2{
-width:450px;
-height:450px;
-background:#0066ff;
+width:500px;
+height:500px;
+background:#0055ff;
 bottom:-120px;
-right:-100px;
+right:-120px;
 }
 
 .light3{
-width:350px;
-height:350px;
-background:#00fff2;
+width:380px;
+height:380px;
+background:#00ffee;
 top:40%;
-left:50%;
+left:40%;
 }
 
 @keyframes float{
 
 0%{
-transform:translate(0,0);
+transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(100px,-70px);
+transform:translate(120px,-80px) scale(1.25);
 }
 
 }
@@ -136,7 +139,7 @@ background:#05070d;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:99999;
+z-index:999999;
 transition:1s;
 }
 
@@ -148,16 +151,16 @@ pointer-events:none;
 .loader-logo{
 font-family:"Orbitron",sans-serif;
 font-size:3rem;
-letter-spacing:4px;
+letter-spacing:5px;
 position:relative;
-animation:pulse 2s infinite;
+animation:loaderPulse 2s infinite;
 }
 
 .loader-logo::after{
 content:"";
 position:absolute;
 left:0;
-bottom:-12px;
+bottom:-14px;
 width:100%;
 height:3px;
 background:#00cfff;
@@ -165,19 +168,23 @@ box-shadow:0 0 20px #00cfff;
 animation:scan 2s infinite;
 }
 
-@keyframes pulse{
+@keyframes loaderPulse{
 
 0%{
 opacity:.5;
+text-shadow:0 0 10px #00cfff;
 }
 
 50%{
 opacity:1;
-text-shadow:0 0 25px #00cfff;
+text-shadow:
+0 0 25px #00cfff,
+0 0 50px #00ffee;
 }
 
 100%{
 opacity:.5;
+text-shadow:0 0 10px #00cfff;
 }
 
 }
@@ -186,10 +193,12 @@ opacity:.5;
 
 0%{
 transform:scaleX(0);
+transform-origin:left;
 }
 
 100%{
 transform:scaleX(1);
+transform-origin:left;
 }
 
 }
@@ -204,14 +213,14 @@ top:0;
 left:0;
 width:100%;
 height:95px;
-padding:0 50px;
 display:flex;
-justify-content:space-between;
 align-items:center;
-background:rgba(5,7,13,.75);
-backdrop-filter:blur(16px);
+justify-content:space-between;
+padding:0 50px;
+background:rgba(5,7,13,.72);
+backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,.05);
-z-index:999;
+z-index:9999;
 }
 
 /* =========================================================
@@ -223,6 +232,8 @@ display:flex;
 align-items:center;
 gap:18px;
 text-decoration:none;
+position:relative;
+z-index:5;
 }
 
 .logo-icon{
@@ -232,26 +243,30 @@ border-radius:20px;
 display:flex;
 justify-content:center;
 align-items:center;
+font-family:"Orbitron",sans-serif;
+font-size:1.5rem;
+font-weight:700;
+color:#fff;
 position:relative;
 overflow:hidden;
-background:#09111f;
+background:#08111d;
 border:1px solid rgba(255,255,255,.08);
 box-shadow:
-0 0 25px #00cfff55,
-0 0 50px #00cfff22;
-animation:logoGlow 4s infinite alternate;
+0 0 20px #00cfff55,
+0 0 60px #00cfff33;
+animation:logoGlow 5s infinite alternate;
 }
 
 .logo-icon::before{
 content:"";
 position:absolute;
-width:220%;
-height:220%;
+width:240%;
+height:240%;
 background:conic-gradient(
 transparent,
 #00cfff,
 transparent,
-#00fff2,
+#00ffee,
 transparent,
 #0066ff,
 transparent
@@ -263,17 +278,13 @@ animation:rotate 5s linear infinite;
 content:"";
 position:absolute;
 inset:2px;
+background:#08111d;
 border-radius:18px;
-background:#09111f;
 }
 
 .logo-icon span{
 position:relative;
 z-index:2;
-font-family:"Orbitron",sans-serif;
-font-size:1.6rem;
-font-weight:700;
-color:#fff;
 }
 
 @keyframes rotate{
@@ -288,14 +299,14 @@ transform:rotate(360deg);
 
 0%{
 box-shadow:
-0 0 25px #00cfff44,
-0 0 45px #00cfff11;
+0 0 20px #00cfff55,
+0 0 50px #00cfff22;
 }
 
 100%{
 box-shadow:
-0 0 35px #00fff2,
-0 0 70px #00cfff55;
+0 0 40px #00ffee,
+0 0 90px #00cfff55;
 }
 
 }
@@ -308,31 +319,16 @@ justify-content:center;
 
 .logo-text h1{
 font-family:"Orbitron",sans-serif;
-font-size:1.15rem;
+font-size:1.08rem;
 font-style:italic;
-font-weight:700;
 letter-spacing:1px;
-background:linear-gradient(90deg,#ffffff,#00cfff,#ffffff);
-background-size:300%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:titleFlow 6s linear infinite;
 }
 
 .logo-text p{
-font-family:"Orbitron",sans-serif;
-font-size:.82rem;
+font-size:.92rem;
 font-style:italic;
-letter-spacing:2px;
-color:#b8dfff;
-}
-
-@keyframes titleFlow{
-
-100%{
-background-position:300%;
-}
-
+color:#9aa6c0;
+text-align:center;
 }
 
 /* =========================================================
@@ -347,7 +343,7 @@ gap:35px;
 nav a{
 text-decoration:none;
 color:#d7d7d7;
-font-size:.95rem;
+font-size:.96rem;
 position:relative;
 transition:.3s;
 }
@@ -364,7 +360,7 @@ bottom:-8px;
 width:0%;
 height:2px;
 background:#00cfff;
-transition:.3s;
+transition:.35s;
 box-shadow:0 0 15px #00cfff;
 }
 
@@ -373,7 +369,7 @@ width:100%;
 }
 
 /* =========================================================
-MENU MOBILE
+MENU
 ========================================================= */
 
 .menu-btn{
@@ -388,13 +384,15 @@ top:95px;
 right:-100%;
 width:280px;
 height:calc(100vh - 95px);
-background:#08101c;
+background:rgba(8,16,28,.95);
+backdrop-filter:blur(18px);
 padding:40px 25px;
 display:flex;
 flex-direction:column;
 gap:22px;
-transition:.5s;
+transition:.45s;
 z-index:999;
+border-left:1px solid rgba(255,255,255,.05);
 }
 
 .mobile-menu.active{
@@ -406,12 +404,13 @@ text-decoration:none;
 color:#fff;
 padding:14px;
 border-radius:14px;
-background:#10192c;
-transition:.3s;
+background:#0f1727;
+transition:.35s;
 }
 
 .mobile-menu a:hover{
 background:#16233d;
+box-shadow:0 0 25px #00cfff22;
 }
 
 /* =========================================================
@@ -422,11 +421,12 @@ HERO
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:160px 60px 80px;
+padding:160px 60px 100px;
+position:relative;
 }
 
 .hero-content{
-max-width:1350px;
+max-width:1400px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -434,23 +434,25 @@ gap:90px;
 align-items:center;
 }
 
-/* =========================================================
-TEXT
-========================================================= */
+.hero-text{
+position:relative;
+z-index:2;
+}
 
 .hero-text h2{
-font-size:4.2rem;
-line-height:1.1;
-margin-bottom:25px;
 font-family:"Orbitron",sans-serif;
+font-size:4.2rem;
+line-height:1.08;
+margin-bottom:28px;
+text-shadow:0 0 25px rgba(0,207,255,.18);
 }
 
 .hero-text p{
-font-size:1.05rem;
+font-size:1.06rem;
 line-height:1.9;
-max-width:620px;
 color:#9aa6c0;
-margin-bottom:35px;
+max-width:620px;
+margin-bottom:38px;
 }
 
 .hero-buttons{
@@ -460,32 +462,37 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 32px;
+padding:16px 34px;
 border-radius:16px;
 text-decoration:none;
 font-weight:600;
-transition:.35s;
+transition:.4s;
+position:relative;
+overflow:hidden;
 }
 
 .btn-primary{
 background:#00cfff;
 color:#000;
-box-shadow:0 0 35px #00cfff55;
+box-shadow:0 0 30px #00cfff55;
 }
 
 .btn-primary:hover{
 transform:translateY(-6px);
-box-shadow:0 0 55px #00cfff;
+box-shadow:
+0 0 40px #00cfff,
+0 0 80px #00cfff55;
 }
 
 .btn-outline{
-background:#0b1020;
+background:#0d1526;
 border:1px solid rgba(255,255,255,.08);
 color:#fff;
 }
 
 .btn-outline:hover{
-background:#121b2f;
+background:#16223b;
+transform:translateY(-6px);
 }
 
 /* =========================================================
@@ -506,25 +513,36 @@ height:580px;
 border-radius:50%;
 background:conic-gradient(
 #00cfff,
-#00fff2,
-#0066ff,
+#00ffee,
+#0055ff,
 #00cfff
 );
-filter:blur(60px);
+filter:blur(50px);
 opacity:.45;
-animation:spin 12s linear infinite;
+animation:spin 10s linear infinite;
+}
+
+.hero-image::after{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+border-radius:50%;
+border:2px dashed rgba(0,255,255,.12);
+animation:spinReverse 30s linear infinite;
 }
 
 .hero-image img{
-width:430px;
-height:430px;
-border-radius:50%;
+width:420px;
+height:420px;
 object-fit:cover;
+border-radius:50%;
 position:relative;
 z-index:2;
 box-shadow:
-0 0 40px #00cfff55,
-0 0 80px #00cfff22;
+0 0 50px #00cfff55,
+0 0 90px #00ffee22;
+animation:floatImage 6s ease-in-out infinite;
 }
 
 @keyframes spin{
@@ -535,12 +553,38 @@ transform:rotate(360deg);
 
 }
 
+@keyframes spinReverse{
+
+100%{
+transform:rotate(-360deg);
+}
+
+}
+
+@keyframes floatImage{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-18px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
 /* =========================================================
-SECTIONS
+SECTION
 ========================================================= */
 
 section{
 padding:120px 60px;
+position:relative;
+z-index:2;
 }
 
 .section-title{
@@ -550,8 +594,8 @@ margin-bottom:80px;
 
 .section-title h2{
 font-size:2.8rem;
-margin-bottom:16px;
 font-family:"Orbitron",sans-serif;
+margin-bottom:14px;
 }
 
 .section-title p{
@@ -565,216 +609,139 @@ SERVICES
 .services-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:34px;
+gap:30px;
 }
 
 .service-card{
+background:rgba(11,16,32,.82);
+backdrop-filter:blur(12px);
+border-radius:28px;
+padding:40px 34px;
 position:relative;
 overflow:hidden;
-background:#0b1020;
-border-radius:30px;
-padding:38px 30px;
-border:1px solid rgba(255,255,255,.06);
-transition:.45s;
+border:1px solid rgba(255,255,255,.05);
+transition:.5s;
 isolation:isolate;
 }
 
+.service-card::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:linear-gradient(
+130deg,
+transparent,
+rgba(0,255,255,.2),
+transparent
+);
+transform:translateX(-100%);
+transition:.8s;
+z-index:-1;
+}
+
+.service-card:hover::before{
+transform:translateX(100%);
+}
+
+.service-card::after{
+content:"";
+position:absolute;
+width:260px;
+height:260px;
+background:radial-gradient(circle,
+rgba(0,255,255,.18),
+transparent 70%);
+top:-120px;
+right:-120px;
+transition:.5s;
+}
+
 .service-card:hover{
-transform:translateY(-12px) scale(1.02);
-border-color:#00cfff66;
+transform:translateY(-14px) scale(1.02);
+border-color:#00cfff55;
 box-shadow:
-0 0 25px #00cfff22,
-0 0 60px #00cfff11,
-0 0 120px #0066ff22;
+0 0 40px #00cfff22,
+0 0 80px #00ffee11;
 }
 
-.card-glow{
-position:absolute;
-inset:-40%;
-background:
-conic-gradient(
-transparent,
-#00cfff55,
-transparent,
-#0066ff55,
-transparent,
-#00fff255,
-transparent
-);
-animation:rotateGlow 8s linear infinite;
-opacity:.6;
-z-index:-2;
+.service-card:hover::after{
+transform:scale(1.3);
 }
 
-.card-glow::after{
-content:"";
-position:absolute;
-inset:20%;
-background:#0b1020;
-border-radius:28px;
-}
-
-@keyframes rotateGlow{
-
-100%{
-transform:rotate(360deg);
-}
-
-}
-
-.tech-icon{
-width:78px;
-height:78px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:22px;
-font-size:2rem;
-margin-bottom:28px;
-position:relative;
-overflow:hidden;
-background:rgba(0,207,255,.08);
-border:1px solid rgba(255,255,255,.08);
-}
-
-.tech-icon::before{
-content:"";
-position:absolute;
-width:180%;
-height:180%;
-background:conic-gradient(
-transparent,
-#00cfff,
-transparent,
-#0066ff,
-transparent
-);
-animation:spinIcon 5s linear infinite;
-}
-
-.tech-icon::after{
-content:"";
-position:absolute;
-inset:2px;
-background:#0c1220;
-border-radius:20px;
-}
-
-.tech-icon i{
-position:relative;
-z-index:2;
-}
-
-@keyframes spinIcon{
-
-100%{
-transform:rotate(360deg);
-}
-
+.service-icon{
+font-size:2.8rem;
+margin-bottom:24px;
+filter:drop-shadow(0 0 15px #00cfff88);
 }
 
 .service-card h3{
-font-size:1.2rem;
-margin-bottom:18px;
-font-family:"Orbitron",sans-serif;
-font-style:italic;
+font-size:1.22rem;
+margin-bottom:16px;
 }
 
 .service-card p{
-color:#9db1cf;
-line-height:1.9;
-margin-bottom:30px;
+color:#9aa6c0;
+line-height:1.8;
+margin-bottom:28px;
 }
 
-.service-link{
+.service-card a{
 display:inline-flex;
 align-items:center;
 gap:10px;
 text-decoration:none;
-font-weight:600;
 color:#00cfff;
-position:relative;
-transition:.3s;
+font-weight:600;
+transition:.35s;
 }
 
-.service-link:hover{
+.service-card a:hover{
 letter-spacing:1px;
-transform:translateX(6px);
+transform:translateX(4px);
 }
 
 /* =========================================================
 CONTACT
 ========================================================= */
 
-.contact-modern-grid{
+.contact-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:22px;
-max-width:900px;
-margin:auto;
+gap:25px;
+max-width:1000px;
+margin:auto auto 60px;
 }
 
-.contact-modern-card{
-display:flex;
-align-items:center;
-gap:18px;
-padding:22px;
+.contact-card{
+background:rgba(11,16,32,.82);
+padding:28px;
 border-radius:22px;
-background:#0b1020;
-border:1px solid rgba(255,255,255,.06);
-text-decoration:none;
+border:1px solid rgba(255,255,255,.05);
 transition:.4s;
-overflow:hidden;
-position:relative;
+backdrop-filter:blur(12px);
 }
 
-.contact-modern-card::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(0,207,255,.07),
-transparent
-);
-transform:translateX(-120%);
-transition:.7s;
-}
-
-.contact-modern-card:hover::before{
-transform:translateX(120%);
-}
-
-.contact-modern-card:hover{
+.contact-card:hover{
 transform:translateY(-8px);
-border-color:#00cfff66;
+border-color:#00cfff55;
 box-shadow:
-0 0 25px #00cfff22,
-0 0 50px #0066ff11;
+0 0 30px #00cfff22,
+0 0 70px #00ffee11;
 }
 
-.contact-mini-icon{
-width:58px;
-height:58px;
-border-radius:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:1.4rem;
-background:rgba(0,207,255,.08);
-box-shadow:0 0 20px #00cfff22;
+.contact-card h3{
+margin-bottom:12px;
+font-size:1rem;
 }
 
-.contact-modern-card h3{
-font-family:"Orbitron",sans-serif;
-margin-bottom:4px;
-color:#fff;
+.contact-card a{
+color:#00cfff;
+text-decoration:none;
+transition:.3s;
 }
 
-.contact-modern-card p{
-color:#9db1cf;
-font-size:.92rem;
+.contact-card a:hover{
+text-shadow:0 0 12px #00cfff;
 }
 
 /* =========================================================
@@ -782,17 +749,18 @@ FORM
 ========================================================= */
 
 .contact-form{
-max-width:850px;
-margin:70px auto 0;
-background:#0b1020;
-padding:40px;
-border-radius:30px;
+max-width:1000px;
+margin:auto;
+background:rgba(11,16,32,.82);
+padding:45px;
+border-radius:28px;
 border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
 }
 
 .form-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,1fr);
 gap:20px;
 margin-bottom:20px;
 }
@@ -804,20 +772,23 @@ padding:18px;
 border:none;
 outline:none;
 border-radius:16px;
-background:#121b2f;
+background:#0e1728;
 color:#fff;
-font-size:.95rem;
+font-family:"Poppins",sans-serif;
+border:1px solid rgba(255,255,255,.05);
+transition:.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#00cfff;
+box-shadow:0 0 20px #00cfff22;
 }
 
 .contact-form textarea{
-height:170px;
+min-height:160px;
 resize:none;
 margin-bottom:20px;
-}
-
-.contact-form button{
-border:none;
-cursor:pointer;
 }
 
 /* =========================================================
@@ -828,8 +799,24 @@ footer{
 padding:70px 30px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.05);
-line-height:2;
 color:#9aa6c0;
+line-height:2;
+position:relative;
+}
+
+footer::before{
+content:"";
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:300px;
+height:2px;
+background:linear-gradient(90deg,
+transparent,
+#00cfff,
+transparent);
+box-shadow:0 0 20px #00cfff;
 }
 
 footer span{
@@ -874,7 +861,7 @@ justify-content:center;
 grid-template-columns:repeat(2,1fr);
 }
 
-.contact-modern-grid{
+.contact-grid{
 grid-template-columns:1fr;
 }
 
@@ -899,21 +886,26 @@ display:block;
 }
 
 .hero{
-padding:150px 24px 80px;
+padding:150px 24px 90px;
 }
 
 .hero-text h2{
-font-size:2.7rem;
+font-size:2.8rem;
 }
 
 .hero-image img{
-width:290px;
-height:290px;
+width:300px;
+height:300px;
 }
 
 .hero-image::before{
-width:400px;
-height:400px;
+width:420px;
+height:420px;
+}
+
+.hero-image::after{
+width:500px;
+height:500px;
 }
 
 .services-grid{
@@ -927,10 +919,11 @@ padding:90px 24px;
 }
 
 </style>
-
 </head>
 
 <body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <div class="bg-animation">
 
@@ -940,8 +933,6 @@ padding:90px 24px;
 
 </div>
 
-<!-- LOADER -->
-
 <div class="loader" id="loader">
 
 <div class="loader-logo">
@@ -949,8 +940,6 @@ LC ONE PLAYER
 </div>
 
 </div>
-
-<!-- HEADER -->
 
 <header>
 
@@ -981,8 +970,6 @@ LC ONE PLAYER
 
 </header>
 
-<!-- MOBILE -->
-
 <div class="mobile-menu" id="mobileMenu">
 
 <a href="#inicio">Inicio</a>
@@ -996,8 +983,6 @@ LC ONE PLAYER
 
 </div>
 
-<!-- HERO -->
-
 <section class="hero" id="inicio">
 
 <div class="hero-content">
@@ -1005,30 +990,23 @@ LC ONE PLAYER
 <div class="hero-text reveal">
 
 <h2>
-Tecnología moderna
-con identidad visual real.
+Tecnología con presencia,
+detalle y confianza real.
 </h2>
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital
-con un diseño moderno, serio y profesional.
+con una identidad moderna, premium y visualmente profesional.
 </p>
 
 <div class="hero-buttons">
 
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="btn btn-primary">
-
+<a href="https://wa.me/5492634722710" target="_blank" class="btn btn-primary">
 WhatsApp
-
 </a>
 
-<a href="#servicios"
-class="btn btn-outline">
-
+<a href="#servicios" class="btn btn-outline">
 Explorar servicios
-
 </a>
 
 </div>
@@ -1045,8 +1023,6 @@ Explorar servicios
 
 </section>
 
-<!-- SERVICIOS -->
-
 <section id="servicios">
 
 <div class="section-title reveal">
@@ -1054,7 +1030,7 @@ Explorar servicios
 <h2>Servicios</h2>
 
 <p>
-Soluciones organizadas con identidad profesional.
+Soluciones modernas organizadas de forma profesional.
 </p>
 
 </div>
@@ -1063,11 +1039,7 @@ Soluciones organizadas con identidad profesional.
 
 <div class="service-card reveal">
 
-<div class="card-glow"></div>
-
-<div class="tech-icon">
-<i class="fa-solid fa-screwdriver-wrench"></i>
-</div>
+<div class="service-icon">🔧</div>
 
 <h3>Servicio Técnico</h3>
 
@@ -1075,7 +1047,7 @@ Soluciones organizadas con identidad profesional.
 Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
 </p>
 
-<a href="servicio.html" class="service-link">
+<a href="servicio.html">
 VER SERVICIO →
 </a>
 
@@ -1083,11 +1055,7 @@ VER SERVICIO →
 
 <div class="service-card reveal">
 
-<div class="card-glow"></div>
-
-<div class="tech-icon">
-<i class="fa-solid fa-mobile-screen-button"></i>
-</div>
+<div class="service-icon">📱</div>
 
 <h3>Venta</h3>
 
@@ -1095,7 +1063,7 @@ VER SERVICIO →
 Celulares nuevos y usados seleccionados con soporte y atención personalizada.
 </p>
 
-<a href="venta.html" class="service-link">
+<a href="venta.html">
 VER EQUIPOS →
 </a>
 
@@ -1103,11 +1071,7 @@ VER EQUIPOS →
 
 <div class="service-card reveal">
 
-<div class="card-glow"></div>
-
-<div class="tech-icon">
-<i class="fa-solid fa-headphones"></i>
-</div>
+<div class="service-icon">🎧</div>
 
 <h3>Accesorios</h3>
 
@@ -1115,7 +1079,7 @@ VER EQUIPOS →
 Fundas, cargadores, auriculares y productos compatibles con múltiples marcas.
 </p>
 
-<a href="accesorios.html" class="service-link">
+<a href="accesorios.html">
 VER ACCESORIOS →
 </a>
 
@@ -1123,19 +1087,15 @@ VER ACCESORIOS →
 
 <div class="service-card reveal">
 
-<div class="card-glow"></div>
-
-<div class="tech-icon">
-<i class="fa-solid fa-tv"></i>
-</div>
+<div class="service-icon">📺</div>
 
 <h3>Entretenimiento Familiar</h3>
 
 <p>
-TV digital y plataformas modernas para disfrutar contenido en casa.
+TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
 </p>
 
-<a href="tv-digital.html" class="service-link">
+<a href="tv-digital.html">
 VER MÁS →
 </a>
 
@@ -1145,8 +1105,6 @@ VER MÁS →
 
 </section>
 
-<!-- CONTACTO -->
-
 <section id="contacto">
 
 <div class="section-title reveal">
@@ -1154,96 +1112,56 @@ VER MÁS →
 <h2>Contacto</h2>
 
 <p>
-Canales rápidos y directos.
+Canales directos y rápidos.
 </p>
 
 </div>
 
-<div class="contact-modern-grid">
+<div class="contact-grid">
 
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="contact-modern-card reveal">
+<div class="contact-card reveal">
 
-<div class="contact-mini-icon">
-<i class="fa-brands fa-whatsapp"></i>
-</div>
+<h3>WHATSAPP</h3>
 
-<div>
-
-<h3>WhatsApp</h3>
-
-<p>
+<a href="https://wa.me/5492634722710" target="_blank">
 +54 9 2634 722710
-</p>
-
-</div>
-
 </a>
 
-<a href="https://www.facebook.com/profile.php?id=61587322059733"
-target="_blank"
-class="contact-modern-card reveal">
-
-<div class="contact-mini-icon">
-<i class="fa-brands fa-facebook-f"></i>
 </div>
 
-<div>
+<div class="contact-card reveal">
 
-<h3>Facebook</h3>
+<h3>FACEBOOK</h3>
 
-<p>
+<a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank">
 LC ONE PLAYER
-</p>
-
-</div>
-
 </a>
 
-<a href="mailto:lc.technology.ar@gmail.com"
-class="contact-modern-card reveal">
-
-<div class="contact-mini-icon">
-<i class="fa-solid fa-envelope"></i>
 </div>
 
-<div>
+<div class="contact-card reveal">
 
-<h3>Email</h3>
+<h3>EMAIL</h3>
 
-<p>
+<a href="mailto:lc.technology.ar@gmail.com">
 lc.technology.ar@gmail.com
-</p>
-
-</div>
-
 </a>
 
-<a href="#"
-class="contact-modern-card reveal">
-
-<div class="contact-mini-icon">
-<i class="fa-solid fa-location-dot"></i>
 </div>
 
-<div>
+<div class="contact-card reveal">
 
-<h3>Ubicación</h3>
+<h3>UBICACIÓN</h3>
 
-<p>
+<p style="color:#9aa6c0;">
 Mendoza, Argentina
 </p>
 
 </div>
 
-</a>
-
 </div>
 
-<!-- FORM -->
-
-<form class="contact-form reveal">
+<div class="contact-form reveal">
 
 <div class="form-grid">
 
@@ -1255,15 +1173,13 @@ Mendoza, Argentina
 
 <textarea placeholder="Escribí tu mensaje..."></textarea>
 
-<button class="btn btn-primary">
+<a href="mailto:lc.technology.ar@gmail.com" class="btn btn-primary">
 Enviar mensaje
-</button>
+</a>
 
-</form>
+</div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1281,11 +1197,11 @@ Mendoza, Argentina
 
 </footer>
 
-<!-- SCRIPT -->
-
 <script>
 
-/* LOADER */
+/* =========================================================
+LOADER
+========================================================= */
 
 window.addEventListener("load",()=>{
 
@@ -1293,11 +1209,13 @@ setTimeout(()=>{
 
 document.getElementById("loader").classList.add("hide");
 
-},1200);
+},1400);
 
 });
 
-/* REVEAL */
+/* =========================================================
+REVEAL
+========================================================= */
 
 const reveals = document.querySelectorAll(".reveal");
 
@@ -1318,10 +1236,11 @@ el.classList.add("active");
 }
 
 window.addEventListener("scroll",revealElements);
-
 window.addEventListener("load",revealElements);
 
-/* MOBILE MENU */
+/* =========================================================
+MENU
+========================================================= */
 
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -1339,6 +1258,19 @@ link.addEventListener("click",()=>{
 mobileMenu.classList.remove("active");
 
 });
+
+});
+
+/* =========================================================
+CURSOR GLOW
+========================================================= */
+
+const glow = document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
 
 });
 
