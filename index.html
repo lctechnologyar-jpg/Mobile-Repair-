@@ -37,26 +37,9 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Inter',sans-serif;
-background:#050611;
+background:#04070f;
 color:white;
 overflow-x:hidden;
-}
-
-/* =========================================
-SCROLLBAR
-========================================= */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-track{
-background:#050611;
-}
-
-::-webkit-scrollbar-thumb{
-background:#4f7cff;
-border-radius:999px;
 }
 
 /* =========================================
@@ -71,22 +54,22 @@ z-index:-50;
 background:
 
 radial-gradient(circle at top left,
-rgba(79,124,255,.14),
+rgba(0,180,255,.15),
 transparent 30%),
 
 radial-gradient(circle at top right,
-rgba(139,92,255,.13),
+rgba(0,255,200,.10),
 transparent 30%),
 
-radial-gradient(circle at bottom left,
-rgba(0,225,255,.08),
+radial-gradient(circle at bottom,
+rgba(0,120,255,.12),
 transparent 35%),
 
-#050611;
+#04070f;
 }
 
 /* =========================================
-FLOATING LIGHTS
+LIGHTS
 ========================================= */
 
 .light{
@@ -106,25 +89,25 @@ animation:float 10s ease-in-out infinite;
 .light1{
 width:500px;
 height:500px;
-background:#4f7cff;
+background:#009dff;
 top:-180px;
 left:-180px;
 }
 
 .light2{
-width:450px;
-height:450px;
-background:#8b5cff;
-right:-150px;
-top:120px;
+width:420px;
+height:420px;
+background:#00d9ff;
+right:-120px;
+top:160px;
 animation-delay:2s;
 }
 
 .light3{
-width:400px;
-height:400px;
-background:#00e1ff;
-bottom:-150px;
+width:350px;
+height:350px;
+background:#0084ff;
+bottom:-120px;
 left:30%;
 animation-delay:4s;
 }
@@ -136,7 +119,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-40px);
+transform:translateY(-35px);
 }
 
 100%{
@@ -162,9 +145,9 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 
-background:rgba(5,6,18,.72);
+background:rgba(4,7,15,.78);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
 
 border-bottom:1px solid rgba(255,255,255,.05);
 
@@ -177,18 +160,21 @@ LOGO
 ========================================= */
 
 .logo{
+
 display:flex;
 align-items:center;
 gap:16px;
+
 text-decoration:none;
+
 }
 
 /* BOX */
 
 .logo-box{
 
-width:74px;
-height:74px;
+width:76px;
+height:76px;
 
 border-radius:22px;
 
@@ -202,40 +188,24 @@ overflow:hidden;
 background:
 linear-gradient(
 145deg,
-rgba(15,15,35,.95),
-rgba(8,8,18,.98)
+rgba(15,20,35,.95),
+rgba(7,10,18,.98)
 );
 
 border:1px solid rgba(255,255,255,.08);
 
-animation:
-logoPulse 4s ease-in-out infinite;
-
 box-shadow:
 
-0 0 18px rgba(79,124,255,.5),
-0 0 40px rgba(79,124,255,.3),
-0 0 70px rgba(139,92,255,.2);
+0 0 25px rgba(0,157,255,.55),
+0 0 70px rgba(0,157,255,.20);
 
 transition:.5s;
 
-}
-
-/* TEXTO LC */
-
-.logo-box span{
-
-font-size:30px;
-font-weight:900;
-letter-spacing:2px;
-
-text-shadow:
-0 0 10px rgba(79,124,255,.8),
-0 0 30px rgba(79,124,255,.5);
+animation:pulse 4s infinite;
 
 }
 
-/* BORDE NEON */
+/* BORDE */
 
 .logo-box::before{
 
@@ -251,16 +221,15 @@ padding:2px;
 background:
 linear-gradient(
 135deg,
-#4f7cff,
+#00c8ff,
+#008cff,
 #00e1ff,
-#8b5cff,
-#4f7cff
+#009dff
 );
 
-background-size:400% 400%;
+background-size:300% 300%;
 
-animation:
-borderMove 8s linear infinite;
+animation:borderMove 8s linear infinite;
 
 -webkit-mask:
 linear-gradient(#fff 0 0) content-box,
@@ -271,48 +240,45 @@ mask-composite:exclude;
 
 }
 
-/* GLOW */
+/* TEXT */
 
-.logo-glow{
+.logo-box span{
 
-position:absolute;
+font-size:30px;
+font-weight:900;
+letter-spacing:2px;
 
-width:160px;
-height:160px;
+color:white;
 
-background:
-radial-gradient(circle,
-rgba(79,124,255,.8),
-transparent 70%);
+text-shadow:
 
-opacity:.8;
-
-animation:pulseGlow 5s infinite;
+0 0 10px rgba(0,200,255,.8),
+0 0 25px rgba(0,200,255,.5);
 
 }
 
-/* LINES */
+/* EFFECT */
 
 .logo-line{
 
 position:absolute;
 
-width:170%;
+width:180%;
 height:2px;
 
 background:
 linear-gradient(
 90deg,
 transparent,
-#4f7cff,
+#00c8ff,
 transparent
 );
 
+animation:lineMove 4s linear infinite;
+
 transform:rotate(45deg);
 
-animation:moveLine 4s linear infinite;
-
-opacity:.7;
+opacity:.8;
 
 }
 
@@ -329,18 +295,16 @@ animation-delay:2s;
 
 transform:
 translateY(-5px)
-scale(1.08)
-rotate(-2deg);
+scale(1.08);
 
 box-shadow:
 
-0 0 30px rgba(79,124,255,.9),
-0 0 80px rgba(79,124,255,.45),
-0 0 120px rgba(139,92,255,.35);
+0 0 40px rgba(0,200,255,.8),
+0 0 120px rgba(0,157,255,.35);
 
 }
 
-/* ANIMACIONES */
+/* ANIMATIONS */
 
 @keyframes borderMove{
 
@@ -349,62 +313,44 @@ background-position:0% 50%;
 }
 
 100%{
-background-position:400% 50%;
+background-position:300% 50%;
 }
 
 }
 
-@keyframes pulseGlow{
+@keyframes lineMove{
 
 0%{
-opacity:.5;
-}
-
-50%{
-opacity:1;
+transform:rotate(45deg) translateX(-160%);
 }
 
 100%{
-opacity:.5;
+transform:rotate(45deg) translateX(160%);
 }
 
 }
 
-@keyframes moveLine{
-
-0%{
-transform:rotate(45deg) translateX(-150%);
-}
-
-100%{
-transform:rotate(45deg) translateX(150%);
-}
-
-}
-
-@keyframes logoPulse{
+@keyframes pulse{
 
 0%{
 
 box-shadow:
-0 0 20px rgba(79,124,255,.35),
-0 0 40px rgba(79,124,255,.2);
+0 0 25px rgba(0,157,255,.4);
 
 }
 
 50%{
 
 box-shadow:
-0 0 40px rgba(79,124,255,.7),
-0 0 90px rgba(139,92,255,.35);
+0 0 45px rgba(0,200,255,.7),
+0 0 100px rgba(0,157,255,.3);
 
 }
 
 100%{
 
 box-shadow:
-0 0 20px rgba(79,124,255,.35),
-0 0 40px rgba(79,124,255,.2);
+0 0 25px rgba(0,157,255,.4);
 
 }
 
@@ -420,7 +366,7 @@ color:white;
 
 .logo-text p{
 font-size:13px;
-color:#95a0c8;
+color:#8ea4cf;
 margin-top:2px;
 }
 
@@ -437,12 +383,13 @@ gap:42px;
 nav a{
 
 text-decoration:none;
-color:#adb6d6;
+color:#aeb8d4;
 
 font-size:15px;
 font-weight:600;
 
 position:relative;
+
 transition:.3s;
 
 }
@@ -462,7 +409,7 @@ bottom:-8px;
 width:0%;
 height:2px;
 
-background:#4f7cff;
+background:#00c8ff;
 
 transition:.3s;
 
@@ -493,7 +440,7 @@ gap:80px;
 /* LEFT */
 
 .hero-left{
-max-width:720px;
+max-width:700px;
 }
 
 /* BADGE */
@@ -512,12 +459,9 @@ background:rgba(255,255,255,.04);
 
 border:1px solid rgba(255,255,255,.05);
 
-color:#97a1c7;
+color:#9eb1d8;
 
 margin-bottom:34px;
-
-box-shadow:
-0 0 20px rgba(79,124,255,.08);
 
 }
 
@@ -525,7 +469,7 @@ box-shadow:
 
 .hero h1{
 
-font-size:92px;
+font-size:88px;
 line-height:1;
 font-weight:900;
 letter-spacing:-4px;
@@ -537,9 +481,9 @@ letter-spacing:-4px;
 background:
 linear-gradient(
 90deg,
-#4f7cff,
-#00e1ff,
-#8b5cff
+#00c8ff,
+#009dff,
+#00e1ff
 );
 
 -webkit-background-clip:text;
@@ -547,25 +491,33 @@ linear-gradient(
 
 }
 
+/* TEXT */
+
 .hero p{
 
-margin-top:32px;
+margin-top:30px;
 
 font-size:20px;
 line-height:1.9;
 
-color:#97a1c7;
+color:#9eb1d8;
 
 }
 
 /* BUTTONS */
 
 .hero-buttons{
+
 display:flex;
 gap:18px;
-margin-top:44px;
+
+margin-top:45px;
+
 flex-wrap:wrap;
+
 }
+
+/* BTN */
 
 .btn{
 
@@ -587,14 +539,14 @@ transition:.35s;
 background:
 linear-gradient(
 135deg,
-#4f7cff,
-#8b5cff
+#00c8ff,
+#008cff
 );
 
 color:white;
 
 box-shadow:
-0 0 35px rgba(79,124,255,.3);
+0 0 35px rgba(0,157,255,.3);
 
 }
 
@@ -602,12 +554,12 @@ box-shadow:
 
 transform:
 translateY(-5px)
-scale(1.02);
+scale(1.03);
 
 box-shadow:
 
-0 0 50px rgba(79,124,255,.5),
-0 0 100px rgba(139,92,255,.25);
+0 0 50px rgba(0,157,255,.6),
+0 0 100px rgba(0,157,255,.25);
 
 }
 
@@ -619,13 +571,13 @@ background:
 linear-gradient(
 135deg,
 #15d46b,
-#12b45b
+#10b85b
 );
 
 color:white;
 
 box-shadow:
-0 0 35px rgba(21,212,107,.25);
+0 0 35px rgba(21,212,107,.3);
 
 }
 
@@ -633,97 +585,62 @@ box-shadow:
 
 transform:
 translateY(-5px)
-scale(1.02);
+scale(1.03);
 
 }
 
 /* =========================================
-IMAGE MOCKUP
+IMAGE
 ========================================= */
 
-.mockup{
+.hero-image{
 
-width:540px;
-height:800px;
-
-padding:14px;
-
-border-radius:50px;
+position:relative;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-position:relative;
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-rgba(15,15,35,.98),
-rgba(8,8,18,1)
-);
-
-border:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-
-0 0 60px rgba(79,124,255,.2),
-0 0 120px rgba(79,124,255,.12);
-
-transition:.5s;
-
 }
 
-/* BORDE */
+/* NEON */
 
-.mockup::before{
+.hero-image::before{
 
 content:'';
 
 position:absolute;
-inset:-2px;
 
-border-radius:52px;
-
-padding:2px;
+width:600px;
+height:600px;
 
 background:
-linear-gradient(
-135deg,
-#4f7cff,
-#00e1ff,
-#8b5cff,
-#4f7cff
-);
+radial-gradient(circle,
+rgba(0,157,255,.45),
+transparent 70%);
 
-background-size:300% 300%;
+filter:blur(40px);
 
-animation:
-borderMove 10s linear infinite;
-
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
-
--webkit-mask-composite:xor;
-mask-composite:exclude;
+animation:pulseLight 5s infinite;
 
 }
 
-/* IMG */
+/* IMAGE */
 
-.mockup img{
+.hero-image img{
 
-width:100%;
-height:100%;
+width:580px;
+max-width:100%;
 
 object-fit:contain;
 
+position:relative;
+z-index:2;
+
 filter:
 
-drop-shadow(0 0 35px rgba(79,124,255,.5))
-drop-shadow(0 0 80px rgba(79,124,255,.25));
+drop-shadow(0 0 35px rgba(0,157,255,.8))
+drop-shadow(0 0 80px rgba(0,157,255,.45));
 
 transition:.5s;
 
@@ -731,24 +648,32 @@ transition:.5s;
 
 /* HOVER */
 
-.mockup:hover{
-
-transform:
-translateY(-12px)
-scale(1.03);
-
-box-shadow:
-
-0 0 80px rgba(79,124,255,.35),
-0 0 150px rgba(139,92,255,.18);
-
-}
-
-.mockup:hover img{
+.hero-image:hover img{
 
 transform:
 scale(1.04)
 rotate(-1deg);
+
+filter:
+
+drop-shadow(0 0 55px rgba(0,200,255,1))
+drop-shadow(0 0 120px rgba(0,157,255,.7));
+
+}
+
+@keyframes pulseLight{
+
+0%{
+opacity:.5;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.5;
+}
 
 }
 
@@ -768,7 +693,7 @@ margin-bottom:80px;
 }
 
 .section-title span{
-color:#4f7cff;
+color:#00c8ff;
 font-weight:700;
 letter-spacing:2px;
 }
@@ -781,7 +706,7 @@ margin-top:18px;
 .section-title p{
 margin-top:18px;
 font-size:18px;
-color:#97a1c7;
+color:#9eb1d8;
 }
 
 /* =========================================
@@ -789,9 +714,12 @@ CARDS
 ========================================= */
 
 .cards{
+
 display:grid;
 grid-template-columns:repeat(4,1fr);
+
 gap:28px;
+
 }
 
 /* CARD */
@@ -808,17 +736,17 @@ overflow:hidden;
 background:
 linear-gradient(
 145deg,
-rgba(17,17,35,.98),
-rgba(8,8,18,.98)
+rgba(16,20,35,.96),
+rgba(8,10,18,.98)
 );
 
-border:1px solid rgba(255,255,255,.07);
+border:1px solid rgba(255,255,255,.06);
 
 transition:.45s;
 
 }
 
-/* EFECTO */
+/* GLOW */
 
 .card::before{
 
@@ -830,18 +758,17 @@ inset:-100px;
 background:
 conic-gradient(
 from 180deg,
-rgba(79,124,255,.18),
+rgba(0,157,255,.18),
 transparent,
-rgba(139,92,255,.18),
-transparent,
-rgba(0,225,255,.16)
+rgba(0,225,255,.15),
+transparent
 );
 
 opacity:0;
+
 transition:.5s;
 
-animation:
-spin 7s linear infinite;
+animation:spin 7s linear infinite;
 
 }
 
@@ -849,7 +776,7 @@ spin 7s linear infinite;
 opacity:1;
 }
 
-/* BRILLO */
+/* SHINE */
 
 .card::after{
 
@@ -867,7 +794,7 @@ background:
 linear-gradient(
 180deg,
 transparent,
-rgba(255,255,255,.15),
+rgba(255,255,255,.14),
 transparent
 );
 
@@ -889,12 +816,12 @@ transform:
 translateY(-14px)
 scale(1.02);
 
-border-color:rgba(79,124,255,.4);
+border-color:rgba(0,157,255,.4);
 
 box-shadow:
 
-0 0 40px rgba(79,124,255,.22),
-0 0 90px rgba(139,92,255,.12);
+0 0 50px rgba(0,157,255,.22),
+0 0 120px rgba(0,157,255,.10);
 
 }
 
@@ -918,14 +845,14 @@ margin-bottom:28px;
 background:
 linear-gradient(
 135deg,
-rgba(79,124,255,.18),
-rgba(139,92,255,.12)
+rgba(0,157,255,.15),
+rgba(0,225,255,.10)
 );
 
-color:#4f7cff;
+color:#00c8ff;
 
 box-shadow:
-0 0 30px rgba(79,124,255,.2);
+0 0 30px rgba(0,157,255,.2);
 
 }
 
@@ -937,9 +864,13 @@ margin-bottom:18px;
 }
 
 .card p{
-color:#97a1c7;
+
+color:#9eb1d8;
+
 line-height:1.8;
+
 margin-bottom:28px;
+
 }
 
 /* LINK */
@@ -947,7 +878,7 @@ margin-bottom:28px;
 .card a{
 
 text-decoration:none;
-color:#4f7cff;
+color:#00c8ff;
 
 font-weight:700;
 
@@ -978,18 +909,24 @@ CONTACT
 ========================================= */
 
 .contact-grid{
+
 display:grid;
 grid-template-columns:1fr 1fr;
+
 gap:40px;
+
 margin-top:70px;
+
 }
 
 /* INFO */
 
 .contact-info{
+
 display:flex;
 flex-direction:column;
 gap:24px;
+
 }
 
 /* BOX */
@@ -1007,14 +944,11 @@ gap:22px;
 text-decoration:none;
 color:white;
 
-position:relative;
-overflow:hidden;
-
 background:
 linear-gradient(
 145deg,
-rgba(18,18,35,.96),
-rgba(10,10,20,.98)
+rgba(16,20,35,.96),
+rgba(8,10,18,.98)
 );
 
 border:1px solid rgba(255,255,255,.06);
@@ -1029,11 +963,11 @@ transform:
 translateY(-10px)
 scale(1.02);
 
-border-color:rgba(79,124,255,.35);
+border-color:rgba(0,157,255,.35);
 
 box-shadow:
 
-0 0 40px rgba(79,124,255,.2);
+0 0 40px rgba(0,157,255,.2);
 
 }
 
@@ -1041,13 +975,13 @@ box-shadow:
 
 .contact-box i{
 font-size:34px;
-color:#4f7cff;
+color:#00c8ff;
 }
 
 /* TEXT */
 
 .contact-box h4{
-color:#9099bb;
+color:#8ea4cf;
 margin-bottom:6px;
 }
 
@@ -1069,15 +1003,13 @@ border-radius:30px;
 background:
 linear-gradient(
 145deg,
-rgba(18,18,35,.96),
-rgba(10,10,20,.98)
+rgba(16,20,35,.96),
+rgba(8,10,18,.98)
 );
 
 border:1px solid rgba(255,255,255,.06);
 
 }
-
-/* INPUT */
 
 .contact-form input,
 .contact-form textarea{
@@ -1100,18 +1032,13 @@ border:1px solid rgba(255,255,255,.05);
 color:white;
 
 font-family:'Inter',sans-serif;
-font-size:15px;
 
 }
-
-/* TEXTAREA */
 
 .contact-form textarea{
 resize:none;
 height:150px;
 }
-
-/* BUTTON */
 
 .contact-form button{
 
@@ -1127,8 +1054,8 @@ border-radius:16px;
 background:
 linear-gradient(
 135deg,
-#4f7cff,
-#8b5cff
+#00c8ff,
+#008cff
 );
 
 color:white;
@@ -1145,7 +1072,7 @@ transition:.35s;
 transform:translateY(-5px);
 
 box-shadow:
-0 15px 40px rgba(79,124,255,.35);
+0 15px 40px rgba(0,157,255,.35);
 
 }
 
@@ -1169,7 +1096,7 @@ margin-bottom:12px;
 }
 
 footer p{
-color:#97a1c7;
+color:#9eb1d8;
 margin-bottom:10px;
 }
 
@@ -1226,7 +1153,7 @@ padding:100px 5%;
 }
 
 .hero h1{
-font-size:54px;
+font-size:52px;
 letter-spacing:-2px;
 }
 
@@ -1246,10 +1173,9 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.mockup{
+.hero-image img{
 width:100%;
-max-width:390px;
-height:680px;
+max-width:420px;
 }
 
 }
@@ -1259,8 +1185,6 @@ height:680px;
 </head>
 
 <body>
-
-<!-- BG -->
 
 <div class="bg"></div>
 
@@ -1279,8 +1203,6 @@ class="logo">
 <div class="logo-box">
 
 <span>LC</span>
-
-<div class="logo-glow"></div>
 
 <div class="logo-line"></div>
 <div class="logo-line second"></div>
@@ -1324,17 +1246,17 @@ Mendoza, Argentina
 
 <h1>
 
-Tecnología moderna
-<span>con identidad real.</span>
+Tu espacio
+<span>tecnológico.</span>
 
 </h1>
 
 <p>
 
-Servicio técnico, venta de celulares,
-accesorios y entretenimiento digital
-con una experiencia moderna,
-seria y profesional.
+Equipos, accesorios, servicio técnico
+y soluciones digitales en un entorno
+moderno, profesional y pensado para
+una experiencia real.
 
 </p>
 
@@ -1361,9 +1283,9 @@ WhatsApp
 
 </div>
 
-<!-- MOCKUP -->
+<!-- IMAGE -->
 
-<div class="mockup">
+<div class="hero-image">
 
 <img src="mioo.png" alt="LC ONE PLAYER">
 
@@ -1383,8 +1305,8 @@ WhatsApp
 
 <p>
 
-Soluciones tecnológicas modernas
-con identidad propia.
+Todo organizado de forma moderna,
+visual y profesional.
 
 </p>
 
@@ -1409,9 +1331,7 @@ profesional para celulares y dispositivos.
 
 </p>
 
-<a
-href="servicio.html"
-onclick="sessionStorage.setItem('scrollpos', window.scrollY)">
+<a href="./servicio.html">
 
 VER SERVICIO →
 
@@ -1436,9 +1356,7 @@ con soporte y atención personalizada.
 
 </p>
 
-<a
-href="venta.html"
-onclick="sessionStorage.setItem('scrollpos', window.scrollY)">
+<a href="./venta.html">
 
 VER EQUIPOS →
 
@@ -1463,9 +1381,7 @@ compatibles con múltiples marcas.
 
 </p>
 
-<a
-href="accesorios.html"
-onclick="sessionStorage.setItem('scrollpos', window.scrollY)">
+<a href="./accesorios.html">
 
 VER ACCESORIOS →
 
@@ -1490,9 +1406,7 @@ para disfrutar contenido en casa.
 
 </p>
 
-<a
-href="tv-digital.html"
-onclick="sessionStorage.setItem('scrollpos', window.scrollY)">
+<a href="./tv-digital.html">
 
 VER MÁS →
 
@@ -1525,11 +1439,7 @@ Facebook y correo electrónico.
 
 <div class="contact-grid">
 
-<!-- INFO -->
-
 <div class="contact-info">
-
-<!-- WHATSAPP -->
 
 <a
 href="https://wa.me/5492634722710"
@@ -1548,8 +1458,6 @@ class="contact-box">
 
 </a>
 
-<!-- FACEBOOK -->
-
 <a
 href="https://www.facebook.com/profile.php?id=61587322059733"
 target="_blank"
@@ -1566,8 +1474,6 @@ class="contact-box">
 </div>
 
 </a>
-
-<!-- EMAIL -->
 
 <a
 href="mailto:lc.technology.ar@gmail.com"
@@ -1663,8 +1569,6 @@ Mendoza, Argentina
 
 </footer>
 
-<!-- SCRIPT -->
-
 <script>
 
 /* =========================================
@@ -1718,26 +1622,6 @@ alert(
 alert(
 'Error de conexión.'
 );
-
-}
-
-});
-
-/* =========================================
-SAVE SCROLL
-========================================= */
-
-window.addEventListener('load',()=>{
-
-const scrollPos =
-sessionStorage.getItem('scrollpos');
-
-if(scrollPos){
-
-window.scrollTo({
-top:parseInt(scrollPos),
-behavior:'instant'
-});
 
 }
 
