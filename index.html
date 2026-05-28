@@ -1418,60 +1418,37 @@ SCRIPTS
 ========================================================= -->
 
 <script>
-
-/* =========================================================
-LOADER
-========================================================= */
-
+/* LOADER */
 window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document.getElementById("loader").classList.add("hide");
-
-},2600);
-
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("hide");
+  },2600);
 });
 
-/* =========================================================
-REVEAL
-========================================================= */
-
+/* REVEAL */
 const reveals = document.querySelectorAll(".reveal");
 
 function revealElements(){
-
-reveals.forEach(el=>{
-
-const top = el.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 80){
-
-el.classList.add("active");
-
-}
-
-});
-
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 80){
+      el.classList.add("active");
+    }
+  });
 }
 
 window.addEventListener("scroll",revealElements);
-
 window.addEventListener("load",revealElements);
 
-/* =========================================================
-CURSOR
-========================================================= */
-
+/* CURSOR */
 const cursor = document.getElementById("cursor");
 
 window.addEventListener("mousemove",(e)=>{
-
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
 });
- <script>
+
+/* FORM WEB3FORMS */
 const form = document.getElementById("contactForm");
 const thankYou = document.getElementById("thankYouMessage");
 
@@ -1494,6 +1471,7 @@ form.addEventListener("submit", async (e) => {
     alert("Error al enviar el mensaje");
   }
 });
+</script>
 </script>
 
 </body>
