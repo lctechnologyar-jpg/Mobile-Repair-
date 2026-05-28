@@ -4,15 +4,16 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicios | LC TECHNOLOGY</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Servicios | LC ONE PLAYER</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-RESET
-========================================================= */
+/* =========================
+BASE
+========================= */
 
 *{
 margin:0;
@@ -20,20 +21,62 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* =========================================================
-BASE
-========================================================= */
-
 body{
 font-family:"Inter",sans-serif;
 background:#05070d;
-color:#eaeaea;
-line-height:1.6;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* =========================================================
+/* =========================
+BG
+========================= */
+
+.bg{
+position:fixed;
+inset:0;
+z-index:-1;
+}
+
+.glow{
+position:absolute;
+width:520px;
+height:520px;
+filter:blur(120px);
+opacity:.22;
+border-radius:50%;
+}
+
+.g1{background:#00cfff;top:-160px;left:-120px;}
+.g2{background:#004cff;bottom:-160px;right:-120px;}
+.g3{background:#00fff2;top:40%;left:40%;opacity:.12;}
+
+/* =========================
+BACK BUTTON
+========================= */
+
+.back{
+position:fixed;
+top:20px;
+left:20px;
+padding:10px 16px;
+border-radius:12px;
+background:#0b1020;
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+text-decoration:none;
+transition:.3s;
+z-index:1000;
+}
+
+.back:hover{
+border-color:#00cfff;
+transform:translateY(-2px);
+}
+
+/* =========================
 CONTAINER
-========================================================= */
+========================= */
 
 .container{
 max-width:1200px;
@@ -41,249 +84,230 @@ margin:auto;
 padding:120px 24px;
 }
 
-/* =========================================================
-BOTON VOLVER
-========================================================= */
-
-.volver{
-position:fixed;
-top:22px;
-left:22px;
-padding:12px 20px;
-border-radius:12px;
-background:#0c111f;
-border:1px solid rgba(255,255,255,0.08);
-color:#fff;
-text-decoration:none;
-font-size:.9rem;
-transition:.3s;
-z-index:100;
-}
-
-.volver:hover{
-border-color:#ffffff44;
-background:#10172c;
-}
-
-/* =========================================================
-HERO (MUCHA PRESENCIA VISUAL)
-========================================================= */
+/* =========================
+HERO
+========================= */
 
 .hero{
-padding-top:80px;
 text-align:center;
-margin-bottom:90px;
+margin-bottom:80px;
 }
 
 .hero h1{
 font-family:"Orbitron",sans-serif;
-font-size:3rem;
-margin-bottom:18px;
-letter-spacing:1px;
+font-size:3.2rem;
+margin-bottom:15px;
 }
 
 .hero p{
 color:#9aa6c0;
-max-width:680px;
+max-width:780px;
 margin:auto;
-font-size:1rem;
+line-height:1.9;
 }
 
-/* =========================================================
-TITULOS SECCION
-========================================================= */
-
-.section-title{
-font-family:"Orbitron",sans-serif;
-font-size:2rem;
-margin-bottom:70px;
-text-align:center;
-letter-spacing:.5px;
-}
-
-/* =========================================================
-LAYOUT PRINCIPAL
-========================================================= */
+/* =========================
+GRID
+========================= */
 
 .layout{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:80px;
-align-items:start;
+gap:50px;
 }
 
-/* =========================================================
-SERVICIOS
-========================================================= */
+/* =========================
+SERVICES GRID
+========================= */
 
-.grid-servicios{
+.grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:45px;
+gap:25px;
 }
+
+/* =========================
+CARD
+========================= */
 
 .card{
 background:#0b1020;
 border-radius:18px;
+border:1px solid rgba(255,255,255,.05);
 overflow:hidden;
-border:1px solid rgba(255,255,255,0.04);
-transition:.35s;
+transition:.4s;
+position:relative;
 }
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 20px 50px rgba(0,0,0,.45);
-border-color:rgba(0,207,255,0.25);
+border-color:#00cfff55;
+box-shadow:0 25px 60px rgba(0,0,0,.5);
 }
 
 .card img{
 width:100%;
 height:180px;
-object-fit:contain;
+object-fit:cover;
 background:#070b18;
-padding:30px;
+padding:20px;
 }
 
-.card-content{
-padding:30px;
+.card-body{
+padding:22px;
 }
 
 .card h3{
-font-size:1.15rem;
-margin-bottom:8px;
-font-weight:500;
+font-family:"Orbitron",sans-serif;
+font-size:1.1rem;
+margin-bottom:10px;
 }
 
 .card p{
-font-size:.95rem;
 color:#9aa6c0;
+line-height:1.6;
+font-size:.95rem;
 }
 
-/* =========================================================
-MARCAS
-========================================================= */
+/* =========================
+SIDE
+========================= */
 
-.marcas-box{
-background:#0b1020;
-border-radius:18px;
-padding:40px;
-border:1px solid rgba(255,255,255,0.04);
-}
-
-.marcas-box h2{
-font-family:"Orbitron",sans-serif;
-margin-bottom:30px;
-font-size:1.25rem;
-}
-
-.marcas-grid{
+.side{
 display:flex;
-flex-wrap:wrap;
-gap:14px;
+flex-direction:column;
+gap:20px;
 }
 
-.marca{
-padding:10px 20px;
-border-radius:12px;
+.box{
+background:#0b1020;
+border-radius:18px;
+padding:25px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.box h2{
+font-family:"Orbitron",sans-serif;
+margin-bottom:12px;
+font-size:1.1rem;
+}
+
+.box p{
+color:#9aa6c0;
+line-height:1.6;
+}
+
+/* =========================
+TAGS
+========================= */
+
+.tag{
+display:inline-block;
+padding:8px 12px;
+margin:5px;
+border-radius:10px;
 background:#0f1528;
-border:1px solid rgba(255,255,255,0.05);
-font-size:.9rem;
+color:#cfd6e6;
+font-size:.85rem;
 }
 
-/* =========================================================
-CALIDAD
-========================================================= */
+/* =========================
+NEW SECTION - INFO BLOCK
+========================= */
 
-.calidad{
-margin-top:55px;
+.info{
+margin-top:80px;
 padding:40px;
 background:#0b1020;
 border-radius:18px;
-border:1px solid rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,.05);
 }
 
-.calidad h3{
+.info h2{
 font-family:"Orbitron",sans-serif;
 margin-bottom:15px;
 }
 
-.calidad p{
+.info p{
 color:#9aa6c0;
+line-height:1.8;
 }
 
-/* =========================================================
-DIVISOR PREMIUM
-========================================================= */
+/* =========================
+PROCESS
+========================= */
 
-.divisor{
-margin:140px auto;
-width:120px;
-height:2px;
-background:linear-gradient(90deg,transparent,#00cfff,transparent);
-opacity:.5;
+.process{
+margin-top:90px;
+text-align:center;
 }
 
-/* =========================================================
-PROCESO TECNICO
-========================================================= */
+.process h2{
+font-family:"Orbitron",sans-serif;
+font-size:2rem;
+margin-bottom:40px;
+}
 
-.proceso-grid{
+.steps{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:40px;
+gap:20px;
 }
 
-.proceso-item{
+.step{
 background:#0b1020;
-padding:45px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.04);
-text-align:center;
+padding:30px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.05);
 }
 
-.proceso-item h3{
-margin-bottom:12px;
+.step h3{
+font-family:"Orbitron",sans-serif;
+margin-bottom:10px;
 }
 
-.proceso-item p{
+.step p{
 color:#9aa6c0;
+line-height:1.6;
 }
 
-/* =========================================================
-COMPROMISO / CONFIANZA
-========================================================= */
+/* =========================
+EXTRA TRUST SECTION
+========================= */
 
-.confianza-grid{
+.trust{
+margin-top:80px;
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:30px;
+gap:20px;
 }
 
-.confianza-item{
-padding:32px;
-border-radius:16px;
+.trust-item{
 background:#0b1020;
-border:1px solid rgba(255,255,255,0.04);
+padding:25px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.05);
 text-align:center;
 }
 
-.confianza-item h4{
-margin-bottom:8px;
+.trust-item h4{
+margin-bottom:10px;
+font-family:"Orbitron",sans-serif;
 }
 
-.confianza-item p{
+.trust-item p{
 color:#9aa6c0;
 font-size:.9rem;
 }
 
-/* =========================================================
-REVEAL ANIMATION
-========================================================= */
+/* =========================
+REVEAL
+========================= */
 
 .reveal{
 opacity:0;
 transform:translateY(40px);
-transition:.9s ease;
+transition:.8s;
 }
 
 .reveal.active{
@@ -291,106 +315,122 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* =========================================================
+/* =========================
 RESPONSIVE
-========================================================= */
+========================= */
 
 @media(max-width:900px){
 
-.layout{grid-template-columns:1fr}
-.grid-servicios{grid-template-columns:1fr}
-.proceso-grid{grid-template-columns:1fr}
-.confianza-grid{grid-template-columns:1fr}
-
-.hero h1{font-size:2.2rem}
+.layout{grid-template-columns:1fr;}
+.grid{grid-template-columns:1fr;}
+.steps{grid-template-columns:1fr;}
+.trust{grid-template-columns:1fr;}
+.hero h1{font-size:2.3rem;}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<a href="index.html" class="volver">← Volver</a>
+<div class="bg">
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+</div>
+
+<a class="back" href="index.html">← Volver a LC ONE PLAYER</a>
 
 <div class="container">
 
 <!-- HERO -->
 <section class="hero reveal">
-<h1>Servicio Técnico Especializado</h1>
+<h1>Servicio Técnico Profesional</h1>
 <p>
-Diagnóstico profesional, reparación precisa y repuestos de calidad para dispositivos móviles.
-Cada equipo es evaluado cuidadosamente para garantizar resultados confiables.
+En LC ONE PLAYER ofrecemos soluciones técnicas reales, con diagnóstico preciso, reparación segura y control de calidad en cada dispositivo.
+No hacemos parches: hacemos soluciones duraderas.
 </p>
 </section>
 
-<!-- SERVICIOS + MARCAS -->
+<!-- MAIN -->
 <div class="layout">
 
-<div class="grid-servicios reveal">
+<!-- SERVICES -->
+<div class="grid reveal">
 
 <div class="card">
-<img src="pantalla.jpg" alt="Cambio de Pantalla">
-<div class="card-content">
-<h3>Cambio de Pantalla</h3>
-<p>Reemplazo de módulos con pruebas de imagen y tacto.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="bateria.jpg" alt="Reemplazo de Batería">
-<div class="card-content">
-<h3>Reemplazo de Batería</h3>
-<p>Baterías nuevas con verificación de carga y duración.</p>
+<img src="pantalla.jpg">
+<div class="card-body">
+<h3>Cambio de pantalla</h3>
+<p>Reemplazo completo de módulo con calibración táctil y pruebas de color, brillo y respuesta.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="pin-carga.jpg" alt="Pin de Carga / Placa">
-<div class="card-content">
-<h3>Pin de Carga / Placa</h3>
-<p>Reparación de conectores y revisión eléctrica.</p>
+<img src="bateria.jpg">
+<div class="card-body">
+<h3>Batería</h3>
+<p>Optimización de autonomía con baterías testeadas para rendimiento estable.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="software.jpg" alt="Software / Formateo">
-<div class="card-content">
-<h3>Software / Formateo</h3>
-<p>Optimización del sistema y respaldo de datos.</p>
+<img src="pin-carga.jpg">
+<div class="card-body">
+<h3>Pin de carga</h3>
+<p>Reparación de conectores con revisión de placa y control eléctrico completo.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="google.jpg" alt="Cuenta Google">
-<div class="card-content">
+<img src="software.jpg">
+<div class="card-body">
+<h3>Software</h3>
+<p>Formateo, eliminación de fallas de sistema y optimización general del dispositivo.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="google.jpg">
+<div class="card-body">
 <h3>Cuenta Google</h3>
-<p>Eliminación o recuperación segura según modelo.</p>
+<p>Asistencia en recuperación o eliminación según compatibilidad del equipo.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="diagnostico.jpg">
+<div class="card-body">
+<h3>Diagnóstico completo</h3>
+<p>Revisión técnica profunda para detectar fallas reales antes de intervenir.</p>
 </div>
 </div>
 
 </div>
 
-<div>
+<!-- SIDE -->
+<div class="side reveal">
 
-<div class="marcas-box reveal">
-<h2>Marcas que atendemos</h2>
-
-<div class="marcas-grid">
-<div class="marca">Samsung</div>
-<div class="marca">Motorola</div>
-<div class="marca">LG</div>
-<div class="marca">Huawei</div>
-<div class="marca">iPhone</div>
-<div class="marca">Xiaomi / Redmi</div>
-</div>
+<div class="box">
+<h2>Marcas</h2>
+<span class="tag">Samsung</span>
+<span class="tag">Motorola</span>
+<span class="tag">Xiaomi</span>
+<span class="tag">Huawei</span>
+<span class="tag">iPhone</span>
 </div>
 
-<div class="calidad reveal">
-<h3>Repuestos y Calidad</h3>
+<div class="box">
+<h2>Calidad LC ONE PLAYER</h2>
+<p>Repuestos seleccionados, pruebas finales y garantía de funcionamiento antes de entrega.</p>
+</div>
+
+<div class="info">
+<h2>Compromiso real</h2>
 <p>
-Trabajamos con repuestos originales y módulos premium cuidadosamente seleccionados.
-Cada equipo es probado antes de la entrega para garantizar compatibilidad, seguridad y funcionamiento correcto.
+Cada reparación se realiza con criterio técnico, no improvisado. Buscamos duración, no rapidez sin calidad.
 </p>
 </div>
 
@@ -398,79 +438,74 @@ Cada equipo es probado antes de la entrega para garantizar compatibilidad, segur
 
 </div>
 
-<div class="divisor"></div>
+<!-- PROCESS -->
+<section class="process reveal">
 
-<!-- PROCESO -->
-<section class="reveal">
-<h2 class="section-title">Proceso técnico</h2>
+<h2>Proceso técnico</h2>
 
-<div class="proceso-grid">
-<div class="proceso-item">
-<h3>Diagnóstico preciso</h3>
-<p>Revisión técnica completa del dispositivo antes de cualquier intervención.</p>
+<div class="steps">
+
+<div class="step">
+<h3>Diagnóstico</h3>
+<p>Identificación exacta de la falla.</p>
 </div>
 
-<div class="proceso-item">
-<h3>Equipamiento profesional</h3>
-<p>Herramientas específicas para reparación segura.</p>
+<div class="step">
+<h3>Reparación</h3>
+<p>Intervención técnica segura y controlada.</p>
 </div>
 
-<div class="proceso-item">
-<h3>Proceso controlado</h3>
-<p>Control técnico en cada etapa del servicio.</p>
+<div class="step">
+<h3>Entrega</h3>
+<p>Pruebas finales de funcionamiento.</p>
 </div>
+
 </div>
+
 </section>
 
-<div class="divisor"></div>
+<!-- TRUST -->
+<section class="trust reveal">
 
-<!-- COMPROMISO -->
-<section class="reveal">
-<h2 class="section-title">Compromiso de servicio</h2>
-
-<div class="confianza-grid">
-<div class="confianza-item">
-<h4>Diagnóstico claro</h4>
-<p>Evaluación completa antes de reparar.</p>
+<div class="trust-item">
+<h4>Precisión</h4>
+<p>Trabajo técnico detallado.</p>
 </div>
 
-<div class="confianza-item">
-<h4>Reparación rápida</h4>
-<p>Procesos optimizados para menor tiempo.</p>
+<div class="trust-item">
+<h4>Calidad</h4>
+<p>Repuestos seleccionados.</p>
 </div>
 
-<div class="confianza-item">
-<h4>Garantía técnica</h4>
-<p>Control de calidad en cada trabajo.</p>
+<div class="trust-item">
+<h4>Confianza</h4>
+<p>Proceso transparente.</p>
 </div>
 
-<div class="confianza-item">
-<h4>Atención profesional</h4>
-<p>Asesoramiento transparente.</p>
-</div>
+<div class="trust-item">
+<h4>Garantía</h4>
+<p>Control final de cada equipo.</p>
 </div>
 
 </section>
 
 </div>
 
-<!-- ================= REVEAL SCRIPT CORREGIDO ================= -->
 <script>
-const reveals = document.querySelectorAll(".reveal");
 
-function revealElements() {
-    reveals.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 80){
-            el.classList.add("active");
-        }
-    });
+const reveals=document.querySelectorAll(".reveal");
+
+function show(){
+reveals.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-80){
+el.classList.add("active");
+}
+});
 }
 
-// Ejecutar al cargar la página
-window.addEventListener("load", revealElements);
+window.addEventListener("scroll",show);
+window.addEventListener("load",show);
 
-// Ejecutar al hacer scroll
-window.addEventListener("scroll", revealElements);
 </script>
 
 </body>
