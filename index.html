@@ -1,19 +1,409 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LC ONE PLAYER</title>
 
-<meta name="description"
+<meta
+name="description"
 content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+<link
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet"
+<link
+rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
@@ -23,14 +413,21 @@ RESET
 ========================================================= */
 
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 scroll-behavior:smooth;
+
 }
 
 html{
+
 overflow-x:hidden;
+
 }
 
 /* =========================================================
@@ -38,11 +435,17 @@ BODY
 ========================================================= */
 
 body{
+
 font-family:"Inter",sans-serif;
+
 background:#05070d;
+
 color:#ffffff;
+
 overflow-x:hidden;
+
 position:relative;
+
 }
 
 /* =========================================================
@@ -50,65 +453,103 @@ BACKGROUND
 ========================================================= */
 
 .bg-animation{
+
 position:fixed;
+
 inset:0;
+
 z-index:-20;
+
 overflow:hidden;
+
 animation:hueRotate 18s linear infinite;
+
 }
 
 @keyframes hueRotate{
 
 0%{
+
 filter:hue-rotate(0deg);
+
 }
 
 100%{
+
 filter:hue-rotate(360deg);
+
 }
 
 }
 
 .light{
+
 position:absolute;
+
 border-radius:50%;
+
 filter:blur(120px);
+
 opacity:.25;
+
 animation:float 14s infinite alternate;
+
 }
 
 .light1{
+
 width:520px;
+
 height:520px;
+
 background:#00cfff;
+
 top:-120px;
+
 left:-120px;
+
 }
 
 .light2{
+
 width:450px;
+
 height:450px;
+
 background:#004cff;
+
 bottom:-100px;
+
 right:-100px;
+
 }
 
 .light3{
+
 width:350px;
+
 height:350px;
+
 background:#00fff2;
+
 top:45%;
+
 left:45%;
+
 }
 
 @keyframes float{
 
 0%{
+
 transform:translate(0,0) scale(1);
+
 }
 
 100%{
+
 transform:translate(120px,-90px) scale(1.3);
+
 }
 
 }
@@ -118,17 +559,27 @@ CURSOR
 ========================================================= */
 
 .cursor{
+
 width:18px;
+
 height:18px;
+
 border-radius:50%;
+
 background:#00cfff;
+
 position:fixed;
+
 pointer-events:none;
+
 z-index:999999;
+
 transform:translate(-50%,-50%);
+
 box-shadow:
 0 0 20px #00cfff,
 0 0 50px #00cfff;
+
 }
 
 /* =========================================================
@@ -136,59 +587,97 @@ LOADER
 ========================================================= */
 
 .loader{
+
 position:fixed;
+
 inset:0;
+
 background:#05070d;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
+
 overflow:hidden;
+
 z-index:999999;
+
 transition:1.5s;
+
 }
 
 .loader.hide{
+
 opacity:0;
+
 pointer-events:none;
+
 }
 
 .loader-door{
+
 position:absolute;
+
 top:0;
+
 width:50%;
+
 height:100%;
+
 background:#05070d;
+
 transition:1.8s cubic-bezier(.77,0,.18,1);
+
 z-index:5;
+
 }
 
 .loader-door.left{
+
 left:0;
+
 border-right:1px solid #00cfff22;
+
 }
 
 .loader-door.right{
+
 right:0;
+
 border-left:1px solid #00cfff22;
+
 }
 
 .loader.hide .loader-door.left{
+
 transform:translateX(-100%);
+
 }
 
 .loader.hide .loader-door.right{
+
 transform:translateX(100%);
+
 }
 
 .loader-content{
+
 position:relative;
+
 z-index:10;
+
 text-align:center;
+
 }
 
 .loader-title{
+
 font-family:"Orbitron",sans-serif;
+
 font-size:5rem;
+
 letter-spacing:10px;
 
 text-shadow:
@@ -196,13 +685,19 @@ text-shadow:
 0 0 60px #00cfff;
 
 animation:loaderPulse 2s infinite;
+
 }
 
 .loader-line{
+
 width:0;
+
 height:4px;
+
 background:#00cfff;
+
 margin:25px auto;
+
 border-radius:20px;
 
 box-shadow:
@@ -210,29 +705,43 @@ box-shadow:
 0 0 50px #00cfff;
 
 animation:loaderLine 2.4s forwards;
+
 }
 
 .loader-sub{
+
 letter-spacing:8px;
+
 color:#9aa6c0;
+
 font-size:.95rem;
+
 }
 
 @keyframes loaderPulse{
 
 0%{
+
 transform:scale(1);
+
 opacity:.7;
+
 }
 
 50%{
+
 transform:scale(1.08);
+
 opacity:1;
+
 }
 
 100%{
+
 transform:scale(1);
+
 opacity:.7;
+
 }
 
 }
@@ -240,7 +749,9 @@ opacity:.7;
 @keyframes loaderLine{
 
 100%{
+
 width:300px;
+
 }
 
 }
@@ -250,14 +761,21 @@ HEADER
 ========================================================= */
 
 header{
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
+
 height:95px;
 
 display:flex;
+
 align-items:center;
+
 justify-content:space-between;
 
 padding:0 50px;
@@ -269,6 +787,7 @@ backdrop-filter:blur(15px);
 border-bottom:1px solid rgba(255,255,255,.05);
 
 z-index:999;
+
 }
 
 /* =========================================================
@@ -276,23 +795,35 @@ LOGO
 ========================================================= */
 
 .logo{
+
 display:flex;
+
 align-items:center;
+
 gap:18px;
+
 text-decoration:none;
+
 }
 
 .logo-icon{
+
 width:68px;
+
 height:68px;
+
 border-radius:20px;
 
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
 font-family:"Orbitron",sans-serif;
+
 font-size:1.6rem;
+
 font-weight:700;
 
 color:#fff;
@@ -308,12 +839,17 @@ box-shadow:
 0 0 60px #00cfff33;
 
 animation:logoGlow 4s infinite alternate;
+
 }
 
 .logo-icon::before{
+
 content:"";
+
 position:absolute;
+
 width:220%;
+
 height:220%;
 
 background:
@@ -328,25 +864,37 @@ transparent
 );
 
 animation:rotate 5s linear infinite;
+
 }
 
 .logo-icon::after{
+
 content:"";
+
 position:absolute;
+
 inset:2px;
+
 border-radius:18px;
+
 background:#09111f;
+
 }
 
 .logo-icon span{
+
 position:relative;
+
 z-index:2;
+
 }
 
 @keyframes rotate{
 
 100%{
+
 transform:rotate(360deg);
+
 }
 
 }
@@ -354,1069 +902,191 @@ transform:rotate(360deg);
 @keyframes logoGlow{
 
 100%{
+
 box-shadow:
 0 0 40px #00fff2,
 0 0 80px #00cfff66;
-}
 
-}
-
-.logo-text{
-display:flex;
-flex-direction:column;
-justify-content:center;
-position:relative;
-}
-
-.logo-text h1{
-
-font-size:1.15rem;
-
-font-family:"Orbitron",sans-serif;
-
-letter-spacing:4px;
-
-font-style:italic;
-
-font-weight:700;
-
-text-transform:uppercase;
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#8aefff,
-#00cfff,
-#ffffff
-);
-
-background-size:300%;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-animation:logoTextFlow 6s linear infinite;
-
-text-shadow:
-0 0 10px rgba(0,207,255,.4),
-0 0 20px rgba(0,207,255,.3);
-
-}
-
-.logo-text p{
-
-font-size:.82rem;
-
-margin-top:2px;
-
-letter-spacing:7px;
-
-text-transform:uppercase;
-
-color:#9aefff;
-
-font-style:italic;
-
-animation:techPulse 3s ease-in-out infinite;
-
-text-shadow:
-0 0 8px #00cfff88,
-0 0 20px #00cfff55;
-
-}
-
-.logo-text::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-10px;
-left:0;
-
-width:100%;
-height:2px;
-
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-#00cfff,
-#00fff2,
-transparent
-);
-
-background-size:200%;
-
-animation:lineMove 4s linear infinite;
-
-box-shadow:
-0 0 12px #00cfff,
-0 0 25px #00cfff;
-
-}
-
-@keyframes logoTextFlow{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:300%;
-}
-
-}
-
-@keyframes techPulse{
-
-0%{
-opacity:.7;
-letter-spacing:5px;
-}
-
-50%{
-opacity:1;
-letter-spacing:7px;
-}
-
-100%{
-opacity:.7;
-letter-spacing:5px;
-}
-
-}
-
-@keyframes lineMove{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:200%;
 }
 
 }
 
 /* =========================================================
-NAV
+FORMULARIO
 ========================================================= */
 
-nav{
-display:flex;
-gap:35px;
-}
+#thankYouMessage{
 
-nav a{
-text-decoration:none;
-color:#d9d9d9;
-font-size:.95rem;
-position:relative;
-transition:.3s;
-}
+display:none;
 
-nav a:hover{
 color:#00cfff;
-}
 
-nav a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-8px;
-width:0%;
-height:2px;
-background:#00cfff;
-transition:.3s;
-}
+margin-top:15px;
 
-nav a:hover::after{
-width:100%;
+font-weight:600;
+
 }
 
 /* =========================================================
-HERO
+BOTONES
 ========================================================= */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:150px 60px 80px;
-}
-
-.hero-content{
-max-width:1350px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:90px;
-align-items:center;
-}
-
-.hero-text h2{
-font-size:4.1rem;
-line-height:1.1;
-margin-bottom:25px;
-font-family:"Orbitron",sans-serif;
-}
-
-.hero-text p{
-font-size:1.05rem;
-color:#9aa6c0;
-line-height:1.9;
-max-width:600px;
-margin-bottom:35px;
-}
-
-.hero-buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
 
 .btn{
+
 padding:16px 32px;
+
 border-radius:16px;
+
 font-size:.95rem;
+
 font-weight:600;
+
 text-decoration:none;
+
 transition:.35s;
+
+border:none;
+
+cursor:pointer;
+
 }
 
 .btn-primary{
+
 background:#00cfff;
+
 color:#000;
 
 box-shadow:
 0 0 30px #00cfff55;
+
 }
 
 .btn-primary:hover{
+
 transform:translateY(-6px);
-}
 
-.btn-outline{
-border:1px solid rgba(255,255,255,.08);
-color:#fff;
-background:#0b1020;
-}
-
-.hero-image{
-display:flex;
-justify-content:center;
-}
-
-.hero-image img{
-width:430px;
-height:430px;
-border-radius:50%;
-object-fit:cover;
-
-box-shadow:
-0 0 40px #00cfff55,
-0 0 90px #00cfff22;
-}
-
-/* =========================================================
-SECTION
-========================================================= */
-
-section{
-padding:120px 60px;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:80px;
-}
-
-.section-title h2{
-font-size:2.8rem;
-margin-bottom:16px;
-font-family:"Orbitron",sans-serif;
-}
-
-.section-title p{
-color:#9aa6c0;
-}
-
-/* =========================================================
-SERVICES
-========================================================= */
-
-.services-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:32px;
-}
-
-.service-card{
-background:#0b1020;
-border-radius:28px;
-padding:42px 34px;
-border:1px solid rgba(255,255,255,.05);
-
-position:relative;
-overflow:hidden;
-
-transition:.5s;
-}
-
-.service-card::before{
-content:"";
-position:absolute;
-width:320px;
-height:320px;
-border-radius:50%;
-
-background:
-radial-gradient(
-circle,
-rgba(0,207,255,.18),
-transparent 70%
-);
-
-top:-160px;
-right:-160px;
-
-transition:.6s;
-}
-
-.service-card:hover::before{
-transform:scale(1.5);
-}
-
-.service-card:hover{
-
-transform:
-translateY(-14px)
-scale(1.03);
-
-border-color:#00cfff55;
-
-box-shadow:
-0 0 30px #00cfff55,
-0 0 70px #00cfff22,
-0 0 120px #00cfff11;
-}
-
-/* =========================================================
-SERVICE ICONS
-========================================================= */
-
-.service-icon{
-width:92px;
-height:92px;
-border-radius:30px;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:2.2rem;
-
-margin-bottom:32px;
-
-position:relative;
-overflow:hidden;
-
-animation:iconFloat 4s ease-in-out infinite;
-
-border:1px solid rgba(255,255,255,.08);
-}
-
-@keyframes iconFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-.icon-glow{
-position:absolute;
-width:180%;
-height:180%;
-
-background:
-conic-gradient(
-transparent,
-rgba(255,255,255,.9),
-transparent,
-transparent
-);
-
-animation:rotateGlow 4s linear infinite;
-}
-
-@keyframes rotateGlow{
-
-100%{
-transform:rotate(360deg);
-}
-
-}
-
-.service-icon::after{
-content:"";
-position:absolute;
-inset:2px;
-border-radius:28px;
-background:#0b1020;
-z-index:1;
-}
-
-.service-icon i{
-position:relative;
-z-index:2;
-}
-
-.tech-icon{
-background:linear-gradient(145deg,#00cfff,#004cff);
-}
-
-.venta-icon{
-background:linear-gradient(145deg,#00fff2,#00cfff);
-}
-
-.accesorios-icon{
-background:linear-gradient(145deg,#a855f7,#6d28d9);
-}
-
-.tv-icon{
-background:linear-gradient(145deg,#ff0055,#ff6600);
-}
-
-.service-card h3{
-font-size:1.2rem;
-margin-bottom:16px;
-}
-
-.service-card p{
-color:#9aa6c0;
-line-height:1.8;
-margin-bottom:28px;
-}
-
-.service-card a{
-text-decoration:none;
-color:#00cfff;
-font-weight:600;
-}
-
-/* =========================================================
-CONTACTO
-========================================================= */
-
-.contact-wrapper{
-display:grid;
-grid-template-columns:420px 1fr;
-gap:40px;
-max-width:1300px;
-margin:auto;
-}
-
-.contact-left{
-display:flex;
-flex-direction:column;
-gap:24px;
-}
-
-.contact-box{
-display:flex;
-align-items:center;
-gap:20px;
-padding:26px;
-border-radius:24px;
-text-decoration:none;
-color:#fff;
-
-background:
-linear-gradient(
-145deg,
-rgba(10,15,30,.95),
-rgba(5,10,20,.95)
-);
-
-border:1px solid rgba(255,255,255,.06);
-
-transition:.45s;
-}
-
-.contact-box:hover{
-transform:translateY(-10px);
-
-box-shadow:
-0 0 25px #00cfff44,
-0 0 50px #00cfff22;
-}
-
-.contact-icon{
-min-width:70px;
-height:70px;
-border-radius:20px;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:1.7rem;
-}
-
-.whatsapp-icon{
-background:linear-gradient(145deg,#00ff88,#00cc66);
-}
-
-.facebook-icon{
-background:linear-gradient(145deg,#1877f2,#0059d6);
-}
-
-.email-icon{
-background:linear-gradient(145deg,#00cfff,#0066ff);
-}
-
-.contact-info h3{
-margin-bottom:6px;
-}
-
-.contact-info p{
-color:#9aa6c0;
-}
-
-/* =========================================================
-FORM
-========================================================= */
-
-.contact-form{
-padding:40px;
-border-radius:32px;
-
-background:
-linear-gradient(
-145deg,
-rgba(10,15,30,.95),
-rgba(5,10,20,.95)
-);
-
-border:1px solid rgba(255,255,255,.06);
-}
-
-.form-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.contact-form input,
-.contact-form textarea{
-width:100%;
-padding:20px;
-border:none;
-outline:none;
-border-radius:18px;
-background:#101827;
-color:#fff;
-margin-bottom:20px;
-}
-
-.contact-form textarea{
-height:190px;
-resize:none;
-}
-
-.contact-form button{
-padding:18px 34px;
-border:none;
-border-radius:18px;
-background:#00cfff;
-font-weight:600;
-cursor:pointer;
-
-box-shadow:
-0 0 25px #00cfff55;
-}
-
-/* =========================================================
-FOOTER
-========================================================= */
-
-footer{
-padding:70px 30px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.05);
-color:#9aa6c0;
-line-height:2;
-}
-
-/* =========================================================
-REVEAL
-========================================================= */
-
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
 }
 
 /* =========================================================
 RESPONSIVE
 ========================================================= */
 
-@media(max-width:1100px){
-
-.hero-content{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.services-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.contact-wrapper{
-grid-template-columns:1fr;
-}
-
-.form-grid{
-grid-template-columns:1fr;
-}
-
-}
-
 @media(max-width:760px){
 
 header{
+
 padding:0 24px;
-}
 
-nav{
-display:none;
-}
-
-.hero{
-padding:150px 24px 80px;
-}
-
-.hero-text h2{
-font-size:2.7rem;
-}
-
-.hero-image img{
-width:290px;
-height:290px;
-}
-
-.services-grid{
-grid-template-columns:1fr;
-}
-
-section{
-padding:90px 24px;
-}
-
-.loader-title{
-font-size:2.6rem;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- =========================================================
-CURSOR
-========================================================= -->
-
 <div class="cursor" id="cursor"></div>
-
-<!-- =========================================================
-BACKGROUND
-========================================================= -->
 
 <div class="bg-animation">
 
 <div class="light light1"></div>
+
 <div class="light light2"></div>
+
 <div class="light light3"></div>
 
 </div>
 
-<!-- =========================================================
-LOADER
-========================================================= -->
-
 <div class="loader" id="loader">
 
 <div class="loader-door left"></div>
+
 <div class="loader-door right"></div>
 
 <div class="loader-content">
 
 <h1 class="loader-title">
+
 LC ONE PLAYER
+
 </h1>
 
 <div class="loader-line"></div>
 
 <p class="loader-sub">
+
 TECNOLOGÍA
+
 </p>
 
 </div>
 
 </div>
-
-<!-- =========================================================
-HEADER
-========================================================= -->
 
 <header>
 
 <a href="#inicio" class="logo">
 
 <div class="logo-icon">
+
 <span>LC</span>
-</div>
-
-<div class="logo-text">
-
-<h1>LC ONE PLAYER</h1>
-
-<p>Tecnología</p>
 
 </div>
 
 </a>
-
-<nav>
-
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#contacto">Contacto</a>
-
-</nav>
 
 </header>
 
-<!-- =========================================================
-HERO
-========================================================= -->
-
-<section class="hero" id="inicio">
-
-<div class="hero-content">
-
-<div class="hero-text reveal">
-
-<h2>
-Tecnología a tu alcance.
-</h2>
-
-<p>
-Servicio técnico, venta de celulares, accesorios y entretenimiento digital,
-con innovación, rendimiento y estilo.
-</p>
-
-<div class="hero-buttons">
-
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="btn btn-primary">
-
-WhatsApp
-
-</a>
-
-<a href="#servicios"
-class="btn btn-outline">
-
-Explorar servicios
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image reveal">
-
-<img src="mioo.png" alt="LC ONE PLAYER">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-SERVICIOS
-========================================================= -->
-
-<section id="servicios">
-
-<div class="section-title reveal">
-
-<h2>
-Servicios
-</h2>
-
-<p>
-Soluciones modernas para celulares, tecnología y entretenimiento.
-</p>
-
-</div>
-
-<div class="services-grid">
-
-<div class="service-card reveal">
-
-<div class="service-icon tech-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-screwdriver-wrench"></i>
-
-</div>
-
-<h3>
-Servicio Técnico
-</h3>
-
-<p>
-Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
-</p>
-
-<a href="servicio.html">
-VER SERVICIO →
-</a>
-
-</div>
-
-<div class="service-card reveal">
-
-<div class="service-icon venta-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-mobile-screen-button"></i>
-
-</div>
-
-<h3>
-Venta
-</h3>
-
-<p>
-Celulares nuevos y usados seleccionados con soporte y atención personalizada.
-</p>
-
-<a href="venta.html">
-VER EQUIPOS →
-</a>
-
-</div>
-
-<div class="service-card reveal">
-
-<div class="service-icon accesorios-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-headphones-simple"></i>
-
-</div>
-
-<h3>
-Accesorios
-</h3>
-
-<p>
-Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
-</p>
-
-<a href="accesorios.html">
-VER ACCESORIOS →
-</a>
-
-</div>
-
-<div class="service-card reveal">
-
-<div class="service-icon tv-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-tv"></i>
-
-</div>
-
-<h3>
-Entretenimiento Familiar
-</h3>
-
-<p>
-Plataformas y soluciones modernas para disfrutar contenido en casa.
-</p>
-
-<a href="tv-digital.html">
-VER MÁS →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-CONTACTO
-========================================================= -->
-
 <section id="contacto">
 
-<div class="section-title reveal">
+<div class="contact-form reveal">
 
-<h2>
-Contactos
-</h2>
+<form id="contactForm">
 
-<p>
-Canales rápidos y directos.
-</p>
+<input
+type="hidden"
+name="access_key"
+value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
 
-</div>
+<input
+type="text"
+name="name"
+placeholder="Tu nombre"
+required>
 
-<div class="contact-wrapper">
+<input
+type="email"
+name="email"
+placeholder="Tu correo electrónico"
+required>
 
-<div class="contact-left">
+<textarea
+name="message"
+placeholder="Tu mensaje"
+required></textarea>
 
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="contact-box reveal">
+<button
+type="submit"
+class="btn btn-primary">
 
-<div class="contact-icon whatsapp-icon">
-<i class="fa-brands fa-whatsapp"></i>
-</div>
+Enviar
 
-<div class="contact-info">
+</button>
 
-<h3>
-WHATSAPP
-</h3>
-
-<p>
-+54 9 2634 722710
-</p>
-
-</div>
-
-</a>
-
-<a href="https://www.facebook.com/profile.php?id=61587322059733"
-target="_blank"
-class="contact-box reveal">
-
-<div class="contact-icon facebook-icon">
-<i class="fa-brands fa-facebook-f"></i>
-</div>
-
-<div class="contact-info">
-
-<h3>
-FACEBOOK
-</h3>
-
-<p>
-LC ONE PLAYER
-</p>
-
-</div>
-
-</a>
-
-<a href="mailto:lc.technology.ar@gmail.com"
-class="contact-box reveal">
-
-<div class="contact-icon email-icon">
-<i class="fa-solid fa-envelope"></i>
-</div>
-
-<div class="contact-info">
-
-<h3>
-EMAIL
-</h3>
-
-<p>
-lc.technology.ar@gmail.com
-</p>
-
-</div>
-
-</a>
-
-</div>
-
- <form id="contactForm" class="form">
-  <!-- Web3Forms key -->
-  <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
-
-  <input type="text" name="name" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo electrónico" required>
-  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
-
-  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
-<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
-  ¡Gracias por tu consulta! Te responderemos pronto.
-</div>
-  </div>
+<div id="thankYouMessage">
 
+¡Gracias por tu consulta! Te responderemos pronto.
+
+</div>
+
+</div>
 
 </section>
-
-<!-- =========================================================
-FOOTER
-========================================================= -->
-
-<footer>
-
-© LC ONE PLAYER
-
-<br><br>
-
-Servicio Técnico · Venta · Accesorios · Entretenimiento Familiar
-
-<br><br>
-
-Mendoza, Argentina
-
-</footer>
-
-<!-- =========================================================
-SCRIPTS
-========================================================= -->
 
 <script>
 
@@ -1435,32 +1105,6 @@ document.getElementById("loader").classList.add("hide");
 });
 
 /* =========================================================
-REVEAL
-========================================================= */
-
-const reveals = document.querySelectorAll(".reveal");
-
-function revealElements(){
-
-reveals.forEach(el=>{
-
-const top = el.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 80){
-
-el.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",revealElements);
-
-window.addEventListener("load",revealElements);
-
-/* =========================================================
 CURSOR
 ========================================================= */
 
@@ -1469,11 +1113,60 @@ const cursor = document.getElementById("cursor");
 window.addEventListener("mousemove",(e)=>{
 
 cursor.style.left = e.clientX + "px";
+
 cursor.style.top = e.clientY + "px";
+
+});
+
+/* =========================================================
+FORMULARIO WEB3FORMS
+========================================================= */
+
+const form = document.getElementById("contactForm");
+
+const thankYou = document.getElementById("thankYouMessage");
+
+form.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const formData = new FormData(form);
+
+try{
+
+const response = await fetch(
+"https://api.web3forms.com/submit",
+{
+method:"POST",
+body:formData
+}
+);
+
+const result = await response.json();
+
+if(result.success){
+
+thankYou.style.display = "block";
+
+form.reset();
+
+}else{
+
+alert("Error al enviar mensaje");
+
+}
+
+}catch(error){
+
+alert("Error de conexión");
+
+}
 
 });
 
 </script>
 
 </body>
+
 </html>
+```
