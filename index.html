@@ -7,7 +7,7 @@
 
 <title>LC ONE PLAYER | Tecnología</title>
 
-<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta, accesorios y entretenimiento digital.">
+<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -40,7 +40,63 @@ position:relative;
 }
 
 /* =========================================================
-BACKGROUND ANIMATION
+SCROLL
+========================================================= */
+
+body{
+scrollbar-width:thin;
+scrollbar-color:#00cfff #05070d;
+}
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#05070d;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00cfff;
+border-radius:20px;
+box-shadow:
+0 0 15px #00cfff;
+}
+
+/* =========================================================
+CURSOR
+========================================================= */
+
+.cursor{
+width:22px;
+height:22px;
+border:2px solid #00cfff;
+border-radius:50%;
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:999999;
+box-shadow:
+0 0 15px #00cfff,
+0 0 35px #00cfff;
+transition:
+width .2s,
+height .2s,
+background .2s,
+transform .05s linear;
+mix-blend-mode:screen;
+}
+
+.cursor.active{
+width:38px;
+height:38px;
+background:#00cfff22;
+}
+
+/* =========================================================
+BACKGROUND
 ========================================================= */
 
 .bg-animation{
@@ -108,6 +164,39 @@ transform:translate(120px,-80px) scale(1.2);
 }
 
 /* =========================================================
+SHINE EFFECT
+========================================================= */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.03),
+transparent
+);
+
+animation:shineMove 8s linear infinite;
+z-index:999;
+}
+
+@keyframes shineMove{
+
+0%{
+transform:translateX(-100%);
+}
+
+100%{
+transform:translateX(100%);
+}
+
+}
+
+/* =========================================================
 LOADER
 ========================================================= */
 
@@ -157,7 +246,7 @@ transform:translateX(100%);
 
 .loader-center{
 font-family:"Orbitron",sans-serif;
-font-size:2.6rem;
+font-size:2.8rem;
 letter-spacing:6px;
 color:#fff;
 z-index:2;
@@ -231,6 +320,12 @@ border:1px solid rgba(255,255,255,.08);
 box-shadow:
 0 0 25px #00cfff66,
 0 0 60px #00cfff22;
+
+animation:logoFloat 5s ease-in-out infinite;
+}
+
+.logo-box:hover{
+transform:scale(1.08) rotate(4deg);
 }
 
 .logo-box::before{
@@ -271,6 +366,22 @@ color:#fff;
 
 100%{
 transform:rotate(360deg);
+}
+
+}
+
+@keyframes logoFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-6px);
+}
+
+100%{
+transform:translateY(0px);
 }
 
 }
@@ -355,6 +466,32 @@ font-size:4.3rem;
 line-height:1.1;
 font-family:"Orbitron",sans-serif;
 margin-bottom:24px;
+
+background:linear-gradient(
+90deg,
+#ffffff,
+#00cfff,
+#ffffff,
+#00fff2
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:textFlow 8s linear infinite;
+}
+
+@keyframes textFlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
 }
 
 .hero-text p{
@@ -377,6 +514,28 @@ border-radius:16px;
 text-decoration:none;
 font-weight:600;
 transition:.35s;
+position:relative;
+overflow:hidden;
+}
+
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.4),
+transparent
+);
+transition:.7s;
+}
+
+.btn:hover::before{
+left:120%;
 }
 
 .btn-primary{
@@ -417,11 +576,20 @@ border-radius:50%;
 object-fit:cover;
 position:relative;
 z-index:2;
+transition:1s;
+
 box-shadow:
 0 0 40px #00cfff55,
 0 0 80px #00cfff22,
 0 0 120px #0066ff22;
+
 animation:imageGlow 5s infinite alternate;
+}
+
+.hero-image img:hover{
+transform:
+scale(1.04)
+rotate(-2deg);
 }
 
 @keyframes imageGlow{
@@ -484,6 +652,7 @@ color:#fff;
 border:1px solid rgba(255,255,255,.05);
 transition:.45s;
 display:block;
+isolation:isolate;
 }
 
 .service-card::before{
@@ -497,9 +666,48 @@ right:-120px;
 transition:.5s;
 }
 
+.service-card::after{
+content:"";
+position:absolute;
+inset:-2px;
+border-radius:30px;
+background:linear-gradient(
+130deg,
+transparent,
+#00cfff55,
+transparent,
+#0066ff55,
+transparent
+);
+z-index:-1;
+opacity:0;
+transition:.5s;
+}
+
+.service-card:hover::after{
+opacity:1;
+animation:borderMove 4s linear infinite;
+}
+
+@keyframes borderMove{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
 .service-card:hover{
-transform:translateY(-12px) scale(1.02);
+transform:
+translateY(-14px)
+scale(1.03);
+
 border-color:#00cfff88;
+
 box-shadow:
 0 0 30px #00cfff33,
 0 0 80px #00cfff22;
@@ -510,12 +718,70 @@ transform:scale(1.3);
 }
 
 .service-icon{
-font-size:2.6rem;
-margin-bottom:25px;
+width:78px;
+height:78px;
+border-radius:22px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#09111f;
+font-size:2rem;
+margin-bottom:28px;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 25px #00cfff33,
+0 0 60px #00cfff11;
+
+animation:iconPulse 4s infinite alternate;
+}
+
+.service-icon::before{
+content:"";
+position:absolute;
+width:220%;
+height:220%;
+background:conic-gradient(
+transparent,
+#00cfff,
+transparent,
+#00fff2,
+transparent,
+#0066ff,
+transparent
+);
+animation:rotate 6s linear infinite;
+}
+
+.service-icon::after{
+content:"";
+position:absolute;
+inset:2px;
+border-radius:20px;
+background:#09111f;
+}
+
+.service-icon i{
+position:relative;
+z-index:2;
 color:#00cfff;
 text-shadow:
 0 0 20px #00cfff,
 0 0 40px #00cfff;
+}
+
+@keyframes iconPulse{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.06);
+}
+
 }
 
 .service-card h3{
@@ -557,6 +823,23 @@ padding:28px;
 border-radius:22px;
 border:1px solid rgba(255,255,255,.05);
 transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.contact-card::before{
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+background:radial-gradient(circle,#00cfff22,transparent 70%);
+top:-120px;
+right:-120px;
+transition:.5s;
+}
+
+.contact-card:hover::before{
+transform:scale(1.4);
 }
 
 .contact-card:hover{
@@ -706,6 +989,8 @@ padding:90px 24px;
 </head>
 
 <body>
+
+<div class="cursor"></div>
 
 <!-- BACKGROUND -->
 
@@ -973,8 +1258,6 @@ Mendoza, Argentina
 
 </footer>
 
-<!-- SCRIPT -->
-
 <script>
 
 /* =========================================================
@@ -1023,6 +1306,35 @@ el.classList.add("active");
 
 window.addEventListener("scroll",revealElements);
 window.addEventListener("load",revealElements);
+
+/* =========================================================
+CURSOR
+========================================================= */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+document.querySelectorAll("a,button,.service-card,.contact-card").forEach(el=>{
+
+el.addEventListener("mouseenter",()=>{
+
+cursor.classList.add("active");
+
+});
+
+el.addEventListener("mouseleave",()=>{
+
+cursor.classList.remove("active");
+
+});
+
+});
 
 </script>
 
