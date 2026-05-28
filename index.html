@@ -11,6 +11,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 <style>
 
 /* =========================================================
@@ -49,7 +52,7 @@ position:fixed;
 inset:0;
 z-index:-10;
 overflow:hidden;
-animation:hueRotate 15s linear infinite;
+animation:hueRotate 14s linear infinite;
 }
 
 @keyframes hueRotate{
@@ -68,15 +71,15 @@ filter:hue-rotate(360deg);
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-animation:float 15s infinite alternate;
 opacity:.28;
+animation:float 16s infinite alternate;
 }
 
 .light1{
 width:500px;
 height:500px;
 background:#00cfff;
-top:-100px;
+top:-120px;
 left:-100px;
 }
 
@@ -109,18 +112,18 @@ transform:translate(120px,-80px) scale(1.2);
 }
 
 /* =========================================================
-LOADER CINEMATIC PREMIUM
+LOADER
 ========================================================= */
 
 .loader{
 position:fixed;
 inset:0;
 background:#05070d;
-z-index:999999;
-overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
+z-index:999999;
+overflow:hidden;
 transition:1.5s;
 }
 
@@ -129,117 +132,14 @@ opacity:0;
 pointer-events:none;
 }
 
-.loader-background{
-position:absolute;
-inset:0;
-
-background:
-radial-gradient(circle at top left,#00cfff22,transparent 40%),
-radial-gradient(circle at bottom right,#0066ff22,transparent 40%),
-radial-gradient(circle at center,#00fff211,transparent 60%),
-#05070d;
-
-animation:bgRotate 10s linear infinite;
-}
-
-@keyframes bgRotate{
-
-0%{
-filter:hue-rotate(0deg);
-}
-
-100%{
-filter:hue-rotate(360deg);
-}
-
-}
-
-.loader-scan{
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-to bottom,
-transparent,
-rgba(255,255,255,.04),
-transparent
-);
-
-animation:scanMove 4s linear infinite;
-}
-
-@keyframes scanMove{
-
-0%{
-transform:translateY(-100%);
-}
-
-100%{
-transform:translateY(100%);
-}
-
-}
-
-.loader-noise{
-position:absolute;
-inset:0;
-opacity:.04;
-
-background-image:
-repeating-linear-gradient(
-0deg,
-rgba(255,255,255,.03) 0px,
-rgba(255,255,255,.03) 1px,
-transparent 1px,
-transparent 3px
-);
-}
-
-.loader-particles::before,
-.loader-particles::after{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-border-radius:50%;
-filter:blur(120px);
-opacity:.14;
-animation:particleMove 8s infinite alternate;
-}
-
-.loader-particles::before{
-background:#00cfff;
-top:-250px;
-left:-250px;
-}
-
-.loader-particles::after{
-background:#0066ff;
-bottom:-250px;
-right:-250px;
-}
-
-@keyframes particleMove{
-
-0%{
-transform:translate(0,0);
-}
-
-100%{
-transform:translate(120px,-80px);
-}
-
-}
-
 .loader-door{
 position:absolute;
 top:0;
 width:50%;
 height:100%;
 background:#05070d;
-z-index:15;
-transition:1.7s cubic-bezier(.77,0,.18,1);
+z-index:5;
+transition:1.8s cubic-bezier(.77,0,.18,1);
 }
 
 .loader-door.left{
@@ -262,162 +162,66 @@ transform:translateX(100%);
 
 .loader-content{
 position:relative;
-z-index:20;
+z-index:10;
 text-align:center;
 }
 
 .loader-title{
-display:flex;
-align-items:center;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-
 font-family:"Orbitron",sans-serif;
 font-size:5rem;
-font-weight:700;
-letter-spacing:6px;
-text-transform:uppercase;
-}
-
-.loader-title span{
-display:inline-block;
-opacity:0;
-
-transform:
-translateY(80px)
-scale(.6)
-rotate(-8deg);
-
-animation:letterReveal .7s forwards;
-
-color:#fff;
-
+letter-spacing:8px;
 text-shadow:
-0 0 10px #00cfff,
 0 0 20px #00cfff,
-0 0 50px #00cfff,
-0 0 90px #00cfff;
+0 0 50px #00cfff;
+animation:pulse 2s infinite;
 }
 
-.loader-title span:nth-child(1){animation-delay:.1s;}
-.loader-title span:nth-child(2){animation-delay:.2s;}
-.loader-title span:nth-child(4){animation-delay:.4s;}
-.loader-title span:nth-child(5){animation-delay:.5s;}
-.loader-title span:nth-child(6){animation-delay:.6s;}
-.loader-title span:nth-child(8){animation-delay:.8s;}
-.loader-title span:nth-child(9){animation-delay:.9s;}
-.loader-title span:nth-child(10){animation-delay:1s;}
-.loader-title span:nth-child(11){animation-delay:1.1s;}
-.loader-title span:nth-child(12){animation-delay:1.2s;}
-.loader-title span:nth-child(13){animation-delay:1.3s;}
+@keyframes pulse{
 
-@keyframes letterReveal{
+0%{
+transform:scale(1);
+opacity:.7;
+}
+
+50%{
+transform:scale(1.05);
+opacity:1;
+}
 
 100%{
-opacity:1;
-
-transform:
-translateY(0)
-scale(1)
-rotate(0deg);
+transform:scale(1);
+opacity:.7;
 }
 
 }
 
 .loader-line{
-width:0px;
+width:0;
 height:4px;
 background:#00cfff;
+margin:25px auto;
 border-radius:20px;
 
 box-shadow:
 0 0 20px #00cfff,
-0 0 50px #00cfff;
+0 0 40px #00cfff;
 
-animation:lineGrow 1s forwards;
-animation-delay:.3s;
+animation:lineGrow 2.5s forwards;
 }
 
 @keyframes lineGrow{
 
 100%{
-width:90px;
+width:280px;
 }
 
 }
 
 .loader-sub{
-margin-top:30px;
-font-size:1rem;
-letter-spacing:10px;
+letter-spacing:8px;
 color:#9aa6c0;
-opacity:0;
-animation:fadeSub 1s forwards;
-animation-delay:1.7s;
-}
-
-@keyframes fadeSub{
-
-100%{
-opacity:1;
-}
-
-}
-
-.loader-loading{
-margin-top:45px;
-opacity:0;
-animation:fadeSub 1s forwards;
-animation-delay:2s;
-}
-
-.loader-bar{
-width:320px;
-height:8px;
-border-radius:20px;
-background:#111827;
-overflow:hidden;
-margin:auto;
-}
-
-.loader-progress{
-width:0%;
-height:100%;
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-#00cfff,
-#00fff2,
-#0066ff
-);
-
-box-shadow:
-0 0 15px #00cfff,
-0 0 40px #00cfff;
-
-animation:loadingBar 3.4s ease forwards;
-}
-
-@keyframes loadingBar{
-
-0%{
-width:0%;
-}
-
-100%{
-width:100%;
-}
-
-}
-
-.loader-status{
-margin-top:16px;
-font-size:.85rem;
-letter-spacing:4px;
-color:#9aa6c0;
+font-size:.95rem;
+margin-top:10px;
 }
 
 /* =========================================================
@@ -454,34 +258,31 @@ text-decoration:none;
 .logo-icon{
 width:68px;
 height:68px;
-border-radius:18px;
+border-radius:20px;
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-family:"Orbitron",sans-serif;
 font-size:1.6rem;
 font-weight:700;
 color:#fff;
-position:relative;
-overflow:hidden;
+
 background:#09111f;
 
 box-shadow:
-0 0 20px #00cfff66,
-0 0 40px #00cfff44,
-0 0 80px #00cfff22;
+0 0 25px #00cfff66,
+0 0 60px #00cfff33;
 
-animation:logoGlow 4s infinite alternate;
+animation:logoGlow 3s infinite alternate;
 }
 
 @keyframes logoGlow{
 
-0%{
-transform:scale(1);
-}
-
 100%{
-transform:scale(1.05);
+box-shadow:
+0 0 40px #00fff2,
+0 0 80px #00cfff66;
 }
 
 }
@@ -494,8 +295,8 @@ justify-content:center;
 
 .logo-text h1{
 font-size:1rem;
-font-style:italic;
 letter-spacing:2px;
+font-style:italic;
 }
 
 .logo-text p{
@@ -517,8 +318,8 @@ nav a{
 text-decoration:none;
 color:#d9d9d9;
 font-size:.95rem;
-transition:.3s;
 position:relative;
+transition:.3s;
 }
 
 nav a:hover{
@@ -593,7 +394,9 @@ transition:.35s;
 .btn-primary{
 background:#00cfff;
 color:#000;
-box-shadow:0 0 30px #00cfff55;
+
+box-shadow:
+0 0 30px #00cfff55;
 }
 
 .btn-primary:hover{
@@ -619,7 +422,7 @@ object-fit:cover;
 
 box-shadow:
 0 0 40px #00cfff55,
-0 0 80px #00cfff22;
+0 0 90px #00cfff22;
 }
 
 /* =========================================================
@@ -641,6 +444,10 @@ margin-bottom:16px;
 font-family:"Orbitron",sans-serif;
 }
 
+.section-title p{
+color:#9aa6c0;
+}
+
 /* =========================================================
 SERVICES
 ========================================================= */
@@ -653,26 +460,91 @@ gap:30px;
 
 .service-card{
 background:#0b1020;
-border-radius:26px;
-padding:38px 32px;
-position:relative;
-overflow:hidden;
+border-radius:28px;
+padding:40px 34px;
 border:1px solid rgba(255,255,255,.05);
 transition:.45s;
+position:relative;
+overflow:hidden;
+}
+
+.service-card::before{
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+background:radial-gradient(circle,#00cfff22,transparent 70%);
+top:-120px;
+right:-120px;
+transition:.5s;
 }
 
 .service-card:hover{
-transform:translateY(-12px) scale(1.02);
+transform:translateY(-14px);
 
 box-shadow:
-0 0 25px #00cfff44,
+0 0 30px #00cfff44,
 0 0 70px #00cfff22;
 }
 
+.service-card:hover::before{
+transform:scale(1.4);
+}
+
 .service-icon{
-font-size:2.5rem;
-margin-bottom:24px;
-filter:drop-shadow(0 0 10px #00cfff);
+width:80px;
+height:80px;
+border-radius:24px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:2rem;
+
+margin-bottom:30px;
+
+animation:floatIcon 3s infinite ease-in-out;
+}
+
+@keyframes floatIcon{
+
+50%{
+transform:translateY(-6px);
+}
+
+}
+
+.service-tech{
+background:linear-gradient(145deg,#00cfff,#0066ff);
+
+box-shadow:
+0 0 25px #00cfff66,
+0 0 45px #00cfff33;
+}
+
+.service-phone{
+background:linear-gradient(145deg,#00fff2,#00cfff);
+
+box-shadow:
+0 0 25px #00fff266,
+0 0 45px #00fff233;
+}
+
+.service-accessories{
+background:linear-gradient(145deg,#8b5cf6,#5b21b6);
+
+box-shadow:
+0 0 25px #8b5cf666,
+0 0 45px #8b5cf633;
+}
+
+.service-tv{
+background:linear-gradient(145deg,#ff0066,#ff6600);
+
+box-shadow:
+0 0 25px #ff006666,
+0 0 45px #ff660033;
 }
 
 .service-card h3{
@@ -696,47 +568,101 @@ font-weight:600;
 CONTACT
 ========================================================= */
 
-.contact-grid{
+.contact-wrapper{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:24px;
-max-width:1100px;
+grid-template-columns:420px 1fr;
+gap:40px;
+max-width:1300px;
 margin:auto;
+align-items:start;
 }
 
-.contact-card{
-background:#0b1020;
-padding:28px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,.05);
-transition:.4s;
+.contact-left{
+display:flex;
+flex-direction:column;
+gap:24px;
 }
 
-.contact-card:hover{
-transform:translateY(-8px);
+.contact-box{
+display:flex;
+align-items:center;
+gap:20px;
+padding:26px;
+border-radius:24px;
+text-decoration:none;
+color:#fff;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,15,30,.95),
+rgba(5,10,20,.95)
+);
+
+border:1px solid rgba(255,255,255,.06);
+
+transition:.45s;
+}
+
+.contact-box:hover{
+transform:translateY(-10px);
 
 box-shadow:
-0 0 25px #00cfff33;
+0 0 25px #00cfff44,
+0 0 50px #00cfff22;
 }
 
-.contact-card a{
-color:#00cfff;
-text-decoration:none;
+.contact-icon{
+min-width:70px;
+height:70px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:1.7rem;
 }
 
-/* =========================================================
-FORM
-========================================================= */
+.whatsapp-icon{
+background:linear-gradient(145deg,#00ff88,#00cc66);
+
+box-shadow:
+0 0 20px #00ff8866;
+}
+
+.facebook-icon{
+background:linear-gradient(145deg,#1877f2,#0059d6);
+
+box-shadow:
+0 0 20px #1877f266;
+}
+
+.email-icon{
+background:linear-gradient(145deg,#00cfff,#0066ff);
+
+box-shadow:
+0 0 20px #00cfff66;
+}
+
+.contact-info h3{
+margin-bottom:6px;
+}
+
+.contact-info p{
+color:#9aa6c0;
+}
 
 .contact-form{
-margin-top:60px;
-max-width:900px;
-margin-inline:auto;
-
-background:#0b1020;
 padding:40px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.05);
+border-radius:32px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,15,30,.95),
+rgba(5,10,20,.95)
+);
+
+border:1px solid rgba(255,255,255,.06);
 }
 
 .form-grid{
@@ -748,27 +674,30 @@ gap:20px;
 .contact-form input,
 .contact-form textarea{
 width:100%;
-padding:18px;
+padding:20px;
 border:none;
 outline:none;
-border-radius:16px;
+border-radius:18px;
 background:#101827;
 color:#fff;
 margin-bottom:20px;
 }
 
 .contact-form textarea{
-height:160px;
+height:190px;
 resize:none;
 }
 
 .contact-form button{
-padding:16px 30px;
+padding:18px 34px;
 border:none;
-border-radius:16px;
+border-radius:18px;
 background:#00cfff;
 font-weight:600;
 cursor:pointer;
+
+box-shadow:
+0 0 25px #00cfff55;
 }
 
 /* =========================================================
@@ -798,7 +727,7 @@ text-align:center;
 grid-template-columns:repeat(2,1fr);
 }
 
-.contact-grid{
+.contact-wrapper{
 grid-template-columns:1fr;
 }
 
@@ -840,7 +769,7 @@ padding:90px 24px;
 }
 
 .loader-title{
-font-size:2rem;
+font-size:2.4rem;
 }
 
 }
@@ -868,51 +797,20 @@ LOADER
 
 <div class="loader" id="loader">
 
-<div class="loader-background"></div>
-<div class="loader-scan"></div>
-<div class="loader-noise"></div>
-<div class="loader-particles"></div>
-
 <div class="loader-door left"></div>
 <div class="loader-door right"></div>
 
 <div class="loader-content">
 
 <h1 class="loader-title">
-
-<span>L</span>
-<span>C</span>
+LC ONE PLAYER
+</h1>
 
 <div class="loader-line"></div>
-
-<span>O</span>
-<span>N</span>
-<span>E</span>
-
-<span>P</span>
-<span>L</span>
-<span>A</span>
-<span>Y</span>
-<span>E</span>
-<span>R</span>
-
-</h1>
 
 <p class="loader-sub">
 TECNOLOGÍA
 </p>
-
-<div class="loader-loading">
-
-<div class="loader-bar">
-<div class="loader-progress"></div>
-</div>
-
-<p class="loader-status" id="loaderStatus">
-INICIANDO SISTEMA...
-</p>
-
-</div>
 
 </div>
 
@@ -963,17 +861,24 @@ Tecnología con presencia real.
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital
-con diseño moderno, atención clara y una identidad visual premium.
+con identidad moderna, profesional y visual premium.
 </p>
 
 <div class="hero-buttons">
 
-<a href="https://wa.me/5492634722710" target="_blank" class="btn btn-primary">
+<a href="https://wa.me/5492634722710"
+target="_blank"
+class="btn btn-primary">
+
 WhatsApp
+
 </a>
 
-<a href="#servicios" class="btn btn-outline">
-Explorar
+<a href="#servicios"
+class="btn btn-outline">
+
+Explorar servicios
+
 </a>
 
 </div>
@@ -1000,15 +905,23 @@ SERVICIOS
 
 <h2>Servicios</h2>
 
+<p>
+Todo organizado como una página profesional real.
+</p>
+
 </div>
 
 <div class="services-grid">
 
 <div class="service-card">
 
-<div class="service-icon">🛠️</div>
+<div class="service-icon service-tech">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+</div>
 
-<h3>Servicio Técnico</h3>
+<h3>
+Servicio Técnico
+</h3>
 
 <p>
 Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
@@ -1022,9 +935,13 @@ VER SERVICIO →
 
 <div class="service-card">
 
-<div class="service-icon">📲</div>
+<div class="service-icon service-phone">
+<i class="fa-solid fa-mobile-screen-button"></i>
+</div>
 
-<h3>Venta</h3>
+<h3>
+Venta
+</h3>
 
 <p>
 Celulares nuevos y usados seleccionados con soporte y atención personalizada.
@@ -1038,9 +955,13 @@ VER EQUIPOS →
 
 <div class="service-card">
 
-<div class="service-icon">🎮</div>
+<div class="service-icon service-accessories">
+<i class="fa-solid fa-headphones"></i>
+</div>
 
-<h3>Accesorios</h3>
+<h3>
+Accesorios
+</h3>
 
 <p>
 Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
@@ -1054,9 +975,13 @@ VER ACCESORIOS →
 
 <div class="service-card">
 
-<div class="service-icon">📺</div>
+<div class="service-icon service-tv">
+<i class="fa-solid fa-tv"></i>
+</div>
 
-<h3>Entretenimiento Familiar</h3>
+<h3>
+Entretenimiento Familiar
+</h3>
 
 <p>
 TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
@@ -1082,71 +1007,93 @@ CONTACTO
 
 <h2>Contacto</h2>
 
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-
-<h3>WHATSAPP</h3>
-
-<a href="https://wa.me/5492634722710" target="_blank">
-+54 9 2634 722710
-</a>
-
-</div>
-
-<div class="contact-card">
-
-<h3>FACEBOOK</h3>
-
-<a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank">
-LC ONE PLAYER
-</a>
-
-</div>
-
-<div class="contact-card">
-
-<h3>EMAIL</h3>
-
-<a href="mailto:lc.technology.ar@gmail.com">
-lc.technology.ar@gmail.com
-</a>
-
-</div>
-
-<div class="contact-card">
-
-<h3>UBICACIÓN</h3>
-
 <p>
-Mendoza, Argentina
+Canales directos y formulario rápido.
 </p>
 
 </div>
+
+<div class="contact-wrapper">
+
+<div class="contact-left">
+
+<a href="https://wa.me/5492634722710"
+target="_blank"
+class="contact-box">
+
+<div class="contact-icon whatsapp-icon">
+<i class="fa-brands fa-whatsapp"></i>
+</div>
+
+<div class="contact-info">
+<h3>WHATSAPP</h3>
+<p>+54 9 2634 722710</p>
+</div>
+
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=61587322059733"
+target="_blank"
+class="contact-box">
+
+<div class="contact-icon facebook-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</div>
+
+<div class="contact-info">
+<h3>FACEBOOK</h3>
+<p>LC ONE PLAYER</p>
+</div>
+
+</a>
+
+<a href="mailto:lc.technology.ar@gmail.com"
+class="contact-box">
+
+<div class="contact-icon email-icon">
+<i class="fa-solid fa-envelope"></i>
+</div>
+
+<div class="contact-info">
+<h3>EMAIL</h3>
+<p>lc.technology.ar@gmail.com</p>
+</div>
+
+</a>
 
 </div>
 
 <div class="contact-form">
 
-<form action="https://formsubmit.co/lc.technology.ar@gmail.com" method="POST">
+<form action="https://formsubmit.co/lc.technology.ar@gmail.com"
+method="POST">
 
 <div class="form-grid">
 
-<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="text"
+name="nombre"
+placeholder="Nombre"
+required>
 
-<input type="email" name="email" placeholder="Correo electrónico" required>
+<input type="email"
+name="email"
+placeholder="Correo electrónico"
+required>
 
 </div>
 
-<textarea name="mensaje" placeholder="Mensaje" required></textarea>
+<textarea
+name="mensaje"
+placeholder="Escribí tu mensaje..."
+required></textarea>
 
 <button type="submit">
 Enviar mensaje
 </button>
 
 </form>
+
+</div>
 
 </div>
 
@@ -1182,45 +1129,11 @@ LOADER
 
 window.addEventListener("load",()=>{
 
-const loader = document.getElementById("loader");
-
-const status = document.getElementById("loaderStatus");
-
-const texts = [
-"INICIANDO SISTEMA...",
-"CARGANDO INTERFAZ...",
-"OPTIMIZANDO EFECTOS...",
-"VERIFICANDO SERVICIOS...",
-"BIENVENIDO A LC ONE PLAYER"
-];
-
-let i = 0;
-
-const interval = setInterval(()=>{
-
-i++;
-
-if(i < texts.length){
-
-status.innerText = texts[i];
-
-}
-
-},700);
-
 setTimeout(()=>{
 
-clearInterval(interval);
+document.getElementById("loader").classList.add("hide");
 
-loader.classList.add("hide");
-
-setTimeout(()=>{
-
-loader.style.display="none";
-
-},1800);
-
-},4700);
+},3200);
 
 });
 
