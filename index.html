@@ -7,9 +7,11 @@
 
 <title>LC ONE PLAYER | Tecnología</title>
 
-<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
+<meta name="description"
+content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -50,9 +52,9 @@ BACKGROUND
 .bg-animation{
 position:fixed;
 inset:0;
-z-index:-10;
+z-index:-20;
 overflow:hidden;
-animation:hueRotate 14s linear infinite;
+animation:hueRotate 18s linear infinite;
 }
 
 @keyframes hueRotate{
@@ -72,22 +74,22 @@ position:absolute;
 border-radius:50%;
 filter:blur(120px);
 opacity:.25;
-animation:float 16s infinite alternate;
+animation:float 14s infinite alternate;
 }
 
 .light1{
-width:500px;
-height:500px;
+width:520px;
+height:520px;
 background:#00cfff;
-top:-100px;
-left:-100px;
+top:-120px;
+left:-120px;
 }
 
 .light2{
 width:450px;
 height:450px;
-background:#0066ff;
-bottom:-120px;
+background:#004cff;
+bottom:-100px;
 right:-100px;
 }
 
@@ -95,8 +97,8 @@ right:-100px;
 width:350px;
 height:350px;
 background:#00fff2;
-top:40%;
-left:50%;
+top:45%;
+left:45%;
 }
 
 @keyframes float{
@@ -106,9 +108,27 @@ transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(120px,-80px) scale(1.2);
+transform:translate(120px,-90px) scale(1.3);
 }
 
+}
+
+/* =========================================================
+CURSOR
+========================================================= */
+
+.cursor{
+width:18px;
+height:18px;
+border-radius:50%;
+background:#00cfff;
+position:fixed;
+pointer-events:none;
+z-index:999999;
+transform:translate(-50%,-50%);
+box-shadow:
+0 0 20px #00cfff,
+0 0 50px #00cfff;
 }
 
 /* =========================================================
@@ -138,8 +158,8 @@ top:0;
 width:50%;
 height:100%;
 background:#05070d;
-z-index:5;
 transition:1.8s cubic-bezier(.77,0,.18,1);
+z-index:5;
 }
 
 .loader-door.left{
@@ -169,13 +189,13 @@ text-align:center;
 .loader-title{
 font-family:"Orbitron",sans-serif;
 font-size:5rem;
-letter-spacing:8px;
+letter-spacing:10px;
 
 text-shadow:
-0 0 20px #00cfff,
-0 0 50px #00cfff;
+0 0 25px #00cfff,
+0 0 60px #00cfff;
 
-animation:pulse 2s infinite;
+animation:loaderPulse 2s infinite;
 }
 
 .loader-line{
@@ -187,9 +207,9 @@ border-radius:20px;
 
 box-shadow:
 0 0 20px #00cfff,
-0 0 40px #00cfff;
+0 0 50px #00cfff;
 
-animation:lineGrow 2.5s forwards;
+animation:loaderLine 2.4s forwards;
 }
 
 .loader-sub{
@@ -198,7 +218,7 @@ color:#9aa6c0;
 font-size:.95rem;
 }
 
-@keyframes pulse{
+@keyframes loaderPulse{
 
 0%{
 transform:scale(1);
@@ -206,7 +226,7 @@ opacity:.7;
 }
 
 50%{
-transform:scale(1.05);
+transform:scale(1.08);
 opacity:1;
 }
 
@@ -217,10 +237,10 @@ opacity:.7;
 
 }
 
-@keyframes lineGrow{
+@keyframes loaderLine{
 
 100%{
-width:280px;
+width:300px;
 }
 
 }
@@ -235,13 +255,19 @@ top:0;
 left:0;
 width:100%;
 height:95px;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 padding:0 50px;
-background:rgba(5,7,13,.75);
-backdrop-filter:blur(14px);
+
+background:rgba(5,7,13,.7);
+
+backdrop-filter:blur(15px);
+
 border-bottom:1px solid rgba(255,255,255,.05);
+
 z-index:999;
 }
 
@@ -268,15 +294,61 @@ align-items:center;
 font-family:"Orbitron",sans-serif;
 font-size:1.6rem;
 font-weight:700;
+
 color:#fff;
 
 background:#09111f;
+
+position:relative;
+
+overflow:hidden;
 
 box-shadow:
 0 0 25px #00cfff66,
 0 0 60px #00cfff33;
 
-animation:logoGlow 3s infinite alternate;
+animation:logoGlow 4s infinite alternate;
+}
+
+.logo-icon::before{
+content:"";
+position:absolute;
+width:220%;
+height:220%;
+
+background:
+conic-gradient(
+transparent,
+#00cfff,
+transparent,
+#00fff2,
+transparent,
+#0066ff,
+transparent
+);
+
+animation:rotate 5s linear infinite;
+}
+
+.logo-icon::after{
+content:"";
+position:absolute;
+inset:2px;
+border-radius:18px;
+background:#09111f;
+}
+
+.logo-icon span{
+position:relative;
+z-index:2;
+}
+
+@keyframes rotate{
+
+100%{
+transform:rotate(360deg);
+}
+
 }
 
 @keyframes logoGlow{
@@ -295,10 +367,6 @@ flex-direction:column;
 justify-content:center;
 position:relative;
 }
-
-/* =========================================================
-LC ONE PLAYER
-========================================================= */
 
 .logo-text h1{
 
@@ -330,17 +398,11 @@ background-size:300%;
 
 animation:logoTextFlow 6s linear infinite;
 
-position:relative;
-
 text-shadow:
 0 0 10px rgba(0,207,255,.4),
 0 0 20px rgba(0,207,255,.3);
 
 }
-
-/* =========================================================
-TECNOLOGIA
-========================================================= */
 
 .logo-text p{
 
@@ -356,8 +418,6 @@ color:#9aefff;
 
 font-style:italic;
 
-position:relative;
-
 animation:techPulse 3s ease-in-out infinite;
 
 text-shadow:
@@ -365,10 +425,6 @@ text-shadow:
 0 0 20px #00cfff55;
 
 }
-
-/* =========================================================
-LINEA ANIMADA
-========================================================= */
 
 .logo-text::after{
 
@@ -401,13 +457,7 @@ box-shadow:
 0 0 12px #00cfff,
 0 0 25px #00cfff;
 
-opacity:.9;
-
 }
-
-/* =========================================================
-ANIMACIONES LOGO
-========================================================= */
 
 @keyframes logoTextFlow{
 
@@ -509,7 +559,7 @@ align-items:center;
 }
 
 .hero-text h2{
-font-size:4rem;
+font-size:4.1rem;
 line-height:1.1;
 margin-bottom:25px;
 font-family:"Orbitron",sans-serif;
@@ -541,7 +591,9 @@ transition:.35s;
 .btn-primary{
 background:#00cfff;
 color:#000;
-box-shadow:0 0 30px #00cfff55;
+
+box-shadow:
+0 0 30px #00cfff55;
 }
 
 .btn-primary:hover{
@@ -560,8 +612,8 @@ justify-content:center;
 }
 
 .hero-image img{
-width:420px;
-height:420px;
+width:430px;
+height:430px;
 border-radius:50%;
 object-fit:cover;
 
@@ -608,8 +660,10 @@ background:#0b1020;
 border-radius:28px;
 padding:42px 34px;
 border:1px solid rgba(255,255,255,.05);
+
 position:relative;
 overflow:hidden;
+
 transition:.5s;
 }
 
@@ -629,6 +683,7 @@ transparent 70%
 
 top:-160px;
 right:-160px;
+
 transition:.6s;
 }
 
@@ -637,6 +692,7 @@ transform:scale(1.5);
 }
 
 .service-card:hover{
+
 transform:
 translateY(-14px)
 scale(1.03);
@@ -650,21 +706,27 @@ box-shadow:
 }
 
 /* =========================================================
-ICON BASE
+SERVICE ICONS
 ========================================================= */
 
 .service-icon{
 width:92px;
 height:92px;
 border-radius:30px;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-size:2.2rem;
+
 margin-bottom:32px;
+
 position:relative;
 overflow:hidden;
+
 animation:iconFloat 4s ease-in-out infinite;
+
 border:1px solid rgba(255,255,255,.08);
 }
 
@@ -722,10 +784,6 @@ position:relative;
 z-index:2;
 }
 
-/* =========================================================
-ICON COLORS
-========================================================= */
-
 .tech-icon{
 background:linear-gradient(145deg,#00cfff,#004cff);
 }
@@ -741,10 +799,6 @@ background:linear-gradient(145deg,#a855f7,#6d28d9);
 .tv-icon{
 background:linear-gradient(145deg,#ff0055,#ff6600);
 }
-
-/* =========================================================
-TEXTS
-========================================================= */
 
 .service-card h3{
 font-size:1.2rem;
@@ -764,7 +818,7 @@ font-weight:600;
 }
 
 /* =========================================================
-CONTACT
+CONTACTO
 ========================================================= */
 
 .contact-wrapper{
@@ -814,9 +868,11 @@ box-shadow:
 min-width:70px;
 height:70px;
 border-radius:20px;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-size:1.7rem;
 }
 
@@ -906,6 +962,21 @@ line-height:2;
 }
 
 /* =========================================================
+REVEAL
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =========================================================
 RESPONSIVE
 ========================================================= */
 
@@ -945,7 +1016,7 @@ padding:150px 24px 80px;
 }
 
 .hero-text h2{
-font-size:2.8rem;
+font-size:2.7rem;
 }
 
 .hero-image img{
@@ -962,7 +1033,7 @@ padding:90px 24px;
 }
 
 .loader-title{
-font-size:2.5rem;
+font-size:2.6rem;
 }
 
 }
@@ -971,6 +1042,16 @@ font-size:2.5rem;
 </head>
 
 <body>
+
+<!-- =========================================================
+CURSOR
+========================================================= -->
+
+<div class="cursor" id="cursor"></div>
+
+<!-- =========================================================
+BACKGROUND
+========================================================= -->
 
 <div class="bg-animation">
 
@@ -1014,7 +1095,7 @@ HEADER
 <a href="#inicio" class="logo">
 
 <div class="logo-icon">
-LC
+<span>LC</span>
 </div>
 
 <div class="logo-text">
@@ -1045,7 +1126,7 @@ HERO
 
 <div class="hero-content">
 
-<div class="hero-text">
+<div class="hero-text reveal">
 
 <h2>
 Tecnología con presencia real.
@@ -1077,7 +1158,7 @@ Explorar servicios
 
 </div>
 
-<div class="hero-image">
+<div class="hero-image reveal">
 
 <img src="mioo.png" alt="LC ONE PLAYER">
 
@@ -1086,6 +1167,320 @@ Explorar servicios
 </div>
 
 </section>
+
+<!-- =========================================================
+SERVICIOS
+========================================================= -->
+
+<section id="servicios">
+
+<div class="section-title reveal">
+
+<h2>
+Servicios
+</h2>
+
+<p>
+Soluciones modernas para celulares, tecnología y entretenimiento.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card reveal">
+
+<div class="service-icon tech-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-screwdriver-wrench"></i>
+
+</div>
+
+<h3>
+Servicio Técnico
+</h3>
+
+<p>
+Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
+</p>
+
+<a href="servicio.html">
+VER SERVICIO →
+</a>
+
+</div>
+
+<div class="service-card reveal">
+
+<div class="service-icon venta-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+</div>
+
+<h3>
+Venta
+</h3>
+
+<p>
+Celulares nuevos y usados seleccionados con soporte y atención personalizada.
+</p>
+
+<a href="venta.html">
+VER EQUIPOS →
+</a>
+
+</div>
+
+<div class="service-card reveal">
+
+<div class="service-icon accesorios-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-headphones-simple"></i>
+
+</div>
+
+<h3>
+Accesorios
+</h3>
+
+<p>
+Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
+</p>
+
+<a href="accesorios.html">
+VER ACCESORIOS →
+</a>
+
+</div>
+
+<div class="service-card reveal">
+
+<div class="service-icon tv-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-tv"></i>
+
+</div>
+
+<h3>
+Entretenimiento Familiar
+</h3>
+
+<p>
+TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
+</p>
+
+<a href="tv-digital.html">
+VER MÁS →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+CONTACTO
+========================================================= -->
+
+<section id="contacto">
+
+<div class="section-title reveal">
+
+<h2>
+Contacto
+</h2>
+
+<p>
+Canales rápidos y directos.
+</p>
+
+</div>
+
+<div class="contact-wrapper">
+
+<div class="contact-left">
+
+<a href="https://wa.me/5492634722710"
+target="_blank"
+class="contact-box reveal">
+
+<div class="contact-icon whatsapp-icon">
+<i class="fa-brands fa-whatsapp"></i>
+</div>
+
+<div class="contact-info">
+
+<h3>
+WHATSAPP
+</h3>
+
+<p>
++54 9 2634 722710
+</p>
+
+</div>
+
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=61587322059733"
+target="_blank"
+class="contact-box reveal">
+
+<div class="contact-icon facebook-icon">
+<i class="fa-brands fa-facebook-f"></i>
+</div>
+
+<div class="contact-info">
+
+<h3>
+FACEBOOK
+</h3>
+
+<p>
+LC ONE PLAYER
+</p>
+
+</div>
+
+</a>
+
+<a href="mailto:lc.technology.ar@gmail.com"
+class="contact-box reveal">
+
+<div class="contact-icon email-icon">
+<i class="fa-solid fa-envelope"></i>
+</div>
+
+<div class="contact-info">
+
+<h3>
+EMAIL
+</h3>
+
+<p>
+lc.technology.ar@gmail.com
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+<div class="contact-form reveal">
+
+<form>
+
+<div class="form-grid">
+
+<input type="text" placeholder="Nombre">
+
+<input type="email" placeholder="Correo electrónico">
+
+</div>
+
+<textarea placeholder="Mensaje"></textarea>
+
+<button type="submit">
+Enviar mensaje
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer>
+
+© LC ONE PLAYER
+
+<br><br>
+
+Servicio Técnico · Venta · Accesorios · Entretenimiento Familiar
+
+<br><br>
+
+Mendoza, Argentina
+
+</footer>
+
+<!-- =========================================================
+SCRIPTS
+========================================================= -->
+
+<script>
+
+/* =========================================================
+LOADER
+========================================================= */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").classList.add("hide");
+
+},2600);
+
+});
+
+/* =========================================================
+REVEAL
+========================================================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealElements(){
+
+reveals.forEach(el=>{
+
+const top = el.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 80){
+
+el.classList.add("active");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",revealElements);
+
+window.addEventListener("load",revealElements);
+
+/* =========================================================
+CURSOR
+========================================================= */
+
+const cursor = document.getElementById("cursor");
+
+window.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+</script>
 
 </body>
 </html>
