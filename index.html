@@ -7,9 +7,12 @@
 
 <title>LC ONE PLAYER | Tecnología</title>
 
-<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
+<meta name="description" content="LC ONE PLAYER - Servicio técnico, venta, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 
@@ -37,19 +40,7 @@ position:relative;
 }
 
 /* =========================================================
-VARIABLES
-========================================================= */
-
-:root{
-
---main1:#00cfff;
---main2:#00fff2;
---main3:#0066ff;
-
-}
-
-/* =========================================================
-BACKGROUND
+BACKGROUND ANIMATION
 ========================================================= */
 
 .bg-animation{
@@ -57,17 +48,17 @@ position:fixed;
 inset:0;
 z-index:-10;
 overflow:hidden;
-animation:hueRotate 14s linear infinite;
+animation:bgShift 12s infinite alternate;
 }
 
-@keyframes hueRotate{
+@keyframes bgShift{
 
 0%{
 filter:hue-rotate(0deg);
 }
 
 100%{
-filter:hue-rotate(360deg);
+filter:hue-rotate(120deg);
 }
 
 }
@@ -75,75 +66,45 @@ filter:hue-rotate(360deg);
 .light{
 position:absolute;
 border-radius:50%;
-filter:blur(130px);
-opacity:.40;
-animation:move 16s infinite alternate;
+filter:blur(120px);
+opacity:.25;
+animation:float 18s infinite alternate;
 }
 
 .light1{
-width:600px;
-height:600px;
+width:500px;
+height:500px;
 background:#00cfff;
-top:-200px;
-left:-150px;
+top:-120px;
+left:-120px;
 }
 
 .light2{
-width:500px;
-height:500px;
+width:450px;
+height:450px;
 background:#0066ff;
-bottom:-150px;
-right:-120px;
-animation-duration:20s;
+bottom:-100px;
+right:-100px;
 }
 
 .light3{
-width:450px;
-height:450px;
+width:350px;
+height:350px;
 background:#00fff2;
-top:35%;
-left:40%;
-animation-duration:12s;
+top:40%;
+left:45%;
 }
 
-@keyframes move{
+@keyframes float{
 
 0%{
 transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(120px,-90px) scale(1.2);
+transform:translate(120px,-80px) scale(1.2);
 }
 
-}
-
-/* =========================================================
-CURSOR
-========================================================= */
-
-.cursor{
-position:fixed;
-width:22px;
-height:22px;
-border:2px solid #00cfff;
-border-radius:50%;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:999999;
-box-shadow:
-0 0 20px #00cfff,
-0 0 45px #00cfff;
-transition:
-width .2s,
-height .2s,
-background .2s;
-}
-
-.cursor.active{
-width:45px;
-height:45px;
-background:#00cfff22;
 }
 
 /* =========================================================
@@ -154,58 +115,62 @@ LOADER
 position:fixed;
 inset:0;
 background:#05070d;
+z-index:999999;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
-z-index:999999;
-transition:1.2s;
+transition:1s;
 }
 
-.loader-left,
-.loader-right{
+.loader.hide{
+opacity:0;
+pointer-events:none;
+}
+
+.loader-split{
 position:absolute;
 top:0;
 width:50%;
 height:100%;
 background:#05070d;
-z-index:2;
-transition:1.4s cubic-bezier(.77,0,.18,1);
+transition:1.2s ease;
 }
 
-.loader-left{
+.loader-split.left{
 left:0;
 border-right:1px solid #00cfff22;
 }
 
-.loader-right{
+.loader-split.right{
 right:0;
 border-left:1px solid #00cfff22;
 }
 
-.loader.hide .loader-left{
+.loader.hide .left{
 transform:translateX(-100%);
 }
 
-.loader.hide .loader-right{
+.loader.hide .right{
 transform:translateX(100%);
 }
 
 .loader-center{
-position:relative;
-z-index:5;
 font-family:"Orbitron",sans-serif;
-font-size:3rem;
-letter-spacing:5px;
+font-size:2.6rem;
+letter-spacing:6px;
 color:#fff;
-text-shadow:0 0 30px #00cfff;
+z-index:2;
+text-shadow:
+0 0 20px #00cfff,
+0 0 50px #00cfff;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 
 0%{
-opacity:.5;
+opacity:.6;
 transform:scale(.95);
 }
 
@@ -215,7 +180,7 @@ transform:scale(1);
 }
 
 100%{
-opacity:.5;
+opacity:.6;
 transform:scale(.95);
 }
 
@@ -230,15 +195,15 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-height:95px;
+height:90px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:0 55px;
-background:rgba(5,7,13,.72);
-backdrop-filter:blur(14px);
+padding:0 50px;
+background:rgba(5,7,13,.75);
+backdrop-filter:blur(15px);
 border-bottom:1px solid rgba(255,255,255,.05);
-z-index:9999;
+z-index:999;
 }
 
 /* =========================================================
@@ -248,27 +213,24 @@ LOGO
 .logo{
 display:flex;
 align-items:center;
-gap:18px;
+gap:16px;
 text-decoration:none;
 }
 
 .logo-box{
-width:68px;
-height:68px;
-border-radius:20px;
+width:65px;
+height:65px;
+border-radius:18px;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:"Orbitron",sans-serif;
-font-size:1.6rem;
-font-weight:700;
-color:#fff;
 position:relative;
 overflow:hidden;
 background:#09111f;
+border:1px solid rgba(255,255,255,.08);
 box-shadow:
 0 0 25px #00cfff66,
-0 0 50px #00cfff22;
+0 0 60px #00cfff22;
 }
 
 .logo-box::before{
@@ -293,12 +255,16 @@ content:"";
 position:absolute;
 inset:2px;
 background:#09111f;
-border-radius:18px;
+border-radius:16px;
 }
 
 .logo-box span{
 position:relative;
-z-index:3;
+z-index:2;
+font-family:"Orbitron",sans-serif;
+font-size:1.4rem;
+font-weight:700;
+color:#fff;
 }
 
 @keyframes rotate{
@@ -319,14 +285,12 @@ justify-content:center;
 font-family:"Orbitron",sans-serif;
 font-size:1rem;
 font-style:italic;
-letter-spacing:1px;
 }
 
 .logo-text p{
-font-size:.90rem;
+font-size:.82rem;
+color:#9aa6c0;
 font-style:italic;
-margin-top:2px;
-color:#c7d3ea;
 }
 
 /* =========================================================
@@ -335,7 +299,7 @@ NAV
 
 nav{
 display:flex;
-gap:40px;
+gap:35px;
 }
 
 nav a{
@@ -344,10 +308,6 @@ color:#fff;
 font-size:.95rem;
 position:relative;
 transition:.3s;
-}
-
-nav a:hover{
-color:#00cfff;
 }
 
 nav a::after{
@@ -362,46 +322,12 @@ transition:.3s;
 box-shadow:0 0 15px #00cfff;
 }
 
+nav a:hover{
+color:#00cfff;
+}
+
 nav a:hover::after{
 width:100%;
-}
-
-/* =========================================================
-MENU MOBILE
-========================================================= */
-
-.menu-btn{
-display:none;
-font-size:2rem;
-cursor:pointer;
-}
-
-.mobile-menu{
-position:fixed;
-top:95px;
-right:-100%;
-width:280px;
-height:calc(100vh - 95px);
-background:#08101c;
-padding:35px 24px;
-display:flex;
-flex-direction:column;
-gap:22px;
-transition:.5s;
-z-index:999;
-border-left:1px solid rgba(255,255,255,.05);
-}
-
-.mobile-menu.active{
-right:0;
-}
-
-.mobile-menu a{
-text-decoration:none;
-color:#fff;
-padding:15px;
-border-radius:14px;
-background:#10192d;
 }
 
 /* =========================================================
@@ -412,23 +338,23 @@ HERO
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:150px 60px 80px;
+padding:160px 60px 100px;
 }
 
 .hero-content{
-max-width:1400px;
+max-width:1350px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:90px;
+gap:80px;
 align-items:center;
 }
 
 .hero-text h2{
-font-size:4.5rem;
+font-size:4.3rem;
 line-height:1.1;
-margin-bottom:28px;
 font-family:"Orbitron",sans-serif;
+margin-bottom:24px;
 }
 
 .hero-text p{
@@ -446,70 +372,76 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 34px;
-border-radius:18px;
+padding:16px 32px;
+border-radius:16px;
 text-decoration:none;
 font-weight:600;
-transition:.4s;
+transition:.35s;
 }
 
 .btn-primary{
 background:#00cfff;
 color:#000;
-box-shadow:0 0 30px #00cfff55;
+box-shadow:0 0 35px #00cfff55;
 }
 
 .btn-primary:hover{
 transform:translateY(-6px);
-box-shadow:0 0 45px #00cfff;
+box-shadow:0 0 55px #00cfff;
 }
 
 .btn-outline{
-background:#0b1020;
 border:1px solid rgba(255,255,255,.08);
+background:#0b1020;
 color:#fff;
 }
 
 .btn-outline:hover{
-background:#141e33;
+background:#121b2f;
 }
 
 /* =========================================================
-IMAGEN
+IMAGE
 ========================================================= */
 
 .hero-image{
 display:flex;
 justify-content:center;
-align-items:center;
+position:relative;
 }
 
 .hero-image img{
-width:430px;
-height:430px;
+width:420px;
+height:420px;
 border-radius:50%;
 object-fit:cover;
+position:relative;
+z-index:2;
 box-shadow:
 0 0 40px #00cfff55,
-0 0 90px #00cfff33,
-0 0 120px #00fff233;
-animation:imgGlow 6s linear infinite;
+0 0 80px #00cfff22,
+0 0 120px #0066ff22;
+animation:imageGlow 5s infinite alternate;
 }
 
-@keyframes imgGlow{
+@keyframes imageGlow{
 
 0%{
-filter:hue-rotate(0deg);
+box-shadow:
+0 0 30px #00cfff55,
+0 0 60px #00cfff22;
 }
 
 100%{
-filter:hue-rotate(360deg);
+box-shadow:
+0 0 50px #00fff277,
+0 0 120px #0066ff44;
 }
 
 }
 
 /* =========================================================
-SECTIONS
+SECTION
 ========================================================= */
 
 section{
@@ -522,9 +454,9 @@ margin-bottom:80px;
 }
 
 .section-title h2{
-font-size:2.9rem;
+font-size:2.7rem;
 font-family:"Orbitron",sans-serif;
-margin-bottom:18px;
+margin-bottom:16px;
 }
 
 .section-title p{
@@ -532,7 +464,7 @@ color:#9aa6c0;
 }
 
 /* =========================================================
-SERVICIOS
+SERVICES
 ========================================================= */
 
 .services-grid{
@@ -544,204 +476,136 @@ gap:30px;
 .service-card{
 background:#0b1020;
 border-radius:28px;
-padding:42px 34px;
+padding:40px 32px;
 position:relative;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.06);
+text-decoration:none;
+color:#fff;
+border:1px solid rgba(255,255,255,.05);
 transition:.45s;
+display:block;
 }
 
 .service-card::before{
 content:"";
 position:absolute;
-inset:-2px;
-border-radius:30px;
-padding:2px;
-background:linear-gradient(
-135deg,
-transparent,
-#00cfff66,
-transparent,
-#00fff244,
-transparent
-);
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
--webkit-mask-composite:xor;
-mask-composite:exclude;
-opacity:0;
+width:300px;
+height:300px;
+background:radial-gradient(circle,#00cfff33,transparent 70%);
+top:-120px;
+right:-120px;
 transition:.5s;
 }
 
-.service-card:hover::before{
-opacity:1;
+.service-card:hover{
+transform:translateY(-12px) scale(1.02);
+border-color:#00cfff88;
+box-shadow:
+0 0 30px #00cfff33,
+0 0 80px #00cfff22;
 }
 
-.service-card:hover{
-transform:translateY(-14px) scale(1.02);
-box-shadow:
-0 0 35px #00cfff22,
-0 0 70px #00cfff11;
+.service-card:hover::before{
+transform:scale(1.3);
 }
 
 .service-icon{
-width:78px;
-height:78px;
-border-radius:24px;
-display:flex;
-justify-content:center;
-align-items:center;
-margin-bottom:28px;
-font-size:2rem;
-background:#10192d;
-border:1px solid rgba(255,255,255,.06);
-box-shadow:
-0 0 25px #00cfff33,
-inset 0 0 25px #00cfff11;
-animation:iconGlow 6s linear infinite;
-}
-
-@keyframes iconGlow{
-
-0%{
-filter:hue-rotate(0deg);
-}
-
-100%{
-filter:hue-rotate(360deg);
-}
-
+font-size:2.6rem;
+margin-bottom:25px;
+color:#00cfff;
+text-shadow:
+0 0 20px #00cfff,
+0 0 40px #00cfff;
 }
 
 .service-card h3{
-font-size:1.3rem;
+font-size:1.2rem;
 margin-bottom:16px;
 }
 
 .service-card p{
-line-height:1.8;
 color:#9aa6c0;
+line-height:1.8;
 margin-bottom:28px;
 }
 
-.service-card a{
-display:inline-flex;
-align-items:center;
-gap:10px;
-text-decoration:none;
+.service-card span{
 color:#00cfff;
 font-weight:600;
-transition:.3s;
-}
-
-.service-card a:hover{
-letter-spacing:1px;
-transform:translateX(6px);
 }
 
 /* =========================================================
-CONTACTO
+CONTACT
 ========================================================= */
 
 .contact-wrapper{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
-max-width:1250px;
+gap:35px;
+max-width:1200px;
 margin:auto;
 }
 
 .contact-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:22px;
+gap:25px;
 }
 
 .contact-card{
 background:#0b1020;
-padding:24px;
+padding:28px;
 border-radius:22px;
-border:1px solid rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.05);
 transition:.4s;
 }
 
 .contact-card:hover{
 transform:translateY(-6px);
-box-shadow:0 0 30px #00cfff22;
-border-color:#00cfff55;
+border-color:#00cfff66;
+box-shadow:0 0 35px #00cfff22;
 }
 
 .contact-card h3{
-margin-bottom:10px;
-font-size:1rem;
+margin-bottom:12px;
 }
 
 .contact-card a{
 color:#00cfff;
 text-decoration:none;
-word-break:break-word;
 }
-
-/* =========================================================
-FORM
-========================================================= */
 
 .contact-form{
 background:#0b1020;
 padding:35px;
-border-radius:26px;
-border:1px solid rgba(255,255,255,.06);
-}
-
-.contact-form h3{
-margin-bottom:24px;
-font-size:1.3rem;
-}
-
-.input-group{
-margin-bottom:20px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.05);
 }
 
 .contact-form input,
 .contact-form textarea{
 width:100%;
+margin-bottom:18px;
 padding:16px;
 border:none;
 outline:none;
-background:#10192d;
-border-radius:16px;
+border-radius:14px;
+background:#111827;
 color:#fff;
 font-family:"Poppins",sans-serif;
-border:1px solid transparent;
-transition:.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-border-color:#00cfff;
-box-shadow:0 0 20px #00cfff22;
-}
-
-.contact-form textarea{
-height:150px;
-resize:none;
 }
 
 .contact-form button{
 width:100%;
 padding:16px;
 border:none;
-border-radius:16px;
+border-radius:14px;
 background:#00cfff;
-color:#000;
-font-weight:700;
+font-weight:600;
 cursor:pointer;
-transition:.4s;
+transition:.3s;
 }
 
 .contact-form button:hover{
-transform:translateY(-4px);
 box-shadow:0 0 35px #00cfff;
 }
 
@@ -750,11 +614,11 @@ FOOTER
 ========================================================= */
 
 footer{
-padding:70px 25px;
+padding:70px 30px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.05);
 color:#9aa6c0;
-line-height:2.1;
+line-height:2;
 }
 
 footer span{
@@ -780,7 +644,20 @@ transform:translateY(0);
 RESPONSIVE
 ========================================================= */
 
-@media(max-width:1200px){
+@media(max-width:1100px){
+
+.hero-content{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero-text p{
+margin:auto auto 35px;
+}
+
+.hero-buttons{
+justify-content:center;
+}
 
 .services-grid{
 grid-template-columns:repeat(2,1fr);
@@ -788,23 +665,6 @@ grid-template-columns:repeat(2,1fr);
 
 .contact-wrapper{
 grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:950px){
-
-.hero-content{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero-buttons{
-justify-content:center;
-}
-
-.hero-text p{
-margin:auto auto 35px;
 }
 
 }
@@ -817,10 +677,6 @@ padding:0 24px;
 
 nav{
 display:none;
-}
-
-.menu-btn{
-display:block;
 }
 
 .hero{
@@ -840,31 +696,18 @@ height:290px;
 grid-template-columns:1fr;
 }
 
-.contact-grid{
-grid-template-columns:1fr;
-}
-
 section{
 padding:90px 24px;
-}
-
-.mobile-menu{
-display:flex;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="cursor" id="cursor"></div>
-
-<!-- =========================================================
-BACKGROUND
-========================================================= -->
+<!-- BACKGROUND -->
 
 <div class="bg-animation">
 
@@ -874,14 +717,12 @@ BACKGROUND
 
 </div>
 
-<!-- =========================================================
-LOADER
-========================================================= -->
+<!-- LOADER -->
 
 <div class="loader" id="loader">
 
-<div class="loader-left"></div>
-<div class="loader-right"></div>
+<div class="loader-split left"></div>
+<div class="loader-split right"></div>
 
 <div class="loader-center">
 LC ONE PLAYER
@@ -889,9 +730,7 @@ LC ONE PLAYER
 
 </div>
 
-<!-- =========================================================
-HEADER
-========================================================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -916,32 +755,9 @@ HEADER
 
 </nav>
 
-<div class="menu-btn" id="menuBtn">
-☰
-</div>
-
 </header>
 
-<!-- =========================================================
-MENU MOBILE
-========================================================= -->
-
-<div class="mobile-menu" id="mobileMenu">
-
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#contacto">Contacto</a>
-
-<a href="servicio.html">Servicio Técnico</a>
-<a href="venta.html">Venta</a>
-<a href="accesorios.html">Accesorios</a>
-<a href="tv-digital.html">Entretenimiento</a>
-
-</div>
-
-<!-- =========================================================
-HERO
-========================================================= -->
+<!-- HERO -->
 
 <section class="hero" id="inicio">
 
@@ -950,22 +766,25 @@ HERO
 <div class="hero-text reveal">
 
 <h2>
-Tecnología moderna,
-visual y profesional.
+Tecnología con identidad,
+presencia y confianza real.
 </h2>
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital
-con una identidad premium, moderna y totalmente profesional.
+con una estética moderna, profesional y llena de vida visual.
 </p>
 
 <div class="hero-buttons">
 
-<a href="https://wa.me/5492634722710" target="_blank" class="btn btn-primary">
+<a href="https://wa.me/5492634722710"
+target="_blank"
+class="btn btn-primary">
 WhatsApp
 </a>
 
-<a href="#servicios" class="btn btn-outline">
+<a href="#servicios"
+class="btn btn-outline">
 Explorar servicios
 </a>
 
@@ -983,32 +802,202 @@ Explorar servicios
 
 </section>
 
+<!-- SERVICIOS -->
+
+<section id="servicios">
+
+<div class="section-title reveal">
+
+<h2>Servicios</h2>
+
+<p>
+Todo organizado de forma moderna, profesional y visualmente premium.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<a href="servicio.html" class="service-card reveal">
+
+<div class="service-icon">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+</div>
+
+<h3>Servicio Técnico</h3>
+
+<p>
+Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
+</p>
+
+<span>VER SERVICIO →</span>
+
+</a>
+
+<a href="venta.html" class="service-card reveal">
+
+<div class="service-icon">
+<i class="fa-solid fa-mobile-screen-button"></i>
+</div>
+
+<h3>Venta</h3>
+
+<p>
+Celulares nuevos y usados seleccionados con soporte y atención personalizada.
+</p>
+
+<span>VER EQUIPOS →</span>
+
+</a>
+
+<a href="accesorios.html" class="service-card reveal">
+
+<div class="service-icon">
+<i class="fa-solid fa-headphones-simple"></i>
+</div>
+
+<h3>Accesorios</h3>
+
+<p>
+Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
+</p>
+
+<span>VER ACCESORIOS →</span>
+
+</a>
+
+<a href="tv-digital.html" class="service-card reveal">
+
+<div class="service-icon">
+<i class="fa-solid fa-tv"></i>
+</div>
+
+<h3>Entretenimiento Familiar</h3>
+
+<p>
+TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
+</p>
+
+<span>VER MÁS →</span>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+<div class="section-title reveal">
+
+<h2>Contacto</h2>
+
+<p>
+Canales directos y rápidos.
+</p>
+
+</div>
+
+<div class="contact-wrapper">
+
+<div class="contact-grid">
+
+<div class="contact-card reveal">
+
+<h3>WHATSAPP</h3>
+
+<a href="https://wa.me/5492634722710" target="_blank">
++54 9 2634 722710
+</a>
+
+</div>
+
+<div class="contact-card reveal">
+
+<h3>FACEBOOK</h3>
+
+<a href="https://www.facebook.com/profile.php?id=61587322059733"
+target="_blank">
+LC ONE PLAYER
+</a>
+
+</div>
+
+<div class="contact-card reveal">
+
+<h3>EMAIL</h3>
+
+<a href="mailto:lc.technology.ar@gmail.com">
+lc.technology.ar@gmail.com
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-form reveal">
+
+<input type="text" placeholder="Nombre">
+
+<input type="email" placeholder="Correo electrónico">
+
+<textarea rows="6" placeholder="Mensaje"></textarea>
+
+<button>
+Enviar mensaje
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<span>
+© LC ONE PLAYER
+</span>
+
+<br>
+
+Servicio Técnico · Venta · Accesorios · Entretenimiento
+
+<br>
+
+Mendoza, Argentina
+
+</footer>
+
+<!-- SCRIPT -->
+
 <script>
 
 /* =========================================================
-LOADER FIX
+LOADER
 ========================================================= */
+
+window.addEventListener("load",()=>{
 
 const loader = document.getElementById("loader");
 
-window.onload = () => {
-
-setTimeout(() => {
+setTimeout(()=>{
 
 loader.classList.add("hide");
 
-loader.style.opacity = "0";
-loader.style.pointerEvents = "none";
+setTimeout(()=>{
 
-setTimeout(() => {
+loader.style.display="none";
 
-loader.style.display = "none";
+},1000);
 
 },1200);
 
-},1600);
-
-};
+});
 
 /* =========================================================
 REVEAL
@@ -1034,58 +1023,6 @@ el.classList.add("active");
 
 window.addEventListener("scroll",revealElements);
 window.addEventListener("load",revealElements);
-
-/* =========================================================
-MENU
-========================================================= */
-
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuBtn.addEventListener("click",()=>{
-
-mobileMenu.classList.toggle("active");
-
-});
-
-document.querySelectorAll(".mobile-menu a").forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-mobileMenu.classList.remove("active");
-
-});
-
-});
-
-/* =========================================================
-CURSOR
-========================================================= */
-
-const cursor = document.getElementById("cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-
-});
-
-document.querySelectorAll("a, button, .service-card").forEach(el=>{
-
-el.addEventListener("mouseenter",()=>{
-
-cursor.classList.add("active");
-
-});
-
-el.addEventListener("mouseleave",()=>{
-
-cursor.classList.remove("active");
-
-});
-
-});
 
 </script>
 
