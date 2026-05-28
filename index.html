@@ -44,7 +44,7 @@ position:relative;
 }
 
 /* =========================================================
-BACKGROUND
+BACKGROUND ANIMATION
 ========================================================= */
 
 .bg-animation{
@@ -71,7 +71,7 @@ filter:hue-rotate(360deg);
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-opacity:.28;
+opacity:.25;
 animation:float 16s infinite alternate;
 }
 
@@ -79,7 +79,7 @@ animation:float 16s infinite alternate;
 width:500px;
 height:500px;
 background:#00cfff;
-top:-120px;
+top:-100px;
 left:-100px;
 }
 
@@ -122,8 +122,8 @@ background:#05070d;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:999999;
 overflow:hidden;
+z-index:999999;
 transition:1.5s;
 }
 
@@ -170,10 +170,32 @@ text-align:center;
 font-family:"Orbitron",sans-serif;
 font-size:5rem;
 letter-spacing:8px;
+
 text-shadow:
 0 0 20px #00cfff,
 0 0 50px #00cfff;
+
 animation:pulse 2s infinite;
+}
+
+.loader-line{
+width:0;
+height:4px;
+background:#00cfff;
+margin:25px auto;
+border-radius:20px;
+
+box-shadow:
+0 0 20px #00cfff,
+0 0 40px #00cfff;
+
+animation:lineGrow 2.5s forwards;
+}
+
+.loader-sub{
+letter-spacing:8px;
+color:#9aa6c0;
+font-size:.95rem;
 }
 
 @keyframes pulse{
@@ -195,33 +217,12 @@ opacity:.7;
 
 }
 
-.loader-line{
-width:0;
-height:4px;
-background:#00cfff;
-margin:25px auto;
-border-radius:20px;
-
-box-shadow:
-0 0 20px #00cfff,
-0 0 40px #00cfff;
-
-animation:lineGrow 2.5s forwards;
-}
-
 @keyframes lineGrow{
 
 100%{
 width:280px;
 }
 
-}
-
-.loader-sub{
-letter-spacing:8px;
-color:#9aa6c0;
-font-size:.95rem;
-margin-top:10px;
 }
 
 /* =========================================================
@@ -259,6 +260,7 @@ text-decoration:none;
 width:68px;
 height:68px;
 border-radius:20px;
+
 display:flex;
 justify-content:center;
 align-items:center;
@@ -426,7 +428,7 @@ box-shadow:
 }
 
 /* =========================================================
-SECTIONS
+SECTION
 ========================================================= */
 
 section{
@@ -455,97 +457,203 @@ SERVICES
 .services-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:30px;
+gap:32px;
 }
 
 .service-card{
 background:#0b1020;
 border-radius:28px;
-padding:40px 34px;
+padding:42px 34px;
+
 border:1px solid rgba(255,255,255,.05);
-transition:.45s;
+
 position:relative;
 overflow:hidden;
+
+transition:.5s;
 }
 
 .service-card::before{
 content:"";
+
 position:absolute;
-width:250px;
-height:250px;
-background:radial-gradient(circle,#00cfff22,transparent 70%);
-top:-120px;
-right:-120px;
-transition:.5s;
-}
 
-.service-card:hover{
-transform:translateY(-14px);
+width:320px;
+height:320px;
 
-box-shadow:
-0 0 30px #00cfff44,
-0 0 70px #00cfff22;
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(0,207,255,.18),
+transparent 70%
+);
+
+top:-160px;
+right:-160px;
+
+transition:.6s;
 }
 
 .service-card:hover::before{
-transform:scale(1.4);
+transform:scale(1.5);
 }
 
+.service-card:hover{
+
+transform:
+translateY(-14px)
+scale(1.03);
+
+border-color:#00cfff55;
+
+box-shadow:
+0 0 30px #00cfff55,
+0 0 70px #00cfff22,
+0 0 120px #00cfff11;
+}
+
+/* =========================================================
+ICON BASE
+========================================================= */
+
 .service-icon{
-width:80px;
-height:80px;
-border-radius:24px;
+width:92px;
+height:92px;
+
+border-radius:30px;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-size:2rem;
+font-size:2.2rem;
 
-margin-bottom:30px;
+margin-bottom:32px;
 
-animation:floatIcon 3s infinite ease-in-out;
+position:relative;
+overflow:hidden;
+
+animation:iconFloat 4s ease-in-out infinite;
+
+border:1px solid rgba(255,255,255,.08);
 }
 
-@keyframes floatIcon{
+@keyframes iconFloat{
+
+0%{
+transform:translateY(0px);
+}
 
 50%{
-transform:translateY(-6px);
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
 }
 
 }
 
-.service-tech{
-background:linear-gradient(145deg,#00cfff,#0066ff);
+.icon-glow{
+position:absolute;
+
+width:180%;
+height:180%;
+
+background:
+conic-gradient(
+transparent,
+rgba(255,255,255,.9),
+transparent,
+transparent
+);
+
+animation:rotateGlow 4s linear infinite;
+}
+
+@keyframes rotateGlow{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+.service-icon::after{
+content:"";
+
+position:absolute;
+inset:2px;
+
+border-radius:28px;
+
+background:#0b1020;
+
+z-index:1;
+}
+
+.service-icon i{
+position:relative;
+z-index:2;
+}
+
+/* =========================================================
+ICON COLORS
+========================================================= */
+
+.tech-icon{
+background:linear-gradient(145deg,#00cfff,#004cff);
 
 box-shadow:
-0 0 25px #00cfff66,
-0 0 45px #00cfff33;
+0 0 25px #00cfff88,
+0 0 55px #00cfff33;
 }
 
-.service-phone{
+.tech-icon i{
+color:#8aefff;
+}
+
+.venta-icon{
 background:linear-gradient(145deg,#00fff2,#00cfff);
 
 box-shadow:
-0 0 25px #00fff266,
-0 0 45px #00fff233;
+0 0 25px #00fff288,
+0 0 55px #00fff233;
 }
 
-.service-accessories{
-background:linear-gradient(145deg,#8b5cf6,#5b21b6);
+.venta-icon i{
+color:#c8ffff;
+}
+
+.accesorios-icon{
+background:linear-gradient(145deg,#a855f7,#6d28d9);
 
 box-shadow:
-0 0 25px #8b5cf666,
-0 0 45px #8b5cf633;
+0 0 25px #a855f788,
+0 0 55px #a855f733;
 }
 
-.service-tv{
-background:linear-gradient(145deg,#ff0066,#ff6600);
+.accesorios-icon i{
+color:#f0d9ff;
+}
+
+.tv-icon{
+background:linear-gradient(145deg,#ff0055,#ff6600);
 
 box-shadow:
-0 0 25px #ff006666,
-0 0 45px #ff660033;
+0 0 25px #ff005588,
+0 0 55px #ff660033;
 }
+
+.tv-icon i{
+color:#ffd8c2;
+}
+
+/* =========================================================
+TEXTS
+========================================================= */
 
 .service-card h3{
 font-size:1.2rem;
@@ -574,7 +682,6 @@ grid-template-columns:420px 1fr;
 gap:40px;
 max-width:1300px;
 margin:auto;
-align-items:start;
 }
 
 .contact-left{
@@ -587,8 +694,11 @@ gap:24px;
 display:flex;
 align-items:center;
 gap:20px;
+
 padding:26px;
+
 border-radius:24px;
+
 text-decoration:none;
 color:#fff;
 
@@ -616,31 +726,24 @@ box-shadow:
 min-width:70px;
 height:70px;
 border-radius:20px;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-size:1.7rem;
 }
 
 .whatsapp-icon{
 background:linear-gradient(145deg,#00ff88,#00cc66);
-
-box-shadow:
-0 0 20px #00ff8866;
 }
 
 .facebook-icon{
 background:linear-gradient(145deg,#1877f2,#0059d6);
-
-box-shadow:
-0 0 20px #1877f266;
 }
 
 .email-icon{
 background:linear-gradient(145deg,#00cfff,#0066ff);
-
-box-shadow:
-0 0 20px #00cfff66;
 }
 
 .contact-info h3{
@@ -650,6 +753,10 @@ margin-bottom:6px;
 .contact-info p{
 color:#9aa6c0;
 }
+
+/* =========================================================
+FORM
+========================================================= */
 
 .contact-form{
 padding:40px;
@@ -675,11 +782,15 @@ gap:20px;
 .contact-form textarea{
 width:100%;
 padding:20px;
+
 border:none;
 outline:none;
+
 border-radius:18px;
+
 background:#101827;
 color:#fff;
+
 margin-bottom:20px;
 }
 
@@ -690,9 +801,12 @@ resize:none;
 
 .contact-form button{
 padding:18px 34px;
+
 border:none;
 border-radius:18px;
+
 background:#00cfff;
+
 font-weight:600;
 cursor:pointer;
 
@@ -769,7 +883,7 @@ padding:90px 24px;
 }
 
 .loader-title{
-font-size:2.4rem;
+font-size:2.5rem;
 }
 
 }
@@ -829,8 +943,11 @@ LC
 </div>
 
 <div class="logo-text">
+
 <h1>LC ONE PLAYER</h1>
+
 <p>Tecnología</p>
+
 </div>
 
 </a>
@@ -915,8 +1032,12 @@ Todo organizado como una página profesional real.
 
 <div class="service-card">
 
-<div class="service-icon service-tech">
-<i class="fa-solid fa-screwdriver-wrench"></i>
+<div class="service-icon tech-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-microchip"></i>
+
 </div>
 
 <h3>
@@ -935,8 +1056,12 @@ VER SERVICIO →
 
 <div class="service-card">
 
-<div class="service-icon service-phone">
-<i class="fa-solid fa-mobile-screen-button"></i>
+<div class="service-icon venta-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-mobile-screen"></i>
+
 </div>
 
 <h3>
@@ -955,8 +1080,12 @@ VER EQUIPOS →
 
 <div class="service-card">
 
-<div class="service-icon service-accessories">
-<i class="fa-solid fa-headphones"></i>
+<div class="service-icon accesorios-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-headset"></i>
+
 </div>
 
 <h3>
@@ -975,8 +1104,12 @@ VER ACCESORIOS →
 
 <div class="service-card">
 
-<div class="service-icon service-tv">
-<i class="fa-solid fa-tv"></i>
+<div class="service-icon tv-icon">
+
+<div class="icon-glow"></div>
+
+<i class="fa-solid fa-tower-broadcast"></i>
+
 </div>
 
 <h3>
@@ -1022,12 +1155,19 @@ target="_blank"
 class="contact-box">
 
 <div class="contact-icon whatsapp-icon">
+
 <i class="fa-brands fa-whatsapp"></i>
+
 </div>
 
 <div class="contact-info">
+
 <h3>WHATSAPP</h3>
-<p>+54 9 2634 722710</p>
+
+<p>
++54 9 2634 722710
+</p>
+
 </div>
 
 </a>
@@ -1037,12 +1177,19 @@ target="_blank"
 class="contact-box">
 
 <div class="contact-icon facebook-icon">
+
 <i class="fa-brands fa-facebook-f"></i>
+
 </div>
 
 <div class="contact-info">
+
 <h3>FACEBOOK</h3>
-<p>LC ONE PLAYER</p>
+
+<p>
+LC ONE PLAYER
+</p>
+
 </div>
 
 </a>
@@ -1051,12 +1198,19 @@ class="contact-box">
 class="contact-box">
 
 <div class="contact-icon email-icon">
+
 <i class="fa-solid fa-envelope"></i>
+
 </div>
 
 <div class="contact-info">
+
 <h3>EMAIL</h3>
-<p>lc.technology.ar@gmail.com</p>
+
+<p>
+lc.technology.ar@gmail.com
+</p>
+
 </div>
 
 </a>
@@ -1122,10 +1276,6 @@ SCRIPT
 ========================================================= -->
 
 <script>
-
-/* =========================================================
-LOADER
-========================================================= */
 
 window.addEventListener("load",()=>{
 
