@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LC ONE PLAYER | Tecnología</title>
+<title>LC ONE PLAYER </title>
 
 <meta name="description" content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -44,7 +44,7 @@ position:relative;
 }
 
 /* =========================================================
-BACKGROUND ANIMATION
+BACKGROUND
 ========================================================= */
 
 .bg-animation{
@@ -293,18 +293,163 @@ box-shadow:
 display:flex;
 flex-direction:column;
 justify-content:center;
+position:relative;
 }
+
+/* =========================================================
+LC ONE PLAYER
+========================================================= */
 
 .logo-text h1{
-font-size:1rem;
-letter-spacing:2px;
+
+font-size:1.15rem;
+
+font-family:"Orbitron",sans-serif;
+
+letter-spacing:4px;
+
 font-style:italic;
+
+font-weight:700;
+
+text-transform:uppercase;
+
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#8aefff,
+#00cfff,
+#ffffff
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:logoTextFlow 6s linear infinite;
+
+position:relative;
+
+text-shadow:
+0 0 10px rgba(0,207,255,.4),
+0 0 20px rgba(0,207,255,.3);
+
 }
 
+/* =========================================================
+TECNOLOGIA
+========================================================= */
+
 .logo-text p{
-font-size:.9rem;
-color:#9aa6c0;
+
+font-size:.82rem;
+
+margin-top:2px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:#9aefff;
+
 font-style:italic;
+
+position:relative;
+
+animation:techPulse 3s ease-in-out infinite;
+
+text-shadow:
+0 0 8px #00cfff88,
+0 0 20px #00cfff55;
+
+}
+
+/* =========================================================
+LINEA ANIMADA
+========================================================= */
+
+.logo-text::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-10px;
+left:0;
+
+width:100%;
+height:2px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#00cfff,
+#00fff2,
+transparent
+);
+
+background-size:200%;
+
+animation:lineMove 4s linear infinite;
+
+box-shadow:
+0 0 12px #00cfff,
+0 0 25px #00cfff;
+
+opacity:.9;
+
+}
+
+/* =========================================================
+ANIMACIONES LOGO
+========================================================= */
+
+@keyframes logoTextFlow{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
+}
+
+@keyframes techPulse{
+
+0%{
+opacity:.7;
+letter-spacing:5px;
+}
+
+50%{
+opacity:1;
+letter-spacing:7px;
+}
+
+100%{
+opacity:.7;
+letter-spacing:5px;
+}
+
+}
+
+@keyframes lineMove{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:200%;
+}
+
 }
 
 /* =========================================================
@@ -396,9 +541,7 @@ transition:.35s;
 .btn-primary{
 background:#00cfff;
 color:#000;
-
-box-shadow:
-0 0 30px #00cfff55;
+box-shadow:0 0 30px #00cfff55;
 }
 
 .btn-primary:hover{
@@ -464,23 +607,17 @@ gap:32px;
 background:#0b1020;
 border-radius:28px;
 padding:42px 34px;
-
 border:1px solid rgba(255,255,255,.05);
-
 position:relative;
 overflow:hidden;
-
 transition:.5s;
 }
 
 .service-card::before{
 content:"";
-
 position:absolute;
-
 width:320px;
 height:320px;
-
 border-radius:50%;
 
 background:
@@ -492,7 +629,6 @@ transparent 70%
 
 top:-160px;
 right:-160px;
-
 transition:.6s;
 }
 
@@ -501,7 +637,6 @@ transform:scale(1.5);
 }
 
 .service-card:hover{
-
 transform:
 translateY(-14px)
 scale(1.03);
@@ -521,22 +656,15 @@ ICON BASE
 .service-icon{
 width:92px;
 height:92px;
-
 border-radius:30px;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 font-size:2.2rem;
-
 margin-bottom:32px;
-
 position:relative;
 overflow:hidden;
-
 animation:iconFloat 4s ease-in-out infinite;
-
 border:1px solid rgba(255,255,255,.08);
 }
 
@@ -558,7 +686,6 @@ transform:translateY(0px);
 
 .icon-glow{
 position:absolute;
-
 width:180%;
 height:180%;
 
@@ -583,14 +710,10 @@ transform:rotate(360deg);
 
 .service-icon::after{
 content:"";
-
 position:absolute;
 inset:2px;
-
 border-radius:28px;
-
 background:#0b1020;
-
 z-index:1;
 }
 
@@ -605,50 +728,18 @@ ICON COLORS
 
 .tech-icon{
 background:linear-gradient(145deg,#00cfff,#004cff);
-
-box-shadow:
-0 0 25px #00cfff88,
-0 0 55px #00cfff33;
-}
-
-.tech-icon i{
-color:#8aefff;
 }
 
 .venta-icon{
 background:linear-gradient(145deg,#00fff2,#00cfff);
-
-box-shadow:
-0 0 25px #00fff288,
-0 0 55px #00fff233;
-}
-
-.venta-icon i{
-color:#c8ffff;
 }
 
 .accesorios-icon{
 background:linear-gradient(145deg,#a855f7,#6d28d9);
-
-box-shadow:
-0 0 25px #a855f788,
-0 0 55px #a855f733;
-}
-
-.accesorios-icon i{
-color:#f0d9ff;
 }
 
 .tv-icon{
 background:linear-gradient(145deg,#ff0055,#ff6600);
-
-box-shadow:
-0 0 25px #ff005588,
-0 0 55px #ff660033;
-}
-
-.tv-icon i{
-color:#ffd8c2;
 }
 
 /* =========================================================
@@ -694,11 +785,8 @@ gap:24px;
 display:flex;
 align-items:center;
 gap:20px;
-
 padding:26px;
-
 border-radius:24px;
-
 text-decoration:none;
 color:#fff;
 
@@ -726,11 +814,9 @@ box-shadow:
 min-width:70px;
 height:70px;
 border-radius:20px;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 font-size:1.7rem;
 }
 
@@ -782,15 +868,11 @@ gap:20px;
 .contact-form textarea{
 width:100%;
 padding:20px;
-
 border:none;
 outline:none;
-
 border-radius:18px;
-
 background:#101827;
 color:#fff;
-
 margin-bottom:20px;
 }
 
@@ -801,12 +883,9 @@ resize:none;
 
 .contact-form button{
 padding:18px 34px;
-
 border:none;
 border-radius:18px;
-
 background:#00cfff;
-
 font-weight:600;
 cursor:pointer;
 
@@ -892,10 +971,6 @@ font-size:2.5rem;
 </head>
 
 <body>
-
-<!-- =========================================================
-BACKGROUND
-========================================================= -->
 
 <div class="bg-animation">
 
@@ -1011,283 +1086,6 @@ Explorar servicios
 </div>
 
 </section>
-
-<!-- =========================================================
-SERVICIOS
-========================================================= -->
-
-<section id="servicios">
-
-<div class="section-title">
-
-<h2>Servicios</h2>
-
-<p>
-Todo organizado como una página profesional real.
-</p>
-
-</div>
-
-<div class="services-grid">
-
-<div class="service-card">
-
-<div class="service-icon tech-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-microchip"></i>
-
-</div>
-
-<h3>
-Servicio Técnico
-</h3>
-
-<p>
-Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
-</p>
-
-<a href="servicio.html">
-VER SERVICIO →
-</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-icon venta-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-mobile-screen"></i>
-
-</div>
-
-<h3>
-Venta
-</h3>
-
-<p>
-Celulares nuevos y usados seleccionados con soporte y atención personalizada.
-</p>
-
-<a href="venta.html">
-VER EQUIPOS →
-</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-icon accesorios-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-headset"></i>
-
-</div>
-
-<h3>
-Accesorios
-</h3>
-
-<p>
-Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
-</p>
-
-<a href="accesorios.html">
-VER ACCESORIOS →
-</a>
-
-</div>
-
-<div class="service-card">
-
-<div class="service-icon tv-icon">
-
-<div class="icon-glow"></div>
-
-<i class="fa-solid fa-tower-broadcast"></i>
-
-</div>
-
-<h3>
-Entretenimiento Familiar
-</h3>
-
-<p>
-TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
-</p>
-
-<a href="tv-digital.html">
-VER MÁS →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-CONTACTO
-========================================================= -->
-
-<section id="contacto">
-
-<div class="section-title">
-
-<h2>Contacto</h2>
-
-<p>
-Canales directos y formulario rápido.
-</p>
-
-</div>
-
-<div class="contact-wrapper">
-
-<div class="contact-left">
-
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="contact-box">
-
-<div class="contact-icon whatsapp-icon">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</div>
-
-<div class="contact-info">
-
-<h3>WHATSAPP</h3>
-
-<p>
-+54 9 2634 722710
-</p>
-
-</div>
-
-</a>
-
-<a href="https://www.facebook.com/profile.php?id=61587322059733"
-target="_blank"
-class="contact-box">
-
-<div class="contact-icon facebook-icon">
-
-<i class="fa-brands fa-facebook-f"></i>
-
-</div>
-
-<div class="contact-info">
-
-<h3>FACEBOOK</h3>
-
-<p>
-LC ONE PLAYER
-</p>
-
-</div>
-
-</a>
-
-<a href="mailto:lc.technology.ar@gmail.com"
-class="contact-box">
-
-<div class="contact-icon email-icon">
-
-<i class="fa-solid fa-envelope"></i>
-
-</div>
-
-<div class="contact-info">
-
-<h3>EMAIL</h3>
-
-<p>
-lc.technology.ar@gmail.com
-</p>
-
-</div>
-
-</a>
-
-</div>
-
-<div class="contact-form">
-
-<form action="https://formsubmit.co/lc.technology.ar@gmail.com"
-method="POST">
-
-<div class="form-grid">
-
-<input type="text"
-name="nombre"
-placeholder="Nombre"
-required>
-
-<input type="email"
-name="email"
-placeholder="Correo electrónico"
-required>
-
-</div>
-
-<textarea
-name="mensaje"
-placeholder="Escribí tu mensaje..."
-required></textarea>
-
-<button type="submit">
-Enviar mensaje
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-FOOTER
-========================================================= -->
-
-<footer>
-
-© LC ONE PLAYER
-
-<br>
-
-Servicio Técnico · Venta · Accesorios · Entretenimiento
-
-<br>
-
-Mendoza, Argentina
-
-</footer>
-
-<!-- =========================================================
-SCRIPT
-========================================================= -->
-
-<script>
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document.getElementById("loader").classList.add("hide");
-
-},3200);
-
-});
-
-</script>
 
 </body>
 </html>
