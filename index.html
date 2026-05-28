@@ -1377,48 +1377,22 @@ lc.technology.ar@gmail.com
 
 </div>
 
-<div class="contact-form reveal">
+ <form id="contactForm" class="form">
+  <!-- Web3Forms key -->
+  <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
 
-<form>
+  <input type="text" name="name" placeholder="Tu nombre" required>
+  <input type="email" name="email" placeholder="Tu correo electrónico" required>
+  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
 
-<form action="https://formsubmit.co/lc.technology.ar@gmail.com" method="POST">
-
-<input type="hidden" name="_captcha" value="false">
-
-<input type="hidden"
-name="_subject"
-value="Nuevo mensaje desde LC ONE PLAYER">
-
-<div class="form-grid">
-
-<input
-type="text"
-name="nombre"
-placeholder="Nombre"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Correo electrónico"
-required>
-
-</div>
-
-<textarea
-name="mensaje"
-placeholder="Mensaje"
-required></textarea>
-
-<button type="submit">
-Enviar mensaje
-</button>
-
+  <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
+<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
+  ¡Gracias por tu consulta! Te responderemos pronto.
 </div>
+  </div>
 
-</div>
 
 </section>
 
