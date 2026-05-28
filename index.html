@@ -9,7 +9,7 @@
 
 <meta name="description" content="LC ONE PLAYER - Tecnología, servicio técnico, venta, accesorios y entretenimiento digital.">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -37,109 +37,87 @@ position:relative;
 }
 
 /* =========================================================
-CURSOR GLOW
+VARIABLES DINAMICAS
 ========================================================= */
 
-.cursor-glow{
-position:fixed;
-width:320px;
-height:320px;
-border-radius:50%;
-pointer-events:none;
-background:radial-gradient(circle,
-rgba(0,255,255,.22) 0%,
-rgba(0,207,255,.12) 30%,
-transparent 70%);
-transform:translate(-50%,-50%);
-z-index:1;
-mix-blend-mode:screen;
-filter:blur(30px);
+:root{
+--color1:#00cfff;
+--color2:#00fff2;
+--color3:#0066ff;
+--glass:rgba(15,20,35,.78);
 }
 
 /* =========================================================
-BACKGROUND
+FONDO ANIMADO
 ========================================================= */
 
-.bg-animation{
+.bg{
 position:fixed;
 inset:0;
 z-index:-10;
 overflow:hidden;
-background:
-radial-gradient(circle at top left,#001f33 0%,transparent 35%),
-radial-gradient(circle at bottom right,#00194d 0%,transparent 35%),
-#05070d;
-animation:bgShift 18s infinite alternate;
+animation:bgRotate 12s infinite alternate;
 }
 
-@keyframes bgShift{
-
-0%{
-filter:hue-rotate(0deg);
-}
-
-100%{
-filter:hue-rotate(45deg);
-}
-
-}
-
-.light{
+.bg::before,
+.bg::after{
+content:"";
 position:absolute;
+width:700px;
+height:700px;
 border-radius:50%;
 filter:blur(120px);
-opacity:.38;
-animation:float 16s infinite alternate;
+opacity:.35;
+animation:moveBg 18s infinite alternate;
 }
 
-.light1{
-width:550px;
-height:550px;
-background:#00cfff;
-top:-120px;
-left:-120px;
+.bg::before{
+background:var(--color1);
+top:-200px;
+left:-200px;
 }
 
-.light2{
-width:500px;
-height:500px;
-background:#0055ff;
-bottom:-120px;
-right:-120px;
+.bg::after{
+background:var(--color3);
+right:-200px;
+bottom:-200px;
+animation-delay:4s;
 }
 
-.light3{
-width:380px;
-height:380px;
-background:#00ffee;
-top:40%;
-left:40%;
-}
-
-@keyframes float{
+@keyframes moveBg{
 
 0%{
 transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(120px,-80px) scale(1.25);
+transform:translate(140px,-80px) scale(1.2);
+}
+
+}
+
+@keyframes bgRotate{
+
+0%{
+filter:hue-rotate(0deg);
+}
+
+100%{
+filter:hue-rotate(360deg);
 }
 
 }
 
 /* =========================================================
-LOADER
+LOADER DIVIDIDO
 ========================================================= */
 
 .loader{
 position:fixed;
 inset:0;
-background:#05070d;
-display:flex;
-justify-content:center;
-align-items:center;
 z-index:999999;
+display:flex;
+overflow:hidden;
 transition:1s;
 }
 
@@ -148,43 +126,64 @@ opacity:0;
 pointer-events:none;
 }
 
+.loader-left,
+.loader-right{
+width:50%;
+height:100%;
+background:#05070d;
+display:flex;
+justify-content:center;
+align-items:center;
+transition:1.2s cubic-bezier(.77,0,.18,1);
+}
+
+.loader.hide .loader-left{
+transform:translateX(-100%);
+}
+
+.loader.hide .loader-right{
+transform:translateX(100%);
+}
+
 .loader-logo{
 font-family:"Orbitron",sans-serif;
 font-size:3rem;
-letter-spacing:5px;
+letter-spacing:6px;
 position:relative;
-animation:loaderPulse 2s infinite;
+color:#fff;
+text-shadow:
+0 0 15px var(--color1),
+0 0 30px var(--color2);
+animation:pulse 2s infinite;
 }
 
 .loader-logo::after{
 content:"";
 position:absolute;
 left:0;
-bottom:-14px;
+bottom:-15px;
 width:100%;
 height:3px;
-background:#00cfff;
-box-shadow:0 0 20px #00cfff;
+background:linear-gradient(90deg,var(--color1),var(--color2));
+box-shadow:0 0 20px var(--color1);
 animation:scan 2s infinite;
 }
 
-@keyframes loaderPulse{
+@keyframes pulse{
 
 0%{
-opacity:.5;
-text-shadow:0 0 10px #00cfff;
+opacity:.6;
+transform:scale(.98);
 }
 
 50%{
 opacity:1;
-text-shadow:
-0 0 25px #00cfff,
-0 0 50px #00ffee;
+transform:scale(1);
 }
 
 100%{
-opacity:.5;
-text-shadow:0 0 10px #00cfff;
+opacity:.6;
+transform:scale(.98);
 }
 
 }
@@ -193,14 +192,31 @@ text-shadow:0 0 10px #00cfff;
 
 0%{
 transform:scaleX(0);
-transform-origin:left;
 }
 
 100%{
 transform:scaleX(1);
-transform-origin:left;
 }
 
+}
+
+/* =========================================================
+CURSOR
+========================================================= */
+
+.cursor{
+position:fixed;
+width:18px;
+height:18px;
+border-radius:50%;
+background:var(--color1);
+pointer-events:none;
+transform:translate(-50%,-50%);
+mix-blend-mode:screen;
+z-index:99999;
+box-shadow:
+0 0 20px var(--color1),
+0 0 40px var(--color2);
 }
 
 /* =========================================================
@@ -212,15 +228,15 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-height:95px;
+height:92px;
+padding:0 55px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:0 50px;
-background:rgba(5,7,13,.72);
+align-items:center;
+background:rgba(5,7,13,.75);
 backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,.05);
-z-index:9999;
+z-index:999;
 }
 
 /* =========================================================
@@ -232,59 +248,57 @@ display:flex;
 align-items:center;
 gap:18px;
 text-decoration:none;
-position:relative;
-z-index:5;
 }
 
-.logo-icon{
-width:68px;
-height:68px;
+.logo-box{
+width:72px;
+height:72px;
 border-radius:20px;
+position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:"Orbitron",sans-serif;
-font-size:1.5rem;
-font-weight:700;
-color:#fff;
-position:relative;
 overflow:hidden;
-background:#08111d;
+background:#0c1220;
 border:1px solid rgba(255,255,255,.08);
 box-shadow:
-0 0 20px #00cfff55,
-0 0 60px #00cfff33;
-animation:logoGlow 5s infinite alternate;
+0 0 25px rgba(0,207,255,.35),
+0 0 60px rgba(0,207,255,.15);
+animation:logoPulse 4s infinite alternate;
 }
 
-.logo-icon::before{
+.logo-box::before{
 content:"";
 position:absolute;
-width:240%;
-height:240%;
+width:250%;
+height:250%;
 background:conic-gradient(
 transparent,
-#00cfff,
+var(--color1),
 transparent,
-#00ffee,
+var(--color2),
 transparent,
-#0066ff,
+var(--color3),
 transparent
 );
 animation:rotate 5s linear infinite;
 }
 
-.logo-icon::after{
+.logo-box::after{
 content:"";
 position:absolute;
 inset:2px;
-background:#08111d;
 border-radius:18px;
+background:#0b1120;
 }
 
-.logo-icon span{
+.logo-box span{
 position:relative;
 z-index:2;
+font-family:"Orbitron",sans-serif;
+font-size:1.7rem;
+font-weight:700;
+color:#fff;
 }
 
 @keyframes rotate{
@@ -295,18 +309,14 @@ transform:rotate(360deg);
 
 }
 
-@keyframes logoGlow{
+@keyframes logoPulse{
 
 0%{
-box-shadow:
-0 0 20px #00cfff55,
-0 0 50px #00cfff22;
+transform:translateY(0px);
 }
 
 100%{
-box-shadow:
-0 0 40px #00ffee,
-0 0 90px #00cfff55;
+transform:translateY(-4px);
 }
 
 }
@@ -315,20 +325,20 @@ box-shadow:
 display:flex;
 flex-direction:column;
 justify-content:center;
+line-height:1.1;
 }
 
 .logo-text h1{
-font-family:"Orbitron",sans-serif;
-font-size:1.08rem;
+font-size:1.15rem;
 font-style:italic;
+font-weight:700;
 letter-spacing:1px;
 }
 
 .logo-text p{
-font-size:.92rem;
+font-size:.9rem;
 font-style:italic;
-color:#9aa6c0;
-text-align:center;
+color:#aab4d3;
 }
 
 /* =========================================================
@@ -342,14 +352,14 @@ gap:35px;
 
 nav a{
 text-decoration:none;
-color:#d7d7d7;
-font-size:.96rem;
+color:#e8e8e8;
+font-size:.95rem;
 position:relative;
 transition:.3s;
 }
 
 nav a:hover{
-color:#00cfff;
+color:var(--color1);
 }
 
 nav a::after{
@@ -359,9 +369,9 @@ left:0;
 bottom:-8px;
 width:0%;
 height:2px;
-background:#00cfff;
-transition:.35s;
-box-shadow:0 0 15px #00cfff;
+background:var(--color1);
+box-shadow:0 0 15px var(--color1);
+transition:.3s;
 }
 
 nav a:hover::after{
@@ -369,7 +379,7 @@ width:100%;
 }
 
 /* =========================================================
-MENU
+MENU MOBILE
 ========================================================= */
 
 .menu-btn{
@@ -380,18 +390,18 @@ cursor:pointer;
 
 .mobile-menu{
 position:fixed;
-top:95px;
+top:92px;
 right:-100%;
 width:280px;
-height:calc(100vh - 95px);
-background:rgba(8,16,28,.95);
-backdrop-filter:blur(18px);
-padding:40px 25px;
+height:calc(100vh - 92px);
+background:#08111d;
+padding:35px 22px;
 display:flex;
 flex-direction:column;
-gap:22px;
-transition:.45s;
+gap:18px;
+transition:.5s;
 z-index:999;
+backdrop-filter:blur(18px);
 border-left:1px solid rgba(255,255,255,.05);
 }
 
@@ -400,17 +410,16 @@ right:0;
 }
 
 .mobile-menu a{
-text-decoration:none;
-color:#fff;
 padding:14px;
 border-radius:14px;
-background:#0f1727;
-transition:.35s;
+background:#10192c;
+color:#fff;
+text-decoration:none;
+transition:.3s;
 }
 
 .mobile-menu a:hover{
-background:#16233d;
-box-shadow:0 0 25px #00cfff22;
+background:#16243f;
 }
 
 /* =========================================================
@@ -421,8 +430,7 @@ HERO
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:160px 60px 100px;
-position:relative;
+padding:170px 70px 90px;
 }
 
 .hero-content{
@@ -430,73 +438,68 @@ max-width:1400px;
 margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:90px;
+gap:100px;
 align-items:center;
 }
 
-.hero-text{
-position:relative;
-z-index:2;
-}
+/* =========================================================
+TEXT
+========================================================= */
 
 .hero-text h2{
 font-family:"Orbitron",sans-serif;
-font-size:4.2rem;
+font-size:4.3rem;
 line-height:1.08;
-margin-bottom:28px;
-text-shadow:0 0 25px rgba(0,207,255,.18);
+margin-bottom:30px;
 }
 
 .hero-text p{
-font-size:1.06rem;
+font-size:1.05rem;
+color:#aab4d3;
 line-height:1.9;
-color:#9aa6c0;
 max-width:620px;
 margin-bottom:38px;
 }
 
 .hero-buttons{
 display:flex;
-gap:20px;
+gap:18px;
 flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 34px;
-border-radius:16px;
+padding:17px 34px;
+border-radius:18px;
 text-decoration:none;
 font-weight:600;
-transition:.4s;
-position:relative;
-overflow:hidden;
+transition:.35s;
 }
 
 .btn-primary{
-background:#00cfff;
+background:linear-gradient(135deg,var(--color1),var(--color2));
 color:#000;
-box-shadow:0 0 30px #00cfff55;
+box-shadow:
+0 0 25px rgba(0,207,255,.35);
 }
 
 .btn-primary:hover{
-transform:translateY(-6px);
+transform:translateY(-6px) scale(1.02);
 box-shadow:
-0 0 40px #00cfff,
-0 0 80px #00cfff55;
+0 0 35px rgba(0,207,255,.6);
 }
 
 .btn-outline{
-background:#0d1526;
+background:#0c1324;
 border:1px solid rgba(255,255,255,.08);
 color:#fff;
 }
 
 .btn-outline:hover{
-background:#16223b;
-transform:translateY(-6px);
+background:#14203a;
 }
 
 /* =========================================================
-IMAGE
+IMAGEN
 ========================================================= */
 
 .hero-image{
@@ -505,86 +508,52 @@ justify-content:center;
 position:relative;
 }
 
-.hero-image::before{
-content:"";
-position:absolute;
-width:580px;
-height:580px;
-border-radius:50%;
-background:conic-gradient(
-#00cfff,
-#00ffee,
-#0055ff,
-#00cfff
-);
-filter:blur(50px);
-opacity:.45;
-animation:spin 10s linear infinite;
-}
-
-.hero-image::after{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-border-radius:50%;
-border:2px dashed rgba(0,255,255,.12);
-animation:spinReverse 30s linear infinite;
-}
-
 .hero-image img{
-width:420px;
-height:420px;
+width:430px;
+height:430px;
 object-fit:cover;
 border-radius:50%;
 position:relative;
 z-index:2;
-box-shadow:
-0 0 50px #00cfff55,
-0 0 90px #00ffee22;
-animation:floatImage 6s ease-in-out infinite;
+animation:imageFloat 5s ease-in-out infinite;
+filter:
+drop-shadow(0 0 35px rgba(0,207,255,.35))
+drop-shadow(0 0 65px rgba(0,207,255,.2));
 }
 
-@keyframes spin{
-
-100%{
-transform:rotate(360deg);
+.hero-image::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+background:radial-gradient(circle,rgba(0,207,255,.2),transparent 70%);
+filter:blur(70px);
+animation:bgRotate 8s linear infinite;
 }
 
-}
-
-@keyframes spinReverse{
-
-100%{
-transform:rotate(-360deg);
-}
-
-}
-
-@keyframes floatImage{
+@keyframes imageFloat{
 
 0%{
-transform:translateY(0);
+transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-18px);
+transform:translateY(-14px);
 }
 
 100%{
-transform:translateY(0);
+transform:translateY(0px);
 }
 
 }
 
 /* =========================================================
-SECTION
+SECTIONS
 ========================================================= */
 
 section{
-padding:120px 60px;
-position:relative;
-z-index:2;
+padding:120px 70px;
 }
 
 .section-title{
@@ -593,9 +562,9 @@ margin-bottom:80px;
 }
 
 .section-title h2{
-font-size:2.8rem;
 font-family:"Orbitron",sans-serif;
-margin-bottom:14px;
+font-size:2.8rem;
+margin-bottom:16px;
 }
 
 .section-title p{
@@ -613,14 +582,14 @@ gap:30px;
 }
 
 .service-card{
-background:rgba(11,16,32,.82);
-backdrop-filter:blur(12px);
-border-radius:28px;
-padding:40px 34px;
 position:relative;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.05);
-transition:.5s;
+background:rgba(12,18,30,.88);
+backdrop-filter:blur(18px);
+padding:40px 32px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.06);
+transition:.45s;
 isolation:isolate;
 }
 
@@ -629,39 +598,40 @@ content:"";
 position:absolute;
 inset:-2px;
 background:linear-gradient(
-130deg,
+135deg,
 transparent,
-rgba(0,255,255,.2),
+rgba(0,207,255,.4),
+transparent,
+rgba(0,255,242,.35),
 transparent
 );
-transform:translateX(-100%);
-transition:.8s;
-z-index:-1;
-}
-
-.service-card:hover::before{
-transform:translateX(100%);
+opacity:0;
+transition:.5s;
+z-index:-2;
 }
 
 .service-card::after{
 content:"";
 position:absolute;
-width:260px;
-height:260px;
-background:radial-gradient(circle,
-rgba(0,255,255,.18),
-transparent 70%);
+width:240px;
+height:240px;
+background:radial-gradient(circle,rgba(0,207,255,.25),transparent 70%);
 top:-120px;
 right:-120px;
 transition:.5s;
+z-index:-1;
 }
 
 .service-card:hover{
-transform:translateY(-14px) scale(1.02);
-border-color:#00cfff55;
+transform:translateY(-12px) scale(1.02);
+border-color:rgba(0,207,255,.35);
 box-shadow:
-0 0 40px #00cfff22,
-0 0 80px #00ffee11;
+0 0 25px rgba(0,207,255,.18),
+0 0 50px rgba(0,207,255,.1);
+}
+
+.service-card:hover::before{
+opacity:1;
 }
 
 .service-card:hover::after{
@@ -669,19 +639,29 @@ transform:scale(1.3);
 }
 
 .service-icon{
-font-size:2.8rem;
-margin-bottom:24px;
-filter:drop-shadow(0 0 15px #00cfff88);
+width:72px;
+height:72px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:2rem;
+margin-bottom:28px;
+background:linear-gradient(135deg,#0f1a30,#111f3d);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:
+0 0 25px rgba(0,207,255,.2);
 }
 
 .service-card h3{
-font-size:1.22rem;
-margin-bottom:16px;
+font-size:1.2rem;
+margin-bottom:14px;
 }
 
 .service-card p{
-color:#9aa6c0;
+font-size:.96rem;
 line-height:1.8;
+color:#9aa6c0;
 margin-bottom:28px;
 }
 
@@ -690,77 +670,75 @@ display:inline-flex;
 align-items:center;
 gap:10px;
 text-decoration:none;
-color:#00cfff;
+color:var(--color1);
 font-weight:600;
-transition:.35s;
+transition:.3s;
 }
 
 .service-card a:hover{
 letter-spacing:1px;
-transform:translateX(4px);
+transform:translateX(5px);
 }
 
 /* =========================================================
-CONTACT
+CONTACTO
 ========================================================= */
 
 .contact-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-max-width:1000px;
-margin:auto auto 60px;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
 }
 
 .contact-card{
-background:rgba(11,16,32,.82);
 padding:28px;
 border-radius:22px;
-border:1px solid rgba(255,255,255,.05);
-transition:.4s;
-backdrop-filter:blur(12px);
+background:rgba(12,18,30,.85);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.06);
+transition:.35s;
+text-align:center;
 }
 
 .contact-card:hover{
 transform:translateY(-8px);
-border-color:#00cfff55;
+border-color:rgba(0,207,255,.35);
 box-shadow:
-0 0 30px #00cfff22,
-0 0 70px #00ffee11;
+0 0 25px rgba(0,207,255,.18);
 }
 
 .contact-card h3{
-margin-bottom:12px;
 font-size:1rem;
+margin-bottom:14px;
 }
 
 .contact-card a{
-color:#00cfff;
 text-decoration:none;
-transition:.3s;
+color:var(--color1);
+font-size:.95rem;
 }
 
-.contact-card a:hover{
-text-shadow:0 0 12px #00cfff;
+.contact-card p{
+color:#aab4d3;
+font-size:.95rem;
 }
 
 /* =========================================================
-FORM
+FORMULARIO
 ========================================================= */
 
 .contact-form{
-max-width:1000px;
-margin:auto;
-background:rgba(11,16,32,.82);
+max-width:900px;
+margin:80px auto 0;
+background:rgba(12,18,30,.88);
 padding:45px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,.05);
-backdrop-filter:blur(12px);
+border-radius:30px;
+border:1px solid rgba(255,255,255,.06);
 }
 
 .form-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 gap:20px;
 margin-bottom:20px;
 }
@@ -772,23 +750,21 @@ padding:18px;
 border:none;
 outline:none;
 border-radius:16px;
-background:#0e1728;
+background:#0f1728;
 color:#fff;
 font-family:"Poppins",sans-serif;
 border:1px solid rgba(255,255,255,.05);
-transition:.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-border-color:#00cfff;
-box-shadow:0 0 20px #00cfff22;
 }
 
 .contact-form textarea{
-min-height:160px;
 resize:none;
+height:180px;
 margin-bottom:20px;
+}
+
+.contact-form button{
+border:none;
+cursor:pointer;
 }
 
 /* =========================================================
@@ -796,27 +772,11 @@ FOOTER
 ========================================================= */
 
 footer{
-padding:70px 30px;
+padding:70px 20px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.05);
 color:#9aa6c0;
 line-height:2;
-position:relative;
-}
-
-footer::before{
-content:"";
-position:absolute;
-top:0;
-left:50%;
-transform:translateX(-50%);
-width:300px;
-height:2px;
-background:linear-gradient(90deg,
-transparent,
-#00cfff,
-transparent);
-box-shadow:0 0 20px #00cfff;
 }
 
 footer span{
@@ -829,7 +789,7 @@ REVEAL
 
 .reveal{
 opacity:0;
-transform:translateY(60px);
+transform:translateY(70px);
 transition:1s;
 }
 
@@ -842,7 +802,7 @@ transform:translateY(0);
 RESPONSIVE
 ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width:1150px){
 
 .hero-content{
 grid-template-columns:1fr;
@@ -862,11 +822,7 @@ grid-template-columns:repeat(2,1fr);
 }
 
 .contact-grid{
-grid-template-columns:1fr;
-}
-
-.form-grid{
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr);
 }
 
 }
@@ -886,29 +842,21 @@ display:block;
 }
 
 .hero{
-padding:150px 24px 90px;
+padding:160px 24px 80px;
 }
 
 .hero-text h2{
-font-size:2.8rem;
+font-size:2.9rem;
 }
 
 .hero-image img{
-width:300px;
-height:300px;
+width:290px;
+height:290px;
 }
 
-.hero-image::before{
-width:420px;
-height:420px;
-}
-
-.hero-image::after{
-width:500px;
-height:500px;
-}
-
-.services-grid{
+.services-grid,
+.contact-grid,
+.form-grid{
 grid-template-columns:1fr;
 }
 
@@ -923,29 +871,43 @@ padding:90px 24px;
 
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
+<!-- =========================================================
+CURSOR
+========================================================= -->
 
-<div class="bg-animation">
+<div class="cursor" id="cursor"></div>
 
-<div class="light light1"></div>
-<div class="light light2"></div>
-<div class="light light3"></div>
+<!-- =========================================================
+BACKGROUND
+========================================================= -->
 
-</div>
+<div class="bg"></div>
+
+<!-- =========================================================
+LOADER
+========================================================= -->
 
 <div class="loader" id="loader">
 
-<div class="loader-logo">
-LC ONE PLAYER
+<div class="loader-left">
+<div class="loader-logo">LC</div>
+</div>
+
+<div class="loader-right">
+<div class="loader-logo">ONE PLAYER</div>
 </div>
 
 </div>
+
+<!-- =========================================================
+HEADER
+========================================================= -->
 
 <header>
 
 <a href="#inicio" class="logo">
 
-<div class="logo-icon">
+<div class="logo-box">
 <span>LC</span>
 </div>
 
@@ -970,6 +932,10 @@ LC ONE PLAYER
 
 </header>
 
+<!-- =========================================================
+MENU MOBILE
+========================================================= -->
+
 <div class="mobile-menu" id="mobileMenu">
 
 <a href="#inicio">Inicio</a>
@@ -983,6 +949,10 @@ LC ONE PLAYER
 
 </div>
 
+<!-- =========================================================
+HERO
+========================================================= -->
+
 <section class="hero" id="inicio">
 
 <div class="hero-content">
@@ -990,13 +960,13 @@ LC ONE PLAYER
 <div class="hero-text reveal">
 
 <h2>
-Tecnología con presencia,
-detalle y confianza real.
+Tecnología con identidad,
+presencia y detalle real.
 </h2>
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital
-con una identidad moderna, premium y visualmente profesional.
+con una estética moderna, seria y visualmente premium.
 </p>
 
 <div class="hero-buttons">
@@ -1023,6 +993,10 @@ Explorar servicios
 
 </section>
 
+<!-- =========================================================
+SERVICIOS
+========================================================= -->
+
 <section id="servicios">
 
 <div class="section-title reveal">
@@ -1030,7 +1004,7 @@ Explorar servicios
 <h2>Servicios</h2>
 
 <p>
-Soluciones modernas organizadas de forma profesional.
+Todo organizado de manera profesional y moderna.
 </p>
 
 </div>
@@ -1039,9 +1013,13 @@ Soluciones modernas organizadas de forma profesional.
 
 <div class="service-card reveal">
 
-<div class="service-icon">🔧</div>
+<div class="service-icon">
+🛠️
+</div>
 
-<h3>Servicio Técnico</h3>
+<h3>
+Servicio Técnico
+</h3>
 
 <p>
 Diagnóstico, reparación y mantenimiento profesional para celulares y dispositivos.
@@ -1055,9 +1033,13 @@ VER SERVICIO →
 
 <div class="service-card reveal">
 
-<div class="service-icon">📱</div>
+<div class="service-icon">
+📲
+</div>
 
-<h3>Venta</h3>
+<h3>
+Venta
+</h3>
 
 <p>
 Celulares nuevos y usados seleccionados con soporte y atención personalizada.
@@ -1071,12 +1053,16 @@ VER EQUIPOS →
 
 <div class="service-card reveal">
 
-<div class="service-icon">🎧</div>
+<div class="service-icon">
+🎮
+</div>
 
-<h3>Accesorios</h3>
+<h3>
+Accesorios
+</h3>
 
 <p>
-Fundas, cargadores, auriculares y productos compatibles con múltiples marcas.
+Fundas, auriculares, cargadores y productos compatibles con múltiples marcas.
 </p>
 
 <a href="accesorios.html">
@@ -1087,9 +1073,13 @@ VER ACCESORIOS →
 
 <div class="service-card reveal">
 
-<div class="service-icon">📺</div>
+<div class="service-icon">
+📺
+</div>
 
-<h3>Entretenimiento Familiar</h3>
+<h3>
+Entretenimiento Familiar
+</h3>
 
 <p>
 TV digital, plataformas y soluciones modernas para disfrutar contenido en casa.
@@ -1105,6 +1095,10 @@ VER MÁS →
 
 </section>
 
+<!-- =========================================================
+CONTACTO
+========================================================= -->
+
 <section id="contacto">
 
 <div class="section-title reveal">
@@ -1112,7 +1106,7 @@ VER MÁS →
 <h2>Contacto</h2>
 
 <p>
-Canales directos y rápidos.
+Canales rápidos y directos.
 </p>
 
 </div>
@@ -1133,7 +1127,7 @@ Canales directos y rápidos.
 
 <h3>FACEBOOK</h3>
 
-<a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank">
+<a href="https://facebook.com/" target="_blank">
 LC ONE PLAYER
 </a>
 
@@ -1153,33 +1147,43 @@ lc.technology.ar@gmail.com
 
 <h3>UBICACIÓN</h3>
 
-<p style="color:#9aa6c0;">
-Mendoza, Argentina
-</p>
+<p>Mendoza, Argentina</p>
 
 </div>
 
 </div>
+
+<!-- =========================================================
+FORMULARIO
+========================================================= -->
 
 <div class="contact-form reveal">
 
+<form action="mailto:lc.technology.ar@gmail.com" method="POST" enctype="text/plain">
+
 <div class="form-grid">
 
-<input type="text" placeholder="Nombre">
+<input type="text" placeholder="Nombre" required>
 
-<input type="email" placeholder="Correo electrónico">
+<input type="email" placeholder="Correo electrónico" required>
 
 </div>
 
-<textarea placeholder="Escribí tu mensaje..."></textarea>
+<textarea placeholder="Escribí tu mensaje..." required></textarea>
 
-<a href="mailto:lc.technology.ar@gmail.com" class="btn btn-primary">
+<button type="submit" class="btn btn-primary">
 Enviar mensaje
-</a>
+</button>
+
+</form>
 
 </div>
 
 </section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
 
 <footer>
 
@@ -1197,6 +1201,10 @@ Mendoza, Argentina
 
 </footer>
 
+<!-- =========================================================
+SCRIPT
+========================================================= -->
+
 <script>
 
 /* =========================================================
@@ -1209,7 +1217,7 @@ setTimeout(()=>{
 
 document.getElementById("loader").classList.add("hide");
 
-},1400);
+},1700);
 
 });
 
@@ -1239,7 +1247,20 @@ window.addEventListener("scroll",revealElements);
 window.addEventListener("load",revealElements);
 
 /* =========================================================
-MENU
+CURSOR
+========================================================= */
+
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
+});
+
+/* =========================================================
+MENU MOBILE
 ========================================================= */
 
 const menuBtn = document.getElementById("menuBtn");
@@ -1258,19 +1279,6 @@ link.addEventListener("click",()=>{
 mobileMenu.classList.remove("active");
 
 });
-
-});
-
-/* =========================================================
-CURSOR GLOW
-========================================================= */
-
-const glow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left = e.clientX + "px";
-glow.style.top = e.clientY + "px";
 
 });
 
