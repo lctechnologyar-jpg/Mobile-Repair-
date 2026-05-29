@@ -1148,9 +1148,9 @@ VER MÁS →
 
 </section>
 
+```html
 <!-- =========================================================
-FORMULARIO REAL GMAIL + WEB3FORMS
-NO BORRAR ESTA PARTE
+FORMULARIO PREMIUM LC ONE PLAYER
 ========================================================= -->
 
 <section id="contacto">
@@ -1170,13 +1170,14 @@ Canales rápidos y directos.
 <div class="contact-wrapper">
 
 <!-- =========================================================
-CONTACTOS IZQUIERDA
+CONTACTOS
 ========================================================= -->
 
 <div class="contact-left">
 
 <a href="https://wa.me/5492634722710"
 target="_blank"
+rel="noopener noreferrer"
 class="contact-box reveal">
 
 <div class="contact-icon whatsapp-icon">
@@ -1187,13 +1188,9 @@ class="contact-box reveal">
 
 <div class="contact-info">
 
-<h3>
-WHATSAPP
-</h3>
+<h3>WHATSAPP</h3>
 
-<p>
-+54 9 2634 722710
-</p>
+<p>+54 9 2634 722710</p>
 
 </div>
 
@@ -1201,6 +1198,7 @@ WHATSAPP
 
 <a href="https://www.facebook.com/profile.php?id=61587322059733"
 target="_blank"
+rel="noopener noreferrer"
 class="contact-box reveal">
 
 <div class="contact-icon facebook-icon">
@@ -1211,13 +1209,9 @@ class="contact-box reveal">
 
 <div class="contact-info">
 
-<h3>
-FACEBOOK
-</h3>
+<h3>FACEBOOK</h3>
 
-<p>
-LC ONE PLAYER
-</p>
+<p>LC ONE PLAYER</p>
 
 </div>
 
@@ -1234,13 +1228,9 @@ class="contact-box reveal">
 
 <div class="contact-info">
 
-<h3>
-EMAIL
-</h3>
+<h3>EMAIL</h3>
 
-<p>
-lc.technology.ar@gmail.com
-</p>
+<p>lc.technology.ar@gmail.com</p>
 
 </div>
 
@@ -1249,26 +1239,39 @@ lc.technology.ar@gmail.com
 </div>
 
 <!-- =========================================================
-FORMULARIO DERECHA
+FORMULARIO
 ========================================================= -->
 
 <form id="contactForm"
 class="contact-form reveal">
-
-<!-- WEB3FORMS -->
 
 <input
 type="hidden"
 name="access_key"
 value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
 
+<input
+type="checkbox"
+name="botcheck"
+style="display:none;">
+
 <div class="form-grid">
+
+<div class="input-group">
+
+<i class="fa-solid fa-user"></i>
 
 <input
 type="text"
 name="name"
 placeholder="Tu nombre"
 required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-envelope"></i>
 
 <input
 type="email"
@@ -1278,17 +1281,29 @@ required>
 
 </div>
 
+</div>
+
+<div class="input-group textarea-group">
+
+<i class="fa-solid fa-message"></i>
+
 <textarea
 name="message"
 placeholder="Escribí tu mensaje..."
 required>
 </textarea>
 
-<button type="submit">
+</div>
+
+<button type="submit" id="submitBtn">
+
+<span class="btn-glow"></span>
 
 <i class="fa-solid fa-paper-plane"></i>
 
+<span id="btnText">
 Enviar mensaje
+</span>
 
 </button>
 
@@ -1296,7 +1311,7 @@ Enviar mensaje
 
 <i class="fa-solid fa-circle-check"></i>
 
-¡Mensaje enviado correctamente!
+Mensaje enviado correctamente.
 
 </div>
 
@@ -1306,12 +1321,11 @@ Enviar mensaje
 
 </section>
 
-<!-- =========================================================
-CSS EXTRA PREMIUM FORM
-PEGAR EN TU CSS
-========================================================= -->
-
 <style>
+
+/* =========================================================
+CONTACT WRAPPER
+========================================================= */
 
 .contact-wrapper{
 
@@ -1323,6 +1337,10 @@ max-width:1350px;
 margin:auto;
 
 }
+
+/* =========================================================
+CONTACT LEFT
+========================================================= */
 
 .contact-left{
 
@@ -1340,7 +1358,7 @@ gap:22px;
 
 padding:28px;
 
-border-radius:28px;
+border-radius:30px;
 
 background:
 linear-gradient(
@@ -1359,6 +1377,8 @@ transition:.45s;
 position:relative;
 overflow:hidden;
 
+backdrop-filter:blur(10px);
+
 }
 
 .contact-box::before{
@@ -1367,20 +1387,20 @@ content:"";
 
 position:absolute;
 
-width:220px;
-height:220px;
+width:250px;
+height:250px;
 
 border-radius:50%;
 
 background:
 radial-gradient(
 circle,
-rgba(0,207,255,.15),
+rgba(0,207,255,.14),
 transparent 70%
 );
 
-top:-120px;
-right:-120px;
+top:-130px;
+right:-130px;
 
 transition:.6s;
 
@@ -1388,7 +1408,7 @@ transition:.6s;
 
 .contact-box:hover::before{
 
-transform:scale(1.5);
+transform:scale(1.6);
 
 }
 
@@ -1398,71 +1418,80 @@ transform:
 translateY(-10px)
 scale(1.02);
 
+border-color:#00cfff55;
+
 box-shadow:
 0 0 25px #00cfff44,
 0 0 60px #00cfff22;
-
-border-color:#00cfff55;
 
 }
 
 .contact-icon{
 
-min-width:76px;
-height:76px;
+min-width:78px;
+height:78px;
 
-border-radius:22px;
+border-radius:24px;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-size:1.8rem;
+font-size:1.9rem;
 
 color:#fff;
 
-box-shadow:
-0 0 25px rgba(255,255,255,.12);
+position:relative;
+
+overflow:hidden;
+
+}
+
+.contact-icon::before{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.3),
+transparent
+);
+
+transform:translateX(-100%);
+animation:shine 4s infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+transform:translateX(200%);
+}
 
 }
 
 .whatsapp-icon{
-
-background:
-linear-gradient(
-145deg,
-#00ff88,
-#00cc66
-);
-
+background:linear-gradient(145deg,#00ff88,#00cc66);
 }
 
 .facebook-icon{
-
-background:
-linear-gradient(
-145deg,
-#1877f2,
-#0059d6
-);
-
+background:linear-gradient(145deg,#1877f2,#0059d6);
 }
 
 .email-icon{
-
-background:
-linear-gradient(
-145deg,
-#00cfff,
-#0066ff
-);
-
+background:linear-gradient(145deg,#00cfff,#0066ff);
 }
 
 .contact-info h3{
 
 margin-bottom:6px;
 font-size:1rem;
+letter-spacing:1px;
 
 }
 
@@ -1473,11 +1502,15 @@ font-size:.95rem;
 
 }
 
+/* =========================================================
+FORM
+========================================================= */
+
 .contact-form{
 
-padding:45px;
+padding:48px;
 
-border-radius:34px;
+border-radius:36px;
 
 background:
 linear-gradient(
@@ -1499,8 +1532,8 @@ content:"";
 
 position:absolute;
 
-width:340px;
-height:340px;
+width:360px;
+height:360px;
 
 border-radius:50%;
 
@@ -1511,8 +1544,8 @@ rgba(0,207,255,.12),
 transparent 70%
 );
 
-top:-170px;
-right:-170px;
+top:-180px;
+right:-180px;
 
 }
 
@@ -1524,23 +1557,46 @@ gap:20px;
 
 }
 
+.input-group{
+
+position:relative;
+
+}
+
+.input-group i{
+
+position:absolute;
+left:18px;
+top:50%;
+
+transform:translateY(-50%);
+
+color:#00cfff;
+font-size:.95rem;
+
+}
+
+.textarea-group i{
+
+top:28px;
+
+}
+
 .contact-form input,
 .contact-form textarea{
 
 width:100%;
 
-padding:22px;
+padding:22px 22px 22px 52px;
 
 border:none;
 outline:none;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#101827;
 
 color:#fff;
-
-margin-bottom:20px;
 
 font-size:.95rem;
 
@@ -1550,30 +1606,46 @@ transition:.35s;
 
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+
+color:#6d7a97;
+
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus{
 
 border-color:#00cfff;
 
 box-shadow:
-0 0 20px #00cfff22;
+0 0 20px #00cfff33;
+
+transform:scale(1.01);
 
 }
 
 .contact-form textarea{
 
-height:210px;
+height:220px;
 resize:none;
+margin-top:20px;
 
 }
 
+/* =========================================================
+BUTTON
+========================================================= */
+
 .contact-form button{
+
+margin-top:10px;
 
 padding:18px 34px;
 
 border:none;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#00cfff;
 
@@ -1585,12 +1657,44 @@ font-size:.95rem;
 
 display:flex;
 align-items:center;
+justify-content:center;
 gap:12px;
+
+position:relative;
+overflow:hidden;
 
 transition:.35s;
 
 box-shadow:
 0 0 25px #00cfff55;
+
+}
+
+.btn-glow{
+
+position:absolute;
+
+width:180%;
+height:180%;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.4),
+transparent
+);
+
+transform:translateX(-100%);
+animation:buttonGlow 4s linear infinite;
+
+}
+
+@keyframes buttonGlow{
+
+100%{
+transform:translateX(200%);
+}
 
 }
 
@@ -1605,6 +1709,10 @@ box-shadow:
 
 }
 
+/* =========================================================
+THANK YOU
+========================================================= */
+
 #thankYouMessage{
 
 display:none;
@@ -1617,49 +1725,50 @@ font-weight:600;
 
 font-size:1rem;
 
-display:flex;
 align-items:center;
 gap:10px;
 
 }
 
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
 @media(max-width:1100px){
 
 .contact-wrapper{
-
 grid-template-columns:1fr;
-
 }
 
 .form-grid{
-
 grid-template-columns:1fr;
-
 }
 
 }
 
 </style>
 
-<!-- =========================================================
-SCRIPT REAL WEB3FORMS
-PEGAR ABAJO DE TODO
-========================================================= -->
-
 <script>
 
-/* =========================================================
-WEB3FORMS
-========================================================= */
-
-const form = document.getElementById("contactForm");
+const form =
+document.getElementById("contactForm");
 
 const thankYou =
 document.getElementById("thankYouMessage");
 
+const submitBtn =
+document.getElementById("submitBtn");
+
+const btnText =
+document.getElementById("btnText");
+
 form.addEventListener("submit", async (e) => {
 
 e.preventDefault();
+
+btnText.innerText = "Enviando...";
+
+submitBtn.disabled = true;
 
 const formData = new FormData(form);
 
@@ -1679,11 +1788,25 @@ if(result.success){
 
 thankYou.style.display = "flex";
 
+btnText.innerText = "Mensaje enviado";
+
 form.reset();
+
+setTimeout(()=>{
+
+btnText.innerText = "Enviar mensaje";
+
+submitBtn.disabled = false;
+
+},3000);
 
 }else{
 
-alert("Error al enviar el mensaje");
+alert("Error al enviar");
+
+btnText.innerText = "Enviar mensaje";
+
+submitBtn.disabled = false;
 
 }
 
@@ -1691,11 +1814,17 @@ alert("Error al enviar el mensaje");
 
 alert("Error de conexión");
 
+btnText.innerText = "Enviar mensaje";
+
+submitBtn.disabled = false;
+
 }
 
 });
 
 </script>
+```
+
 
 </body>
 </html>
