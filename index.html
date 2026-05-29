@@ -33,16 +33,31 @@ html{
 overflow-x:hidden;
 }
 
-/* =========================================================
-BODY
-========================================================= */
-
 body{
 font-family:"Inter",sans-serif;
 background:#05070d;
-color:#ffffff;
+color:#fff;
 overflow-x:hidden;
 position:relative;
+}
+
+/* =========================================================
+SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#060913;
+}
+
+::-webkit-scrollbar-thumb{
+background:linear-gradient(#00cfff,#0066ff);
+border-radius:20px;
+box-shadow:
+0 0 15px #00cfff;
 }
 
 /* =========================================================
@@ -52,7 +67,7 @@ BACKGROUND
 .bg-animation{
 position:fixed;
 inset:0;
-z-index:-20;
+z-index:-50;
 overflow:hidden;
 animation:hueRotate 18s linear infinite;
 }
@@ -73,32 +88,32 @@ filter:hue-rotate(360deg);
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-opacity:.25;
-animation:float 14s infinite alternate;
+opacity:.22;
+animation:float 14s infinite alternate ease-in-out;
 }
 
 .light1{
-width:520px;
-height:520px;
+width:600px;
+height:600px;
 background:#00cfff;
-top:-120px;
-left:-120px;
+top:-180px;
+left:-180px;
 }
 
 .light2{
-width:450px;
-height:450px;
+width:520px;
+height:520px;
 background:#004cff;
-bottom:-100px;
-right:-100px;
+bottom:-150px;
+right:-150px;
 }
 
 .light3{
-width:350px;
-height:350px;
+width:420px;
+height:420px;
 background:#00fff2;
-top:45%;
-left:45%;
+top:40%;
+left:40%;
 }
 
 @keyframes float{
@@ -108,7 +123,88 @@ transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(120px,-90px) scale(1.3);
+transform:translate(120px,-80px) scale(1.3);
+}
+
+}
+
+/* =========================================================
+PARTICLES
+========================================================= */
+
+.particles{
+position:fixed;
+inset:0;
+z-index:-40;
+overflow:hidden;
+pointer-events:none;
+}
+
+.particles span{
+position:absolute;
+display:block;
+width:3px;
+height:3px;
+background:#00cfff;
+border-radius:50%;
+box-shadow:
+0 0 10px #00cfff,
+0 0 20px #00cfff;
+
+animation:particlesMove linear infinite;
+opacity:.5;
+}
+
+.particles span:nth-child(1){
+left:10%;
+top:100%;
+animation-duration:18s;
+}
+
+.particles span:nth-child(2){
+left:20%;
+top:100%;
+animation-duration:24s;
+}
+
+.particles span:nth-child(3){
+left:35%;
+top:100%;
+animation-duration:20s;
+}
+
+.particles span:nth-child(4){
+left:50%;
+top:100%;
+animation-duration:16s;
+}
+
+.particles span:nth-child(5){
+left:70%;
+top:100%;
+animation-duration:22s;
+}
+
+.particles span:nth-child(6){
+left:85%;
+top:100%;
+animation-duration:19s;
+}
+
+@keyframes particlesMove{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
 }
 
 }
@@ -126,6 +222,7 @@ position:fixed;
 pointer-events:none;
 z-index:999999;
 transform:translate(-50%,-50%);
+
 box-shadow:
 0 0 20px #00cfff,
 0 0 50px #00cfff;
@@ -144,7 +241,7 @@ justify-content:center;
 align-items:center;
 overflow:hidden;
 z-index:999999;
-transition:1.5s;
+transition:1.8s;
 }
 
 .loader.hide{
@@ -164,12 +261,12 @@ z-index:5;
 
 .loader-door.left{
 left:0;
-border-right:1px solid #00cfff22;
+border-right:1px solid #00cfff33;
 }
 
 .loader-door.right{
 right:0;
-border-left:1px solid #00cfff22;
+border-left:1px solid #00cfff33;
 }
 
 .loader.hide .loader-door.left{
@@ -240,7 +337,7 @@ opacity:.7;
 @keyframes loaderLine{
 
 100%{
-width:300px;
+width:320px;
 }
 
 }
@@ -262,9 +359,9 @@ justify-content:space-between;
 
 padding:0 50px;
 
-background:rgba(5,7,13,.7);
+background:rgba(5,7,13,.65);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 
 border-bottom:1px solid rgba(255,255,255,.05);
 
@@ -283,9 +380,9 @@ text-decoration:none;
 }
 
 .logo-icon{
-width:68px;
-height:68px;
-border-radius:20px;
+width:70px;
+height:70px;
+border-radius:22px;
 
 display:flex;
 justify-content:center;
@@ -307,14 +404,14 @@ box-shadow:
 0 0 25px #00cfff66,
 0 0 60px #00cfff33;
 
-animation:logoGlow 4s infinite alternate;
+animation:logoBreath 4s infinite alternate;
 }
 
 .logo-icon::before{
 content:"";
 position:absolute;
-width:220%;
-height:220%;
+width:230%;
+height:230%;
 
 background:
 conic-gradient(
@@ -334,7 +431,7 @@ animation:rotate 5s linear infinite;
 content:"";
 position:absolute;
 inset:2px;
-border-radius:18px;
+border-radius:20px;
 background:#09111f;
 }
 
@@ -351,12 +448,17 @@ transform:rotate(360deg);
 
 }
 
-@keyframes logoGlow{
+@keyframes logoBreath{
+
+0%{
+transform:scale(1);
+}
 
 100%{
+transform:scale(1.05);
 box-shadow:
-0 0 40px #00fff2,
-0 0 80px #00cfff66;
+0 0 45px #00cfff,
+0 0 90px #00cfff66;
 }
 
 }
@@ -369,7 +471,6 @@ position:relative;
 }
 
 .logo-text h1{
-
 font-size:1.15rem;
 
 font-family:"Orbitron",sans-serif;
@@ -397,15 +498,9 @@ background-size:300%;
 -webkit-text-fill-color:transparent;
 
 animation:logoTextFlow 6s linear infinite;
-
-text-shadow:
-0 0 10px rgba(0,207,255,.4),
-0 0 20px rgba(0,207,255,.3);
-
 }
 
 .logo-text p{
-
 font-size:.82rem;
 
 margin-top:2px;
@@ -419,15 +514,9 @@ color:#9aefff;
 font-style:italic;
 
 animation:techPulse 3s ease-in-out infinite;
-
-text-shadow:
-0 0 8px #00cfff88,
-0 0 20px #00cfff55;
-
 }
 
 .logo-text::after{
-
 content:"";
 
 position:absolute;
@@ -454,9 +543,7 @@ background-size:200%;
 animation:lineMove 4s linear infinite;
 
 box-shadow:
-0 0 12px #00cfff,
-0 0 25px #00cfff;
-
+0 0 12px #00cfff;
 }
 
 @keyframes logoTextFlow{
@@ -552,6 +639,7 @@ padding:150px 60px 80px;
 .hero-content{
 max-width:1350px;
 margin:auto;
+
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:90px;
@@ -559,10 +647,34 @@ align-items:center;
 }
 
 .hero-text h2{
-font-size:4.1rem;
+font-size:4.2rem;
 line-height:1.1;
 margin-bottom:25px;
 font-family:"Orbitron",sans-serif;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#00cfff,
+#00fff2,
+#fff
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:heroGlow 8s linear infinite;
+}
+
+@keyframes heroGlow{
+
+100%{
+background-position:300%;
+}
+
 }
 
 .hero-text p{
@@ -586,6 +698,30 @@ font-size:.95rem;
 font-weight:600;
 text-decoration:none;
 transition:.35s;
+position:relative;
+overflow:hidden;
+}
+
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.4),
+transparent
+);
+
+transition:.6s;
+}
+
+.btn:hover::before{
+left:120%;
 }
 
 .btn-primary{
@@ -617,9 +753,63 @@ height:430px;
 border-radius:50%;
 object-fit:cover;
 
+animation:imageFloat 6s ease-in-out infinite;
+
 box-shadow:
 0 0 40px #00cfff55,
 0 0 90px #00cfff22;
+}
+
+@keyframes imageFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-14px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* =========================================================
+STATS
+========================================================= */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-top:60px;
+}
+
+.stat-box{
+padding:30px;
+border-radius:24px;
+
+background:
+rgba(10,15,30,.65);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.06);
+
+text-align:center;
+}
+
+.stat-box h3{
+font-size:2rem;
+color:#00cfff;
+margin-bottom:8px;
+font-family:"Orbitron",sans-serif;
+}
+
+.stat-box p{
+color:#9aa6c0;
 }
 
 /* =========================================================
@@ -656,9 +846,14 @@ gap:32px;
 }
 
 .service-card{
-background:#0b1020;
+background:
+rgba(11,16,32,.85);
+
+backdrop-filter:blur(14px);
+
 border-radius:28px;
 padding:42px 34px;
+
 border:1px solid rgba(255,255,255,.05);
 
 position:relative;
@@ -687,12 +882,35 @@ right:-160px;
 transition:.6s;
 }
 
+.service-card::after{
+content:"";
+position:absolute;
+top:-120%;
+left:-40%;
+width:70%;
+height:300%;
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:.8s;
+}
+
+.service-card:hover::after{
+top:120%;
+}
+
 .service-card:hover::before{
 transform:scale(1.5);
 }
 
 .service-card:hover{
-
 transform:
 translateY(-14px)
 scale(1.03);
@@ -710,15 +928,15 @@ SERVICE ICONS
 ========================================================= */
 
 .service-icon{
-width:92px;
-height:92px;
-border-radius:30px;
+width:95px;
+height:95px;
+border-radius:32px;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-size:2.2rem;
+font-size:2.3rem;
 
 margin-bottom:32px;
 
@@ -774,7 +992,7 @@ transform:rotate(360deg);
 content:"";
 position:absolute;
 inset:2px;
-border-radius:28px;
+border-radius:30px;
 background:#0b1020;
 z-index:1;
 }
@@ -818,7 +1036,7 @@ font-weight:600;
 }
 
 /* =========================================================
-CONTACTO
+CONTACT
 ========================================================= */
 
 .contact-wrapper{
@@ -845,11 +1063,9 @@ text-decoration:none;
 color:#fff;
 
 background:
-linear-gradient(
-145deg,
-rgba(10,15,30,.95),
-rgba(5,10,20,.95)
-);
+rgba(10,15,30,.8);
+
+backdrop-filter:blur(16px);
 
 border:1px solid rgba(255,255,255,.06);
 
@@ -905,11 +1121,9 @@ padding:40px;
 border-radius:32px;
 
 background:
-linear-gradient(
-145deg,
-rgba(10,15,30,.95),
-rgba(5,10,20,.95)
-);
+rgba(10,15,30,.8);
+
+backdrop-filter:blur(18px);
 
 border:1px solid rgba(255,255,255,.06);
 }
@@ -947,6 +1161,54 @@ cursor:pointer;
 
 box-shadow:
 0 0 25px #00cfff55;
+}
+
+/* =========================================================
+WHATSAPP FLOAT
+========================================================= */
+
+.whatsapp-float{
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:72px;
+height:72px;
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#00cc66;
+color:#fff;
+
+font-size:2rem;
+
+text-decoration:none;
+
+z-index:9999;
+
+animation:whatsappPulse 2s infinite;
+
+box-shadow:
+0 0 25px #00ff8888;
+}
+
+@keyframes whatsappPulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
 }
 
 /* =========================================================
@@ -999,6 +1261,10 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
+.stats{
+grid-template-columns:1fr;
+}
+
 }
 
 @media(max-width:760px){
@@ -1033,7 +1299,7 @@ padding:90px 24px;
 }
 
 .loader-title{
-font-size:2.6rem;
+font-size:2.5rem;
 }
 
 }
@@ -1043,15 +1309,7 @@ font-size:2.6rem;
 
 <body>
 
-<!-- =========================================================
-CURSOR
-========================================================= -->
-
 <div class="cursor" id="cursor"></div>
-
-<!-- =========================================================
-BACKGROUND
-========================================================= -->
 
 <div class="bg-animation">
 
@@ -1061,9 +1319,16 @@ BACKGROUND
 
 </div>
 
-<!-- =========================================================
-LOADER
-========================================================= -->
+<div class="particles">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
 
 <div class="loader" id="loader">
 
@@ -1085,10 +1350,6 @@ TECNOLOGÍA
 </div>
 
 </div>
-
-<!-- =========================================================
-HEADER
-========================================================= -->
 
 <header>
 
@@ -1118,10 +1379,6 @@ HEADER
 
 </header>
 
-<!-- =========================================================
-HERO
-========================================================= -->
-
 <section class="hero" id="inicio">
 
 <div class="hero-content">
@@ -1134,7 +1391,7 @@ Tecnología a tu alcance.
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital,
-con innovación, rendimiento y estilo.
+con innovación, rendimiento y estilo premium.
 </p>
 
 <div class="hero-buttons">
@@ -1156,6 +1413,25 @@ Explorar servicios
 
 </div>
 
+<div class="stats">
+
+<div class="stat-box">
+<h3 class="counter" data-target="500">0</h3>
+<p>Equipos reparados</p>
+</div>
+
+<div class="stat-box">
+<h3 class="counter" data-target="100">0</h3>
+<p>Clientes satisfechos</p>
+</div>
+
+<div class="stat-box">
+<h3 class="counter" data-target="4">0</h3>
+<p>Servicios principales</p>
+</div>
+
+</div>
+
 </div>
 
 <div class="hero-image reveal">
@@ -1167,10 +1443,6 @@ Explorar servicios
 </div>
 
 </section>
-
-<!-- =========================================================
-SERVICIOS
-========================================================= -->
 
 <section id="servicios">
 
@@ -1288,10 +1560,6 @@ VER MÁS →
 
 </section>
 
-<!-- =========================================================
-CONTACTO
-========================================================= -->
-
 <section id="contacto">
 
 <div class="section-title reveal">
@@ -1377,27 +1645,49 @@ lc.technology.ar@gmail.com
 
 </div>
 
- <form id="contactForm" class="contact-form">
-  <!-- Web3Forms key -->
-  <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
-  <input type="text" name="name" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo electrónico" required>
-  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
+<form id="contactForm" class="contact-form reveal">
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
+<input type="hidden"
+name="access_key"
+value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
+
+<div class="form-grid">
+
+<input
+type="text"
+name="name"
+placeholder="Tu nombre"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Tu correo electrónico"
+required>
+
+</div>
+
+<textarea
+name="message"
+placeholder="Tu mensaje"
+required></textarea>
+
+<button type="submit">
+Enviar mensaje
+</button>
+
+<div id="thankYouMessage"
+style="display:none;color:#00cfff;margin-top:15px;">
+
+¡Gracias por tu consulta!
+
+</div>
+
 </form>
 
-<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
-  ¡Gracias por tu consulta! Te responderemos pronto.
 </div>
-  </div>
-
 
 </section>
-
-<!-- =========================================================
-FOOTER
-========================================================= -->
 
 <footer>
 
@@ -1413,9 +1703,13 @@ Mendoza, Argentina
 
 </footer>
 
-<!-- =========================================================
-SCRIPTS
-========================================================= -->
+<a href="https://wa.me/5492634722710"
+target="_blank"
+class="whatsapp-float">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
 
 <script>
 
@@ -1423,10 +1717,14 @@ SCRIPTS
 LOADER
 ========================================================= */
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("loader").classList.add("hide");
-  }, 2600);
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").classList.add("hide");
+
+},2600);
+
 });
 
 /* =========================================================
@@ -1435,18 +1733,25 @@ REVEAL
 
 const reveals = document.querySelectorAll(".reveal");
 
-function revealElements() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
+function revealElements(){
 
-    if (top < window.innerHeight - 80) {
-      el.classList.add("active");
-    }
-  });
+reveals.forEach(el=>{
+
+const top = el.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 80){
+
+el.classList.add("active");
+
 }
 
-window.addEventListener("scroll", revealElements);
-window.addEventListener("load", revealElements);
+});
+
+}
+
+window.addEventListener("scroll",revealElements);
+
+window.addEventListener("load",revealElements);
 
 /* =========================================================
 CURSOR
@@ -1454,40 +1759,99 @@ CURSOR
 
 const cursor = document.getElementById("cursor");
 
-window.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+window.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
+
 });
 
 /* =========================================================
-FORM WEB3FORMS
+COUNTERS
+========================================================= */
+
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+counter.innerText = "0";
+
+const updateCounter = ()=>{
+
+const target = +counter.getAttribute("data-target");
+
+const current = +counter.innerText;
+
+const increment = target / 80;
+
+if(current < target){
+
+counter.innerText = `${Math.ceil(current + increment)}`;
+
+setTimeout(updateCounter,20);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+updateCounter();
+
+});
+
+/* =========================================================
+WEB3FORMS
 ========================================================= */
 
 const form = document.getElementById("contactForm");
+
 const thankYou = document.getElementById("thankYouMessage");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+form.addEventListener("submit",async(e)=>{
 
-  const formData = new FormData(form);
+e.preventDefault();
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
+const formData = new FormData(form);
 
-    const result = await response.json();
+try{
 
-    if (result.success) {
-      form.reset();
-      thankYou.style.display = "block";
-    } else {
-      alert("Error al enviar el mensaje");
-    }
-  } catch (error) {
-    alert("Error de conexión");
-  }
+const response = await fetch(
+"https://api.web3forms.com/submit",
+{
+method:"POST",
+body:formData
+}
+);
+
+const result = await response.json();
+
+if(result.success){
+
+form.reset();
+
+thankYou.style.display = "block";
+
+setTimeout(()=>{
+
+thankYou.style.display = "none";
+
+},5000);
+
+}else{
+
+alert("Error al enviar el mensaje");
+
+}
+
+}catch(error){
+
+alert("Error de conexión");
+
+}
+
 });
 
 </script>
