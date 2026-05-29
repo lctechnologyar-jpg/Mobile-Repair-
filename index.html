@@ -42,34 +42,15 @@ position:relative;
 }
 
 /* =========================================================
-SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-track{
-background:#060913;
-}
-
-::-webkit-scrollbar-thumb{
-background:linear-gradient(#00cfff,#0066ff);
-border-radius:20px;
-box-shadow:
-0 0 15px #00cfff;
-}
-
-/* =========================================================
 BACKGROUND
 ========================================================= */
 
 .bg-animation{
 position:fixed;
 inset:0;
-z-index:-50;
+z-index:-20;
 overflow:hidden;
-animation:hueRotate 18s linear infinite;
+animation:hueRotate 20s linear infinite;
 }
 
 @keyframes hueRotate{
@@ -88,32 +69,32 @@ filter:hue-rotate(360deg);
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
-opacity:.22;
-animation:float 14s infinite alternate ease-in-out;
+opacity:.25;
+animation:float 14s infinite alternate;
 }
 
 .light1{
-width:600px;
-height:600px;
+width:520px;
+height:520px;
 background:#00cfff;
-top:-180px;
-left:-180px;
+top:-120px;
+left:-120px;
 }
 
 .light2{
-width:520px;
-height:520px;
+width:450px;
+height:450px;
 background:#004cff;
-bottom:-150px;
-right:-150px;
+bottom:-100px;
+right:-100px;
 }
 
 .light3{
-width:420px;
-height:420px;
+width:350px;
+height:350px;
 background:#00fff2;
-top:40%;
-left:40%;
+top:45%;
+left:45%;
 }
 
 @keyframes float{
@@ -123,88 +104,7 @@ transform:translate(0,0) scale(1);
 }
 
 100%{
-transform:translate(120px,-80px) scale(1.3);
-}
-
-}
-
-/* =========================================================
-PARTICLES
-========================================================= */
-
-.particles{
-position:fixed;
-inset:0;
-z-index:-40;
-overflow:hidden;
-pointer-events:none;
-}
-
-.particles span{
-position:absolute;
-display:block;
-width:3px;
-height:3px;
-background:#00cfff;
-border-radius:50%;
-box-shadow:
-0 0 10px #00cfff,
-0 0 20px #00cfff;
-
-animation:particlesMove linear infinite;
-opacity:.5;
-}
-
-.particles span:nth-child(1){
-left:10%;
-top:100%;
-animation-duration:18s;
-}
-
-.particles span:nth-child(2){
-left:20%;
-top:100%;
-animation-duration:24s;
-}
-
-.particles span:nth-child(3){
-left:35%;
-top:100%;
-animation-duration:20s;
-}
-
-.particles span:nth-child(4){
-left:50%;
-top:100%;
-animation-duration:16s;
-}
-
-.particles span:nth-child(5){
-left:70%;
-top:100%;
-animation-duration:22s;
-}
-
-.particles span:nth-child(6){
-left:85%;
-top:100%;
-animation-duration:19s;
-}
-
-@keyframes particlesMove{
-
-0%{
-transform:translateY(0);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh);
-opacity:0;
+transform:translate(120px,-90px) scale(1.3);
 }
 
 }
@@ -241,7 +141,7 @@ justify-content:center;
 align-items:center;
 overflow:hidden;
 z-index:999999;
-transition:1.8s;
+transition:1.5s;
 }
 
 .loader.hide{
@@ -261,12 +161,12 @@ z-index:5;
 
 .loader-door.left{
 left:0;
-border-right:1px solid #00cfff33;
+border-right:1px solid #00cfff22;
 }
 
 .loader-door.right{
 right:0;
-border-left:1px solid #00cfff33;
+border-left:1px solid #00cfff22;
 }
 
 .loader.hide .loader-door.left{
@@ -337,7 +237,7 @@ opacity:.7;
 @keyframes loaderLine{
 
 100%{
-width:320px;
+width:300px;
 }
 
 }
@@ -359,9 +259,9 @@ justify-content:space-between;
 
 padding:0 50px;
 
-background:rgba(5,7,13,.65);
+background:rgba(5,7,13,.7);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(15px);
 
 border-bottom:1px solid rgba(255,255,255,.05);
 
@@ -380,9 +280,9 @@ text-decoration:none;
 }
 
 .logo-icon{
-width:70px;
-height:70px;
-border-radius:22px;
+width:68px;
+height:68px;
+border-radius:20px;
 
 display:flex;
 justify-content:center;
@@ -404,14 +304,14 @@ box-shadow:
 0 0 25px #00cfff66,
 0 0 60px #00cfff33;
 
-animation:logoBreath 4s infinite alternate;
+animation:logoGlow 4s infinite alternate;
 }
 
 .logo-icon::before{
 content:"";
 position:absolute;
-width:230%;
-height:230%;
+width:220%;
+height:220%;
 
 background:
 conic-gradient(
@@ -431,7 +331,7 @@ animation:rotate 5s linear infinite;
 content:"";
 position:absolute;
 inset:2px;
-border-radius:20px;
+border-radius:18px;
 background:#09111f;
 }
 
@@ -448,17 +348,12 @@ transform:rotate(360deg);
 
 }
 
-@keyframes logoBreath{
-
-0%{
-transform:scale(1);
-}
+@keyframes logoGlow{
 
 100%{
-transform:scale(1.05);
 box-shadow:
-0 0 45px #00cfff,
-0 0 90px #00cfff66;
+0 0 40px #00fff2,
+0 0 80px #00cfff66;
 }
 
 }
@@ -471,6 +366,7 @@ position:relative;
 }
 
 .logo-text h1{
+
 font-size:1.15rem;
 
 font-family:"Orbitron",sans-serif;
@@ -498,9 +394,11 @@ background-size:300%;
 -webkit-text-fill-color:transparent;
 
 animation:logoTextFlow 6s linear infinite;
+
 }
 
 .logo-text p{
+
 font-size:.82rem;
 
 margin-top:2px;
@@ -514,36 +412,7 @@ color:#9aefff;
 font-style:italic;
 
 animation:techPulse 3s ease-in-out infinite;
-}
 
-.logo-text::after{
-content:"";
-
-position:absolute;
-
-bottom:-10px;
-left:0;
-
-width:100%;
-height:2px;
-
-border-radius:20px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-#00cfff,
-#00fff2,
-transparent
-);
-
-background-size:200%;
-
-animation:lineMove 4s linear infinite;
-
-box-shadow:
-0 0 12px #00cfff;
 }
 
 @keyframes logoTextFlow{
@@ -562,29 +431,14 @@ background-position:300%;
 
 0%{
 opacity:.7;
-letter-spacing:5px;
 }
 
 50%{
 opacity:1;
-letter-spacing:7px;
 }
 
 100%{
 opacity:.7;
-letter-spacing:5px;
-}
-
-}
-
-@keyframes lineMove{
-
-0%{
-background-position:0%;
-}
-
-100%{
-background-position:200%;
 }
 
 }
@@ -639,7 +493,6 @@ padding:150px 60px 80px;
 .hero-content{
 max-width:1350px;
 margin:auto;
-
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:90px;
@@ -647,34 +500,10 @@ align-items:center;
 }
 
 .hero-text h2{
-font-size:4.2rem;
+font-size:4.1rem;
 line-height:1.1;
 margin-bottom:25px;
 font-family:"Orbitron",sans-serif;
-
-background:
-linear-gradient(
-90deg,
-#fff,
-#00cfff,
-#00fff2,
-#fff
-);
-
-background-size:300%;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-animation:heroGlow 8s linear infinite;
-}
-
-@keyframes heroGlow{
-
-100%{
-background-position:300%;
-}
-
 }
 
 .hero-text p{
@@ -698,38 +527,12 @@ font-size:.95rem;
 font-weight:600;
 text-decoration:none;
 transition:.35s;
-position:relative;
-overflow:hidden;
-}
-
-.btn::before{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:100%;
-height:100%;
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.4),
-transparent
-);
-
-transition:.6s;
-}
-
-.btn:hover::before{
-left:120%;
 }
 
 .btn-primary{
 background:#00cfff;
 color:#000;
-
-box-shadow:
-0 0 30px #00cfff55;
+box-shadow:0 0 30px #00cfff55;
 }
 
 .btn-primary:hover{
@@ -753,67 +556,13 @@ height:430px;
 border-radius:50%;
 object-fit:cover;
 
-animation:imageFloat 6s ease-in-out infinite;
-
 box-shadow:
 0 0 40px #00cfff55,
 0 0 90px #00cfff22;
 }
 
-@keyframes imageFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-14px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
 /* =========================================================
-STATS
-========================================================= */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:60px;
-}
-
-.stat-box{
-padding:30px;
-border-radius:24px;
-
-background:
-rgba(10,15,30,.65);
-
-backdrop-filter:blur(14px);
-
-border:1px solid rgba(255,255,255,.06);
-
-text-align:center;
-}
-
-.stat-box h3{
-font-size:2rem;
-color:#00cfff;
-margin-bottom:8px;
-font-family:"Orbitron",sans-serif;
-}
-
-.stat-box p{
-color:#9aa6c0;
-}
-
-/* =========================================================
-SECTION
+SECTIONS
 ========================================================= */
 
 section{
@@ -846,14 +595,9 @@ gap:32px;
 }
 
 .service-card{
-background:
-rgba(11,16,32,.85);
-
-backdrop-filter:blur(14px);
-
+background:#0b1020;
 border-radius:28px;
 padding:42px 34px;
-
 border:1px solid rgba(255,255,255,.05);
 
 position:relative;
@@ -882,35 +626,12 @@ right:-160px;
 transition:.6s;
 }
 
-.service-card::after{
-content:"";
-position:absolute;
-top:-120%;
-left:-40%;
-width:70%;
-height:300%;
-background:
-linear-gradient(
-180deg,
-transparent,
-rgba(255,255,255,.08),
-transparent
-);
-
-transform:rotate(25deg);
-
-transition:.8s;
-}
-
-.service-card:hover::after{
-top:120%;
-}
-
 .service-card:hover::before{
 transform:scale(1.5);
 }
 
 .service-card:hover{
+
 transform:
 translateY(-14px)
 scale(1.03);
@@ -923,76 +644,30 @@ box-shadow:
 0 0 120px #00cfff11;
 }
 
-/* =========================================================
-SERVICE ICONS
-========================================================= */
-
 .service-icon{
-width:95px;
-height:95px;
-border-radius:32px;
+width:92px;
+height:92px;
+border-radius:30px;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-size:2.3rem;
+font-size:2.2rem;
 
 margin-bottom:32px;
 
 position:relative;
 overflow:hidden;
 
-animation:iconFloat 4s ease-in-out infinite;
-
 border:1px solid rgba(255,255,255,.08);
-}
-
-@keyframes iconFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-.icon-glow{
-position:absolute;
-width:180%;
-height:180%;
-
-background:
-conic-gradient(
-transparent,
-rgba(255,255,255,.9),
-transparent,
-transparent
-);
-
-animation:rotateGlow 4s linear infinite;
-}
-
-@keyframes rotateGlow{
-
-100%{
-transform:rotate(360deg);
-}
-
 }
 
 .service-icon::after{
 content:"";
 position:absolute;
 inset:2px;
-border-radius:30px;
+border-radius:28px;
 background:#0b1020;
 z-index:1;
 }
@@ -1036,7 +711,7 @@ font-weight:600;
 }
 
 /* =========================================================
-CONTACT
+CONTACTO
 ========================================================= */
 
 .contact-wrapper{
@@ -1063,9 +738,11 @@ text-decoration:none;
 color:#fff;
 
 background:
-rgba(10,15,30,.8);
-
-backdrop-filter:blur(16px);
+linear-gradient(
+145deg,
+rgba(10,15,30,.95),
+rgba(5,10,20,.95)
+);
 
 border:1px solid rgba(255,255,255,.06);
 
@@ -1121,9 +798,11 @@ padding:40px;
 border-radius:32px;
 
 background:
-rgba(10,15,30,.8);
-
-backdrop-filter:blur(18px);
+linear-gradient(
+145deg,
+rgba(10,15,30,.95),
+rgba(5,10,20,.95)
+);
 
 border:1px solid rgba(255,255,255,.06);
 }
@@ -1163,52 +842,11 @@ box-shadow:
 0 0 25px #00cfff55;
 }
 
-/* =========================================================
-WHATSAPP FLOAT
-========================================================= */
-
-.whatsapp-float{
-position:fixed;
-right:25px;
-bottom:25px;
-
-width:72px;
-height:72px;
-border-radius:50%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:#00cc66;
-color:#fff;
-
-font-size:2rem;
-
-text-decoration:none;
-
-z-index:9999;
-
-animation:whatsappPulse 2s infinite;
-
-box-shadow:
-0 0 25px #00ff8888;
-}
-
-@keyframes whatsappPulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
+#thankYouMessage{
+display:none;
+margin-top:18px;
+color:#00ffb7;
+font-weight:600;
 }
 
 /* =========================================================
@@ -1261,10 +899,6 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.stats{
-grid-template-columns:1fr;
-}
-
 }
 
 @media(max-width:760px){
@@ -1299,7 +933,7 @@ padding:90px 24px;
 }
 
 .loader-title{
-font-size:2.5rem;
+font-size:2.6rem;
 }
 
 }
@@ -1316,17 +950,6 @@ font-size:2.5rem;
 <div class="light light1"></div>
 <div class="light light2"></div>
 <div class="light light3"></div>
-
-</div>
-
-<div class="particles">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
 
 </div>
 
@@ -1391,7 +1014,7 @@ Tecnología a tu alcance.
 
 <p>
 Servicio técnico, venta de celulares, accesorios y entretenimiento digital,
-con innovación, rendimiento y estilo premium.
+con innovación, rendimiento y estilo.
 </p>
 
 <div class="hero-buttons">
@@ -1410,25 +1033,6 @@ class="btn btn-outline">
 Explorar servicios
 
 </a>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-box">
-<h3 class="counter" data-target="500">0</h3>
-<p>Equipos reparados</p>
-</div>
-
-<div class="stat-box">
-<h3 class="counter" data-target="100">0</h3>
-<p>Clientes satisfechos</p>
-</div>
-
-<div class="stat-box">
-<h3 class="counter" data-target="4">0</h3>
-<p>Servicios principales</p>
-</div>
 
 </div>
 
@@ -1463,11 +1067,7 @@ Soluciones modernas para celulares, tecnología y entretenimiento.
 <div class="service-card reveal">
 
 <div class="service-icon tech-icon">
-
-<div class="icon-glow"></div>
-
 <i class="fa-solid fa-screwdriver-wrench"></i>
-
 </div>
 
 <h3>
@@ -1487,11 +1087,7 @@ VER SERVICIO →
 <div class="service-card reveal">
 
 <div class="service-icon venta-icon">
-
-<div class="icon-glow"></div>
-
 <i class="fa-solid fa-mobile-screen-button"></i>
-
 </div>
 
 <h3>
@@ -1511,11 +1107,7 @@ VER EQUIPOS →
 <div class="service-card reveal">
 
 <div class="service-icon accesorios-icon">
-
-<div class="icon-glow"></div>
-
 <i class="fa-solid fa-headphones-simple"></i>
-
 </div>
 
 <h3>
@@ -1535,11 +1127,7 @@ VER ACCESORIOS →
 <div class="service-card reveal">
 
 <div class="service-icon tv-icon">
-
-<div class="icon-glow"></div>
-
 <i class="fa-solid fa-tv"></i>
-
 </div>
 
 <h3>
@@ -1560,6 +1148,11 @@ VER MÁS →
 
 </section>
 
+<!-- =========================================================
+FORMULARIO REAL GMAIL + WEB3FORMS
+NO BORRAR ESTA PARTE
+========================================================= -->
+
 <section id="contacto">
 
 <div class="section-title reveal">
@@ -1576,6 +1169,10 @@ Canales rápidos y directos.
 
 <div class="contact-wrapper">
 
+<!-- =========================================================
+CONTACTOS IZQUIERDA
+========================================================= -->
+
 <div class="contact-left">
 
 <a href="https://wa.me/5492634722710"
@@ -1583,7 +1180,9 @@ target="_blank"
 class="contact-box reveal">
 
 <div class="contact-icon whatsapp-icon">
+
 <i class="fa-brands fa-whatsapp"></i>
+
 </div>
 
 <div class="contact-info">
@@ -1605,7 +1204,9 @@ target="_blank"
 class="contact-box reveal">
 
 <div class="contact-icon facebook-icon">
+
 <i class="fa-brands fa-facebook-f"></i>
+
 </div>
 
 <div class="contact-info">
@@ -1626,7 +1227,9 @@ LC ONE PLAYER
 class="contact-box reveal">
 
 <div class="contact-icon email-icon">
+
 <i class="fa-solid fa-envelope"></i>
+
 </div>
 
 <div class="contact-info">
@@ -1645,9 +1248,17 @@ lc.technology.ar@gmail.com
 
 </div>
 
-<form id="contactForm" class="contact-form reveal">
+<!-- =========================================================
+FORMULARIO DERECHA
+========================================================= -->
 
-<input type="hidden"
+<form id="contactForm"
+class="contact-form reveal">
+
+<!-- WEB3FORMS -->
+
+<input
+type="hidden"
 name="access_key"
 value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
 
@@ -1669,17 +1280,23 @@ required>
 
 <textarea
 name="message"
-placeholder="Tu mensaje"
-required></textarea>
+placeholder="Escribí tu mensaje..."
+required>
+</textarea>
 
 <button type="submit">
+
+<i class="fa-solid fa-paper-plane"></i>
+
 Enviar mensaje
+
 </button>
 
-<div id="thankYouMessage"
-style="display:none;color:#00cfff;margin-top:15px;">
+<div id="thankYouMessage">
 
-¡Gracias por tu consulta!
+<i class="fa-solid fa-circle-check"></i>
+
+¡Mensaje enviado correctamente!
 
 </div>
 
@@ -1689,118 +1306,347 @@ style="display:none;color:#00cfff;margin-top:15px;">
 
 </section>
 
-<footer>
+<!-- =========================================================
+CSS EXTRA PREMIUM FORM
+PEGAR EN TU CSS
+========================================================= -->
 
-© LC ONE PLAYER
+<style>
 
-<br><br>
+.contact-wrapper{
 
-Servicio Técnico · Venta · Accesorios · Entretenimiento Familiar
+display:grid;
+grid-template-columns:420px 1fr;
+gap:40px;
 
-<br><br>
+max-width:1350px;
+margin:auto;
 
-Mendoza, Argentina
+}
 
-</footer>
+.contact-left{
 
-<a href="https://wa.me/5492634722710"
-target="_blank"
-class="whatsapp-float">
+display:flex;
+flex-direction:column;
+gap:24px;
 
-<i class="fa-brands fa-whatsapp"></i>
+}
 
-</a>
+.contact-box{
+
+display:flex;
+align-items:center;
+gap:22px;
+
+padding:28px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,15,30,.95),
+rgba(5,10,20,.95)
+);
+
+border:1px solid rgba(255,255,255,.06);
+
+text-decoration:none;
+color:#fff;
+
+transition:.45s;
+
+position:relative;
+overflow:hidden;
+
+}
+
+.contact-box::before{
+
+content:"";
+
+position:absolute;
+
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(0,207,255,.15),
+transparent 70%
+);
+
+top:-120px;
+right:-120px;
+
+transition:.6s;
+
+}
+
+.contact-box:hover::before{
+
+transform:scale(1.5);
+
+}
+
+.contact-box:hover{
+
+transform:
+translateY(-10px)
+scale(1.02);
+
+box-shadow:
+0 0 25px #00cfff44,
+0 0 60px #00cfff22;
+
+border-color:#00cfff55;
+
+}
+
+.contact-icon{
+
+min-width:76px;
+height:76px;
+
+border-radius:22px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:1.8rem;
+
+color:#fff;
+
+box-shadow:
+0 0 25px rgba(255,255,255,.12);
+
+}
+
+.whatsapp-icon{
+
+background:
+linear-gradient(
+145deg,
+#00ff88,
+#00cc66
+);
+
+}
+
+.facebook-icon{
+
+background:
+linear-gradient(
+145deg,
+#1877f2,
+#0059d6
+);
+
+}
+
+.email-icon{
+
+background:
+linear-gradient(
+145deg,
+#00cfff,
+#0066ff
+);
+
+}
+
+.contact-info h3{
+
+margin-bottom:6px;
+font-size:1rem;
+
+}
+
+.contact-info p{
+
+color:#9aa6c0;
+font-size:.95rem;
+
+}
+
+.contact-form{
+
+padding:45px;
+
+border-radius:34px;
+
+background:
+linear-gradient(
+145deg,
+rgba(10,15,30,.96),
+rgba(5,10,20,.96)
+);
+
+border:1px solid rgba(255,255,255,.06);
+
+position:relative;
+overflow:hidden;
+
+}
+
+.contact-form::before{
+
+content:"";
+
+position:absolute;
+
+width:340px;
+height:340px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(0,207,255,.12),
+transparent 70%
+);
+
+top:-170px;
+right:-170px;
+
+}
+
+.form-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+width:100%;
+
+padding:22px;
+
+border:none;
+outline:none;
+
+border-radius:18px;
+
+background:#101827;
+
+color:#fff;
+
+margin-bottom:20px;
+
+font-size:.95rem;
+
+border:1px solid transparent;
+
+transition:.35s;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+border-color:#00cfff;
+
+box-shadow:
+0 0 20px #00cfff22;
+
+}
+
+.contact-form textarea{
+
+height:210px;
+resize:none;
+
+}
+
+.contact-form button{
+
+padding:18px 34px;
+
+border:none;
+
+border-radius:18px;
+
+background:#00cfff;
+
+font-weight:700;
+
+cursor:pointer;
+
+font-size:.95rem;
+
+display:flex;
+align-items:center;
+gap:12px;
+
+transition:.35s;
+
+box-shadow:
+0 0 25px #00cfff55;
+
+}
+
+.contact-form button:hover{
+
+transform:
+translateY(-5px)
+scale(1.03);
+
+box-shadow:
+0 0 40px #00cfff;
+
+}
+
+#thankYouMessage{
+
+display:none;
+
+margin-top:22px;
+
+color:#00ffb7;
+
+font-weight:600;
+
+font-size:1rem;
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+@media(max-width:1100px){
+
+.contact-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+<!-- =========================================================
+SCRIPT REAL WEB3FORMS
+PEGAR ABAJO DE TODO
+========================================================= -->
 
 <script>
-
-/* =========================================================
-LOADER
-========================================================= */
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document.getElementById("loader").classList.add("hide");
-
-},2600);
-
-});
-
-/* =========================================================
-REVEAL
-========================================================= */
-
-const reveals = document.querySelectorAll(".reveal");
-
-function revealElements(){
-
-reveals.forEach(el=>{
-
-const top = el.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 80){
-
-el.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",revealElements);
-
-window.addEventListener("load",revealElements);
-
-/* =========================================================
-CURSOR
-========================================================= */
-
-const cursor = document.getElementById("cursor");
-
-window.addEventListener("mousemove",(e)=>{
-
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-
-});
-
-/* =========================================================
-COUNTERS
-========================================================= */
-
-const counters = document.querySelectorAll(".counter");
-
-counters.forEach(counter=>{
-
-counter.innerText = "0";
-
-const updateCounter = ()=>{
-
-const target = +counter.getAttribute("data-target");
-
-const current = +counter.innerText;
-
-const increment = target / 80;
-
-if(current < target){
-
-counter.innerText = `${Math.ceil(current + increment)}`;
-
-setTimeout(updateCounter,20);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCounter();
-
-});
 
 /* =========================================================
 WEB3FORMS
@@ -1808,9 +1654,10 @@ WEB3FORMS
 
 const form = document.getElementById("contactForm");
 
-const thankYou = document.getElementById("thankYouMessage");
+const thankYou =
+document.getElementById("thankYouMessage");
 
-form.addEventListener("submit",async(e)=>{
+form.addEventListener("submit", async (e) => {
 
 e.preventDefault();
 
@@ -1830,15 +1677,9 @@ const result = await response.json();
 
 if(result.success){
 
+thankYou.style.display = "flex";
+
 form.reset();
-
-thankYou.style.display = "block";
-
-setTimeout(()=>{
-
-thankYou.style.display = "none";
-
-},5000);
 
 }else{
 
