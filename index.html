@@ -129,6 +129,13 @@ transform:translate(-50%,-50%);
 box-shadow:
 0 0 20px #00cfff,
 0 0 50px #00cfff;
+display:none;
+}
+
+@media(pointer:fine){
+.cursor{
+display:block;
+}
 }
 
 /* =========================================================
@@ -265,6 +272,7 @@ padding:0 50px;
 background:rgba(5,7,13,.7);
 
 backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
 
 border-bottom:1px solid rgba(255,255,255,.05);
 
@@ -586,6 +594,9 @@ font-size:.95rem;
 font-weight:600;
 text-decoration:none;
 transition:.35s;
+display:inline-block;
+border:none;
+cursor:pointer;
 }
 
 .btn-primary{
@@ -815,6 +826,7 @@ margin-bottom:28px;
 text-decoration:none;
 color:#00cfff;
 font-weight:600;
+display:inline-block;
 }
 
 /* =========================================================
@@ -823,10 +835,11 @@ CONTACTO
 
 .contact-wrapper{
 display:grid;
-grid-template-columns:420px 1fr;
+grid-template-columns:minmax(300px, 420px) 1fr;
 gap:40px;
 max-width:1300px;
 margin:auto;
+align-items:start;
 }
 
 .contact-left{
@@ -920,16 +933,44 @@ grid-template-columns:1fr 1fr;
 gap:20px;
 }
 
+.form-group{
+display:flex;
+flex-direction:column;
+}
+
+.form-full{
+grid-column:span 2;
+}
+
+.sr-only{
+position:absolute;
+width:1px;
+height:1px;
+padding:0;
+margin:-1px;
+overflow:hidden;
+clip:rect(0,0,0,0);
+border:0;
+}
+
 .contact-form input,
 .contact-form textarea{
 width:100%;
 padding:20px;
-border:none;
+border:1px solid transparent;
 outline:none;
 border-radius:18px;
 background:#101827;
 color:#fff;
 margin-bottom:20px;
+font-family:inherit;
+transition:0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#00cfff;
+background:#131d30;
 }
 
 .contact-form textarea{
@@ -968,7 +1009,7 @@ REVEAL
 .reveal{
 opacity:0;
 transform:translateY(60px);
-transition:1s;
+transition:opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active{
@@ -985,6 +1026,16 @@ RESPONSIVE
 .hero-content{
 grid-template-columns:1fr;
 text-align:center;
+gap:50px;
+}
+
+.hero-text p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.hero-buttons{
+justify-content:center;
 }
 
 .services-grid{
@@ -995,8 +1046,13 @@ grid-template-columns:repeat(2,1fr);
 grid-template-columns:1fr;
 }
 
+.form-full{
+grid-column:span 1;
+}
+
 .form-grid{
 grid-template-columns:1fr;
+gap:0;
 }
 
 }
@@ -1034,6 +1090,10 @@ padding:90px 24px;
 
 .loader-title{
 font-size:2.6rem;
+}
+
+.contact-form{
+padding:24px;
 }
 
 }
@@ -1133,7 +1193,7 @@ Tecnología a tu alcance.
 </h2>
 
 <p>
-Servicio técnico, venta de celulares, accesorios y entretenimiento digital,
+Servicio técnico, venta de celulares, accessories y entretenimiento digital,
 con innovación, rendimiento y estilo.
 </p>
 
@@ -1141,6 +1201,7 @@ con innovación, rendimiento y estilo.
 
 <a href="https://wa.me/5492634722710"
 target="_blank"
+rel="noopener"
 class="btn btn-primary">
 
 WhatsApp
@@ -1170,7 +1231,7 @@ Explorar servicios
 
 <!-- =========================================================
 SERVICIOS
-========================================================= -->
+========================================================= */ -->
 
 <section id="servicios">
 
@@ -1312,6 +1373,7 @@ Canales rápidos y directos.
 
 <a href="https://wa.me/5492634722710"
 target="_blank"
+rel="noopener"
 class="contact-box reveal">
 
 <div class="contact-icon whatsapp-icon">
@@ -1334,6 +1396,7 @@ WHATSAPP
 
 <a href="https://www.facebook.com/profile.php?id=61587322059733"
 target="_blank"
+rel="noopener"
 class="contact-box reveal">
 
 <div class="contact-icon facebook-icon">
@@ -1377,21 +1440,40 @@ lc.technology.ar@gmail.com
 
 </div>
 
- <form id="contactForm" class="contact-form">
-  <!-- Web3Forms key -->
-  <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
-  <input type="text" name="name" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo electrónico" required>
-  <textarea name="message" placeholder="Tu mensaje" rows="4" required></textarea>
+<div class="reveal">
+<form id="contactForm" class="contact-form">
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+<input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
 
-<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:12px;">
-  ¡Gracias por tu consulta! Te responderemos pronto.
+<div class="form-grid">
+
+<div class="form-group">
+<label for="form-name" class="sr-only">Tu nombre</label>
+<input type="text" id="form-name" name="name" placeholder="Tu nombre" required>
 </div>
-  </div>
 
+<div class="form-group">
+<label for="form-email" class="sr-only">Tu correo electrónico</label>
+<input type="email" id="form-email" name="email" placeholder="Tu correo electrónico" required>
+</div>
+
+<div class="form-group form-full">
+<label for="form-msg" class="sr-only">Tu mensaje</label>
+<textarea id="form-msg" name="message" placeholder="Tu mensaje" required></textarea>
+</div>
+
+</div>
+
+<button type="submit" class="btn btn-primary">Enviar</button>
+
+<div id="thankYouMessage" style="display:none; color:#00cfff; margin-top:20px; font-weight:500;">
+¡Gracias por tu consulta! Te responderemos pronto.
+</div>
+
+</form>
+</div>
+
+</div>
 
 </section>
 
@@ -1401,15 +1483,15 @@ FOOTER
 
 <footer>
 
-© LC ONE PLAYER
+<p>© LC ONE PLAYER</p>
 
-<br><br>
-
+<p style="margin:15px 0; font-size:0.9rem;">
 Servicio Técnico · Venta · Accesorios · Entretenimiento Familiar
+</p>
 
-<br><br>
-
+<p style="font-size:0.85rem; color:#6b7c96;">
 Mendoza, Argentina
+</p>
 
 </footer>
 
@@ -1430,23 +1512,27 @@ window.addEventListener("load", () => {
 });
 
 /* =========================================================
-REVEAL
+REVEAL SYSTEM (Intersection Observer)
 ========================================================= */
 
 const reveals = document.querySelectorAll(".reveal");
 
-function revealElements() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-
-    if (top < window.innerHeight - 80) {
-      el.classList.add("active");
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target);
     }
   });
-}
+}, {
+  root: null,
+  threshold: 0.1,
+  rootMargin: "0px 0px -40px 0px"
+});
 
-window.addEventListener("scroll", revealElements);
-window.addEventListener("load", revealElements);
+reveals.forEach(el => {
+  revealObserver.observe(el);
+});
 
 /* =========================================================
 CURSOR
@@ -1454,10 +1540,12 @@ CURSOR
 
 const cursor = document.getElementById("cursor");
 
-window.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+if (window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+}
 
 /* =========================================================
 FORM WEB3FORMS
@@ -1465,9 +1553,13 @@ FORM WEB3FORMS
 
 const form = document.getElementById("contactForm");
 const thankYou = document.getElementById("thankYouMessage");
+const submitBtn = form.querySelector("button[type='submit']");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Enviando...";
 
   const formData = new FormData(form);
 
@@ -1482,11 +1574,16 @@ form.addEventListener("submit", async (e) => {
     if (result.success) {
       form.reset();
       thankYou.style.display = "block";
+      submitBtn.style.display = "none";
     } else {
-      alert("Error al enviar el mensaje");
+      alert("Error al enviar el mensaje. Por favor intenta de nuevo.");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Enviar";
     }
   } catch (error) {
-    alert("Error de conexión");
+    alert("Error de conexión. Revisa tu internet.");
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Enviar";
   }
 });
 
