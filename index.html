@@ -544,7 +544,7 @@ flex-wrap:wrap;
 
 .btn{
 padding:18px 36px;
-border-radius: 4px; /* Cambiado a rectángulos agresivos */
+border-radius: 4px;
 font-family: var(--font-title);
 text-transform: uppercase;
 font-size:.9rem;
@@ -588,8 +588,8 @@ justify-content:center;
 .hero-image img{
 width:430px;
 height:430px;
-border-radius: 0px; /* Totalmente angular */
-clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); /* Efecto sesgado cyberpunk */
+border-radius: 0px;
+clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 object-fit:cover;
 box-shadow: 0 0 50px var(--cyan-glow);
 animation: floatAnimation 6s ease-in-out infinite alternate;
@@ -633,7 +633,7 @@ background: var(--glass-bg);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
 border: 1px solid rgba(255, 255, 255, 0.05);
-border-radius: 4px; /* Esquinas afiladas, estilo hardware */
+border-radius: 4px;
 transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
 position: relative;
 overflow: hidden;
@@ -771,7 +771,7 @@ box-shadow: 0 20px 40px rgba(0, 207, 255, 0.18);
 .service-icon{
 width:74px;
 height:74px;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -888,7 +888,7 @@ margin: auto;
 .tech-detail-card {
 padding: 50px 30px;
 text-align: center;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 background: rgba(8, 14, 28, 0.4);
 border: 1px solid rgba(0, 207, 255, 0.06);
 transition: var(--transition-normal);
@@ -960,7 +960,7 @@ box-shadow: 0 12px 30px rgba(0, 207, 255, 0.15);
 .contact-icon{
 min-width:65px;
 height:65px;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -1003,7 +1003,7 @@ width:100%;
 padding:18px;
 border:1px solid var(--border-mid);
 outline:none;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 background: var(--bg-input);
 color:#fff;
 margin-bottom:20px;
@@ -1027,7 +1027,7 @@ resize:none;
 .contact-form button{
 padding:18px 34px;
 border:none;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 font-family: var(--font-title);
 text-transform: uppercase;
 background: var(--cyan-primary);
@@ -1048,7 +1048,7 @@ box-shadow: 0 0 30px var(--cyan-glow-heavy);
 .form-feedback-message {
 margin-top: 20px;
 padding: 15px;
-border-radius: 4px; /* Recto */
+border-radius: 4px;
 font-size: 0.95rem;
 font-weight: 500;
 display: none;
@@ -1251,7 +1251,7 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<section class="stats-section">
+<section class="stats-section" id="stats-section">
     <div class="stats-container">
         <div class="stat-item">
             <div class="stat-number" data-target="500">0</div>
@@ -1363,7 +1363,7 @@ section{ padding:70px 20px; }
         </div>
         
         <div class="contact-form premium-card reveal">
-            <form action="#" method="POST" id="main-contact-form">
+            <form action="#" method="POST" id="contactForm">
                 <div class="form-grid">
                     <div>
                         <label for="form-name" class="sr-only">Nombre</label>
@@ -1382,9 +1382,8 @@ section{ padding:70px 20px; }
                         <textarea id="form-message" name="message" placeholder="Detallá los datos de tu equipo o consulta acá..." required></textarea>
                     </div>
                 </div>
-                <button type="submit">Enviar al Servidor</button>
-                <div class="form-feedback-message form-feedback-success" id="form-success">Conexión establecida. Tu mensaje ha sido enviado con éxito.</div>
-                <div class="form-feedback-message form-feedback-error" id="form-error">Error en la transmisión. Por favor, reintente la operación.</div>
+                <button type="submit" id="submitBtn">Enviar al Servidor</button>
+                <div class="form-feedback-message" id="formFeedback"></div>
             </form>
         </div>
     </div>
@@ -1395,5 +1394,214 @@ section{ padding:70px 20px; }
     <p>Servicio Técnico de Alta Gama // Rivadavia, Mendoza</p>
 </footer>
 
+<script>
+
+/* 1. CONTROLADOR DE PRELOADER DE CARGA */
+window.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loader");
+    const percentageText = document.getElementById("load-percentage");
+    const progressFill = document.getElementById("progress-fill");
+    
+    let currentPercent = 0;
+    
+    // Intervalo de simulación de carga de archivos de placa del laboratorio
+    const loadInterval = setInterval(() => {
+        currentPercent += Math.floor(Math.random() * 8) + 2; // Incrementos variables
+        
+        if (currentPercent >= 100) {
+            currentPercent = 100;
+            clearInterval(loadInterval);
+            
+            // Suavizado final antes de romper interfaz de preloadeado
+            setTimeout(() => {
+                loader.classList.add("hide");
+                initAfterLoad(); // Dispara animaciones del sitio al terminar
+            }, 400);
+        }
+        
+        // Renderización de buffers visuales en tiempo real
+        percentageText.textContent = currentPercent.toString().padStart(2, '0') + "%";
+        progressFill.style.width = currentPercent + "%";
+    }, 45);
+});
+
+/* 2. INICIALIZADOR DE INTERFACES POST-CARGA */
+function initAfterLoad() {
+    // Activa revelado de elementos iniciales (Hero section)
+    handleScrollReveals();
+}
+
+/* 3. BARRA DE PROGRESO DE SCROLL SUPERIOR */
+window.addEventListener("scroll", () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress").style.width = scrolled + "%";
+});
+
+/* 4. MOTOR DE RENDERIZADO INTERACTIVO: CANVAS ESPACIAL (ESTRELLAS CYBER) */
+const canvas = document.getElementById("space-canvas");
+const ctx = canvas.getContext("2d");
+
+let starsArray = [];
+const maxStars = 65;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+class CyberStar {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedY = Math.random() * 0.4 + 0.1;
+        this.opacity = Math.random() * 0.6 + 0.2;
+    }
+    update() {
+        this.y -= this.speedY;
+        if (this.y < 0) this.reset();
+    }
+    draw() {
+        ctx.fillStyle = `rgba(0, 207, 255, ${this.opacity})`;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+}
+
+for(let i = 0; i < maxStars; i++) {
+    starsArray.push(new CyberStar());
+}
+
+function animateSpace() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    starsArray.forEach(star => {
+        star.update();
+        star.draw();
+    });
+    requestAnimationFrame(animateSpace);
+}
+animateSpace();
+
+/* 5. SEGUIDOR DE CURSOR ULTRA-RESPONSIVO CON EFECTO CARD-GLOW */
+const cursorDot = document.getElementById("cursorDot");
+const cursorOutline = document.getElementById("cursorOutline");
+const premiumCards = document.querySelectorAll(".premium-card");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    
+    // Movimiento directo e inercial del hardware de puntero
+    if(cursorDot && cursorOutline) {
+        cursorDot.style.left = posX + "px";
+        cursorDot.style.top = posY + "px";
+        
+        cursorOutline.animate({
+            left: posX + "px",
+            top: posY + "px"
+        }, { duration: 150, fill: "forwards" });
+    }
+    
+    // Inyección de coordenadas relativas dinámicas en Cards Premium para efectos de luz
+    premiumCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = posX - rect.left;
+        const y = posY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    });
+});
+
+/* 6. MOTOR DE REVELADO ASÍNCRONO (SCROLL REVEAL ENGINE) */
+const revealElements = document.querySelectorAll(".reveal");
+
+function handleScrollReveals() {
+    const triggerBottom = window.innerHeight * 0.88;
+    
+    revealElements.forEach(el => {
+        const elTop = el.getBoundingClientRect().top;
+        if(elTop < triggerBottom) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", handleScrollReveals);
+
+/* 7. CONTADOR DE ESTADÍSTICAS DINÁMICO INTERSECTOR */
+const statsSection = document.getElementById("stats-section");
+if(statsSection) {
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const statNumber = entry.target.querySelector(".stat-number");
+                const targetValue = parseInt(statNumber.getAttribute("data-target"), 10);
+                let currentCount = 0;
+                const duration = 1800; // Milisegundos de animación
+                const increment = targetValue / (duration / 16);
+                
+                const updateCount = () => {
+                    currentCount += increment;
+                    if(currentCount < targetValue) {
+                        statNumber.textContent = Math.floor(currentCount);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        statNumber.textContent = targetValue + "+";
+                    }
+                };
+                updateCount();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    statsObserver.observe(statsSection);
+}
+
+/* 8. PROCESADOR DE RESPUESTAS DEL FORMULARIO Y CONEXIÓN API */
+const contactForm = document.getElementById("contactForm");
+const feedbackEl = document.getElementById("formFeedback");
+const submitButton = document.getElementById("submitBtn");
+
+if(contactForm && feedbackEl && submitButton) {
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        // Bloqueo temporal para evitar spam de peticiones al host
+        submitButton.disabled = true; 
+        submitButton.textContent = "Transmitiendo...";
+        
+        try {
+            // Reemplazar la URL por tu endpoint real si usás servicios tipo Web3Forms / Formspree
+            const resp = await fetch("https://api.web3forms.com/submit", { 
+                method: "POST", 
+                body: new FormData(contactForm) 
+            });
+            const resData = await resp.json();
+            
+            if(resData.success || resp.ok) {
+                contactForm.reset();
+                feedbackEl.textContent = "¡Conexión establecida con éxito! Nos comunicaremos a la brevedad.";
+                feedbackEl.style.display = "block"; 
+                feedbackEl.className = "form-feedback-message form-feedback-success";
+                submitButton.style.display = "none";
+            } else { 
+                throw new Error(); 
+            }
+        } catch(err) {
+            feedbackEl.textContent = "Fallo en la comunicación con el servidor. Intentá de nuevo.";
+            feedbackEl.style.display = "block"; 
+            feedbackEl.className = "form-feedback-message form-feedback-error";
+            submitButton.disabled = false; 
+            submitButton.textContent = "Enviar al Servidor";
+        }
+    });
+}
+
+</script>
 </body>
 </html>
