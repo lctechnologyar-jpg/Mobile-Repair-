@@ -8,7 +8,7 @@
 <title>LC ONE PLAYER</title>
 
 <meta name="description"
-content="LC ONE PLAYER - Servicio técnico profesional, venta de celulares, accesorios premium y entretenimiento digital.">
+content="LC ONE PLAYER - Servicio técnico, venta de celulares, accesorios premium y entretenimiento familiar TV.">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech&display=swap" rel="stylesheet">
 
@@ -330,7 +330,7 @@ margin-bottom: 20px;
 width: 260px;
 height: 3px;
 background: rgba(255, 255, 255, 0.05);
-border-radius: 0px; /* Recto */
+border-radius: 0px;
 margin: 0 auto 15px;
 overflow: hidden;
 position: relative;
@@ -356,7 +356,7 @@ animation: blinkStatus 1s infinite;
 @keyframes blinkStatus { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
 
 /* =========================================================
-HEADER COMPONENTE
+HEADER COMPONENTE (LOGO CORREGIDO SIN FONDO NEGRO)
 ========================================================= */
 
 header{
@@ -386,7 +386,7 @@ text-decoration:none;
 .logo-icon {
 width: 56px;
 height: 56px;
-background: #090e1a;
+background: transparent; /* CORREGIDO: Sin fondo oscuro */
 display: flex;
 justify-content: center;
 align-items: center;
@@ -405,7 +405,7 @@ transition: var(--transition-normal);
 content: "";
 position: absolute;
 inset: 2px;
-background: #03050a;
+background: transparent; /* CORREGIDO: Interior del hexágono transparente */
 clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 z-index: 1;
 }
@@ -870,7 +870,7 @@ cursor: default;
 .brand-item:hover { color: var(--cyan-primary); text-shadow: 0 0 15px var(--cyan-glow); }
 
 /* =========================================================
-SECCIÓN DETALLES TÉCNICOS (ESPECIALIDADES)
+SECCIÓN DETALLES TÉCNICOS (ESPECIALIDADES CORREGIDAS)
 ========================================================= */
 
 .tech-details-section {
@@ -1205,7 +1205,7 @@ section{ padding:70px 20px; }
     <div class="hero-content">
         <div class="hero-text reveal">
             <h2>Tecnología a tu alcance.</h2>
-            <p>Servicio técnico profesional, venta de dispositivos seleccionados, accesorios premium y soluciones de entretenimiento digital en Mendoza.</p>
+            <p>Servicio técnico profesional, venta de dispositivos seleccionados, accesorios premium y soluciones de entretenimiento familiar en Mendoza.</p>
             <div class="hero-buttons">
                 <a href="https://wa.me/5492634722710" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp Directo</a>
                 <a href="#servicios" class="btn btn-outline">Explorar servicios</a>
@@ -1220,7 +1220,7 @@ section{ padding:70px 20px; }
 <section id="porque-elegirnos">
     <div class="section-title reveal">
         <h2>¿Por qué elegir LC ONE PLAYER?</h2>
-        <p>Garantía de rendimiento, velocidad y trato personalizado en cada dispositivo.</p>
+        <p>Garantía de rendimiento, velocidad y trato personalizado en cada servicio.</p>
     </div>
     <div class="advantages-grid">
         <div class="adv-card premium-card reveal">
@@ -1231,22 +1231,22 @@ section{ padding:70px 20px; }
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-bolt"></i>
             <h3>Servicio Rápido</h3>
-            <p>Maximizamos tiempos para ofrecer diagnósticos claros y reparaciones express en el día.</p>
+            <p>Maximizamos tiempos para ofrecer diagnósticos claros y soluciones eficientes a la brevedad.</p>
         </div>
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-award"></i>
-            <h3>Repuestos de Quality</h3>
-            <p>Utilizamos refacciones seleccionadas de alta gama para asegurar la vida útil de tu equipo.</p>
+            <h3>Repuestos de Calidad</h3>
+            <p>Utilizamos refacciones seleccionadas de excelente rendimiento para cuidar tu equipo.</p>
         </div>
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-user-gear"></i>
             <h3>Atención Personalizada</h3>
-            <p>Te asesoramos de forma directa explicándote con transparencia cada falla técnica.</p>
+            <p>Te asesoramos de forma directa explicándote con total transparencia cada detalle.</p>
         </div>
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-hourglass-start"></i>
-            <h3>Control Riguroso</h3>
-            <p>Sometemos a cada placa y componente a testeos de estrés antes de devolver el equipo.</p>
+            <h3>Control Operativo</h3>
+            <p>Verificamos minuciosamente el correcto funcionamiento de cada terminal antes de ser entregado.</p>
         </div>
     </div>
 </section>
@@ -1255,7 +1255,7 @@ section{ padding:70px 20px; }
     <div class="stats-container">
         <div class="stat-item">
             <div class="stat-number" data-target="500">0</div>
-            <div class="stat-label">Equipos Reparados con Éxito</div>
+            <div class="stat-label">Clientes Satisfechos</div>
         </div>
     </div>
 </section>
@@ -1263,31 +1263,31 @@ section{ padding:70px 20px; }
 <section id="servicios">
     <div class="section-title reveal">
         <h2>Nuestros Servicios</h2>
-        <p>Soluciones eficientes de software, repuestos y hardware a tu alcance.</p>
+        <p>Soluciones eficientes en hardware, telefonía móvil y entretenimiento digital.</p>
     </div>
     <div class="services-grid">
         <div class="service-card premium-card reveal">
             <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
             <h3>Servicio Técnico</h3>
-            <p>Diagnóstico avanzado, microsoldadura, cambios de módulos y mantenimiento de sistemas.</p>
+            <p>Diagnóstico completo, mantenimiento general y reparaciones multimarca de celulares.</p>
             <a href="servicio.html">VER MÁS SERVICIOS →</a>
         </div>
         <div class="service-card premium-card reveal">
             <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-            <h3>Venta de Equipos</h3>
-            <p>Dispositivos móviles nuevos y seminuevos garantizados listos para su uso inmediato.</p>
+            <h3>Venta de Celulares</h3>
+            <p>Dispositivos móviles seleccionados, nuevos y seminuevos listos para su uso inmediato.</p>
             <a href="venta.html">VER CATÁLOGO →</a>
         </div>
         <div class="service-card premium-card reveal">
             <div class="service-icon"><i class="fa-solid fa-headphones-simple"></i></div>
             <h3>Accesorios Premium</h3>
-            <p>Componentes de audio, fundas de alto impacto y sistemas de carga inteligente homologados.</p>
+            <p>Componentes de audio, fundas de alta protección y sistemas de carga eficientes.</p>
             <a href="accesorios.html">VER ACCESORIOS →</a>
         </div>
         <div class="service-card premium-card reveal">
             <div class="service-icon"><i class="fa-solid fa-tv"></i></div>
             <h3>Entretenimiento</h3>
-            <p>Asesoramiento y plataformas optimizadas para el consumo multimedia familiar continuo.</p>
+            <p>Las mejores plataformas digitales optimizadas para el consumo de TV y multimedia familiar.</p>
             <a href="tv-digital.html">VER PLATAFORMAS →</a>
         </div>
     </div>
@@ -1311,23 +1311,23 @@ section{ padding:70px 20px; }
 <section id="especialidades" class="tech-details-section">
     <div class="section-title reveal">
         <h2>Áreas de Especialización</h2>
-        <p>Trabajamos con componentes homologados para garantizar la estabilidad de tus consumos y equipos.</p>
+        <p>Garantizamos la máxima estabilidad en la instalación de insumos y plataformas digitales.</p>
     </div>
     <div class="tech-details-grid">
         <div class="tech-detail-card reveal">
             <i class="fa-solid fa-mobile-screen"></i>
-            <h3>Pantallas y Módulos</h3>
-            <p>Calibración e instalación de displays de alta fidelidad táctil y cromática con sellado perimetral contra polvo.</p>
+            <h3>Cambio de Pantallas</h3>
+            <p>Instalación precisa de módulos y displays con excelente fidelidad táctil y brillo original.</p>
         </div>
         <div class="tech-detail-card reveal">
             <i class="fa-solid fa-battery-three-quarters"></i>
-            <h3>Sistemas de Carga y Baterías</h3>
-            <p>Reemplazo de celdas de energía y reparación de pins de carga tipo C / Lightning bajo normas de seguridad de fábrica.</p>
+            <h3>Pines de Carga y Baterías</h3>
+            <p>Remplazo de baterías gastadas y conectores dañados para devolverle la autonomía ideal a tu celular.</p>
         </div>
         <div class="tech-detail-card reveal">
-            <i class="fa-solid fa-microchip"></i>
-            <h3>Microelectrónica Integrada</h3>
-            <p>Detección de cortos en líneas principales de placas madre, reballing de circuitos IC y microsoldadura de precisión.</p>
+            <i class="fa-solid fa-tv"></i>
+            <h3>Sistemas de TV Digital</h3>
+            <p>Configuración integral de perfiles multimedia familiares con alta fluidez de streaming sin cortes.</p>
         </div>
     </div>
 </section>
@@ -1335,7 +1335,7 @@ section{ padding:70px 20px; }
 <section id="contacto">
     <div class="section-title reveal">
         <h2>Establecer Conexión</h2>
-        <p>Escribinos de forma directa o envianos tu consulta a través de los canales del laboratorio.</p>
+        <p>Escribinos de forma directa o envianos tu consulta a través de los canales de atención.</p>
     </div>
     <div class="contact-wrapper">
         <div class="contact-left reveal">
@@ -1391,7 +1391,7 @@ section{ padding:70px 20px; }
 
 <footer>
     <p>&copy; 2026 LC ONE PLAYER. Todos los derechos reservados.</p>
-    <p>Servicio Técnico de Alta Gama // Rivadavia, Mendoza</p>
+    <p>Servicio Técnico de Celulares // Rivadavia, Mendoza</p>
 </footer>
 
 <script>
@@ -1404,22 +1404,19 @@ window.addEventListener("DOMContentLoaded", () => {
     
     let currentPercent = 0;
     
-    // Intervalo de simulación de carga de archivos de placa del laboratorio
     const loadInterval = setInterval(() => {
-        currentPercent += Math.floor(Math.random() * 8) + 2; // Incrementos variables
+        currentPercent += Math.floor(Math.random() * 8) + 2;
         
         if (currentPercent >= 100) {
             currentPercent = 100;
             clearInterval(loadInterval);
             
-            // Suavizado final antes de romper interfaz de preloadeado
             setTimeout(() => {
                 loader.classList.add("hide");
-                initAfterLoad(); // Dispara animaciones del sitio al terminar
+                initAfterLoad();
             }, 400);
         }
         
-        // Renderización de buffers visuales en tiempo real
         percentageText.textContent = currentPercent.toString().padStart(2, '0') + "%";
         progressFill.style.width = currentPercent + "%";
     }, 45);
@@ -1427,7 +1424,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /* 2. INICIALIZADOR DE INTERFACES POST-CARGA */
 function initAfterLoad() {
-    // Activa revelado de elementos iniciales (Hero section)
     handleScrollReveals();
 }
 
@@ -1497,7 +1493,6 @@ window.addEventListener("mousemove", (e) => {
     const posX = e.clientX;
     const posY = e.clientY;
     
-    // Movimiento directo e inercial del hardware de puntero
     if(cursorDot && cursorOutline) {
         cursorDot.style.left = posX + "px";
         cursorDot.style.top = posY + "px";
@@ -1508,7 +1503,6 @@ window.addEventListener("mousemove", (e) => {
         }, { duration: 150, fill: "forwards" });
     }
     
-    // Inyección de coordenadas relativas dinámicas en Cards Premium para efectos de luz
     premiumCards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = posX - rect.left;
@@ -1542,7 +1536,7 @@ if(statsSection) {
                 const statNumber = entry.target.querySelector(".stat-number");
                 const targetValue = parseInt(statNumber.getAttribute("data-target"), 10);
                 let currentCount = 0;
-                const duration = 1800; // Milisegundos de animación
+                const duration = 1800;
                 const increment = targetValue / (duration / 16);
                 
                 const updateCount = () => {
@@ -1571,12 +1565,10 @@ if(contactForm && feedbackEl && submitButton) {
     contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        // Bloqueo temporal para evitar spam de peticiones al host
         submitButton.disabled = true; 
         submitButton.textContent = "Transmitiendo...";
         
         try {
-            // Reemplazar la URL por tu endpoint real si usás servicios tipo Web3Forms / Formspree
             const resp = await fetch("https://api.web3forms.com/submit", { 
                 method: "POST", 
                 body: new FormData(contactForm) 
