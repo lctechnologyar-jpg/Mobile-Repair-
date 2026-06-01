@@ -10,9 +10,7 @@
 <meta name="description"
 content="LC ONE PLAYER - Servicio técnico profesional, venta de celulares, accesorios premium y entretenimiento digital.">
 
-<!-- TIPOGRAFÍAS MEJORADAS: Syne para títulos de alto impacto y Plus Jakarta Sans para una lectura ultra limpia -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -41,8 +39,8 @@ SISTEMA DE DISEÑO Y VARIABLES PRINCIPALES (:ROOT)
 --border-glow: rgba(0, 207, 255, 0.25);
 --glass-bg: rgba(11, 16, 32, 0.45);
 --glass-border: rgba(0, 207, 255, 0.15);
---font-title: "Syne", sans-serif;
---font-body: "Plus Jakarta Sans", sans-serif;
+--font-title: "Orbitron", sans-serif;
+--font-body: "Share Tech", sans-serif;
 --transition-fast: 0.25s ease;
 --transition-normal: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 --transition-slow: 0.7s cubic-bezier(0.75, 0, 0.15, 1);
@@ -72,6 +70,7 @@ color: var(--text-main);
 overflow-x:hidden;
 position:relative;
 -webkit-font-smoothing: antialiased;
+letter-spacing: 0.5px;
 }
 
 /* =========================================================
@@ -297,7 +296,7 @@ box-shadow: 0 0 20px rgba(0, 207, 255, 0.1);
 .loader-logo {
 font-family: var(--font-title);
 font-size: 2.2rem;
-font-weight: 800;
+font-weight: 900;
 color: #fff;
 text-shadow: 0 0 15px var(--cyan-primary);
 animation: pulseLogo 1.5s ease-in-out infinite alternate;
@@ -311,7 +310,7 @@ animation: pulseLogo 1.5s ease-in-out infinite alternate;
 .loader-brand {
 font-family: var(--font-title);
 font-size: 1rem;
-letter-spacing: 6px;
+letter-spacing: 4px;
 color: var(--text-muted);
 margin-bottom: 15px;
 }
@@ -319,7 +318,7 @@ margin-bottom: 15px;
 .loader-percentage {
 font-family: var(--font-title);
 font-size: 3.5rem;
-font-weight: 800;
+font-weight: 900;
 color: #fff;
 background: linear-gradient(180deg, #fff, #a5f3fc);
 -webkit-background-clip: text;
@@ -331,7 +330,7 @@ margin-bottom: 20px;
 width: 260px;
 height: 3px;
 background: rgba(255, 255, 255, 0.05);
-border-radius: 10px;
+border-radius: 0px; /* Recto */
 margin: 0 auto 15px;
 overflow: hidden;
 position: relative;
@@ -346,10 +345,10 @@ transition: width 0.05s linear;
 }
 
 .loader-status {
-font-size: 0.75rem;
-letter-spacing: 3px;
+font-size: 0.8rem;
+letter-spacing: 2px;
 color: var(--cyan-primary);
-opacity: 0.7;
+opacity: 0.8;
 text-transform: uppercase;
 animation: blinkStatus 1s infinite;
 }
@@ -357,7 +356,7 @@ animation: blinkStatus 1s infinite;
 @keyframes blinkStatus { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
 
 /* =========================================================
-HEADER COMPONENTE (LOGO MEJORADO ULTRA PRO)
+HEADER COMPONENTE
 ========================================================= */
 
 header{
@@ -393,7 +392,7 @@ justify-content: center;
 align-items: center;
 font-family: var(--font-title);
 font-size: 1.3rem;
-font-weight: 800;
+font-weight: 900;
 color: #fff;
 clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 position: relative;
@@ -428,7 +427,7 @@ filter: drop-shadow(0 0 12px var(--cyan-primary));
 font-size: 1.3rem;
 font-family: var(--font-title);
 letter-spacing: 1px;
-font-weight: 800;
+font-weight: 900;
 color: #fff;
 line-height: 1.1;
 }
@@ -451,7 +450,9 @@ nav a{
 text-decoration:none;
 color:#d9d9d9;
 font-size:.95rem;
-font-weight: 500;
+font-weight: 600;
+text-transform: uppercase;
+font-family: var(--font-title);
 position:relative;
 transition: var(--transition-fast);
 }
@@ -523,7 +524,8 @@ font-size: 4.5rem;
 line-height: 1.1;
 margin-bottom:25px;
 font-family: var(--font-title);
-font-weight: 800;
+font-weight: 900;
+text-transform: uppercase;
 }
 
 .hero-text p{
@@ -532,7 +534,6 @@ color: var(--text-muted);
 line-height:1.8;
 max-width:600px;
 margin-bottom:35px;
-font-weight: 400;
 }
 
 .hero-buttons{
@@ -543,14 +544,17 @@ flex-wrap:wrap;
 
 .btn{
 padding:18px 36px;
-border-radius:14px;
-font-size:.95rem;
-font-weight:600;
+border-radius: 4px; /* Cambiado a rectángulos agresivos */
+font-family: var(--font-title);
+text-transform: uppercase;
+font-size:.9rem;
+font-weight:700;
 text-decoration:none;
 transition: var(--transition-normal);
 display:inline-block;
 border:none;
 cursor:pointer;
+letter-spacing: 1px;
 }
 
 .btn-primary{
@@ -584,7 +588,8 @@ justify-content:center;
 .hero-image img{
 width:430px;
 height:430px;
-border-radius:50%;
+border-radius: 0px; /* Totalmente angular */
+clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); /* Efecto sesgado cyberpunk */
 object-fit:cover;
 box-shadow: 0 0 50px var(--cyan-glow);
 animation: floatAnimation 6s ease-in-out infinite alternate;
@@ -613,14 +618,14 @@ margin-bottom:80px;
 font-size: 3rem;
 margin-bottom:18px;
 font-family: var(--font-title);
-font-weight: 800;
+font-weight: 900;
+text-transform: uppercase;
 letter-spacing: -1px;
 }
 
 .section-title p{
 color: var(--text-muted);
 font-size: 1.1rem;
-font-weight: 400;
 }
 
 .premium-card {
@@ -628,7 +633,7 @@ background: var(--glass-bg);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
 border: 1px solid rgba(255, 255, 255, 0.05);
-border-radius: 24px;
+border-radius: 4px; /* Esquinas afiladas, estilo hardware */
 transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
 position: relative;
 overflow: hidden;
@@ -681,16 +686,17 @@ z-index: 2;
 
 .adv-card h3 {
 font-family: var(--font-title);
-font-size: 1.2rem;
+font-size: 1.1rem;
 margin-bottom: 14px;
 font-weight: 700;
+text-transform: uppercase;
 position: relative;
 z-index: 2;
 }
 
 .adv-card p {
 color: var(--text-muted);
-font-size: 0.95rem;
+font-size: 1rem;
 line-height: 1.6;
 position: relative;
 z-index: 2;
@@ -723,7 +729,7 @@ display: inline-block;
 .stat-number {
 font-family: var(--font-title);
 font-size: 6.5rem;
-font-weight: 800;
+font-weight: 900;
 line-height: 1;
 color: #fff;
 background: linear-gradient(135deg, #ffffff 30%, var(--cyan-primary) 100%);
@@ -736,6 +742,7 @@ filter: drop-shadow(0 0 20px rgba(0, 207, 255, 0.2));
 .stat-label {
 color: var(--cyan-primary);
 font-size: 1.1rem;
+font-family: var(--font-title);
 text-transform: uppercase;
 letter-spacing: 4px;
 font-weight: 700;
@@ -764,7 +771,7 @@ box-shadow: 0 20px 40px rgba(0, 207, 255, 0.18);
 .service-icon{
 width:74px;
 height:74px;
-border-radius:20px;
+border-radius: 4px; /* Recto */
 display:flex;
 justify-content:center;
 align-items:center;
@@ -778,9 +785,10 @@ z-index: 2;
 }
 
 .service-card h3{
-font-size:1.4rem;
+font-size:1.3rem;
 margin-bottom:16px;
 font-family: var(--font-title);
+text-transform: uppercase;
 font-weight: 700;
 position: relative;
 z-index: 2;
@@ -798,8 +806,9 @@ z-index: 2;
 .service-card a{
 text-decoration:none;
 color: var(--cyan-primary);
+font-family: var(--font-title);
 font-weight:700;
-font-size: 0.9rem;
+font-size: 0.85rem;
 letter-spacing: 1px;
 position: relative;
 z-index: 2;
@@ -850,14 +859,14 @@ display: flex;
 align-items: center;
 gap: 15px;
 font-family: var(--font-title);
-font-size: 1.5rem;
+font-size: 1.3rem;
 font-weight: 700;
 color: rgba(255, 255, 255, 0.2);
 transition: var(--transition-fast);
 cursor: default;
 }
 
-.brand-item i { font-size: 2rem; }
+.brand-item i { font-size: 1.8rem; }
 .brand-item:hover { color: var(--cyan-primary); text-shadow: 0 0 15px var(--cyan-glow); }
 
 /* =========================================================
@@ -879,7 +888,7 @@ margin: auto;
 .tech-detail-card {
 padding: 50px 30px;
 text-align: center;
-border-radius: 24px;
+border-radius: 4px; /* Recto */
 background: rgba(8, 14, 28, 0.4);
 border: 1px solid rgba(0, 207, 255, 0.06);
 transition: var(--transition-normal);
@@ -900,8 +909,9 @@ text-shadow: 0 0 20px rgba(0, 207, 255, 0.3);
 
 .tech-detail-card h3 {
 font-family: var(--font-title);
-font-size: 1.4rem;
+font-size: 1.3rem;
 font-weight: 700;
+text-transform: uppercase;
 color: #fff;
 margin-bottom: 14px;
 }
@@ -950,7 +960,7 @@ box-shadow: 0 12px 30px rgba(0, 207, 255, 0.15);
 .contact-icon{
 min-width:65px;
 height:65px;
-border-radius:18px;
+border-radius: 4px; /* Recto */
 display:flex;
 justify-content:center;
 align-items:center;
@@ -961,7 +971,7 @@ font-size:1.6rem;
 .facebook-icon{ background:linear-gradient(145deg,#1877f2,#0059d6); }
 .email-icon{ background:linear-gradient(145deg, var(--cyan-primary), var(--blue-tech)); }
 
-.contact-info h3{ margin-bottom:4px; font-size: 1.1rem; font-family: var(--font-title); font-weight: 700; }
+.contact-info h3{ margin-bottom:4px; font-size: 1rem; font-family: var(--font-title); text-transform: uppercase; font-weight: 700; }
 .contact-info p{ color: var(--text-muted); font-size: 0.95rem; }
 
 .contact-form{
@@ -993,7 +1003,7 @@ width:100%;
 padding:18px;
 border:1px solid var(--border-mid);
 outline:none;
-border-radius:14px;
+border-radius: 4px; /* Recto */
 background: var(--bg-input);
 color:#fff;
 margin-bottom:20px;
@@ -1017,14 +1027,17 @@ resize:none;
 .contact-form button{
 padding:18px 34px;
 border:none;
-border-radius:14px;
+border-radius: 4px; /* Recto */
+font-family: var(--font-title);
+text-transform: uppercase;
 background: var(--cyan-primary);
 color: #000;
 font-weight:700;
-font-size: 1rem;
+font-size: 0.95rem;
 cursor:pointer;
 transition: var(--transition-fast);
 box-shadow: 0 0 20px rgba(0, 207, 255, 0.2);
+letter-spacing: 1px;
 }
 
 .contact-form button:hover{
@@ -1035,11 +1048,10 @@ box-shadow: 0 0 30px var(--cyan-glow-heavy);
 .form-feedback-message {
 margin-top: 20px;
 padding: 15px;
-border-radius: 10px;
+border-radius: 4px; /* Recto */
 font-size: 0.95rem;
 font-weight: 500;
 display: none;
-font-family: var(--font-body);
 }
 
 .form-feedback-success {
@@ -1069,6 +1081,13 @@ line-height:2;
 background: #020307;
 }
 
+footer p:first-child {
+font-family: var(--font-title);
+text-transform: uppercase;
+color: #fff;
+letter-spacing: 2px;
+}
+
 /* =========================================================
 REVEAL SYSTEM ENGINE
 ========================================================= */
@@ -1085,7 +1104,7 @@ transform:translateY(0);
 }
 
 /* =========================================================
-SISTEMA RESPONSIVO TOTAL (OPTIMIZADO MÓVIL 10/10)
+SISTEMA RESPONSIVO TOTAL
 ========================================================= */
 
 @media(max-width:1300px){
@@ -1127,14 +1146,11 @@ section{ padding:70px 20px; }
 
 <body>
 
-<!-- LUCES DE AMBIENTE FLOTANTES -->
 <div class="ambient-glow glow-1"></div>
 <div class="ambient-glow glow-2"></div>
 
-<!-- BARRA DE PROGRESO DE SCROLL -->
 <div id="scroll-progress"></div>
 
-<!-- BOTÓN FLOTANTE WHATSAPP -->
 <a href="https://wa.me/5492634722710"
    class="floating-whatsapp"
    target="_blank"
@@ -1143,14 +1159,11 @@ section{ padding:70px 20px; }
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- CURSOR SEGUIDOR (OCULTO EN MÓVILES AUTOMÁTICAMENTE) -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-outline" id="cursorOutline"></div>
 
-<!-- CANVAS DE FONDO DE INTERACCIÓN -->
 <canvas id="space-canvas"></canvas>
 
-<!-- PRELOADER FUTURISTA -->
 <div class="loader" id="loader">
     <div class="laser-scanner"></div>
     <div class="loader-content">
@@ -1167,7 +1180,6 @@ section{ padding:70px 20px; }
     </div>
 </div>
 
-<!-- HEADER NAVEGACIÓN CON LOGO REDISEÑADO PRO -->
 <header>
     <a href="#inicio" class="logo">
         <div class="logo-icon"><span>LC</span></div>
@@ -1185,7 +1197,6 @@ section{ padding:70px 20px; }
     </nav>
 </header>
 
-<!-- HERO PRINCIPAL -->
 <section class="hero" id="inicio">
     <div class="hero-video-container">
         <video autoplay muted loop playsinline src="video-hero.mp4" poster="mioo.png"></video>
@@ -1206,7 +1217,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- SECCIÓN BENEFICIOS -->
 <section id="porque-elegirnos">
     <div class="section-title reveal">
         <h2>¿Por qué elegir LC ONE PLAYER?</h2>
@@ -1225,7 +1235,7 @@ section{ padding:70px 20px; }
         </div>
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-award"></i>
-            <h3>Repuestos de Calidad</h3>
+            <h3>Repuestos de Quality</h3>
             <p>Utilizamos refacciones seleccionadas de alta gama para asegurar la vida útil de tu equipo.</p>
         </div>
         <div class="adv-card premium-card reveal">
@@ -1241,7 +1251,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- BLOQUE DE ESTADÍSTICA LIMPIO (SOLO CONTADOR SOLICITADO) -->
 <section class="stats-section">
     <div class="stats-container">
         <div class="stat-item">
@@ -1251,7 +1260,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- SERVICIOS -->
 <section id="servicios">
     <div class="section-title reveal">
         <h2>Nuestros Servicios</h2>
@@ -1285,7 +1293,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- MARCAS SLIDER -->
 <section style="padding: 40px 0;">
     <div class="brands-slider">
         <div class="brands-track">
@@ -1301,7 +1308,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- ESPECIALIDADES -->
 <section id="especialidades" class="tech-details-section">
     <div class="section-title reveal">
         <h2>Áreas de Especialización</h2>
@@ -1326,7 +1332,6 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- CONTACTO -->
 <section id="contacto">
     <div class="section-title reveal">
         <h2>Canales de Contacto</h2>
@@ -1380,14 +1385,12 @@ section{ padding:70px 20px; }
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>© LC ONE PLAYER</p>
     <p style="margin:12px 0; font-size:0.9rem; color:var(--text-muted);">Servicio Técnico Profesional · Venta de Smartphones · Insumos de Carga y Audio</p>
     <p style="font-size:0.85rem; color:var(--cyan-primary);">Mendoza, Argentina</p>
 </footer>
 
-<!-- SCRIPTS DE CONTROL -->
 <script>
 
 /* ENGINE DE CARGA */
