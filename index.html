@@ -73,6 +73,30 @@ position:relative;
 }
 
 /* =========================================================
+LUCES DE AMBIENTE FLOTANTES (GLOW BLOBS DE FONDO)
+========================================================= */
+
+.ambient-glow {
+position: absolute;
+width: 500px;
+height: 500px;
+background: radial-gradient(circle, rgba(0, 207, 255, 0.08) 0%, transparent 70%);
+border-radius: 50%;
+pointer-events: none;
+z-index: -5;
+filter: blur(40px);
+animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+.glow-1 { top: 25%; left: -10%; }
+.glow-2 { top: 60%; right: -10%; animation-delay: -6s; background: radial-gradient(circle, rgba(0, 76, 255, 0.06) 0%, transparent 70%); }
+
+@keyframes floatGlow {
+0% { transform: translate(0, 0) scale(1); }
+100% { transform: translate(60px, 40px) scale(1.15); }
+}
+
+/* =========================================================
 BARRA DE PROGRESO DE SCROLL
 ========================================================= */
 
@@ -405,7 +429,13 @@ position:relative;
 z-index:2;
 }
 
-@keyframes rotate { 100% { transform: rotate(360deg); } }
+@nav a{
+text-decoration:none;
+color:#d9d9d9;
+font-size:.95rem;
+position:relative;
+transition: var(--transition-fast);
+}
 
 .logo-text h1{
 font-size:1.15rem;
@@ -575,7 +605,7 @@ animation: floatAnimation 6s ease-in-out infinite alternate;
 }
 
 /* =========================================================
-SECCIÓN MODO ULTRA PREMIUM: GLASSMORPHISM & TILT CARDS
+SECCIÓN MODO ULTRA PREMIUM: NEON INTERACTIVE BORDERS
 ========================================================= */
 
 section{
@@ -605,29 +635,27 @@ font-size: 1.05rem;
 background: var(--glass-bg);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
-border: 1px solid var(--border-low);
-border-top: 1px solid rgba(255, 255, 255, 0.12);
-border-left: 1px solid rgba(255, 255, 255, 0.12);
+border: 1px solid rgba(255, 255, 255, 0.05);
 border-radius: 24px;
-transition: var(--transition-normal);
+transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
 position: relative;
 overflow: hidden;
 }
 
-.premium-card::after {
+/* Destello de luz interna en hover */
+.premium-card::before {
 content: "";
 position: absolute;
-top: 0;
-left: -150%;
-width: 50%;
-height: 100%;
-background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-transform: skewX(-25deg);
-transition: 0.75s ease;
+inset: 0;
+background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 207, 255, 0.06), transparent 40%);
+z-index: 1;
+pointer-events: none;
+opacity: 0;
+transition: opacity 0.5s ease;
 }
 
-.premium-card:hover::after {
-left: 150%;
+.premium-card:hover::before {
+opacity: 1;
 }
 
 /* =========================================================
@@ -649,8 +677,8 @@ text-align: center;
 
 .adv-card:hover {
 transform: translateY(-10px);
-border-color: var(--border-glow);
-box-shadow: 0 15px 35px rgba(0, 207, 255, 0.1);
+border-color: rgba(0, 207, 255, 0.3);
+box-shadow: 0 15px 35px rgba(0, 207, 255, 0.15);
 }
 
 .adv-card i {
@@ -658,6 +686,8 @@ font-size: 2.5rem;
 color: var(--cyan-primary);
 margin-bottom: 24px;
 text-shadow: 0 0 15px var(--cyan-glow);
+position: relative;
+z-index: 2;
 }
 
 .adv-card h3 {
@@ -665,12 +695,16 @@ font-family: var(--font-orbitron);
 font-size: 1.15rem;
 margin-bottom: 14px;
 letter-spacing: 1px;
+position: relative;
+z-index: 2;
 }
 
 .adv-card p {
 color: var(--text-muted);
 font-size: 0.9rem;
 line-height: 1.6;
+position: relative;
+z-index: 2;
 }
 
 /* =========================================================
@@ -689,8 +723,8 @@ padding: 45px 30px;
 
 .service-card:hover {
 transform: translateY(-12px);
-border-color: var(--border-glow);
-box-shadow: 0 20px 40px rgba(0, 207, 255, 0.12);
+border-color: rgba(0, 207, 255, 0.35);
+box-shadow: 0 20px 40px rgba(0, 207, 255, 0.18);
 }
 
 .service-icon{
@@ -705,12 +739,16 @@ margin-bottom:32px;
 border:1px solid var(--border-mid);
 background: rgba(255,255,255,0.02);
 color: #fff;
+position: relative;
+z-index: 2;
 }
 
 .service-card h3{
 font-size:1.25rem;
 margin-bottom:16px;
 font-family: var(--font-orbitron);
+position: relative;
+z-index: 2;
 }
 
 .service-card p{
@@ -718,6 +756,8 @@ color: var(--text-muted);
 line-height:1.7;
 margin-bottom:28px;
 font-size: 0.95rem;
+position: relative;
+z-index: 2;
 }
 
 .service-card a{
@@ -726,6 +766,8 @@ color: var(--cyan-primary);
 font-weight:600;
 font-size: 0.9rem;
 letter-spacing: 1px;
+position: relative;
+z-index: 2;
 }
 
 /* =========================================================
@@ -849,24 +891,24 @@ text-shadow: 0 0 15px var(--cyan-glow);
 }
 
 /* =========================================================
-CONTADORES ANIMADOS (ESTADÍSTICAS)
+CONTADORES ANIMADOS (ESTADÍSTICAS RE-ESTRUCTURADAS)
 ========================================================= */
 
 .stats-section {
-background: rgba(11, 16, 32, 0.3);
+background: rgba(11, 16, 32, 0.2);
 border-top: 1px solid var(--border-low);
 border-bottom: 1px solid var(--border-low);
-padding: 80px 60px;
+padding: 70px 60px;
 }
 
 .stats-container {
 display: flex;
-justify-content: space-around;
+justify-content: center;
+gap: 160px;
 align-items: center;
 max-width: 1200px;
 margin: auto;
 flex-wrap: wrap;
-gap: 50px;
 }
 
 .stat-item {
@@ -875,13 +917,14 @@ text-align: center;
 
 .stat-number {
 font-family: var(--font-orbitron);
-font-size: 3.8rem;
+font-size: 4.2rem;
 font-weight: 800;
 color: #fff;
 background: linear-gradient(135deg, #fff, var(--cyan-primary));
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 margin-bottom: 10px;
+text-shadow: 0 0 30px rgba(0, 207, 255, 0.2);
 }
 
 .stat-label {
@@ -889,6 +932,7 @@ color: var(--text-muted);
 font-size: 1rem;
 text-transform: uppercase;
 letter-spacing: 2px;
+font-weight: 500;
 }
 
 /* =========================================================
@@ -922,7 +966,7 @@ border:1px solid var(--border-mid);
 
 .contact-box:hover{
 transform:translateY(-8px);
-border-color: var(--border-glow);
+border-color: rgba(0, 207, 255, 0.3);
 box-shadow: 0 12px 30px rgba(0, 207, 255, 0.15);
 }
 
@@ -1085,6 +1129,7 @@ RESPONSIVE DESIGN (MEDIA QUERIES COMPLETO)
 .contact-wrapper{ grid-template-columns:1fr; }
 .form-full{ grid-column:span 1; }
 .form-grid{ grid-template-columns:1fr; gap:0; }
+.stats-container { gap: 80px; }
 }
 
 @media(max-width:760px){
@@ -1097,12 +1142,16 @@ nav{ display:none; }
 section{ padding:80px 24px; }
 .loader-title{ font-size:2.5rem; }
 .contact-form{ padding:24px; }
+.stats-container { flex-direction: column; gap: 40px; }
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
 
 <div id="scroll-progress"></div>
 
@@ -1200,8 +1249,8 @@ section{ padding:80px 24px; }
         </div>
         <div class="adv-card premium-card reveal">
             <i class="fa-solid fa-hourglass-start"></i>
-            <h3>Años de Experiencia</h3>
-            <p>Trayectoria técnica sólida resolviendo complejidades en hardware y software celular.</p>
+            <h3>Control Riguroso</h3>
+            <p>Sometemos a cada placa y componente a testeos de estrés antes de devolver el equipo.</p>
         </div>
     </div>
 </section>
@@ -1215,10 +1264,6 @@ section{ padding:80px 24px; }
         <div class="stat-item">
             <div class="stat-number" data-target="1000">0</div>
             <div class="stat-label">Clientes Satisfechos</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" data-target="5">0</div>
-            <div class="stat-label">Años de Experiencia</div>
         </div>
     </div>
 </section>
@@ -1404,6 +1449,20 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
+EFECTO DE MOUSE DETECTOR EN TARJETAS PREMIUM (GLOW EFFECT)
+========================================================= */
+const cards = document.querySelectorAll(".premium-card");
+cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    });
+});
+
+/* =========================================================
 BARRA DE PROGRESO DE SCROLL DETECTOR
 ========================================================= */
 window.addEventListener("scroll", () => {
@@ -1564,10 +1623,10 @@ if(statNumbers.length > 0 && statsSection) {
             const updateCount = () => {
                 current += increment;
                 if(current < target) {
-                    num.textContent = Math.ceil(current) + (target === 5 ? "" : "+");
+                    num.textContent = Math.ceil(current) + "+";
                     requestAnimationFrame(updateCount);
                 } else {
-                    num.textContent = target + (target === 5 ? "" : "+");
+                    num.textContent = target + "+";
                 }
             };
             updateCount();
