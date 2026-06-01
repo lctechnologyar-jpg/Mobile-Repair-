@@ -1317,269 +1317,83 @@ section{ padding:70px 20px; }
         <div class="tech-detail-card reveal">
             <i class="fa-solid fa-mobile-screen"></i>
             <h3>Pantallas y Módulos</h3>
-            <p>Calibración de color original, repuestos con brillo óptimo y máxima respuesta táctil fluida.</p>
+            <p>Calibración e instalación de displays de alta fidelidad táctil y cromática con sellado perimetral contra polvo.</p>
         </div>
         <div class="tech-detail-card reveal">
             <i class="fa-solid fa-battery-three-quarters"></i>
-            <h3>Baterías y Hardware</h3>
-            <p>Instalación de celdas de carga seguras que protegen los ciclos de vida de tu smartphone.</p>
+            <h3>Sistemas de Carga y Baterías</h3>
+            <p>Reemplazo de celdas de energía y reparación de pins de carga tipo C / Lightning bajo normas de seguridad de fábrica.</p>
         </div>
         <div class="tech-detail-card reveal">
-            <i class="fa-solid fa-house-laptop"></i>
-            <h3>Sistemas y Streaming</h3>
-            <p>Configuración fluida de cuentas de entretenimiento para pantallas y dispositivos del hogar.</p>
+            <i class="fa-solid fa-microchip"></i>
+            <h3>Microelectrónica Integrada</h3>
+            <p>Detección de cortos en líneas principales de placas madre, reballing de circuitos IC y microsoldadura de precisión.</p>
         </div>
     </div>
 </section>
 
 <section id="contacto">
     <div class="section-title reveal">
-        <h2>Canales de Contacto</h2>
-        <p>Escribinos directamente o completá el formulario técnico automatizado.</p>
+        <h2>Establecer Conexión</h2>
+        <p>Escribinos de forma directa o envianos tu consulta a través de los canales del laboratorio.</p>
     </div>
     <div class="contact-wrapper">
-        <div class="contact-left">
-            <a href="https://wa.me/5492634722710" target="_blank" rel="noopener" class="contact-box premium-card reveal">
+        <div class="contact-left reveal">
+            <a href="https://wa.me/5492634722710" target="_blank" rel="noopener" class="contact-box premium-card">
                 <div class="contact-icon whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
                 <div class="contact-info">
-                    <h3>WHATSAPP</h3>
-                    <p>+54 9 2634 722710</p>
+                    <h3>WhatsApp Directo</h3>
+                    <p>+54 9 263 472-2710</p>
                 </div>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61587322059733" target="_blank" rel="noopener" class="contact-box premium-card reveal">
+            <a href="#" class="contact-box premium-card">
                 <div class="contact-icon facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
                 <div class="contact-info">
-                    <h3>FACEBOOK</h3>
+                    <h3>Facebook Network</h3>
                     <p>LC ONE PLAYER</p>
                 </div>
             </a>
-            <a href="mailto:lc.technology.ar@gmail.com" class="contact-box premium-card reveal">
+            <a href="mailto:info@lconeplayer.com" class="contact-box premium-card">
                 <div class="contact-icon email-icon"><i class="fa-solid fa-envelope"></i></div>
                 <div class="contact-info">
-                    <h3>EMAIL</h3>
-                    <p>lc.technology.ar@gmail.com</p>
+                    <h3>Canal de Email</h3>
+                    <p>info@lconeplayer.com</p>
                 </div>
             </a>
         </div>
-        <div class="reveal">
-            <form id="contactForm" class="contact-form premium-card">
-                <input type="hidden" name="access_key" value="9fc0c2ae-3ca5-4c7e-9fe4-389ce9bc0c69">
+        
+        <div class="contact-form premium-card reveal">
+            <form action="#" method="POST" id="main-contact-form">
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label for="form-name" class="sr-only">Tu nombre</label>
-                        <input type="text" id="form-name" name="name" placeholder="Tu nombre" required>
+                    <div>
+                        <label for="form-name" class="sr-only">Nombre</label>
+                        <input type="text" id="form-name" name="name" placeholder="Tu Nombre" required>
                     </div>
-                    <div class="form-group">
-                        <label for="form-email" class="sr-only">Tu correo electrónico</label>
-                        <input type="email" id="form-email" name="email" placeholder="Tu correo electrónico" required>
+                    <div>
+                        <label for="form-email" class="sr-only">Email</label>
+                        <input type="email" id="form-email" name="email" placeholder="Tu Email" required>
                     </div>
-                    <div class="form-group form-full">
-                        <label for="form-msg" class="sr-only">Tu mensaje técnico</label>
-                        <textarea id="form-msg" name="message" placeholder="¿Qué falla presenta tu equipo o qué accesorio buscás?" required></textarea>
+                    <div class="form-full">
+                        <label for="form-subject" class="sr-only">Asunto</label>
+                        <input type="text" id="form-subject" name="subject" placeholder="Asunto de la Consulta" required>
+                    </div>
+                    <div class="form-full">
+                        <label for="form-message" class="sr-only">Mensaje</label>
+                        <textarea id="form-message" name="message" placeholder="Detallá los datos de tu equipo o consulta acá..." required></textarea>
                     </div>
                 </div>
-                <button type="submit" id="submitBtn">Enviar Mensaje</button>
-                <div id="formFeedback" class="form-feedback-message"></div>
+                <button type="submit">Enviar al Servidor</button>
+                <div class="form-feedback-message form-feedback-success" id="form-success">Conexión establecida. Tu mensaje ha sido enviado con éxito.</div>
+                <div class="form-feedback-message form-feedback-error" id="form-error">Error en la transmisión. Por favor, reintente la operación.</div>
             </form>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>© LC ONE PLAYER</p>
-    <p style="margin:12px 0; font-size:0.9rem; color:var(--text-muted);">Servicio Técnico Profesional · Venta de Smartphones · Insumos de Carga y Audio</p>
-    <p style="font-size:0.85rem; color:var(--cyan-primary);">Mendoza, Argentina</p>
+    <p>&copy; 2026 LC ONE PLAYER. Todos los derechos reservados.</p>
+    <p>Servicio Técnico de Alta Gama // Rivadavia, Mendoza</p>
 </footer>
 
-<script>
-
-/* ENGINE DE CARGA */
-window.addEventListener("DOMContentLoaded", () => {
-    const percentageEl = document.getElementById("load-percentage");
-    const progressFill = document.getElementById("progress-fill");
-    const statusEl = document.querySelector(".loader-status");
-    const loader = document.getElementById("loader");
-    
-    const statusMessages = [
-        "CONECTANDO AL LABORATORIO...",
-        "VERIFICANDO MÓDULOS DE PANTALLA...",
-        "CALIBRANDO CICLOS DE BATERÍA...",
-        "SISTEMA OPERATIVO LISTO..."
-    ];
-
-    let currentProgress = 0;
-    const updateLoader = () => {
-        currentProgress += Math.floor(Math.random() * 4) + 1; 
-        if (currentProgress > 100) currentProgress = 100;
-
-        if(percentageEl) percentageEl.textContent = currentProgress + "%";
-        if(progressFill) progressFill.style.width = currentProgress + "%";
-
-        if (statusEl) {
-            if (currentProgress < 30) statusEl.textContent = statusMessages[0];
-            else if (currentProgress < 60) statusEl.textContent = statusMessages[1];
-            else if (currentProgress < 90) statusEl.textContent = statusMessages[2];
-            else statusEl.textContent = statusMessages[3];
-        }
-
-        if (currentProgress < 100) {
-            requestAnimationFrame(updateLoader);
-        } else {
-            setTimeout(() => { if(loader) loader.classList.add("hide"); }, 400);
-        }
-    };
-    requestAnimationFrame(updateLoader);
-});
-
-/* GLOW EFFECT EN TARJETAS */
-const cards = document.querySelectorAll(".premium-card");
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-        card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-    });
-});
-
-/* SCROLL PROGRESS */
-window.addEventListener("scroll", () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const bar = document.getElementById("scroll-progress");
-    if(bar) bar.style.width = (winScroll / height) * 100 + "%";
-});
-
-/* MOUSE CURSOR LOGIC */
-const dot = document.getElementById("cursorDot");
-const outline = document.getElementById("cursorOutline");
-if(window.matchMedia("(pointer: fine)").matches && dot && outline) {
-    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
-    window.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX; mouseY = e.clientY;
-        dot.style.left = mouseX + "px"; dot.style.top = mouseY + "px";
-    });
-    const animateOutline = () => {
-        outlineX += (mouseX - outlineX) * 0.15; outlineY += (mouseY - outlineY) * 0.15;
-        outline.style.left = outlineX + "px"; outline.style.top = outlineY + "px";
-        requestAnimationFrame(animateOutline);
-    };
-    requestAnimationFrame(animateOutline);
-}
-
-/* CANVAS PARTÍCULAS */
-const canvas = document.getElementById("space-canvas");
-if(canvas) {
-    const ctx = canvas.getContext("2d");
-    let particlesArray = [];
-    let mouseActive = { x: null, y: null, radius: 110 };
-
-    const resizeCanvas = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    window.addEventListener("mousemove", (e) => { mouseActive.x = e.clientX; mouseActive.y = e.clientY; });
-    window.addEventListener("mouseout", () => { mouseActive.x = null; mouseActive.y = null; });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = (Math.random() * 0.4) - 0.2;
-            this.speedY = (Math.random() * 0.4) - 0.2;
-            this.density = (Math.random() * 20) + 20;
-        }
-        draw() {
-            ctx.fillStyle = "rgba(0, 207, 255, 0.3)";
-            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.closePath(); ctx.fill();
-        }
-        update() {
-            this.x += this.speedX; this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0; else if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0; else if (this.y < 0) this.y = canvas.height;
-
-            if(mouseActive.x != null && mouseActive.y != null) {
-                let dx = mouseActive.x - this.x; let dy = mouseActive.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < mouseActive.radius) {
-                    let force = (mouseActive.radius - distance) / mouseActive.radius;
-                    this.x -= (dx / distance) * force * this.density * 0.4;
-                    this.y -= (dy / distance) * force * this.density * 0.4;
-                }
-            }
-        }
-    }
-    const initSpace = () => {
-        particlesArray = [];
-        let numberOfParticles = (canvas.width * canvas.height) / 9500;
-        for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle());
-    };
-    initSpace();
-    const animateSpace = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for(let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); }
-        requestAnimationFrame(animateSpace);
-    };
-    animateSpace();
-}
-
-/* REVEAL OBSERVER */
-const elementsToReveal = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) { entry.target.classList.add("active"); observer.unobserve(entry.target); }
-    });
-}, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
-elementsToReveal.forEach(el => revealObserver.observe(el));
-
-/* CONTADOR ANIMADO */
-const num = document.querySelector(".stat-number");
-const statsSection = document.querySelector(".stats-section");
-if(num && statsSection) {
-    let countTriggered = false;
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting && !countTriggered) {
-                countTriggered = true;
-                const target = parseInt(num.getAttribute("data-target"), 10);
-                let current = 0;
-                const updateCount = () => {
-                    current += target / 60;
-                    if(current < target) { num.textContent = Math.ceil(current) + "+"; requestAnimationFrame(updateCount); }
-                    else { num.textContent = target + "+"; }
-                };
-                updateCount();
-            }
-        });
-    }, { threshold: 0.3 });
-    statsObserver.observe(statsSection);
-}
-
-/* FORM API */
-const contactForm = document.getElementById("contactForm");
-const feedbackEl = document.getElementById("formFeedback");
-const submitButton = document.getElementById("submitBtn");
-if(contactForm && feedbackEl && submitButton) {
-    contactForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        submitButton.disabled = true; submitButton.textContent = "Transmitiendo...";
-        try {
-            const resp = await fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(contactForm) });
-            const resData = await resp.json();
-            if(resData.success) {
-                contactForm.reset();
-                feedbackEl.textContent = "¡Consulta enviada! Nos comunicaremos a la brevedad.";
-                feedbackEl.style.display = "block"; feedbackEl.className = "form-feedback-message form-feedback-success";
-                submitButton.style.display = "none";
-            } else { throw new Error(); }
-        } catch(err) {
-            feedbackEl.textContent = "Fallo en la comunicación. Intentá de nuevo.";
-            feedbackEl.style.display = "block"; feedbackEl.className = "form-feedback-message form-feedback-error";
-            submitButton.disabled = false; submitButton.textContent = "Enviar Mensaje";
-        }
-    });
-}
-
-</script>
 </body>
 </html>
